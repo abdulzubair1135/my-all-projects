@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://railwayst01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/region_base.gd" id="1_reg"]
+[ext_resource type="Texture2D" path="res://assets/props/farm_props.png" id="2_props"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="3_interact"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="4_exit"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="5_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="6_hud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_train"]
+radius = 32.0
+
+[node name="RailwayStation" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_reg")
+region_id = "railway_station"
+is_safe_zone = false
+region_title = "Railway Station — Evergreen Valley Locomotive Depot"
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(80, 270)
+
+[node name="YSortProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="LocomotiveWorkstation" type="Area2D" parent="YSortProps"]
+position = Vector2(480, 240)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "locomotive_repair_bench"
+display_name = "Heavy Locomotive Repair Bay"
+prompt_text = "Repair Valley Train (Requires Timber & Mechanical Salvage)"
+action_type = "dialog"
+dialog_lines = ["Danish: 'The boiler is intact, but the tracks and coupling gears need heavy repair.'", "Danish: 'Once restored, this train can carry the valley survivors across the northern mountains. Ending unlocked: Beyond the Valley.'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/LocomotiveWorkstation"]
+shape = SubResource("CircleShape2D_train")
+
+[node name="WestExit" parent="." instance=ExtResource("4_exit")]
+position = Vector2(30, 270)
+target_region = "evergreen_village"
+target_spawn = "default"
+region_title = "Evergreen Village"
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(80, 270)
+
+[node name="HUD" parent="." instance=ExtResource("6_hud")]

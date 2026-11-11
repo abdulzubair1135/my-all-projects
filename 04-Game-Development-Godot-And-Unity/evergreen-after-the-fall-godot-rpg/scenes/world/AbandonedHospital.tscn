@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://abdhospital01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/region_base.gd" id="1_reg"]
+[ext_resource type="Texture2D" path="res://assets/props/farm_props.png" id="2_props"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="3_interact"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/InfectedBase.tscn" id="4_inf"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="5_exit"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="6_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="7_hud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_med"]
+radius = 26.0
+
+[node name="AbandonedHospital" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_reg")
+region_id = "abandoned_hospital"
+is_safe_zone = false
+region_title = "Abandoned Hospital — Medical Annex & Wards"
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(80, 270)
+
+[node name="SpawnPoint_north" type="Marker2D" parent="."]
+position = Vector2(480, 80)
+
+[node name="YSortProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="MedicalCabinet" type="Area2D" parent="YSortProps"]
+position = Vector2(480, 220)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "hospital_med_cabinet"
+display_name = "Quarantine Medical Cabinet"
+prompt_text = "Scavenge Medical Supplies"
+action_type = "dialog"
+dialog_lines = ["Recovered sterile gauze and antiseptic formulas!", "Doctor Elena's research notes mention an underground laboratory located beneath the valley."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/MedicalCabinet"]
+shape = SubResource("CircleShape2D_med")
+
+[node name="Lurker1" parent="YSortProps" instance=ExtResource("4_inf")]
+position = Vector2(360, 280)
+archetype = "sprinter"
+
+[node name="Lurker2" parent="YSortProps" instance=ExtResource("4_inf")]
+position = Vector2(600, 280)
+
+[node name="WestExit" parent="." instance=ExtResource("5_exit")]
+position = Vector2(30, 270)
+target_region = "old_city"
+target_spawn = "east"
+region_title = "Old City"
+
+[node name="NorthExit" parent="." instance=ExtResource("5_exit")]
+position = Vector2(480, 30)
+target_region = "underground_lab"
+target_spawn = "default"
+region_title = "Underground Laboratory"
+
+[node name="Player" parent="." instance=ExtResource("6_player")]
+position = Vector2(80, 270)
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]

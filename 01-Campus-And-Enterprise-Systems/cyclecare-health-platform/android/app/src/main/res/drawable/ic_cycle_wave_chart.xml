@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="100dp"
+    android:viewportWidth="320"
+    android:viewportHeight="100">
+
+    <!-- Soft Base Wave Fill: Pink to Sky Blue Translucent -->
+    <path
+        android:fillColor="#15C2185B"
+        android:pathData="M 0,60 C 40,75 70,80 100,55 C 130,30 160,15 190,20 C 220,25 250,55 280,65 C 300,70 315,65 320,60 L 320,100 L 0,100 Z" />
+
+    <path
+        android:fillColor="#150284C7"
+        android:pathData="M 0,70 C 40,85 80,70 120,40 C 150,15 180,10 200,25 C 230,45 270,75 320,55 L 320,100 L 0,100 Z" />
+
+    <!-- Secondary Wave Stroke: Sky Blue -->
+    <path
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M 0,70 C 40,85 80,70 120,40 C 150,15 180,10 200,25 C 230,45 270,75 320,55" />
+
+    <!-- Primary Active Cycle Wave Stroke: Berry Pink -->
+    <path
+        android:strokeColor="#C2185B"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M 0,60 C 40,75 70,80 100,55 C 130,30 160,15 190,20 C 220,25 250,55 280,65 C 300,70 315,65 320,60" />
+
+    <!-- Wave Node: Menstrual Valley Marker (Day 3) -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 50,75 A 5,5 0 1,1 49.9,75 Z" />
+
+    <!-- Wave Node: Ovulation Peak Marker (Day 14) -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 175,15 A 6,6 0 1,1 174.9,15 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 175,15 A 3,3 0 1,1 174.9,15 Z" />
+
+    <!-- Wave Node: Active Current Day Pulse Marker (Day 24 - Luteal) -->
+    <path
+        android:fillColor="#FF4081"
+        android:pathData="M 270,62 A 7,7 0 1,1 269.9,62 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 270,62 A 3.5,3.5 0 1,1 269.9,62 Z" />
+
+</vector>

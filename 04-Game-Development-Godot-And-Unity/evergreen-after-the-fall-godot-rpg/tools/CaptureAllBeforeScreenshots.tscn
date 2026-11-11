@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://capallbefore01scene"]
+
+[ext_resource type="Script" path="res://tools/capture_all_before_screenshots.gd" id="1_cap"]
+
+[node name="CaptureAllBeforeScreenshots" type="Node"]
+script = ExtResource("1_cap")

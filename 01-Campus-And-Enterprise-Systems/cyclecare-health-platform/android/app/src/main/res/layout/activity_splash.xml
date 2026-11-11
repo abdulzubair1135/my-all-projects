@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_ambient"
+    android:padding="28dp">
+
+    <!-- Centerpiece: Elevated Soft Glass Card -->
+    <LinearLayout
+        android:id="@+id/ll_splash_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Elevated Floating Logo Container -->
+        <FrameLayout
+            android:id="@+id/fl_logo_container"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:background="@drawable/bg_glass_card"
+            android:elevation="4dp">
+
+            <ImageView
+                android:id="@+id/iv_splash_logo"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_cyclecare_logo"
+                android:contentDescription="CycleCare Logo" />
+        </FrameLayout>
+
+        <!-- Brand Name -->
+        <TextView
+            android:id="@+id/tv_splash_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="CYCLECARE"
+            android:textColor="@color/textPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tv_splash_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Track • Understand • Prepare • Care"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!-- Subtitle / Concept -->
+        <TextView
+            android:id="@+id/tv_splash_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Your private space for understanding\nand preparing for your cycle"
+            android:textColor="@color/textSecondary"
+            android:textSize="13sp"
+            android:lineSpacingExtra="3dp" />
+
+        <!-- Sleek Modern Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/pb_splash"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="32dp"
+            android:indeterminateTint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_splash_loading_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Preparing your wellness space..."
+            android:textColor="@color/textHint"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Bottom Security / Privacy Badge -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_badge_period"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="7dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Private • On-Device Encrypted • Offline Safe"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

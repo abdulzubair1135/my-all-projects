@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Palette -->
+    <color name="colorBackground">#0F172A</color>
+    <color name="colorSurface">#1E293B</color>
+    <color name="colorCardBackground">#1E293B</color>
+    <color name="neuBackground">#0F172A</color>
+    <color name="neuSurface">#1E293B</color>
+
+    <color name="neuLightHighlight">#334155</color>
+    <color name="neuDarkShadow">#020617</color>
+    <color name="neuDarkShadowSoft">#0F172A</color>
+
+    <color name="colorGlassBorder">#334155</color>
+    <color name="colorBorder">#334155</color>
+    <color name="colorInputBorder">#475569</color>
+    <color name="colorInputBackground">#1E293B</color>
+
+    <color name="textPrimary">#F8FAFC</color>
+    <color name="textSecondary">#94A3B8</color>
+    <color name="textHint">#64748B</color>
+
+    <color name="calendarDateText">#F8FAFC</color>
+    <color name="calendarWeekText">#CBD5E1</color>
+</resources>

@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://grnforest01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/greenwood_forest.gd" id="1_for"]
+[ext_resource type="Texture2D" path="res://assets/props/farm_props.png" id="2_props"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="3_interact"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/InfectedBase.tscn" id="4_inf"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="5_exit"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="6_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="7_hud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hut"]
+size = Vector2(110, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ranger"]
+radius = 28.0
+
+[node name="GreenwoodForest" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_for")
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(80, 270)
+
+[node name="SpawnPoint_north" type="Marker2D" parent="."]
+position = Vector2(480, 80)
+
+[node name="YSortProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="RangerHut" type="StaticBody2D" parent="YSortProps"]
+position = Vector2(380, 180)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSortProps/RangerHut"]
+texture = ExtResource("2_props")
+offset = Vector2(0, -64)
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/RangerHut"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_hut")
+
+[node name="RangerInteractable" type="Area2D" parent="YSortProps/RangerHut"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "oliver_hut"
+display_name = "Oliver's Ranger Station"
+prompt_text = "Speak to Ranger Oliver"
+action_type = "dialog"
+dialog_lines = ["Oliver: 'Keep your voice down. The infected in Greenwood have sensitive hearing—running will draw them in seconds.'", "Oliver: 'If you're hunting or gathering timber, stick to the clearings. Head north to reach Crystal Lake.'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/RangerHut/RangerInteractable"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_ranger")
+
+[node name="Drifter1" parent="YSortProps" instance=ExtResource("4_inf")]
+position = Vector2(580, 280)
+
+[node name="Drifter2" parent="YSortProps" instance=ExtResource("4_inf")]
+position = Vector2(740, 360)
+
+[node name="WestExit" parent="." instance=ExtResource("5_exit")]
+position = Vector2(20, 270)
+target_region = "evergreen_farm"
+target_spawn = "east_trail"
+region_title = "Evergreen Farm"
+
+[node name="NorthExit" parent="." instance=ExtResource("5_exit")]
+position = Vector2(480, 20)
+target_region = "crystal_lake"
+target_spawn = "default"
+region_title = "Crystal Lake"
+
+[node name="Player" parent="." instance=ExtResource("6_player")]
+position = Vector2(80, 270)
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Active Circular Button with Berry Gradient (as in reference mockup snowflake button) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="3dp" android:top="3dp">
+        <shape android:shape="oval">
+            <solid android:color="#7B1E4B" />
+        </shape>
+    </item>
+    <item android:right="3dp" android:bottom="3dp">
+        <shape android:shape="oval">
+            <solid android:color="#FF80AB" />
+        </shape>
+    </item>
+    <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
+        <shape android:shape="oval">
+            <gradient
+                android:angle="270"
+                android:startColor="#E91E63"
+                android:endColor="#C2185B" />
+        </shape>
+    </item>
+</layer-list>

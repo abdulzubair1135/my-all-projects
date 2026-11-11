@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Soft Silver Metallic Outer Ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E0E0E0"
+        android:strokeWidth="3.5"
+        android:pathData="M 54,14 A 40,40 0 1,1 53.9,14 Z" />
+
+    <!-- Sky Blue Orbital Sweep Arc -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#00BCD4"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:pathData="M 54,14 A 40,40 0 0,1 94,54" />
+
+    <!-- Silver Node Dot on Orbit -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M 94,54 A 4.5,4.5 0 1,1 93.9,54 Z" />
+
+    <!-- Centered Deep Berry Cycle Care Droplet Motif -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 54,30 C 54,30 35,50 35,62 C 35,72 43,80 54,80 C 65,80 73,72 73,62 C 73,50 54,30 54,30 Z" />
+
+    <!-- Inner Sky Blue Light Highlight Accent -->
+    <path
+        android:fillColor="#00BCD4"
+        android:pathData="M 54,44 C 51,50 48,56 48,62 C 48,65 51,68 54,68 C 57,68 60,65 60,62 C 60,56 57,50 54,44 Z" />
+
+</vector>

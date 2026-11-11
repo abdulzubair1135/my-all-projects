@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://undergroundlab01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/region_base.gd" id="1_reg"]
+[ext_resource type="Texture2D" path="res://assets/props/farm_props.png" id="2_props"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="3_interact"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/BossWarden.tscn" id="4_boss"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="5_exit"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="6_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="7_hud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_terminal"]
+radius = 28.0
+
+[node name="UndergroundLab" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_reg")
+region_id = "underground_lab"
+is_safe_zone = false
+region_title = "Underground Laboratory — E.V.E.R. Research Facility"
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+color = Color(0.4, 0.45, 0.6, 1)
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(480, 480)
+
+[node name="YSortProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ResearchTerminal" type="Area2D" parent="YSortProps"]
+position = Vector2(480, 160)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "lab_cure_terminal"
+display_name = "E.V.E.R. Central Synthesis Terminal"
+prompt_text = "Access Cure Synthesis Archive"
+action_type = "dialog"
+dialog_lines = ["Terminal: 'E.V.E.R. Project Stage 4 complete.'", "Terminal: 'Insert Research Keycard to finalize valley cure formulation.'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/ResearchTerminal"]
+shape = SubResource("CircleShape2D_terminal")
+
+[node name="TheWarden" parent="YSortProps" instance=ExtResource("4_boss")]
+position = Vector2(480, 300)
+
+[node name="SouthExit" parent="." instance=ExtResource("5_exit")]
+position = Vector2(480, 520)
+target_region = "abandoned_hospital"
+target_spawn = "north"
+region_title = "Abandoned Hospital"
+
+[node name="NorthExit" parent="." instance=ExtResource("5_exit")]
+position = Vector2(480, 30)
+target_region = "secret_bunker"
+target_spawn = "default"
+region_title = "Secret Bunker"
+
+[node name="Player" parent="." instance=ExtResource("6_player")]
+position = Vector2(480, 480)
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose what information your partner can see. You are always in total control. Changes apply immediately."
+            android:textColor="@color/textSecondary"
+            android:textSize="12sp"
+            android:lineSpacingExtra="2dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="#E2E8F0" />
+
+        <!-- 1. Cycle Window -->
+        <CheckBox
+            android:id="@+id/cb_perm_cycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estimated Preparation Window"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Shares estimated period dates for care preparation. Detailed medical logs remain strictly private."
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp" />
+
+        <!-- 2. Care Kit -->
+        <CheckBox
+            android:id="@+id/cb_perm_care_kit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Shared Care Kit"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Allows partner to view and re-stock your chosen comfort items."
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp" />
+
+        <!-- 3. Wishlist -->
+        <CheckBox
+            android:id="@+id/cb_perm_wishlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Shared Wishlist"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Allows partner to view wellness products you added to your wishlist."
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp" />
+
+        <!-- 4. Symptoms -->
+        <CheckBox
+            android:id="@+id/cb_perm_symptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="High-Level Symptom Flags"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Allows partner to see general comfort hints (e.g. cramps) to offer remedies. Notes stay encrypted."
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp" />
+
+        <!-- 5. Shopping / Care Package -->
+        <CheckBox
+            android:id="@+id/cb_perm_shopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Allow Care Package Delivery"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Allows partner to send surprise care boxes and essentials directly to you."
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp" />
+
+        <!-- 6. Delivery Address -->
+        <CheckBox
+            android:id="@+id/cb_perm_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Shared Delivery Address"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Allows automated shipping of care packages to your saved delivery destination."
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CycleCare</string>
+    <string name="app_tagline">ट्रैक • समझें • तैयारी करें • देखभाल</string>
+    <string name="central_idea">साइकिल केयर सिर्फ आपके पीरियड को ट्रैक नहीं करता, बल्कि आपको तैयार करने में मदद करता है।</string>
+
+    <!-- Navigation Labels -->
+    <string name="nav_home">होम</string>
+    <string name="nav_calendar">कैलेंडर</string>
+    <string name="nav_track">साइकिल लॉग</string>
+    <string name="nav_store">स्टोर</string>
+    <string name="nav_profile">प्रोफाइल</string>
+
+    <!-- Home Screen -->
+    <string name="greeting_hello">नमस्ते,</string>
+    <string name="estimated_next_period">अनुमानित अगला पीरियड</string>
+    <string name="cycle_day_format">साइकिल दिन %d</string>
+    <string name="how_feeling_today">आज आप कैसा महसूस कर रहे हैं?</string>
+    <string name="prepare_for_period">पीरियड की तैयारी करें</string>
+    <string name="btn_prepare_now">अभी तैयारी करें</string>
+    <string name="btn_view_care_kit">केयर किट देखें</string>
+    <string name="btn_quick_log">पीरियड दर्ज करें</string>
+
+    <!-- Period Tracking -->
+    <string name="title_log_period">पीरियड दर्ज करें</string>
+    <string name="start_date">शुरुआती तारीख</string>
+    <string name="end_date">अंतिम तारीख (वैकल्पिक)</string>
+    <string name="flow_intensity">फ्लो की तीव्रता</string>
+    <string name="notes_optional">नोट्स (वैकल्पिक)</string>
+    <string name="btn_save_log">लॉग सेव करें</string>
+    <string name="err_invalid_dates">अंतिम तारीख शुरुआती तारीख से पहले नहीं हो सकती।</string>
+
+    <!-- Prediction & Disclaimer -->
+    <string name="prediction_disclaimer">यह अनुमान पिछले साइकिल इतिहास पर आधारित है, इसे निश्चित चिकित्सा सलाह न मानें।</string>
+
+    <!-- Symptoms & Moods -->
+    <string name="title_symptoms">लक्षण दर्ज करें</string>
+    <string name="title_mood">मूड दर्ज करें</string>
+
+    <!-- Prepare Mode -->
+    <string name="title_prepare_mode">तैयारी मोड</string>
+    <string name="check_essentials">जरूरी सामान चेक करें</string>
+
+    <!-- Emergency Mode -->
+    <string name="title_emergency_mode">आपातकालीन मोड</string>
+    <string name="emergency_disclaimer">अचानक पीरियड आने पर त्वरित केयर किट ऑर्डर के लिए।</string>
+
+    <!-- Student & Travel Modes -->
+    <string name="title_student_mode">स्टूडेंट प्लानर</string>
+    <string name="title_travel_mode">यात्रा प्लानर</string>
+
+    <!-- Care Kit & Store -->
+    <string name="title_care_kit">मेरी पीरियड केयर किट</string>
+    <string name="title_store">साइकिल केयर स्टोर</string>
+    <string name="title_cart">शॉपिंग कार्ट</string>
+    <string name="title_checkout">चेकआउट</string>
+    <string name="btn_add_to_cart">कार्ट में जोड़ें</string>
+    <string name="btn_buy_again">फिर से खरीदें</string>
+
+    <!-- AI Wellness Assistant -->
+    <string name="title_ask_ai">साइकिल केयर से पूछें</string>
+    <string name="ai_disclaimer">शैक्षणिक स्वास्थ्य सहायक। चिकित्सा निदान या उपचार प्रदान नहीं करता है।</string>
+    <string name="chk_share_cycle_data">इस उत्तर के लिए मेरा साइकिल डेटा उपयोग करें</string>
+
+    <!-- Privacy & Security -->
+    <string name="title_privacy_center">गोपनीयता केंद्र</string>
+    <string name="title_app_lock">ऐप लॉक सुरक्षा</string>
+    <string name="discreet_notifications">गोपनीय सूचनाएं</string>
+    <string name="btn_export_data">डेटा एक्सपोर्ट करें (JSON)</string>
+    <string name="btn_delete_account">अकाउंट डिलीट करें</string>
+
+    <!-- Common States -->
+    <string name="state_loading">लोड हो रहा है...</string>
+    <string name="state_empty">अभी तक कोई डेटा नहीं है।</string>
+    <string name="state_error">सर्वर से कनेक्ट नहीं हो सका। इंटरनेट जांचें।</string>
+    <string name="btn_retry">पुनः प्रयास करें</string>
+
+    <!-- Google Maps Key -->
+    <string name="google_maps_key">YOUR_GOOGLE_MAPS_API_KEY</string>
+</resources>

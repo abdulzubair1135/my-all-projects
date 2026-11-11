@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/ll_home_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+
+        <!-- Top Header with Logo & Greeting -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_cyclecare_logo"
+                android:contentDescription="CycleCare Logo" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_greeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome, User"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your smart period &amp; cycle wellness"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Circle Care Chat Quick Access Button -->
+            <ImageButton
+                android:id="@+id/btn_home_chat"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_neu_circle_btn"
+                android:padding="8dp"
+                android:src="@drawable/ic_send"
+                app:tint="@color/colorPrimary"
+                android:contentDescription="Circle Care Chat" />
+
+            <ImageView
+                android:id="@+id/btn_home_profile"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_nav_profile_3d"
+                android:contentDescription="Profile" />
+        </LinearLayout>
+
+        <!-- Quick Mode Pill Toggles (from reference mockup top row) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Active Berry Button (like snowflake in mockup) -->
+            <FrameLayout
+                android:id="@+id/btn_toggle_active"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_neu_circle_btn_active">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_track_add"
+                    app:tint="@color/textOnPrimary"
+                    android:contentDescription="Period Tracker" />
+            </FrameLayout>
+
+            <!-- Toggles 2, 3, 4 (soft neumorphic circles from mockup) -->
+            <FrameLayout
+                android:id="@+id/btn_toggle_symptoms"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_neu_circle_btn">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_calendar"
+                    app:tint="@color/colorSilverDark"
+                    android:contentDescription="Calendar" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/btn_toggle_ovulation"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_neu_circle_btn">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_store"
+                    app:tint="@color/colorSilverDark"
+                    android:contentDescription="Store" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/btn_toggle_insights"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_neu_circle_btn">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_profile"
+                    app:tint="@color/colorSilverDark"
+                    android:contentDescription="Settings" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- 🎛️ THE HOMELY / THERMOSTAT STYLE CYCLE DIAL GAUGE (HERO CENTERPIECE) -->
+        <FrameLayout
+            android:id="@+id/fl_cycle_dial_container"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="center_horizontal">
+
+            <!-- Radial Tick Marks (Days 1 to 28) -->
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_dial_ticks"
+                android:contentDescription="28-Day Cycle Ticks" />
+
+            <!-- Extruded Neumorphic Dial Rim -->
+            <FrameLayout
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_neu_dial_outer">
+
+                <!-- Vibrant Berry Gradient Core Center -->
+                <LinearLayout
+                    android:id="@+id/ll_dial_core"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_neu_dial_core"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <!-- Real Data Next Period Countdown -->
+                    <TextView
+                        android:id="@+id/tv_dial_days_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/textOnPrimary"
+                        android:textSize="48sp"
+                        android:textStyle="bold"
+                        android:includeFontPadding="false" />
+
+                    <TextView
+                        android:id="@+id/tv_dial_status_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="days left"
+                        android:textColor="#FCE4EC"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.04" />
+
+                    <TextView
+                        android:id="@+id/tv_dial_phase_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Luteal Phase"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+
+        <!-- Metric Tile 1: Basal Temperature & Mint Green Switch (from reference mockup) -->
+        <LinearLayout
+            android:id="@+id/card_metrics_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_neu_card_raised"
+            android:orientation="horizontal"
+            android:padding="18dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Basal Body Temperature"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_temp_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="36.8°C • Luteal Normal"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Fresh Mint Green Toggle Switch from Reference Mockup -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_health_tracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:thumbTint="@color/textOnPrimary"
+                app:trackTint="@color/colorMintGreen" />
+        </LinearLayout>
+
+        <!-- Metric Tile 2: Cycle Progress & Real Estimation Data -->
+        <LinearLayout
+            android:id="@+id/card_cycle_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_neu_card_raised"
+            android:orientation="horizontal"
+            android:padding="18dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cycle Day Status"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_cycle_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Day 24 of 28 (85%)"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_quick_log"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_m3_button"
+                android:paddingHorizontal="20dp"
+                android:text="Log Period"
+                android:textColor="@color/textOnPrimary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 📈 CYCLE ANALYSIS LINE GRAPH (from reference mockup right screen) -->
+        <LinearLayout
+            android:id="@+id/card_analysis_graph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_neu_card_raised"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cycle Trend Analysis"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_chart_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:text="Hormone &amp; body rhythm curve"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Timeframe Pill (like "weekly" in mockup) -->
+                <TextView
+                    android:id="@+id/tv_chart_timeframe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_today"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="5dp"
+                    android:text="weekly"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Undulating Curve Chart Image -->
+            <ImageView
+                android:id="@+id/iv_cycle_curve"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_cycle_analysis_curve"
+                android:scaleType="fitXY"
+                android:contentDescription="Weekly Curve" />
+
+            <!-- Day Labels: sun, mon, tue, wed, thu, fri, sat (dynamically highlighted) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tv_day_sun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="sun" android:textColor="@color/textHint" android:textSize="11sp" />
+                <TextView android:id="@+id/tv_day_mon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="mon" android:textColor="@color/textHint" android:textSize="11sp" />
+                <TextView android:id="@+id/tv_day_tue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="tue" android:textColor="@color/textHint" android:textSize="11sp" />
+                <TextView android:id="@+id/tv_day_wed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="wed" android:textColor="@color/textHint" android:textSize="11sp" />
+                <TextView android:id="@+id/tv_day_thu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="thu" android:textColor="@color/textHint" android:textSize="11sp" />
+                <TextView android:id="@+id/tv_day_fri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="fri" android:textColor="@color/textHint" android:textSize="11sp" />
+                <TextView android:id="@+id/tv_day_sat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="sat" android:textColor="@color/textHint" android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 🥧 CYCLE PHASE PIE / DONUT BREAKDOWN (USER REQUESTED) -->
+        <LinearLayout
+            android:id="@+id/card_pie_breakdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_neu_card_raised"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cycle Phase Breakdown"
+                android:textColor="@color/textPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_breakdown_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="28-day cycle distribution"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- 4-Phase Donut Graphic -->
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_cycle_pie_chart"
+                    android:contentDescription="Cycle Phase Donut Chart" />
+
+                <!-- Legend Breakdown List -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical">
+                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/bg_badge_period" />
+                        <TextView android:id="@+id/tv_breakdown_period" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Period: 5 days (18%)" android:textColor="@color/textPrimary" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center_vertical">
+                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/bg_badge_ovulation" />
+                        <TextView android:id="@+id/tv_breakdown_follicular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Follicular: 6 days (22%)" android:textColor="@color/textPrimary" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center_vertical">
+                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@color/colorMintGreen" />
+                        <TextView android:id="@+id/tv_breakdown_ovulation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Ovulation: 5 days (18%)" android:textColor="@color/colorMintGreenDark" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center_vertical">
+                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/bg_badge_today" />
+                        <TextView android:id="@+id/tv_breakdown_luteal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="Luteal: 12 days (42%)" android:textColor="@color/textSecondary" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Preparation & Care Kit Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_prepare_now"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_m3_button"
+                android:text="Prepare Kit"
+                android:textColor="@color/textOnPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_view_care_kit"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Restock Store"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="24dp"
+                app:strokeColor="@color/colorPrimary" />
+        </LinearLayout>
+
+        <!-- Shortcuts: Emergency & AI -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_emergency_mode"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:text="Emergency Care"
+                android:textColor="@color/colorError"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="23dp"
+                app:strokeColor="@color/colorError" />
+
+            <Button
+                android:id="@+id/btn_ask_ai"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Wellness Guide"
+                android:textColor="@color/colorSkyBlueDark"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="23dp"
+                app:strokeColor="@color/colorSkyBlueDark" />
+        </LinearLayout>
+
+        <!-- Circle Care Chat Shortcut -->
+        <Button
+            android:id="@+id/btn_home_circle_chat"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_m3_button"
+            android:text="💬 Chat with Husband / Circle (Request Care)"
+            android:textColor="@color/textOnPrimary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!-- Invisible compatibility views -->
+        <View android:id="@+id/btn_mood_happy" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+        <View android:id="@+id/btn_mood_good" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+        <View android:id="@+id/btn_mood_sad" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+        <View android:id="@+id/btn_mood_tired" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+        <TextView android:id="@+id/tv_estimated_days" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+
+        <!-- Disclaimer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:text="Prediction is an ESTIMATE based on cycle logs, not a medical diagnosis."
+            android:textColor="@color/textHint"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>

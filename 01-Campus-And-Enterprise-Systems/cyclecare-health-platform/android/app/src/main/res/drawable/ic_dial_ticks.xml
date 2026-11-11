@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="260dp"
+    android:height="260dp"
+    android:viewportWidth="260"
+    android:viewportHeight="260">
+
+    <!-- Radial Tick Dots representing the 28 Days of Menstrual Cycle -->
+    <!-- Top Arc (Day 1 - 7: Menstrual to Early Follicular) -->
+    <path android:fillColor="#94A3B8" android:pathData="M 130,16 A 2.5,2.5 0 1,1 129.9,16 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 155,19 A 2,2 0 1,1 154.9,19 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 180,29 A 2,2 0 1,1 179.9,29 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 203,45 A 2,2 0 1,1 202.9,45 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 221,68 A 2.5,2.5 0 1,1 220.9,68 Z" />
+
+    <!-- Right Arc (Day 8 - 14: Follicular to Ovulation Peak - Mint Green & Sky Blue) -->
+    <path android:fillColor="#0284C7" android:pathData="M 233,94 A 2,2 0 1,1 232.9,94 Z" />
+    <path android:fillColor="#0284C7" android:pathData="M 238,122 A 2,2 0 1,1 237.9,122 Z" />
+    <path android:fillColor="#10B981" android:pathData="M 236,150 A 3.5,3.5 0 1,1 235.9,150 Z" />
+    <path android:fillColor="#10B981" android:pathData="M 226,177 A 2,2 0 1,1 225.9,177 Z" />
+    <path android:fillColor="#10B981" android:pathData="M 209,201 A 2.5,2.5 0 1,1 208.9,201 Z" />
+
+    <!-- Bottom Arc (Day 15 - 21: Post-Ovulation) -->
+    <path android:fillColor="#94A3B8" android:pathData="M 186,220 A 2,2 0 1,1 185.9,220 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 160,233 A 2,2 0 1,1 159.9,233 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 130,238 A 2.5,2.5 0 1,1 129.9,238 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 100,233 A 2,2 0 1,1 99.9,233 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 74,220 A 2,2 0 1,1 73.9,220 Z" />
+
+    <!-- Left Arc (Day 22 - 28: Luteal Phase - Berry Pink Active) -->
+    <path android:fillColor="#C2185B" android:pathData="M 51,201 A 2.5,2.5 0 1,1 50.9,201 Z" />
+    <path android:fillColor="#C2185B" android:pathData="M 34,177 A 2,2 0 1,1 33.9,177 Z" />
+    <path android:fillColor="#C2185B" android:pathData="M 24,150 A 2,2 0 1,1 23.9,150 Z" />
+    <path android:fillColor="#C2185B" android:pathData="M 22,122 A 3.5,3.5 0 1,1 21.9,122 Z" />
+    <path android:fillColor="#C2185B" android:pathData="M 27,94 A 2,2 0 1,1 26.9,94 Z" />
+    <path android:fillColor="#C2185B" android:pathData="M 39,68 A 2.5,2.5 0 1,1 38.9,68 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 57,45 A 2,2 0 1,1 56.9,45 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 80,29 A 2,2 0 1,1 79.9,29 Z" />
+    <path android:fillColor="#94A3B8" android:pathData="M 105,19 A 2,2 0 1,1 104.9,19 Z" />
+
+</vector>

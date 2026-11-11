@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://evgvillage01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/evergreen_village.gd" id="1_vil"]
+[ext_resource type="Texture2D" path="res://assets/props/farm_props.png" id="2_props"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="3_interact"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="4_exit"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="5_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="6_hud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bldg"]
+size = Vector2(110, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shop"]
+radius = 28.0
+
+[node name="EvergreenVillage" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_vil")
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(480, 480)
+
+[node name="SpawnPoint_east" type="Marker2D" parent="."]
+position = Vector2(880, 270)
+
+[node name="YSortProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GeneralStore" type="StaticBody2D" parent="YSortProps"]
+position = Vector2(260, 180)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSortProps/GeneralStore"]
+texture = ExtResource("2_props")
+offset = Vector2(0, -64)
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/GeneralStore"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_bldg")
+
+[node name="StoreInteractable" type="Area2D" parent="YSortProps/GeneralStore"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "lily_store"
+display_name = "Lily's General Store"
+prompt_text = "Trade Supplies / Seeds"
+action_type = "dialog"
+dialog_lines = ["Lily: 'Welcome to the General Store! We have fresh crop seeds and provisions.'", "Lily: 'If you bring in harvested turnips or eggs, I'll trade you Valley Tokens for them!'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/GeneralStore/StoreInteractable"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_shop")
+
+[node name="BlacksmithForge" type="StaticBody2D" parent="YSortProps"]
+position = Vector2(700, 180)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSortProps/BlacksmithForge"]
+texture = ExtResource("2_props")
+offset = Vector2(0, -64)
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/BlacksmithForge"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_bldg")
+
+[node name="ForgeInteractable" type="Area2D" parent="YSortProps/BlacksmithForge"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "marcus_forge"
+display_name = "Marcus's Smithy & Armory"
+prompt_text = "Inspect Weapon Forge"
+action_type = "dialog"
+dialog_lines = ["Marcus: 'Keep your machete honed. The infected near Greenwood Forest are growing bolder.'", "Marcus: 'Bring me timber and stone, and I will help you craft reinforced barricades.'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/BlacksmithForge/ForgeInteractable"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_shop")
+
+[node name="NoticeBoard" type="Area2D" parent="YSortProps"]
+position = Vector2(480, 240)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "notice_board"
+display_name = "Evergreen Notice Board"
+prompt_text = "Read Community Notices"
+action_type = "dialog"
+dialog_lines = ["Notice: 'BOUNTY: Keep the perimeter clean of Drifters and Sprinters.'", "Notice: 'COMMUNITY REBUILDING: Doctor Elena needs sterile bandages at the clinic annex.'", "Notice: 'FARMING: Thomas reports turnips grow in 2 days when watered every dawn.'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/NoticeBoard"]
+shape = SubResource("CircleShape2D_shop")
+
+[node name="SouthExit" parent="." instance=ExtResource("4_exit")]
+position = Vector2(480, 520)
+target_region = "evergreen_farm"
+target_spawn = "north_gate"
+region_title = "Evergreen Farm"
+
+[node name="EastExit" parent="." instance=ExtResource("4_exit")]
+position = Vector2(940, 270)
+target_region = "greenwood_forest"
+target_spawn = "default"
+region_title = "Greenwood Forest"
+
+[node name="WestExit" parent="." instance=ExtResource("4_exit")]
+position = Vector2(30, 270)
+target_region = "old_city"
+target_spawn = "default"
+region_title = "Old City"
+
+[node name="NorthExit" parent="." instance=ExtResource("4_exit")]
+position = Vector2(480, 30)
+target_region = "railway_station"
+target_spawn = "default"
+region_title = "Railway Station"
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(480, 480)
+
+[node name="HUD" parent="." instance=ExtResource("6_hud")]

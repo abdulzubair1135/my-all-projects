@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; but for the purpose of this project, you can change it here.
+
+config_version=5
+
+[application]
+
+config/name="Evergreen: After the Fall"
+config/description="2D top-down farming + survival RPG + romance + zombie apocalypse"
+config/version="0.1.0"
+run/main_scene="res://scenes/main_menu/MainMenu.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://assets/ui/icon.png"
+
+[autoload]
+
+GameState="*res://scripts/core/GameState.gd"
+EventBus="*res://scripts/core/EventBus.gd"
+InventoryService="*res://scripts/inventory/inventory_service.gd"
+SaveService="*res://scripts/core/SaveService.gd"
+CraftingService="*res://scripts/crafting/crafting_service.gd"
+RelationshipService="*res://scripts/relationships/relationship_service.gd"
+WorldManager="*res://scripts/world/world_manager.gd"
+QuestService="*res://scripts/quests/quest_service.gd"
+AudioService="*res://scripts/audio/audio_service.gd"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

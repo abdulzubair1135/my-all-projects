@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 4-Phase Cycle Donut / Pie Chart Vector with Soft Extruded Center -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="160"
+    android:viewportHeight="160">
+
+    <!-- Sector 1: Menstrual Phase (Berry Pink) -->
+    <path
+        android:strokeColor="#C2185B"
+        android:strokeWidth="18"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M 80,18 A 62,62 0 0,1 138,58" />
+
+    <!-- Sector 2: Follicular Phase (Sky Blue) -->
+    <path
+        android:strokeColor="#0284C7"
+        android:strokeWidth="18"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M 138,58 A 62,62 0 0,1 130,126" />
+
+    <!-- Sector 3: Ovulation Phase (Mint Green) -->
+    <path
+        android:strokeColor="#10B981"
+        android:strokeWidth="18"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M 130,126 A 62,62 0 0,1 60,140" />
+
+    <!-- Sector 4: Luteal Phase (Slate Gray / Silver) -->
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="18"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M 60,140 A 62,62 0 0,1 80,18" />
+
+    <!-- Center Soft Neumorphic Disc -->
+    <path
+        android:fillColor="#F4F7FB"
+        android:pathData="M 80,38 A 42,42 0 1,1 79.9,38 Z" />
+
+    <!-- Center Icon / Text Core Dot -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 80,74 A 6,6 0 1,1 79.9,74 Z" />
+
+</vector>

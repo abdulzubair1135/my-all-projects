@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7kx8player1"]
+
+[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/characters/archi/archi_spritesheet.png" id="2_archi"]
+[ext_resource type="Texture2D" path="res://assets/ui/ui_elements.png" id="3_ui"]
+[ext_resource type="Script" path="res://scripts/combat/hitbox.gd" id="4_hit"]
+[ext_resource type="Script" path="res://scripts/combat/hurtbox.gd" id="5_hurt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foot"]
+size = Vector2(14, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_attack"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_player_hurt"]
+radius = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_mask = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_archi")
+offset = Vector2(0, -18)
+hframes = 6
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_foot")
+
+[node name="InteractionDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
+shape = SubResource("CircleShape2D_detect")
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("4_hit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_attack")
+
+[node name="PlayerHurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("5_hurt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_player_hurt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="InteractPrompt" type="Node2D" parent="."]
+position = Vector2(0, -42)
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractPrompt"]
+texture = ExtResource("3_ui")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+scale = Vector2(0.65, 0.65)

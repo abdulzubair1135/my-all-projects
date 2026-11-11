@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CycleCare</string>
+    <string name="app_tagline">Track • Understand • Prepare • Care</string>
+    <string name="central_idea">CycleCare doesn\'t just track your period. It helps you prepare for it.</string>
+
+    <!-- Navigation Labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_track">Track Log</string>
+    <string name="nav_store">Store</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Home Screen -->
+    <string name="greeting_hello">Hello,</string>
+    <string name="estimated_next_period">Estimated Next Period</string>
+    <string name="cycle_day_format">Cycle Day %d</string>
+    <string name="how_feeling_today">How are you feeling today?</string>
+    <string name="prepare_for_period">Prepare for your period</string>
+    <string name="btn_prepare_now">Prepare Now</string>
+    <string name="btn_view_care_kit">View Care Kit</string>
+    <string name="btn_quick_log">Quick Period Log</string>
+
+    <!-- Period Tracking -->
+    <string name="title_log_period">Log Period</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date (Optional)</string>
+    <string name="flow_intensity">Flow Intensity</string>
+    <string name="notes_optional">Notes (Optional)</string>
+    <string name="btn_save_log">Save Period Log</string>
+    <string name="err_invalid_dates">End date cannot be before start date.</string>
+
+    <!-- Prediction & Disclaimer -->
+    <string name="prediction_disclaimer">Prediction is presented as an ESTIMATE based on past cycle history, not as a guaranteed medical prediction.</string>
+
+    <!-- Symptoms & Moods -->
+    <string name="title_symptoms">Log Symptoms</string>
+    <string name="title_mood">Log Mood</string>
+
+    <!-- Prepare Mode -->
+    <string name="title_prepare_mode">Prepare Mode</string>
+    <string name="check_essentials">Check Period Essentials</string>
+
+    <!-- Emergency Mode -->
+    <string name="title_emergency_mode">Emergency Mode</string>
+    <string name="emergency_disclaimer">Quick-access mode for unexpected period starts. Does not provide medical emergency services.</string>
+
+    <!-- Student & Travel Modes -->
+    <string name="title_student_mode">Student Overlap Planner</string>
+    <string name="title_travel_mode">Travel Overlap Planner</string>
+
+    <!-- Care Kit & Store -->
+    <string name="title_care_kit">My Period Care Kit</string>
+    <string name="title_store">CycleCare Store</string>
+    <string name="title_cart">Shopping Cart</string>
+    <string name="title_checkout">Checkout</string>
+    <string name="btn_add_to_cart">Add to Cart</string>
+    <string name="btn_buy_again">Buy Again</string>
+
+    <!-- AI Wellness Assistant -->
+    <string name="title_ask_ai">Ask CycleCare</string>
+    <string name="ai_disclaimer">Educational wellness assistant only. Does not provide medical diagnoses or treatment.</string>
+    <string name="chk_share_cycle_data">Use my CycleCare data for this answer</string>
+
+    <!-- Privacy & Security -->
+    <string name="title_privacy_center">Privacy Center</string>
+    <string name="title_app_lock">App Lock Security</string>
+    <string name="discreet_notifications">Discreet Notifications</string>
+    <string name="btn_export_data">Export My Data (JSON)</string>
+    <string name="btn_delete_account">Delete My Account</string>
+
+    <!-- Common States -->
+    <string name="state_loading">Loading...</string>
+    <string name="state_empty">No data logged yet.</string>
+    <string name="state_error">Unable to connect to server. Check your network.</string>
+    <string name="btn_retry">Retry</string>
+
+    <!-- Google Maps Key -->
+    <string name="google_maps_key">YOUR_GOOGLE_MAPS_API_KEY</string>
+</resources>

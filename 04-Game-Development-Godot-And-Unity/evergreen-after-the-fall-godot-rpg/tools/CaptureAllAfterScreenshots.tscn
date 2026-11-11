@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://capallafter01scene"]
+
+[ext_resource type="Script" path="res://tools/capture_all_after_screenshots.gd" id="1_capafter"]
+
+[node name="CaptureAllAfterScreenshots" type="Node"]
+script = ExtResource("1_capafter")

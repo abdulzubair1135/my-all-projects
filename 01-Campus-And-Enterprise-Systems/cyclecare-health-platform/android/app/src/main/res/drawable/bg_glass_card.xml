@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Soft Glassmorphism Card with Theme Support -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/colorSurface" />
+    <stroke
+        android:width="1.5dp"
+        android:color="@color/colorGlassBorder" />
+    <corners android:radius="24dp" />
+</shape>

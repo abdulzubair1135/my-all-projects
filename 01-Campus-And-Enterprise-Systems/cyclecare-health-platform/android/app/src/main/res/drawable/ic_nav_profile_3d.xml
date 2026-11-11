@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Soft Drop Shadow -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M 24,5 A 19,19 0 1,0 43,24 A 19,19 0 0,0 24,5 Z" />
+
+    <!-- Outer Halo Ring: Sky Blue Gradient Frame -->
+    <path
+        android:fillColor="#F0F9FF"
+        android:strokeColor="#0284C7"
+        android:strokeWidth="2.5"
+        android:pathData="M 24,6 A 18,18 0 1,1 23.9,6 Z" />
+
+    <!-- Avatar Head: Berry Pink Sphere -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 24,11 A 7.5,7.5 0 1,1 23.9,11 Z" />
+
+    <!-- Head Gloss Highlight -->
+    <path
+        android:fillColor="#FF4081"
+        android:pathData="M 22,13 A 2.5,2.5 0 1,1 21.9,13 Z" />
+
+    <!-- Avatar Shoulders & Torso: Deep Berry Arch -->
+    <path
+        android:fillColor="#880E4F"
+        android:pathData="M 13,38 C 13,28 19,26 24,26 C 29,26 35,28 35,38 Z" />
+
+    <!-- Sky Blue Inner Torso Heart / Glow -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 17,37 C 18,31 21,29.5 24,29.5 C 27,29.5 30,31 31,37 Z" />
+
+</vector>

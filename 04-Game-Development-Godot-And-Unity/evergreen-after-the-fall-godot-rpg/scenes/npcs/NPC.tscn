@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://npcbase01scene"]
+
+[ext_resource type="Script" path="res://scripts/npc/npc_base.gd" id="1_npc"]
+[ext_resource type="Texture2D" path="res://assets/characters/danish/danish_spritesheet.png" id="2_spr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foot"]
+size = Vector2(14, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_talk"]
+radius = 24.0
+
+[node name="NPC" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_npc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_spr")
+offset = Vector2(0, -18)
+hframes = 6
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_foot")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_talk")

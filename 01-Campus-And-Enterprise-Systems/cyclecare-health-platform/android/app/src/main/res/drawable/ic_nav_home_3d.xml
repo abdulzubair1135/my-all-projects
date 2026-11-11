@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Soft Drop Shadow -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M 8,24 L 24,10 L 40,24 L 37,43 L 11,43 Z" />
+
+    <!-- Solid Warm Porcelain Building Base -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#CBD5E1"
+        android:strokeWidth="1.2"
+        android:pathData="M 10,22 L 38,22 L 36,42 L 12,42 Z" />
+
+    <!-- Vibrant Berry Pink Roof -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 24,6 L 5,22 L 10,24 L 24,12 L 38,24 L 43,22 Z" />
+
+    <!-- Glossy Berry Highlight on Roof Crest -->
+    <path
+        android:fillColor="#FF4081"
+        android:pathData="M 24,6 L 6,21.5 L 9,21.5 L 24,9 L 39,21.5 L 42,21.5 Z" />
+
+    <!-- Deep Berry Door Archway -->
+    <path
+        android:fillColor="#880E4F"
+        android:pathData="M 19,30 C 19,27 29,27 29,30 L 29,42 L 19,42 Z" />
+
+    <!-- Sky Blue Glowing Heart Window on Door -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 24,32 C 22.5,30.5 20,31.5 20,33.5 C 20,35.5 24,37.5 24,37.5 C 24,37.5 28,35.5 28,33.5 C 28,31.5 25.5,30.5 24,32 Z" />
+
+    <!-- Sky Blue Chimney -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 33,11 L 37,11 L 37,18 L 33,14 Z" />
+
+</vector>

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cryslake01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/crystal_lake.gd" id="1_lake"]
+[ext_resource type="Texture2D" path="res://assets/props/farm_props.png" id="2_props"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="3_interact"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="4_exit"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="5_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="6_hud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pier"]
+size = Vector2(160, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fish"]
+radius = 28.0
+
+[node name="CrystalLake" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_lake")
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(480, 480)
+
+[node name="YSortProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="FishingPier" type="StaticBody2D" parent="YSortProps"]
+position = Vector2(480, 240)
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/FishingPier"]
+shape = SubResource("RectangleShape2D_pier")
+
+[node name="FishermanNoah" type="Area2D" parent="YSortProps/FishingPier"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_interact")
+interactable_id = "noah_fishing"
+display_name = "Noah the Fisherman"
+prompt_text = "Talk to Noah / Fish"
+action_type = "dialog"
+dialog_lines = ["Noah: 'The waters here run clean from the northern snow peaks. Fresh trout and bass are biting.'", "Noah: 'In the evenings, you can watch the mist roll off the lake. It's the one place in the valley where you forget the fall.'"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortProps/FishingPier/FishermanNoah"]
+shape = SubResource("CircleShape2D_fish")
+
+[node name="SouthExit" parent="." instance=ExtResource("4_exit")]
+position = Vector2(480, 520)
+target_region = "greenwood_forest"
+target_spawn = "north"
+region_title = "Greenwood Forest"
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(480, 480)
+
+[node name="HUD" parent="." instance=ExtResource("6_hud")]

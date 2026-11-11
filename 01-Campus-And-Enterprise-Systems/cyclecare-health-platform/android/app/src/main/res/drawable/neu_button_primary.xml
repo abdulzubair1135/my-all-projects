@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neumorphic Button: extruded pill shape, Berry Pink -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dark shadow (bottom-right) -->
+    <item android:left="3dp" android:top="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#8E0038" />
+            <corners android:radius="28dp" />
+        </shape>
+    </item>
+    <!-- Light shadow (top-left) -->
+    <item android:right="3dp" android:bottom="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E91E8A" />
+            <corners android:radius="28dp" />
+        </shape>
+    </item>
+    <!-- Main button surface -->
+    <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#C2185B" />
+            <corners android:radius="27dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Soft Drop Shadow -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M 7,13 C 7,10 10,8 14,8 L 34,8 C 38,8 41,10 41,13 L 41,40 C 41,43 38,45 34,45 L 14,45 C 10,45 7,43 7,40 Z" />
+
+    <!-- Pure White / Silver Page Base -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#CBD5E1"
+        android:strokeWidth="1.2"
+        android:pathData="M 7,12 C 7,9 10,7 13,7 L 35,7 C 38,7 41,9 41,12 L 41,39 C 41,42 38,44 35,44 L 13,44 C 10,44 7,42 7,39 Z" />
+
+    <!-- Vibrant Berry Pink Header Ribbon -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 7,12 C 7,9 10,7 13,7 L 35,7 C 38,7 41,9 41,12 L 41,18 L 7,18 Z" />
+
+    <!-- Sky Blue Metallic Twin Spiral Rings -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 13,3 C 14.5,3 15.5,4 15.5,6 L 15.5,10 C 15.5,11.5 14.5,12 13,12 C 11.5,12 10.5,11.5 10.5,10 L 10.5,6 C 10.5,4 11.5,3 13,3 Z" />
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 35,3 C 36.5,3 37.5,4 37.5,6 L 37.5,10 C 37.5,11.5 36.5,12 35,12 C 33.5,12 32.5,11.5 32.5,10 L 32.5,6 C 32.5,4 33.5,3 35,3 Z" />
+
+    <!-- Calendar Month Dots -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M 14,24 A 2.2,2.2 0 1,1 13.9,24 Z" />
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M 24,24 A 2.2,2.2 0 1,1 23.9,24 Z" />
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M 34,24 A 2.2,2.2 0 1,1 33.9,24 Z" />
+
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M 14,32 A 2.2,2.2 0 1,1 13.9,32 Z" />
+
+    <!-- Highlighted Period / Ovulation Days: Pink Flower Core & Sky Blue Ring -->
+    <path
+        android:fillColor="#C2185B"
+        android:pathData="M 24,32 A 4,4 0 1,1 23.9,32 Z" />
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M 34,32 A 3.2,3.2 0 1,1 33.9,32 Z" />
+
+</vector>

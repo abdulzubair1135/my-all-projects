@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/colorSurface">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Delivery Address"
+        android:textColor="@color/textPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Your address is kept 100% confidential &amp; encrypted."
+        android:textColor="@color/textSecondary"
+        android:textSize="12sp" />
+
+    <!-- Location Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_auto_detect_location"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:text="📍 Auto-Detect GPS"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/btn_open_map_location"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="🗺️ Open Map"
+            android:textColor="@color/colorSecondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/colorSecondary" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_addr_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/neu_input"
+        android:hint="Full Name / Recipient"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textHint"
+        android:paddingHorizontal="14dp"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_addr_phone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/neu_input"
+        android:hint="Mobile Number (10 digits)"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textHint"
+        android:inputType="phone"
+        android:paddingHorizontal="14dp"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_addr_line"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/neu_input"
+        android:hint="Flat / House No. / Building / Street"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textHint"
+        android:paddingHorizontal="14dp"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_addr_landmark"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/neu_input"
+        android:hint="Landmark (Optional)"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textHint"
+        android:paddingHorizontal="14dp"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_addr_city"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/neu_input"
+            android:hint="City"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint"
+            android:paddingHorizontal="14dp"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/et_addr_pincode"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/neu_input"
+            android:hint="Pincode"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textHint"
+            android:inputType="number"
+            android:paddingHorizontal="14dp"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_addr_state"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/neu_input"
+        android:hint="State"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textHint"
+        android:paddingHorizontal="14dp"
+        android:textSize="13sp" />
+
+    <!-- Address Type Selection -->
+    <RadioGroup
+        android:id="@+id/rg_addr_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_type_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@color/textPrimary"
+            android:checked="true"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rb_type_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Work"
+            android:textColor="@color/textPrimary"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/rb_type_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Other"
+            android:textColor="@color/textPrimary"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cb_make_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Make this my default delivery address"
+        android:textColor="@color/textSecondary"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_save_address"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_m3_button"
+        android:text="Save Address"
+        android:textColor="@color/textOnPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</LinearLayout>

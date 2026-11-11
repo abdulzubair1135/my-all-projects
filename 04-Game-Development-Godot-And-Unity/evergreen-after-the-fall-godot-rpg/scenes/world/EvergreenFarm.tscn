@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://evgfarm01scene"]
+
+[ext_resource type="Script" path="res://scripts/world/evergreen_farm.gd" id="1_farm"]
+[ext_resource type="Script" path="res://scripts/world/farm_environment.gd" id="2_env"]
+[ext_resource type="Texture2D" path="res://assets/characters/danish/danish_spritesheet.png" id="3_danish"]
+[ext_resource type="Script" path="res://scripts/interactables/interactable.gd" id="4_interact"]
+[ext_resource type="PackedScene" path="res://scenes/actors/player/Player.tscn" id="5_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="6_hud"]
+[ext_resource type="Script" path="res://scripts/farming/farm_manager.gd" id="7_fman"]
+[ext_resource type="Script" path="res://scripts/world/night_defense_director.gd" id="8_night"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/RegionExit.tscn" id="9_exit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_comp"]
+radius = 26.0
+
+[node name="EvergreenFarm" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_farm")
+
+[node name="SpawnPoint_default" type="Marker2D" parent="."]
+position = Vector2(240, 200)
+
+[node name="SpawnPoint_north_gate" type="Marker2D" parent="."]
+position = Vector2(480, 50)
+
+[node name="SpawnPoint_east_trail" type="Marker2D" parent="."]
+position = Vector2(900, 340)
+
+[node name="NorthExit" parent="." instance=ExtResource("9_exit")]
+position = Vector2(480, 10)
+target_region = "evergreen_village"
+target_spawn = "default"
+region_title = "Evergreen Village"
+
+[node name="EastExit" parent="." instance=ExtResource("9_exit")]
+position = Vector2(945, 340)
+target_region = "greenwood_forest"
+target_spawn = "default"
+region_title = "Greenwood Forest"
+
+[node name="DayNightModulate" type="CanvasModulate" parent="."]
+
+[node name="FarmManager" type="Node" parent="."]
+script = ExtResource("7_fman")
+
+[node name="NightDefenseDirector" type="Node" parent="."]
+script = ExtResource("8_night")
+
+[node name="FarmEnvironment" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_env")
+
+[node name="CropsContainer" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Companion" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(210, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="Companion"]
+texture = ExtResource("3_danish")
+offset = Vector2(0, -18)
+hframes = 6
+vframes = 4
+
+[node name="Interactable" type="Area2D" parent="Companion"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_interact")
+interactable_id = "companion"
+display_name = "Danish"
+prompt_text = "Talk"
+action_type = "companion_talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Companion/Interactable"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_comp")
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(240, 200)
+
+[node name="HUD" parent="." instance=ExtResource("6_hud")]

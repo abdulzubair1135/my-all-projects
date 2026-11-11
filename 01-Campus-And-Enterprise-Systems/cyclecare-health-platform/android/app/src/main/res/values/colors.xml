@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================================ -->
+    <!-- SOFT NEUMORPHIC HOMELY PALETTE — Berry, Sky Blue, Silver, Green -->
+    <!-- ============================================================ -->
+
+    <!-- Primary Berry Pink & Gradient Colors -->
+    <color name="colorPrimary">#C2185B</color>
+    <color name="colorPrimaryDark">#880E4F</color>
+    <color name="colorPrimaryVariant">#AD1457</color>
+    <color name="colorPrimaryLight">#FCE4EC</color>
+    <color name="colorBerryGlow">#E91E63</color>
+    <color name="colorBerryDeep">#7B1E4B</color>
+
+    <!-- Sky Blue Accent -->
+    <color name="colorSecondary">#0284C7</color>
+    <color name="colorSecondaryVariant">#0369A1</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSkyBlue">#00BCD4</color>
+    <color name="colorSkyBlueDark">#075985</color>
+    <color name="colorSkyBlueLight">#E0F2FE</color>
+    <color name="colorSkyBlueSoft">#BAE6FD</color>
+
+    <!-- Fresh Mint Health Green (from Reference UI switch & health tags) -->
+    <color name="colorMintGreen">#10B981</color>
+    <color name="colorMintGreenLight">#D1FAE5</color>
+    <color name="colorMintGreenDark">#047857</color>
+
+    <!-- Soft Neumorphic Porcelain Background (as in reference image) -->
+    <color name="colorBackground">#EFF2F6</color>
+    <color name="colorSurface">#F4F7FB</color>
+    <color name="colorCardBackground">#EFF2F6</color>
+    <color name="neuBackground">#EFF2F6</color>
+    <color name="neuSurface">#F4F7FB</color>
+
+    <!-- Dual Shadows for Extruded Neumorphism -->
+    <color name="neuLightHighlight">#FFFFFF</color>
+    <color name="neuDarkShadow">#D1D9E6</color>
+    <color name="neuDarkShadowSoft">#E2E8F0</color>
+
+    <!-- Border & Glass -->
+    <color name="colorGlassBorder">#D8E0EB</color>
+    <color name="colorBorder">#D8E0EB</color>
+
+    <!-- Input Box Styling -->
+    <color name="colorInputBackground">#E6ECF2</color>
+    <color name="colorInputBorder">#D5DFE8</color>
+    <color name="colorInputFocused">#C2185B</color>
+
+    <!-- Silver & Metallic Neutrals -->
+    <color name="colorSilverLight">#F8FAFC</color>
+    <color name="colorSilver">#E2E8F0</color>
+    <color name="colorSilverDark">#64748B</color>
+
+    <!-- Crisp High-Contrast Bold Typography -->
+    <color name="textPrimary">#1E293B</color>
+    <color name="textSecondary">#64748B</color>
+    <color name="textHint">#94A3B8</color>
+    <color name="textOnPrimary">#FFFFFF</color>
+
+    <!-- Solid Black Calendar Contrast -->
+    <color name="calendarDateText">#000000</color>
+    <color name="calendarWeekText">#000000</color>
+
+    <!-- Calendar Phase Accents -->
+    <color name="phasePeriod">#C2185B</color>
+    <color name="phaseOvulation">#0284C7</color>
+    <color name="phaseFertile">#10B981</color>
+    <color name="phaseEstimate">#FCE4EC</color>
+
+    <!-- Semantic States -->
+    <color name="colorSuccess">#10B981</color>
+    <color name="colorWarning">#D97706</color>
+    <color name="colorError">#DC2626</color>
+</resources>
