@@ -1,0 +1,7 @@
+PyQt5
+pyserial
+speechrecognition
+pyaudio
+pywin32
+beautifulsoup4
+requests

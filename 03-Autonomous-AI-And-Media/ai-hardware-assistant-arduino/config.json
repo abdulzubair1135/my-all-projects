@@ -1,0 +1,12 @@
+{
+  "arduino_port": "COM3",
+  "google_mode": false,
+
+  "groq_api_key": "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",
+
+  "ollama": {
+    "enabled": true,
+    "url": "http://localhost:11434",
+    "model": "gemma3:1b"
+  }
+}
