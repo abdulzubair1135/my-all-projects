@@ -1,0 +1,140 @@
+package com.smarttracker.data.local;
+
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.smarttracker.data.local.dao.AccountDao;
+import com.smarttracker.data.local.dao.CategoryDao;
+import com.smarttracker.data.local.dao.SavingGoalDao;
+import com.smarttracker.data.local.dao.TransactionDao;
+import com.smarttracker.data.local.dao.TripDao;
+import com.smarttracker.data.local.dao.UpcomingExpenseDao;
+import com.smarttracker.data.local.entity.AccountEntity;
+import com.smarttracker.data.local.entity.CategoryEntity;
+import com.smarttracker.data.local.entity.SavingGoalEntity;
+import com.smarttracker.data.local.entity.TransactionEntity;
+import com.smarttracker.data.local.entity.TripEntity;
+import com.smarttracker.data.local.entity.UpcomingExpenseEntity;
+import androidx.room.migration.Migration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import com.smarttracker.data.local.dao.MonitoringEventDao;
+import com.smarttracker.data.local.entity.MonitoringEventEntity;
+
+@Database(entities = {
+        TransactionEntity.class,
+        AccountEntity.class,
+        CategoryEntity.class,
+        SavingGoalEntity.class,
+        UpcomingExpenseEntity.class,
+        TripEntity.class,
+        MonitoringEventEntity.class
+}, version = 3, exportSchema = false)
+public abstract class AppDatabase extends RoomDatabase {
+
+    public abstract TransactionDao transactionDao();
+    public abstract AccountDao accountDao();
+    public abstract CategoryDao categoryDao();
+    public abstract SavingGoalDao savingGoalDao();
+    public abstract UpcomingExpenseDao upcomingExpenseDao();
+    public abstract TripDao tripDao();
+    public abstract MonitoringEventDao monitoringEventDao();
+
+    private static volatile AppDatabase INSTANCE;
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(4);
+
+    public static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE transactions ADD COLUMN expenseGroup TEXT DEFAULT 'GENERAL'");
+            database.execSQL("ALTER TABLE transactions ADD COLUMN tripId TEXT");
+            database.execSQL("ALTER TABLE transactions ADD COLUMN isImportant INTEGER NOT NULL DEFAULT 0");
+
+            database.execSQL("CREATE TABLE IF NOT EXISTS trips (" +
+                    "id TEXT PRIMARY KEY NOT NULL, " +
+                    "userId TEXT NOT NULL, " +
+                    "name TEXT NOT NULL, " +
+                    "destination TEXT NOT NULL, " +
+                    "startDate TEXT NOT NULL, " +
+                    "endDate TEXT NOT NULL, " +
+                    "description TEXT, " +
+                    "status TEXT NOT NULL, " +
+                    "createdAt INTEGER NOT NULL, " +
+                    "updatedAt INTEGER NOT NULL, " +
+                    "isSynced INTEGER NOT NULL DEFAULT 0)");
+        }
+    };
+
+    public static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS monitoring_events (" +
+                    "id TEXT PRIMARY KEY NOT NULL, " +
+                    "eventType TEXT NOT NULL, " +
+                    "severity TEXT NOT NULL, " +
+                    "source TEXT NOT NULL, " +
+                    "errorCode TEXT NOT NULL, " +
+                    "message TEXT NOT NULL, " +
+                    "stackTrace TEXT, " +
+                    "screenName TEXT, " +
+                    "operationName TEXT, " +
+                    "appVersion TEXT NOT NULL, " +
+                    "appBuild TEXT NOT NULL, " +
+                    "androidVersion TEXT, " +
+                    "deviceModel TEXT, " +
+                    "userId TEXT, " +
+                    "installationId TEXT NOT NULL, " +
+                    "correlationId TEXT NOT NULL, " +
+                    "occurredAt INTEGER NOT NULL, " +
+                    "syncStatus TEXT NOT NULL, " +
+                    "retryCount INTEGER NOT NULL DEFAULT 0, " +
+                    "metadataJson TEXT)");
+        }
+    };
+
+    public static AppDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (AppDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                                    AppDatabase.class, "smart_expenses.db")
+                            .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                            .fallbackToDestructiveMigration()
+                            .addCallback(sRoomDatabaseCallback)
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            databaseWriteExecutor.execute(() -> {
+                // Seed ONLY system-level categories (userId = null, shared across all users).
+                // NO demo accounts, NO demo transactions, NO demo goals.
+                // Real user data comes exclusively from Supabase pull-on-login via SyncManager.
+                CategoryDao catDao = INSTANCE.categoryDao();
+                List<CategoryEntity> defaultCats = new ArrayList<>();
+                defaultCats.add(new CategoryEntity("cat_food", null, "Food", "expense", "ic_food", "#EF4444"));
+                defaultCats.add(new CategoryEntity("cat_travel", null, "Travel", "expense", "ic_travel", "#F59E0B"));
+                defaultCats.add(new CategoryEntity("cat_shopping", null, "Shopping", "expense", "ic_shopping", "#3B82F6"));
+                defaultCats.add(new CategoryEntity("cat_bills", null, "Bills", "expense", "ic_bills", "#8B5CF6"));
+                defaultCats.add(new CategoryEntity("cat_other", null, "Others", "expense", "ic_other", "#6B7280"));
+                defaultCats.add(new CategoryEntity("cat_salary", null, "Salary", "income", "ic_salary", "#10B981"));
+                catDao.insertAll(defaultCats);
+            });
+        }
+    };
+}

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_neu_card"
+    android:clickable="true"
+    android:descendantFocusability="afterDescendants"
+    android:elevation="2dp"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Row: Checkbox, Title & Action Disc -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Checkbox -->
+        <CheckBox
+            android:id="@+id/cbTaskComplete"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:buttonTint="@color/chart_progress"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTaskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toStartOf="@+id/ivTaskAction"
+            android:layout_toEndOf="@id/cbTaskComplete"
+            android:ellipsize="end"
+            android:letterSpacing="0.015"
+            android:maxLines="1"
+            android:text="Design System Review"
+            android:textColor="@color/text_main"
+            android:textSize="15.5sp"
+            android:textStyle="bold" />
+
+        <!-- 3D Action Disc -->
+        <ImageView
+            android:id="@+id/ivTaskAction"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_neu_circle"
+            android:elevation="1dp"
+            android:padding="9dp"
+            android:src="@drawable/ic_tasks"
+            app:tint="@color/chart_progress" />
+    </RelativeLayout>
+
+    <!-- Divider line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/neu_border" />
+
+    <!-- Bottom Metadata Row: Priority Pill, Project Pill & Due Date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Priority Pill -->
+        <TextView
+            android:id="@+id/tvTaskPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_neu_chip_pill"
+            android:letterSpacing="0.05"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="HIGH"
+            android:textColor="@color/chart_progress"
+            android:textSize="10.5sp"
+            android:textStyle="bold" />
+
+        <!-- Project Badge Pill -->
+        <TextView
+            android:id="@+id/tvTaskProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_neu_pill"
+            android:letterSpacing="0.04"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="PF-CORE"
+            android:textColor="@color/text_secondary"
+            android:textSize="10.5sp" />
+
+        <!-- Assignee Badge Pill -->
+        <TextView
+            android:id="@+id/tvTaskAssignee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_neu_pill"
+            android:letterSpacing="0.04"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="👤 Abdul Zubair"
+            android:textColor="@color/deep_sage"
+            android:textSize="10.5sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Calendar Icon + Due Date -->
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/text_muted" />
+
+        <TextView
+            android:id="@+id/tvTaskDueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:letterSpacing="0.02"
+            android:text="28 Apr"
+            android:textColor="@color/text_secondary"
+            android:textSize="11.5sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

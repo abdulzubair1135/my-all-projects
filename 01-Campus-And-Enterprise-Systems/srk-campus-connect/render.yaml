@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: srk-campus-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        value: mongodb+srv://masipayhelpcenter_db_user:0CBMmin7dRta41f9@cluster0.9yzufac.mongodb.net/campus_coordination_db?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: super_secret_access_jwt_key_campus_presence_2026_change_in_prod
+      - key: JWT_REFRESH_SECRET
+        value: super_secret_refresh_jwt_key_campus_presence_2026_change_in_prod
+      - key: QR_HMAC_SECRET
+        value: super_secret_qr_hmac_signing_key_2026_change_in_prod

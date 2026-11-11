@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    app:statusBarBackground="#F4F2E9"
+    android:background="#F4F2E9">
+
+    <!-- Main Content Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/limestone_ivory"
+        android:orientation="vertical">
+
+        <!-- Top AppBar with Flow Leaf Canvas Animation -->
+        <FrameLayout
+            android:id="@+id/topBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/chalk_white"
+            android:elevation="2dp">
+
+            <!-- Organic Flowing Leaf Background Animation -->
+            <com.projectflow.android.ui.view.FlowLeafHeaderView
+                android:id="@+id/flowLeafHeader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <ImageView
+                    android:id="@+id/btnMenu"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_neu_circle"
+                    android:contentDescription="Menu"
+                    android:elevation="2dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_menu"
+                    app:tint="@color/text_main" />
+
+                <TextView
+                    android:id="@+id/tvHeaderTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.015"
+                    android:text="@string/brand_name"
+                    android:textColor="@color/text_main"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWorkspaceBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/natural_border" />
+
+        <!-- Fragment Container -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/natural_border" />
+
+        <!-- Bottom Bar Container with Flow Leaf Canvas Animation -->
+        <FrameLayout
+            android:id="@+id/bottomBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/chalk_white"
+            android:elevation="4dp">
+
+            <!-- Organic Flowing Leaf Background Animation for Footer -->
+            <com.projectflow.android.ui.view.FlowLeafHeaderView
+                android:id="@+id/flowLeafFooter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Sleek Icon-Only Bottom Navigation Dock (No Text Labels) -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                app:elevation="0dp"
+                app:itemActiveIndicatorStyle="@style/Widget.ProjectFlow.BottomNavIndicator"
+                app:itemIconTint="@color/selector_bottom_nav_icon"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/bottom_nav_menu" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Side Navigation Drawer Container with Ambient Grass & Wave Stream Animation -->
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/chalk_white"
+        android:fitsSystemWindows="true">
+
+        <!-- Ambient Grass Blades & Stream Waves Animation -->
+        <com.projectflow.android.ui.view.AmbientGrassWaveView
+            android:id="@+id/ambientGrassWaveView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Side Navigation Drawer with Neumorphic Selection -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:elevation="0dp"
+            app:headerLayout="@layout/drawer_header"
+            app:itemBackground="@drawable/selector_drawer_item"
+            app:itemIconTint="@color/selector_drawer_icon"
+            app:itemTextColor="@color/selector_drawer_text"
+            app:menu="@menu/drawer_menu" />
+    </FrameLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

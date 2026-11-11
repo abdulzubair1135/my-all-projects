@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================================== -->
+    <!-- NATURAL मिट्टी (EARTH-TONE) DESIGN SYSTEM TOKENS (LIGHT THEME) -->
+    <!-- ============================================================== -->
+    <color name="earth_bg">#F3EDE2</color>
+    <color name="earth_surface">#FBF8F1</color>
+    <color name="earth_raised">#FFFDF8</color>
+    <color name="primary_earth">#795B43</color>
+    <color name="deep_earth">#493628</color>
+    <color name="muted_clay">#B69A78</color>
+    <color name="secondary_sand">#D9C9B2</color>
+    <color name="earth_border">#E1D6C6</color>
+    <color name="text_main">#30271F</color>
+    <color name="text_secondary">#74695C</color>
+    <color name="text_muted">#92877A</color>
+    <color name="earth_success">#47745A</color>
+    <color name="earth_warning">#A56A2B</color>
+    <color name="earth_error">#B7473C</color>
+    <color name="earth_danger">#B7473C</color>
+    <color name="earth_info">#4D718C</color>
+
+    <!-- Semantic Status Tints -->
+    <color name="earth_success_light">#EAF2EC</color>
+    <color name="earth_warning_light">#F8EFE4</color>
+    <color name="earth_error_light">#FBECEB</color>
+    <color name="earth_info_light">#EBF2F7</color>
+
+    <!-- Legacy / Alias Compatibility Layer -->
+    <color name="limestone_ivory">#F3EDE2</color>
+    <color name="chalk_white">#FBF8F1</color>
+    <color name="warm_white">#FFFDF8</color>
+    <color name="deep_sage">#795B43</color>
+    <color name="deep_sage_dark">#493628</color>
+    <color name="mineral_sage">#B69A78</color>
+    <color name="mineral_grey">#D9C9B2</color>
+    <color name="natural_border">#E1D6C6</color>
+    <color name="stone_border">#E1D6C6</color>
+    <color name="charcoal">#30271F</color>
+    <color name="stone_grey">#74695C</color>
+    <color name="muted_slate">#74695C</color>
+    <color name="forest_green">#47745A</color>
+    <color name="status_green">#47745A</color>
+    <color name="status_green_light">#EAF2EC</color>
+    <color name="alert_amber">#A56A2B</color>
+    <color name="alert_amber_light">#F8EFE4</color>
+    <color name="alert_red">#B7473C</color>
+    <color name="alert_red_light">#FBECEB</color>
+
+    <color name="black">#30271F</color>
+    <color name="white">#FFFDF8</color>
+
+    <!-- ============================================================== -->
+    <!-- NEUMORPHIC 3D SURFACE & SHADOW TOKENS -->
+    <!-- ============================================================== -->
+    <color name="neu_bg">#F3EDE2</color>
+    <color name="neu_surface">#FBF8F1</color>
+    <color name="neu_surface_pressed">#EBE4D5</color>
+    <color name="neu_highlight">#FFFFFFFF</color>
+    <color name="neu_shadow_soft">#D5C9B8</color>
+    <color name="neu_shadow_deep">#C2B3A0</color>
+    <color name="neu_border">#E4DACB</color>
+    <color name="neu_inset_border">#D8CDBE</color>
+
+    <!-- ============================================================== -->
+    <!-- VIBRANT 3D CHART MULTI-COLOR PALETTE (COLLAB WITH MITTI / EARTH) -->
+    <!-- ============================================================== -->
+    <color name="chart_done">#3E8E55</color>        <!-- Done - Forest Jade -->
+    <color name="chart_progress">#D9822B</color>    <!-- In Progress - Terracotta Gold -->
+    <color name="chart_review">#8758C4</color>      <!-- Review - Mineral Violet -->
+    <color name="chart_todo">#6B7A63</color>        <!-- Todo - Olive Earth -->
+    <color name="chart_critical">#D9534F</color>    <!-- Critical - Rust Red -->
+    <color name="chart_accent_cyan">#2E8B99</color> <!-- Velocity - Turquoise Accent -->
+    <color name="chart_accent_pink">#C4587A</color> <!-- Engagement - Rose Clay -->
+
+    <!-- ============================================================== -->
+    <!-- CHAT EMOJI REACTION TOKENS -->
+    <!-- ============================================================== -->
+    <color name="reaction_pill_bg">#ECE5D8</color>
+    <color name="reaction_pill_border">#DDD2C2</color>
+    <color name="reaction_pill_active">#DFD3C0</color>
+    <color name="chat_bubble_received">#FFFDF8</color>
+    <color name="chat_bubble_sent">#ECE5D8</color>
+</resources>

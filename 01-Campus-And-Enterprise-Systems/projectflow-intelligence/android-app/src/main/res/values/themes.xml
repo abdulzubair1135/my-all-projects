@@ -1,0 +1,68 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme with Natural मिट्टी (Earth-Tone) branding (Light) -->
+    <style name="Theme.ProjectFlow" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary earth brand colors -->
+        <item name="colorPrimary">@color/primary_earth</item>
+        <item name="colorPrimaryVariant">@color/deep_earth</item>
+        <item name="colorOnPrimary">@color/earth_raised</item>
+
+        <!-- Secondary earth sand/clay colors -->
+        <item name="colorSecondary">@color/muted_clay</item>
+        <item name="colorSecondaryVariant">@color/secondary_sand</item>
+        <item name="colorOnSecondary">@color/text_main</item>
+
+        <!-- Status bar color -->
+        <item name="colorPrimaryDark">#F4F2E9</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#F4F2E9</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Background & Surface -->
+        <item name="android:windowBackground">@color/earth_bg</item>
+        <item name="colorSurface">@color/earth_surface</item>
+        <item name="colorOnSurface">@color/text_main</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Widget.ProjectFlow.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/earth_surface</item>
+        <item name="strokeColor">@color/earth_border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Calendar Styles -->
+    <style name="CalendarDayHeader">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CalendarDayNumber">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_main</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Splash Theme with instant seamless limestone background to prevent black flicker -->
+    <style name="Theme.ProjectFlow.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">#F4F2E9</item>
+        <item name="android:statusBarColor">#F4F2E9</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Bottom Navigation Active Indicator -->
+    <style name="Widget.ProjectFlow.BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/neu_surface_pressed</item>
+        <item name="android:width">48dp</item>
+        <item name="android:height">32dp</item>
+    </style>
+</resources>

@@ -1,0 +1,17 @@
+name: campus_dart_core
+description: Shared models, crypto utilities, offline sync contracts, and API client for Campus Coordination Apps.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  dio: ^5.7.0
+  uuid: ^4.5.1
+  cryptography: ^2.7.2
+  meta: ^1.15.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.8

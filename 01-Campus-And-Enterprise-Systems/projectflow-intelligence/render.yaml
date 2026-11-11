@@ -1,0 +1,20 @@
+services:
+  # ProjectFlow Intelligence Full-Stack Node.js Web Service
+  - type: web
+    name: projectflow-intelligence
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        value: https://loqiqdgnjgozeixepfkk.supabase.co
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true

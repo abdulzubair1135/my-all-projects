@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/bg_dialog_limestone"
+    android:elevation="8dp"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Header Row with User Avatar Badge & Titles -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_neu_circle"
+            android:contentDescription="Profile Icon"
+            android:elevation="2dp"
+            android:padding="11dp"
+            android:src="@drawable/ic_profile"
+            app:tint="@color/primary_earth" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update Display Name"
+                android:textColor="@color/text_main"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Visible across tasks, radar &amp; team chats"
+                android:textColor="@color/text_secondary"
+                android:textSize="11.5sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Subtle Natural Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/natural_border" />
+
+    <!-- Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.04"
+        android:text="DISPLAY NAME / FULL NAME"
+        android:textColor="@color/text_secondary"
+        android:textSize="10.5sp"
+        android:textStyle="bold" />
+
+    <!-- Sleek Neumorphic Input Box -->
+    <EditText
+        android:id="@+id/etDialogDisplayName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_neu_input"
+        android:hint="Enter your display name"
+        android:inputType="textPersonName|textCapWords"
+        android:maxLines="1"
+        android:textColor="@color/text_main"
+        android:textColorHint="@color/text_secondary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDialogCancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginEnd="10dp"
+            android:text="Cancel"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/natural_border"
+            app:strokeWidth="1.2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDialogSave"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:text="Save Changes"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/primary_earth"
+            app:cornerRadius="10dp"
+            app:elevation="2dp" />
+    </LinearLayout>
+
+</LinearLayout>

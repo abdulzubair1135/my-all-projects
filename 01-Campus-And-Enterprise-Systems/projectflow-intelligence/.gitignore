@@ -1,0 +1,56 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Local configuration
+local.properties
+.env
+*.local
+google-services.json
+android-app/google-services.json
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Node / Admin Panel
+node_modules/
+admin-panel/node_modules/
+admin-panel/dist/
+admin-panel/.vite/
+admin-panel/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java / JVM
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# SQLite local databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# OS generated
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Logs
+logs/
+*.log

@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">ProjectFlow Intelligence</string>
+    <string name="brand_name">ProjectFlow Intelligence</string>
+    <string name="app_tagline">Plan Smarter Work Better</string>
+    <string name="onboarding_subtitle">Manage your projects, tasks, teams and progress — all in one place with ProjectFlow Intelligence.</string>
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+
+    <!-- Auth -->
+    <string name="welcome_back">Welcome Back</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="email_hint">name@example.com</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="or_continue_with">or continue with</string>
+    <string name="dont_have_account">Don\'t have an account? Sign Up</string>
+    <string name="logout">Logout</string>
+
+    <!-- Navigation & Titles -->
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_projects">Projects</string>
+    <string name="title_tasks">Tasks</string>
+    <string name="title_task_details">Task Details</string>
+    <string name="title_create_task">Create Task</string>
+    <string name="title_create_project">Create Project</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_team">Team Members</string>
+    <string name="title_reports">Reports</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">My Profile</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_sync">Synchronization</string>
+    <string name="title_risk_radar">Risk Radar</string>
+
+    <!-- Dashboard & Stats -->
+    <string name="good_morning">Good Morning</string>
+    <string name="demo_user_name">Rahul Verma</string>
+    <string name="demo_user_role">Project Manager</string>
+    <string name="total_projects">Total Projects</string>
+    <string name="total_tasks">Total Tasks</string>
+    <string name="team_members">Team Members</string>
+    <string name="pending_reviews">Pending Reviews</string>
+    <string name="recent_projects">Recent Projects</string>
+    <string name="view_all">View All</string>
+
+    <!-- Filters & Tabs -->
+    <string name="tab_all">All</string>
+    <string name="tab_active">Active</string>
+    <string name="tab_completed">Completed</string>
+    <string name="tab_on_hold">On Hold</string>
+    <string name="tab_today">Today</string>
+    <string name="tab_overdue">Overdue</string>
+    <string name="tab_upcoming">Upcoming</string>
+    <string name="tab_unread">Unread</string>
+
+    <!-- Common UI -->
+    <string name="search_projects_hint">Search projects…</string>
+    <string name="search_tasks_hint">Search tasks…</string>
+    <string name="search_members_hint">Search members…</string>
+    <string name="loading">Loading…</string>
+</resources>

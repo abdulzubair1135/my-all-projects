@@ -1,0 +1,140 @@
+/* Natural Mineral Design System for JavaFX Desktop App */
+
+.root {
+    -fx-font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -fx-background-color: #F4F2E9;
+    -fx-text-fill: #292D28;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #FAFAF7;
+    -fx-border-color: #E2E0D8;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 16 8 16 8;
+}
+
+.brand-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #292D28;
+}
+
+.brand-subtitle {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #78866B;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #5A6258;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #EFECE4;
+    -fx-text-fill: #292D28;
+}
+
+.nav-button.active {
+    -fx-background-color: #56664C;
+    -fx-text-fill: #F4F2E9;
+}
+
+/* Header */
+.top-header {
+    -fx-background-color: #FAFAF7;
+    -fx-border-color: #E2E0D8;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 24 12 24;
+}
+
+/* Cards & Surfaces */
+.card {
+    -fx-background-color: #FAFAF7;
+    -fx-border-color: #E2E0D8;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 16;
+}
+
+.card-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #78866B;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #292D28;
+}
+
+/* Buttons */
+.btn-primary {
+    -fx-background-color: #56664C;
+    -fx-text-fill: #F4F2E9;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #485640;
+}
+
+.btn-secondary {
+    -fx-background-color: #FAFAF7;
+    -fx-border-color: #E2E0D8;
+    -fx-border-width: 1;
+    -fx-text-fill: #5A6258;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #EFECE4;
+    -fx-text-fill: #292D28;
+}
+
+/* Table View */
+.table-view {
+    -fx-background-color: #FAFAF7;
+    -fx-border-color: #E2E0D8;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F4F2E9;
+    -fx-border-color: #E2E0D8;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #5A6258;
+    -fx-font-size: 11px;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #EFECE4;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #56664C;
+    -fx-text-fill: #F4F2E9;
+}

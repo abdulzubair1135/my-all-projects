@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootSplashLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F2E9"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 1. Background Video Animation View (720x1280 9:16 portrait) -->
+    <VideoView
+        android:id="@+id/videoViewSplash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <!-- 2. Seamless Cover: prevents native SurfaceView black flicker until video rendering actually begins -->
+    <View
+        android:id="@+id/vSplashCover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4F2E9" />
+
+    <!-- 3. Fallback Static Brand Container (in case of media driver failure) -->
+    <LinearLayout
+        android:id="@+id/llFallbackLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivSplashLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/brand_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tvBrandName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:letterSpacing="0.02"
+            android:text="@string/brand_name"
+            android:textColor="@color/charcoal"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 4. Subtle Bottom Loading Indicator -->
+    <LinearLayout
+        android:id="@+id/llBottomIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvLoadingStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initializing Intelligence Platform..."
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:letterSpacing="0.04" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="120dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="6dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/deep_sage" />
+    </LinearLayout>
+
+</RelativeLayout>

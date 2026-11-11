@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.projectflow'
+version = '2.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+def osName = System.getProperty("os.name").toLowerCase()
+def osClassifier = osName.contains("win") ? "win" : (osName.contains("mac") ? "mac" : "linux")
+
+dependencies {
+    implementation project(':shared-core')
+
+    // JavaFX 21
+    implementation "org.openjfx:javafx-base:21.0.4:${osClassifier}"
+    implementation "org.openjfx:javafx-graphics:21.0.4:${osClassifier}"
+    implementation "org.openjfx:javafx-controls:21.0.4:${osClassifier}"
+    implementation "org.openjfx:javafx-fxml:21.0.4:${osClassifier}"
+
+    // JSON handling
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
+
+    // SQLite Local Store
+    implementation 'org.xerial:sqlite-jdbc:3.45.1.0'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.13'
+    implementation 'org.slf4j:slf4j-simple:2.0.13'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+}
+
+application {
+    mainClass = 'com.projectflow.desktop.ProjectFlowDesktopApp'
+}
+
+test {
+    useJUnitPlatform()
+}

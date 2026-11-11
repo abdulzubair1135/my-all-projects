@@ -1,0 +1,102 @@
+package com.projectflow.core.model;
+
+import java.time.Instant;
+import java.util.UUID;
+
+public class Workspace {
+    private UUID id;
+    private UUID organizationId;
+    private String name;
+    private String description;
+    private String slug;
+    private UUID ownerId;
+    private boolean archived;
+    private Instant createdAt;
+    private Instant updatedAt;
+
+    public Workspace() {
+    }
+
+    public Workspace(UUID id, UUID organizationId, String name, String slug, UUID ownerId) {
+        this.id = id;
+        this.organizationId = organizationId;
+        this.name = name;
+        this.slug = slug;
+        this.ownerId = ownerId;
+        this.archived = false;
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(UUID organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public UUID getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(UUID ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+}

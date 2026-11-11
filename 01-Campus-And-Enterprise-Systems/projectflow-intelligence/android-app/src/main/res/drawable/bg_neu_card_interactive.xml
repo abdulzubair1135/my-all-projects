@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#1A795B43">
+    <item android:state_pressed="true" android:drawable="@drawable/bg_neu_card_pressed" />
+    <item android:drawable="@drawable/bg_neu_card" />
+</ripple>

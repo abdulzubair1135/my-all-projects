@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "965975814292",
+    "project_id": "smartexpenses-b262e",
+    "storage_bucket": "smartexpenses-b262e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965975814292:android:7e155379ddfb7c0c700481",
+        "android_client_info": {
+          "package_name": "com.smarttracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSy_your_gemini_api_key_here"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
