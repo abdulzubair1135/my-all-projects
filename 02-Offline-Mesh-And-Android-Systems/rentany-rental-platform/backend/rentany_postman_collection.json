@@ -1,0 +1,393 @@
+{
+  "info": {
+    "_postman_id": "rentany-backend-collection-uuid",
+    "name": "RentAny Production Backend API",
+    "description": "Postman Collection for RentAny Peer-to-Peer Rental Marketplace Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Rohan Patel\",\n  \"email\": \"rohanpatel@gmail.com\",\n  \"phone\": \"+919876543210\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"rohanpatel@gmail.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/refresh",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "refresh"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile Info (me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "me"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Listings",
+      "item": [
+        {
+          "name": "Get All Listings (Explore)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/listings?category=electronics&minPrice=100&maxPrice=2000&sort=newest&page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "listings"],
+              "query": [
+                { "key": "category", "value": "electronics" },
+                { "key": "minPrice", "value": "100" },
+                { "key": "maxPrice", "value": "2000" },
+                { "key": "sort", "value": "newest" },
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Nearby Listings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/listings/nearby?lat=23.0754&lng=72.5078&radius=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "listings", "nearby"],
+              "query": [
+                { "key": "lat", "value": "23.0754" },
+                { "key": "lng", "value": "72.5078" },
+                { "key": "radius", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Listing Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}",
+                "description": "Optional token for wishlist bookmark status"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/listings/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "listings", "1"]
+            }
+          }
+        },
+        {
+          "name": "Publish New Listing",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": 2,\n  \"title\": \"Custom Gaming Laptop\",\n  \"description\": \"Asus ROG Zephyrus G14 with RTX 4060, great for gaming and editing.\",\n  \"price_per_day\": 1000.00,\n  \"refundable_deposit\": 5000.00,\n  \"location_address\": \"Vastrapur Lake, Ahmedabad\",\n  \"city\": \"Ahmedabad\",\n  \"state\": \"Gujarat\",\n  \"country\": \"India\",\n  \"postal_code\": \"380015\",\n  \"latitude\": 23.0379,\n  \"longitude\": 72.5273,\n  \"attributes\": [\n    { \"name\": \"RAM\", \"value\": \"16GB\" },\n    { \"name\": \"GPU\", \"value\": \"RTX 4060\" }\n  ],\n  \"images\": [\n    \"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=500\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/listings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "listings"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listingId\": 1,\n  \"startDate\": \"2026-09-01\",\n  \"endDate\": \"2026-09-05\",\n  \"deliveryType\": \"Self Pickup\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings"]
+            }
+          }
+        },
+        {
+          "name": "Owner Confirm Booking",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/1/confirm",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "1", "confirm"]
+            }
+          }
+        },
+        {
+          "name": "Owner Handover Start",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/1/start",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "1", "start"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Conversations & Messages",
+      "item": [
+        {
+          "name": "Get Conversations List",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/chats/conversations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "chats", "conversations"]
+            }
+          }
+        },
+        {
+          "name": "Get Messages in Chat",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/chats/messages/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "chats", "messages", "1"]
+            }
+          }
+        },
+        {
+          "name": "Send Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversationId\": 1,\n  \"messageText\": \"Hey, is the item available for handover tomorrow?\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/chats/messages",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "chats", "messages"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Control Panel",
+      "item": [
+        {
+          "name": "Get KPI Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/dashboard",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "dashboard"]
+            }
+          }
+        },
+        {
+          "name": "Suspend User Account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Multiple reports of damaged item deliveries.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/3/suspend",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "3", "suspend"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "replace-with-login-access-token",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "replace-with-login-refresh-token",
+      "type": "string"
+    },
+    {
+      "key": "admin_access_token",
+      "value": "replace-with-admin-access-token",
+      "type": "string"
+    }
+  ]
+}

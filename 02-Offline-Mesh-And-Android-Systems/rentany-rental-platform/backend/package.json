@@ -1,0 +1,37 @@
+{
+  "name": "rentany-backend",
+  "version": "1.0.0",
+  "description": "Deployable REST API backend server for RentAny Peer-to-Peer Neighborhood Rental Marketplace App",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "db:init": "node src/db/migrate.js && node src/db/seed.js",
+    "test": "cross-env NODE_ENV=test mocha tests/**/*.test.js --exit"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.10.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.9.7",
+    "resend": "^6.20.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "mocha": "^10.4.0",
+    "supertest": "^6.3.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "private": true
+}

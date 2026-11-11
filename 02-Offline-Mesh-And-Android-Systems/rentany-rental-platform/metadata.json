@@ -1,0 +1,8 @@
+{
+  "name": "Remix RentAny",
+  "description": "Rent anything, anytime. A modern peer-to-peer neighborhood rental marketplace, offline-first with local data persistence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
