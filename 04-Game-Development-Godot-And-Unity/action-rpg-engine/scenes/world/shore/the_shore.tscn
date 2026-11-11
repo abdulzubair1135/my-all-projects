@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/shore/the_shore.gd" id="1_shore_script"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="4_death_screen"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="5_spawn"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="6_pause_screen"]
+[ext_resource type="Script" path="res://scripts/world/time/world_time.gd" id="7_time"]
+[ext_resource type="Script" path="res://scripts/world/seasons/season_manager.gd" id="8_season"]
+[ext_resource type="Script" path="res://scripts/world/weather/weather_manager.gd" id="9_weather"]
+[ext_resource type="Script" path="res://scripts/world/temperature/temperature_manager.gd" id="10_temp"]
+[ext_resource type="Script" path="res://scripts/world/lighting/world_lighting.gd" id="11_lighting"]
+[ext_resource type="Texture2D" path="res://assets/environment/weather_particles.png" id="12_weather_tex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_Notify"]
+font_size = 9
+font_color = Color(1, 0.9, 0.5, 1)
+outline_size = 2
+outline_color = Color(0.08, 0.08, 0.1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_Intro"]
+font_size = 14
+font_color = Color(0.9, 0.85, 0.95, 1)
+outline_size = 3
+outline_color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="TheShore" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_shore_script")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.88, 0.86, 0.82, 1)
+
+[node name="WorldTime" type="Node" parent="."]
+script = ExtResource("7_time")
+
+[node name="SeasonManager" type="Node" parent="."]
+script = ExtResource("8_season")
+
+[node name="WeatherManager" type="Node" parent="."]
+script = ExtResource("9_weather")
+
+[node name="TemperatureManager" type="Node" parent="."]
+script = ExtResource("10_temp")
+
+[node name="WorldLighting" type="Node" parent="." node_paths=PackedStringArray("canvas_modulate", "world_time", "season_manager", "weather_manager")]
+script = ExtResource("11_lighting")
+canvas_modulate = NodePath("../CanvasModulate")
+world_time = NodePath("../WorldTime")
+season_manager = NodePath("../SeasonManager")
+weather_manager = NodePath("../WeatherManager")
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Resources" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Wildlife" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpawnShore" type="Marker2D" parent="Spawns"]
+position = Vector2(540, 490)
+script = ExtResource("5_spawn")
+spawn_id = "spawn_shore"
+facing_direction = 1
+
+[node name="SpawnForest" type="Marker2D" parent="Spawns"]
+position = Vector2(1380, 480)
+script = ExtResource("5_spawn")
+spawn_id = "spawn_shore_forest"
+facing_direction = 2
+
+[node name="Player" parent="." instance=ExtResource("2_player_scene")]
+position = Vector2(540, 490)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud_scene")]
+
+[node name="NotificationLabel" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 22.0
+offset_right = 160.0
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "FIND SHELTER BEFORE NIGHTFALL"
+label_settings = SubResource("LabelSettings_Notify")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathScreen" parent="." instance=ExtResource("4_death_screen")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_pause_screen")]
+
+[node name="WeatherVFX" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="RainParticles" type="CPUParticles2D" parent="WeatherVFX"]
+emitting = false
+amount = 120
+lifetime = 0.7
+preprocess = 0.2
+speed_scale = 1.2
+texture = ExtResource("12_weather_tex")
+emission_shape = 3
+emission_rect_extents = Vector2(300, 10)
+direction = Vector2(-0.3, 1)
+spread = 5.0
+gravity = Vector2(0, 700)
+initial_velocity_min = 220.0
+initial_velocity_max = 280.0
+color = Color(0.8, 0.9, 1.0, 0.75)
+
+[node name="FogOverlay" type="ColorRect" parent="WeatherVFX"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.65, 0.72, 0.8, 0.22)
+
+[node name="IntroLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="ColorRect" type="ColorRect" parent="IntroLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.03, 0.05, 1)
+
+[node name="Center" type="CenterContainer" parent="IntroLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="IntroLayer/ColorRect/Center"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="IntroLabel" type="Label" parent="IntroLayer/ColorRect/Center/VBox"]
+layout_mode = 2
+text = "Salt."
+label_settings = SubResource("LabelSettings_Intro")
+horizontal_alignment = 1
+
+[node name="SkipPrompt" type="Label" parent="IntroLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -24.0
+offset_right = 100.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 7
+text = "[ Press SPACE or E to Skip ]"
+horizontal_alignment = 1

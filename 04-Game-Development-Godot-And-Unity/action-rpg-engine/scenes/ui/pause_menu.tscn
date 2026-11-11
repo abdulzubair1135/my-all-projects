@@ -1,0 +1,207 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_pause_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/save_slots.tscn" id="2_slots_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_menu.tscn" id="3_settings_scene"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_Header"]
+font_size = 14
+font_color = Color(0.85, 0.78, 0.9, 1)
+outline_size = 2
+outline_color = Color(0.08, 0.08, 0.1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_Btn"]
+bg_color = Color(0.16, 0.15, 0.22, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.35, 0.45, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_Notify"]
+font_size = 8
+font_color = Color(1, 0.88, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_Card"]
+bg_color = Color(0.12, 0.11, 0.16, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.32, 0.42, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 40
+script = ExtResource("1_pause_script")
+
+[node name="MenuPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.03, 0.06, 0.82)
+
+[node name="Center" type="CenterContainer" parent="MenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="MenuPanel/Center"]
+custom_minimum_size = Vector2(160, 180)
+layout_mode = 2
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="Title" type="Label" parent="MenuPanel/Center/VBox"]
+layout_mode = 2
+text = "ASHEN KINGDOM"
+label_settings = SubResource("LabelSettings_Header")
+horizontal_alignment = 1
+
+[node name="NotificationLabel" type="Label" parent="MenuPanel/Center/VBox"]
+visible = false
+layout_mode = 2
+text = "GAME SAVED"
+label_settings = SubResource("LabelSettings_Notify")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MenuPanel/Center/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ResumeBtn" type="Button" parent="MenuPanel/Center/VBox"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ RESUME ]"
+
+[node name="SaveBtn" type="Button" parent="MenuPanel/Center/VBox"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ SAVE GAME ]"
+
+[node name="LoadBtn" type="Button" parent="MenuPanel/Center/VBox"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ LOAD GAME ]"
+
+[node name="SettingsBtn" type="Button" parent="MenuPanel/Center/VBox"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ SETTINGS ]"
+
+[node name="MainMenuBtn" type="Button" parent="MenuPanel/Center/VBox"]
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ MAIN MENU ]"
+
+[node name="ConfirmDialog" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="ConfirmDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="Panel" type="PanelContainer" parent="ConfirmDialog"]
+custom_minimum_size = Vector2(230, 85)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -42.5
+offset_right = 115.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBox_Card")
+
+[node name="VBox" type="VBoxContainer" parent="ConfirmDialog/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="ConfirmDialog/Panel/VBox"]
+layout_mode = 2
+text = "Return to main menu?"
+label_settings = SubResource("LabelSettings_Notify")
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="ConfirmDialog/Panel/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 6
+
+[node name="CancelBtn" type="Button" parent="ConfirmDialog/Panel/VBox/HBox"]
+custom_minimum_size = Vector2(56, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "CANCEL"
+
+[node name="SaveExitBtn" type="Button" parent="ConfirmDialog/Panel/VBox/HBox"]
+custom_minimum_size = Vector2(74, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "SAVE & EXIT"
+
+[node name="NoSaveExitBtn" type="Button" parent="ConfirmDialog/Panel/VBox/HBox"]
+custom_minimum_size = Vector2(74, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "EXIT DIRECT"
+
+[node name="SaveSlotsMenu" parent="." instance=ExtResource("2_slots_scene")]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_settings_scene")]

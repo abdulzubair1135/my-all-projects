@@ -1,0 +1,11 @@
+.godot/
+*.translation
+export_presets.cfg
+.import/
+logs/
+*.log
+*.tmp
+node_modules/
+dist/
+build/
+.env

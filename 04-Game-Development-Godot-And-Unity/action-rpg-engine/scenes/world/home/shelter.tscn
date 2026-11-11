@@ -1,0 +1,193 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/shelter.gd" id="1_shelter_script"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="4_death_screen"]
+[ext_resource type="Texture2D" path="res://assets/tiles/test_tiles.png" id="5_tiles"]
+[ext_resource type="Texture2D" path="res://assets/environment/light_radial.png" id="6_light"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="7_spawn"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="8_interactable"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="9_pause_screen"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bed"]
+size = Vector2(26, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hearth"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bench"]
+size = Vector2(24, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trigger"]
+radius = 24.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_Notify"]
+font_size = 9
+font_color = Color(1, 0.9, 0.5, 1)
+outline_size = 2
+outline_color = Color(0.08, 0.08, 0.1, 1)
+
+[node name="Shelter" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_shelter_script")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.28, 0.25, 0.32, 1)
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Bed" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(80, 80)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Bed"]
+texture = ExtResource("5_tiles")
+region_enabled = true
+region_rect = Rect2(64, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Bed"]
+shape = SubResource("RectangleShape2D_bed")
+
+[node name="Fireplace" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(240, 64)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Fireplace"]
+texture = ExtResource("5_tiles")
+region_enabled = true
+region_rect = Rect2(96, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Fireplace"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_hearth")
+
+[node name="PointLight2D" type="PointLight2D" parent="Obstacles/Fireplace"]
+position = Vector2(0, -6)
+color = Color(1, 0.72, 0.38, 1)
+energy = 1.15
+texture = ExtResource("6_light")
+texture_scale = 2.2
+
+[node name="Chest" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(380, 80)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Chest"]
+texture = ExtResource("5_tiles")
+region_enabled = true
+region_rect = Rect2(64, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Chest"]
+shape = SubResource("RectangleShape2D_chest")
+
+[node name="Workbench" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(400, 200)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Workbench"]
+texture = ExtResource("5_tiles")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Workbench"]
+shape = SubResource("RectangleShape2D_bench")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="BedInteractable" type="Area2D" parent="Interactables"]
+position = Vector2(80, 80)
+script = ExtResource("8_interactable")
+prompt_text = "E — Rest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BedInteractable"]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="HearthInteractable" type="Area2D" parent="Interactables"]
+position = Vector2(240, 64)
+script = ExtResource("8_interactable")
+prompt_text = "E — Warm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/HearthInteractable"]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="ChestInteractable" type="Area2D" parent="Interactables"]
+position = Vector2(380, 80)
+script = ExtResource("8_interactable")
+prompt_text = "E — Storage (Coming Soon)"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ChestInteractable"]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="BenchInteractable" type="Area2D" parent="Interactables"]
+position = Vector2(400, 200)
+script = ExtResource("8_interactable")
+prompt_text = "E — Workbench (Coming Soon)"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BenchInteractable"]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="ExitDoorInteractable" type="Area2D" parent="Interactables"]
+position = Vector2(240, 360)
+script = ExtResource("8_interactable")
+prompt_text = "E — Enter Courtyard"
+prompt_offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ExitDoorInteractable"]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="ShoreDoorInteractable" type="Area2D" parent="Interactables"]
+position = Vector2(48, 200)
+script = ExtResource("8_interactable")
+prompt_text = "E — Follow Trail to Shore"
+prompt_offset = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/ShoreDoorInteractable"]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpawnHome" type="Marker2D" parent="Spawns"]
+position = Vector2(120, 110)
+script = ExtResource("7_spawn")
+spawn_id = "spawn_home"
+
+[node name="SpawnDoor" type="Marker2D" parent="Spawns"]
+position = Vector2(240, 330)
+script = ExtResource("7_spawn")
+spawn_id = "spawn_home_entrance"
+facing_direction = 1
+
+[node name="Player" parent="." instance=ExtResource("2_player_scene")]
+position = Vector2(120, 110)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud_scene")]
+
+[node name="NotificationLabel" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 24.0
+offset_right = 150.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "RESTED & SAVED"
+label_settings = SubResource("LabelSettings_Notify")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathScreen" parent="." instance=ExtResource("4_death_screen")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_pause_screen")]

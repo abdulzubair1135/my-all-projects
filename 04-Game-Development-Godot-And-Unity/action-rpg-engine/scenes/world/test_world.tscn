@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/test_world.gd" id="1_world_script"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="4_death_screen"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="5_spawn"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="6_pause_screen"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_Notify"]
+font_size = 9
+font_color = Color(1, 0.9, 0.5, 1)
+outline_size = 2
+outline_color = Color(0.08, 0.08, 0.1, 1)
+
+[node name="TestWorld" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_world_script")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.24, 0.24, 0.32, 1)
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpawnCourtyard" type="Marker2D" parent="Spawns"]
+position = Vector2(416, 288)
+script = ExtResource("5_spawn")
+spawn_id = "spawn_courtyard"
+
+[node name="SpawnShelterDoor" type="Marker2D" parent="Spawns"]
+position = Vector2(416, 64)
+script = ExtResource("5_spawn")
+spawn_id = "spawn_courtyard_shelter_door"
+
+[node name="Player" parent="." instance=ExtResource("2_player_scene")]
+position = Vector2(416, 288)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud_scene")]
+
+[node name="NotificationLabel" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 24.0
+offset_right = 150.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "GAME SAVED"
+label_settings = SubResource("LabelSettings_Notify")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathScreen" parent="." instance=ExtResource("4_death_screen")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_pause_screen")]

@@ -1,0 +1,290 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/save_slots.gd" id="1_slots_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_Title"]
+font_size = 14
+font_color = Color(0.9, 0.82, 0.95, 1)
+outline_size = 2
+outline_color = Color(0.08, 0.08, 0.1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_Card"]
+bg_color = Color(0.12, 0.11, 0.16, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.32, 0.42, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_SlotName"]
+font_size = 9
+font_color = Color(1, 0.85, 0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_SlotDetails"]
+font_size = 7
+font_color = Color(0.7, 0.72, 0.78, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_Btn"]
+bg_color = Color(0.2, 0.18, 0.25, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.4, 0.5, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="SaveSlotsMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 45
+script = ExtResource("1_slots_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.04, 0.07, 0.9)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+custom_minimum_size = Vector2(320, 220)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SAVE SLOTS"
+label_settings = SubResource("LabelSettings_Title")
+horizontal_alignment = 1
+
+[node name="SlotsContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Slot1" type="PanelContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer"]
+custom_minimum_size = Vector2(320, 42)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_Card")
+
+[node name="Margin" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBox" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin"]
+layout_mode = 2
+
+[node name="InfoBox" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlotTitle" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin/HBox/InfoBox"]
+layout_mode = 2
+text = "SLOT 1"
+label_settings = SubResource("LabelSettings_SlotName")
+
+[node name="InfoLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin/HBox/InfoBox"]
+layout_mode = 2
+text = "EMPTY SLOT"
+label_settings = SubResource("LabelSettings_SlotDetails")
+
+[node name="Buttons" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionBtn" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin/HBox/Buttons"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ LOAD ]"
+
+[node name="DeleteBtn" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot1/Margin/HBox/Buttons"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ DEL ]"
+
+[node name="Slot2" type="PanelContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer"]
+custom_minimum_size = Vector2(320, 42)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_Card")
+
+[node name="Margin" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBox" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin"]
+layout_mode = 2
+
+[node name="InfoBox" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlotTitle" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin/HBox/InfoBox"]
+layout_mode = 2
+text = "SLOT 2"
+label_settings = SubResource("LabelSettings_SlotName")
+
+[node name="InfoLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin/HBox/InfoBox"]
+layout_mode = 2
+text = "EMPTY SLOT"
+label_settings = SubResource("LabelSettings_SlotDetails")
+
+[node name="Buttons" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionBtn" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin/HBox/Buttons"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ LOAD ]"
+
+[node name="DeleteBtn" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot2/Margin/HBox/Buttons"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ DEL ]"
+
+[node name="Slot3" type="PanelContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer"]
+custom_minimum_size = Vector2(320, 42)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_Card")
+
+[node name="Margin" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBox" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin"]
+layout_mode = 2
+
+[node name="InfoBox" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlotTitle" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin/HBox/InfoBox"]
+layout_mode = 2
+text = "SLOT 3"
+label_settings = SubResource("LabelSettings_SlotName")
+
+[node name="InfoLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin/HBox/InfoBox"]
+layout_mode = 2
+text = "EMPTY SLOT"
+label_settings = SubResource("LabelSettings_SlotDetails")
+
+[node name="Buttons" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionBtn" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin/HBox/Buttons"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ LOAD ]"
+
+[node name="DeleteBtn" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/SlotsContainer/Slot3/Margin/HBox/Buttons"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ DEL ]"
+
+[node name="BackButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ BACK ]"
+
+[node name="ConfirmDialog" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="ConfirmDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Panel" type="PanelContainer" parent="ConfirmDialog"]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -35.0
+offset_right = 90.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBox_Card")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmDialog/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="ConfirmDialog/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Delete this save?"
+label_settings = SubResource("LabelSettings_SlotDetails")
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="ConfirmDialog/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="CancelBtn" type="Button" parent="ConfirmDialog/Panel/VBoxContainer/HBox"]
+custom_minimum_size = Vector2(60, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "CANCEL"
+
+[node name="DeleteBtn" type="Button" parent="ConfirmDialog/Panel/VBoxContainer/HBox"]
+custom_minimum_size = Vector2(60, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "DELETE"

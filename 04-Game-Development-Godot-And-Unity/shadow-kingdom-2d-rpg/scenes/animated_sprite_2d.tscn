@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://dri6wchfr2v55"]
+
+[ext_resource type="Texture2D" path="res://ShadowKingdom/pixel art/rpg_character.png" id="1_char"]
+
+[sub_resource type="AtlasTexture" id="down_idle"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="down_0"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="down_1"]
+atlas = ExtResource("1_char")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="down_2"]
+atlas = ExtResource("1_char")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="down_3"]
+atlas = ExtResource("1_char")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="up_idle"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="up_0"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="up_1"]
+atlas = ExtResource("1_char")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="up_2"]
+atlas = ExtResource("1_char")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="up_3"]
+atlas = ExtResource("1_char")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="left_idle"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="left_0"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="left_1"]
+atlas = ExtResource("1_char")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="left_2"]
+atlas = ExtResource("1_char")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="left_3"]
+atlas = ExtResource("1_char")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="right_idle"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="right_0"]
+atlas = ExtResource("1_char")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="right_1"]
+atlas = ExtResource("1_char")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="right_2"]
+atlas = ExtResource("1_char")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="right_3"]
+atlas = ExtResource("1_char")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_new"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("up_idle")
+}],
+"loop": true,
+"name": &"back idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("up_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("up_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("up_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("up_3")
+}],
+"loop": true,
+"name": &"back run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("down_idle")
+}],
+"loop": true,
+"name": &"front idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("down_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("down_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("down_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("down_3")
+}],
+"loop": true,
+"name": &"front run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("left_idle")
+}],
+"loop": true,
+"name": &"left idel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("left_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("left_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("left_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("left_3")
+}],
+"loop": true,
+"name": &"left run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("right_idle")
+}],
+"loop": true,
+"name": &"right idel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("right_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("right_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("right_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("right_3")
+}],
+"loop": true,
+"name": &"right run",
+"speed": 6.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=969300743]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_new")
+animation = &"front idle"

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cx043v8588qkp"]
+
+[ext_resource type="Script" uid="uid://sckrybxt2nfj" path="res://player.gd" id="1_getpj"]
+[ext_resource type="PackedScene" uid="uid://dri6wchfr2v55" path="res://scenes/animated_sprite_2d.tscn" id="2_0xm2m"]
+
+[node name="player" type="CharacterBody2D" unique_id=1870647806]
+script = ExtResource("1_getpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777089627]
+scale = Vector2(0.20000002, 0.20000002)
+
+[node name="AnimatedSprite2D" parent="." unique_id=969300743 instance=ExtResource("2_0xm2m")]

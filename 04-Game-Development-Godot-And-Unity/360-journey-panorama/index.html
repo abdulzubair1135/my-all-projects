@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Highway Virtual Driving Adventure</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Three.js 3D Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- WebGL Render Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- Background Video Element for Long Highway Driving Tours -->
+  <video id="drive-video" loop crossorigin="anonymous" playsinline style="display:none;"></video>
+
+  <!-- UI & Telemetry Overlay -->
+  <div id="ui-layer">
+    
+    <!-- Top Header Navigation -->
+    <header class="interactive">
+      <div class="brand-container">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <span class="brand-title">INDIAN HIGHWAY ADVENTURE</span>
+        <span class="badge-live">SIMULATOR</span>
+      </div>
+
+      <div class="top-controls">
+        <!-- Vehicle Selector Dropdown -->
+        <select id="vehicle-select" class="btn-icon active" style="background: rgba(0,242,254,0.15); border-color: var(--accent-cyan); color: #fff; cursor: pointer; outline: none;">
+          <option value="thar">🚙 Mahindra Thar 4x4 SUV</option>
+          <option value="sedan">🏎️ V8 Sports Sedan</option>
+          <option value="cruiser">🚗 Highway Cruiser</option>
+        </select>
+
+        <button id="btn-view-mode" class="btn-icon">
+          🎥 View: 1st Person (Cockpit)
+        </button>
+        <button id="btn-vr-mode" class="btn-icon">
+          🥽 WebXR VR
+        </button>
+        <button id="btn-reset-cam" class="btn-icon">
+          🔄 Reset View
+        </button>
+        <button id="btn-audio" class="btn-icon">
+          🔊 Sound Engine
+        </button>
+      </div>
+    </header>
+
+    <!-- Active Route Card & Pit Stop Task Box -->
+    <div class="route-card interactive">
+      <div class="route-header">
+        <span class="route-title">🛣️ Select Highway Route</span>
+        <span class="badge-live" id="vehicle-badge">THAR 4x4</span>
+      </div>
+
+      <!-- Real Indian Highway Tour Selector -->
+      <select id="tour-select" class="route-selector" style="width: 100%; padding: 10px; margin-bottom: 12px; font-size: 0.85rem; border-radius: 8px; background: rgba(0,0,0,0.7); border: 1px solid var(--panel-border);">
+        <option value="ahmedabad-mumbai">🇮🇳 Ahmedabad → Mumbai Expressway (NH 48 - 530 km)</option>
+        <option value="mumbai-pune">🇮🇳 Mumbai → Pune Expressway (150 km)</option>
+        <option value="bengaluru-mysore">🇮🇳 Bengaluru → Mysore Highway (140 km)</option>
+        <option value="delhi-agra">🇮🇳 Delhi → Agra Yamuna Expressway (210 km)</option>
+      </select>
+
+      <!-- GPS Mini-Map Canvas Radar -->
+      <div style="position: relative; width: 100%; height: 90px; background: #05080e; border: 1px solid var(--panel-border); border-radius: 8px; overflow: hidden; margin-bottom: 10px;">
+        <canvas id="minimap-canvas" width="280" height="90" style="width: 100%; height: 100%; display: block;"></canvas>
+        <div style="position: absolute; bottom: 4px; left: 8px; font-size: 0.65rem; font-family: var(--font-mono); color: var(--accent-cyan);" id="nav-info">
+          GPS NAV ➔ NH 48 Expressway (530 km)
+        </div>
+      </div>
+
+      <!-- Route Info -->
+      <div class="route-waypoints">
+        <div class="waypoint-node">
+          <span class="waypoint-city" id="route-city-from">Ahmedabad</span>
+          <span class="waypoint-label">START TRIP</span>
+        </div>
+        <div class="waypoint-arrow">➔</div>
+        <div class="waypoint-node">
+          <span class="waypoint-city" id="route-city-to">Mumbai</span>
+          <span class="waypoint-label">DESTINATION</span>
+        </div>
+      </div>
+
+      <div class="progress-bar-container">
+        <div id="route-progress-fill" class="progress-bar-fill"></div>
+      </div>
+
+      <div class="route-meta">
+        <span>TRIP PROGRESS</span>
+        <span id="route-distance">530 km</span>
+      </div>
+
+      <!-- Interactive Pit-Stop Task Notification Banner -->
+      <div id="pitstop-banner" style="display: none; margin-top: 10px; padding: 8px 12px; background: rgba(255, 183, 3, 0.2); border: 1px solid var(--accent-amber); border-radius: 8px; font-size: 0.75rem; text-align: center; color: var(--accent-amber);">
+        ⚠️ <strong>TOLL PLAZA AHEAD!</strong> Press <span class="key-badge">SPACE</span> for FASTag Scan!
+      </div>
+    </div>
+
+    <!-- Center Windshield Sight HUD -->
+    <div class="center-hud">
+      <div class="crosshair"></div>
+      <div class="look-hint">PRESS W TO ACCELERATE | S TO BRAKE | A/D STEER</div>
+    </div>
+
+    <!-- Cockpit Telemetry Dashboard Bottom -->
+    <div class="telemetry-dashboard interactive">
+      <!-- Speedometer -->
+      <div class="gauge-block">
+        <div id="speed-display" class="speedometer-value">000</div>
+        <div class="speedometer-unit">KM / H</div>
+      </div>
+
+      <!-- Gear Indicator -->
+      <div class="gauge-block">
+        <div id="gear-display" class="gear-display">N</div>
+        <div class="speedometer-unit">GEAR</div>
+      </div>
+
+      <!-- RPM Tachometer -->
+      <div class="rpm-container">
+        <div class="rpm-label">ENGINE RPM</div>
+        <div class="rpm-bar">
+          <div id="rpm-fill" class="rpm-fill"></div>
+        </div>
+      </div>
+
+      <!-- Key Prompts -->
+      <div class="control-prompts">
+        <div class="prompt-item"><span class="key-badge">W / ↑</span> Accelerate</div>
+        <div class="prompt-item"><span class="key-badge">S / ↓</span> Brake</div>
+        <div class="prompt-item"><span class="key-badge">SPACE</span> Handbrake</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome / Controls Start Modal -->
+  <div id="modal-overlay" class="modal-overlay active">
+    <div class="modal-content interactive">
+      <h2 class="modal-title">Indian Highway Virtual Drive Adventure</h2>
+      <p class="modal-text">
+        Pick your car (Thar 4x4 / Sports Sedan / Highway Cruiser) and drive non-stop along <strong>Ahmedabad → Mumbai</strong>, <strong>Mumbai → Pune</strong>, or <strong>Bengaluru → Mysore</strong>! Hold W to accelerate, rev the engine, and complete highway tasks!
+      </p>
+
+      <div class="control-grid">
+        <div class="control-card">
+          <span class="key-badge">W / ↑</span> Accelerate Vehicle
+        </div>
+        <div class="control-card">
+          <span class="key-badge">S / ↓</span> Apply Brakes
+        </div>
+        <div class="control-card">
+          <span class="key-badge">MOUSE DRAG</span> 360° Free Look
+        </div>
+        <div class="control-card">
+          <span class="key-badge">A / D</span> Steering Wheel
+        </div>
+      </div>
+
+      <button id="btn-start-drive" class="btn-primary" onclick="document.getElementById('modal-overlay').style.display='none'; document.getElementById('modal-overlay').classList.remove('active');">
+        START HIGHWAY ADVENTURE 🚀
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

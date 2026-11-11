@@ -1,0 +1,150 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1k4m8n2b5v9y"]
+
+[ext_resource type="Script" path="res://scripts/ui/soldier_creator_controller.gd" id="1_creator"]
+[ext_resource type="Theme" uid="uid://df7h2k9m8j4r1" path="res://assets/warforge_theme.tres" id="2_theme"]
+
+[node name="SoldierCreator" type="Node3D"]
+script = ExtResource("1_creator")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 5, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.0, 3.8)
+current = true
+fov = 40.0
+
+[node name="PreviewRoot" type="Node3D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_theme")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+text = "🛡️ SOLDIER CREATOR"
+horizontal_alignment = 1
+
+[node name="LabelArchetype" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "👑 Class Archetype:"
+
+[node name="ArchetypeOption" type="OptionButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+
+[node name="NameEdit" type="LineEdit" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+placeholder_text = "Soldier Name"
+
+[node name="LabelWeapon" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "🗡️ Weapon:"
+
+[node name="WeaponOption" type="OptionButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+
+[node name="LabelArmor" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "🎽 Armor:"
+
+[node name="ArmorOption" type="OptionButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+
+[node name="LabelHelmet" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "🪖 Helmet:"
+
+[node name="HelmetOption" type="OptionButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+
+[node name="LabelShield" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "🛡️ Shield:"
+
+[node name="ShieldOption" type="OptionButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+
+[node name="ColorGrid" type="HBoxContainer" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PrimaryColor" type="ColorPickerButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer/ColorGrid"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🎨 Primary"
+
+[node name="SecondaryColor" type="ColorPickerButton" parent="UI/PanelContainer/ScrollContainer/VBoxContainer/ColorGrid"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "✨ Secondary"
+
+[node name="HSeparator" type="HSeparator" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CostLabel" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 18
+text = "Unit Cost: 0 Points"
+
+[node name="StatsLabel" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.85, 0.9, 1)
+text = "Stats..."
+
+[node name="StatusLabel" type="Label" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+
+[node name="BtnSave" type="Button" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "💾 SAVE SOLDIER"
+
+[node name="BtnBack" type="Button" parent="UI/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "MENU"
+
+[connection signal="pressed" from="UI/PanelContainer/ScrollContainer/VBoxContainer/BtnSave" to="." method="save_soldier"]
+[connection signal="pressed" from="UI/PanelContainer/ScrollContainer/VBoxContainer/BtnBack" to="." method="return_to_menu"]

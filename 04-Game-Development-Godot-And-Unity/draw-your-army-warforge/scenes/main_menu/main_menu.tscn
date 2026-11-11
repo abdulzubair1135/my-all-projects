@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6x7j2v1m9op4"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu_controller.gd" id="1_menu"]
+[ext_resource type="Theme" uid="uid://df7h2k9m8j4r1" path="res://assets/warforge_theme.tres" id="2_theme"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.08, 0.12, 1)
+
+[node name="DecorPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -280.0
+offset_right = 300.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DecorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DecorPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="DecorPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.78, 0.28, 1)
+theme_override_font_sizes/font_size = 32
+text = "WARFORGE"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="DecorPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.65, 0.78, 1)
+theme_override_font_sizes/font_size = 14
+text = "DRAW YOUR ARMY • AUTONOMOUS BATTLES"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DecorPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnPractice" type="Button" parent="DecorPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "⚔️ BATTLE PRACTICE"
+
+[node name="BtnWorkshop" type="Button" parent="DecorPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "✍️ DRAW ARMY WORKSHOP"
+
+[node name="BtnCreator" type="Button" parent="DecorPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "🛡️ SOLDIER CREATOR"
+
+[node name="BtnSettings" type="Button" parent="DecorPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "⚙️ SETTINGS"
+
+[node name="BtnExit" type="Button" parent="DecorPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "EXIT GAME"

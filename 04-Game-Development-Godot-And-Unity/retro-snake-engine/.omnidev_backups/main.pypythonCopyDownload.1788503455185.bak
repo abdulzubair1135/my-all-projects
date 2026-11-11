@@ -1,0 +1,575 @@
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
+from typing import List, Dict, Optional
+import random
+import json
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="Snake Game API", description="Full-stack Snake Game with leaderboard")
+
+# Enable CORS for development
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Game state storage
+class GameState:
+    def __init__(self):
+        self.board_size = 20
+        self.snake = [(10, 10), (9, 10), (8, 10)]
+        self.direction = "RIGHT"
+        self.food = None
+        self.score = 0
+        self.game_over = False
+        self.won = False
+        self.spawn_food()
+    
+    def spawn_food(self):
+        """Spawn food at random position not occupied by snake"""
+        while True:
+            x = random.randint(0, self.board_size - 1)
+            y = random.randint(0, self.board_size - 1)
+            if (x, y) not in self.snake:
+                self.food = (x, y)
+                break
+    
+    def move(self):
+        """Move snake one step in current direction"""
+        if self.game_over or self.won:
+            return
+        
+        head = self.snake[0]
+        new_head = None
+        
+        if self.direction == "UP":
+            new_head = (head[0], head[1] - 1)
+        elif self.direction == "DOWN":
+            new_head = (head[0], head[1] + 1)
+        elif self.direction == "LEFT":
+            new_head = (head[0] - 1, head[1])
+        elif self.direction == "RIGHT":
+            new_head = (head[0] + 1, head[1])
+        
+        # Check wall collision
+        if (new_head[0] < 0 or new_head[0] >= self.board_size or 
+            new_head[1] < 0 or new_head[1] >= self.board_size):
+            self.game_over = True
+            return
+        
+        # Check self collision
+        if new_head in self.snake:
+            self.game_over = True
+            return
+        
+        # Move snake
+        self.snake.insert(0, new_head)
+        
+        # Check food collision
+        if new_head == self.food:
+            self.score += 1
+            if len(self.snake) == self.board_size * self.board_size:
+                self.won = True
+            else:
+                self.spawn_food()
+        else:
+            self.snake.pop()
+    
+    def change_direction(self, new_direction):
+        """Change snake direction with validation"""
+        opposites = {"UP": "DOWN", "DOWN": "UP", "LEFT": "RIGHT", "RIGHT": "LEFT"}
+        if new_direction in opposites and opposites[new_direction] != self.direction:
+            self.direction = new_direction
+        elif new_direction not in opposites:
+            self.direction = new_direction
+
+# In-memory game sessions and leaderboard
+games: Dict[str, GameState] = {}
+leaderboard: List[Dict] = []
+
+class MoveRequest(BaseModel):
+    game_id: str
+    direction: str
+
+class GameResponse(BaseModel):
+    game_id: str
+    board: List[List[int]]
+    snake: List[List[int]]
+    food: List[int]
+    score: int
+    game_over: bool
+    won: bool
+
+@app.get("/", response_class=HTMLResponse)
+async def get_game():
+    """Serve the main game HTML page"""
+    html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🐍 Snake Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        .game-cell {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            transition: all 0.1s ease;
+        }
+        .snake-head { background: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.5); }
+        .snake-body { background: #34d399; }
+        .food-cell { background: #ef4444; animation: pulse 1s infinite; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.85); }
+        }
+        .board-container {
+            background: #1f2937;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .control-btn {
+            background: #374151;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+            touch-action: manipulation;
+            min-width: 70px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .control-btn:active {
+            transform: scale(0.92);
+            background: #4b5563;
+        }
+        .control-btn:hover:not(:active) {
+            background: #4b5563;
+        }
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: #374151;
+            margin-bottom: 6px;
+        }
+        .score-badge {
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        @media (max-width: 640px) {
+            .control-btn { min-width: 60px; padding: 14px; font-size: 20px; }
+            .board-container { padding: 8px; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Main Game Board -->
+            <div class="lg:col-span-2 flex flex-col items-center">
+                <div class="flex items-center justify-between w-full mb-4 px-2">
+                    <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">
+                        🐍 Snake
+                    </h1>
+                    <div class="flex items-center gap-6">
+                        <div class="text-white text-xl font-bold">
+                            Score: <span id="scoreDisplay" class="text-emerald-400">0</span>
+                        </div>
+                        <button id="newGameBtn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-6 rounded-xl transition shadow-lg hover:shadow-emerald-500/30">
+                            New Game
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="board-container w-full max-w-[500px]">
+                    <div id="gameBoard" class="grid gap-1" style="grid-template-columns: repeat(20, 1fr);">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+                
+                <!-- Mobile Controls -->
+                <div class="mt-6 grid grid-cols-3 gap-2 max-w-[300px] w-full">
+                    <div></div>
+                    <button class="control-btn" data-dir="UP">⬆</button>
+                    <div></div>
+                    <button class="control-btn" data-dir="LEFT">⬅</button>
+                    <button class="control-btn" data-dir="DOWN">⬇</button>
+                    <button class="control-btn" data-dir="RIGHT">➡</button>
+                </div>
+                
+                <!-- Keyboard hint -->
+                <p class="text-gray-400 text-sm mt-4">Use arrow keys or WASD to play</p>
+            </div>
+            
+            <!-- Sidebar: Leaderboard & Status -->
+            <div class="lg:col-span-1 flex flex-col gap-4">
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                    <h2 class="text-xl font-bold text-white mb-4">🏆 Leaderboard</h2>
+                    <div id="leaderboardList" class="space-y-1">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                    <h2 class="text-xl font-bold text-white mb-2">Game Status</h2>
+                    <div id="gameStatus" class="text-gray-300">Playing...</div>
+                    <div id="gameMessage" class="text-2xl font-bold mt-2"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // ==================== STATE ====================
+        const BOARD_SIZE = 20;
+        let gameId = null;
+        let gameLoopInterval = null;
+        let isGameOver = false;
+        let isWon = false;
+        let currentScore = 0;
+
+        // DOM refs
+        const boardEl = document.getElementById('gameBoard');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const gameStatus = document.getElementById('gameStatus');
+        const gameMessage = document.getElementById('gameMessage');
+        const leaderboardList = document.getElementById('leaderboardList');
+
+        // ==================== API HELPERS ====================
+        async function apiFetch(endpoint, options = {}) {
+            const res = await fetch(endpoint, {
+                ...options,
+                headers: { 'Content-Type': 'application/json', ...options.headers },
+            });
+            if (!res.ok) throw new Error(`API error: ${res.status}`);
+            return res.json();
+        }
+
+        async function newGame() {
+            try {
+                const data = await apiFetch('/api/new_game', { method: 'POST' });
+                gameId = data.game_id;
+                isGameOver = false;
+                isWon = false;
+                currentScore = 0;
+                updateGameStatus('Playing...', '');
+                clearInterval(gameLoopInterval);
+                startGameLoop();
+                await renderBoard();
+                await loadLeaderboard();
+            } catch (err) {
+                console.error('New game error:', err);
+            }
+        }
+
+        async function makeMove(direction) {
+            if (!gameId || isGameOver || isWon) return;
+            try {
+                const data = await apiFetch('/api/move', {
+                    method: 'POST',
+                    body: JSON.stringify({ game_id: gameId, direction }),
+                });
+                await renderBoard(data);
+                if (data.game_over) {
+                    isGameOver = true;
+                    updateGameStatus('💀 Game Over', `Score: ${data.score}`);
+                    clearInterval(gameLoopInterval);
+                    await loadLeaderboard();
+                } else if (data.won) {
+                    isWon = true;
+                    updateGameStatus('🎉 You Won!', `Perfect Score: ${data.score}`);
+                    clearInterval(gameLoopInterval);
+                    await loadLeaderboard();
+                } else {
+                    currentScore = data.score;
+                    scoreDisplay.textContent = data.score;
+                }
+            } catch (err) {
+                console.error('Move error:', err);
+            }
+        }
+
+        async function renderBoard(state = null) {
+            if (!state) {
+                // Fetch current state
+                if (!gameId) return;
+                try {
+                    const data = await apiFetch(`/api/state/${gameId}`);
+                    state = data;
+                } catch (err) {
+                    console.error('Render error:', err);
+                    return;
+                }
+            }
+            
+            // Build board grid
+            const board = state.board;
+            boardEl.innerHTML = '';
+            for (let row of board) {
+                for (let cell of row) {
+                    const div = document.createElement('div');
+                    div.className = 'game-cell';
+                    if (cell === 1) div.classList.add('snake-body');
+                    else if (cell === 2) div.classList.add('snake-head');
+                    else if (cell === 3) div.classList.add('food-cell');
+                    else div.style.background = '#2d3748';
+                    boardEl.appendChild(div);
+                }
+            }
+            
+            // Update score
+            currentScore = state.score;
+            scoreDisplay.textContent = state.score;
+            isGameOver = state.game_over;
+            isWon = state.won;
+            
+            if (state.game_over) {
+                updateGameStatus('💀 Game Over', `Score: ${state.score}`);
+                clearInterval(gameLoopInterval);
+            } else if (state.won) {
+                updateGameStatus('🎉 You Won!', `Perfect Score: ${state.score}`);
+                clearInterval(gameLoopInterval);
+            }
+        }
+
+        function updateGameStatus(status, msg) {
+            gameStatus.textContent = status;
+            gameMessage.textContent = msg || '';
+        }
+
+        async function loadLeaderboard() {
+            try {
+                const data = await apiFetch('/api/leaderboard');
+                const scores = data.scores || [];
+                leaderboardList.innerHTML = '';
+                if (scores.length === 0) {
+                    leaderboardList.innerHTML = '<div class="text-gray-500 text-sm">No scores yet</div>';
+                    return;
+                }
+                scores.slice(0, 10).forEach((entry, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'leaderboard-item';
+                    div.innerHTML = `
+                        <span class="text-white font-semibold">#${idx+1}</span>
+                        <span class="text-gray-300">${entry.score}</span>
+                        <span class="text-gray-400 text-sm">${new Date(entry.date).toLocaleDateString()}</span>
+                    `;
+                    leaderboardList.appendChild(div);
+                });
+            } catch (err) {
+                console.error('Leaderboard error:', err);
+            }
+        }
+
+        // ==================== GAME LOOP ====================
+        function startGameLoop() {
+            if (gameLoopInterval) clearInterval(gameLoopInterval);
+            gameLoopInterval = setInterval(async () => {
+                if (!gameId || isGameOver || isWon) return;
+                // Auto-move in current direction
+                try {
+                    const data = await apiFetch('/api/auto_move', {
+                        method: 'POST',
+                        body: JSON.stringify({ game_id: gameId }),
+                    });
+                    await renderBoard(data);
+                    if (data.game_over || data.won) {
+                        clearInterval(gameLoopInterval);
+                        await loadLeaderboard();
+                    }
+                } catch (err) {
+                    console.error('Auto-move error:', err);
+                }
+            }, 200);
+        }
+
+        // ==================== EVENT LISTENERS ====================
+        // Keyboard
+        document.addEventListener('keydown', (e) => {
+            const key = e.key;
+            const dirMap = {
+                'ArrowUp': 'UP', 'w': 'UP', 'W': 'UP',
+                'ArrowDown': 'DOWN', 's': 'DOWN', 'S': 'DOWN',
+                'ArrowLeft': 'LEFT', 'a': 'LEFT', 'A': 'LEFT',
+                'ArrowRight': 'RIGHT', 'd': 'RIGHT', 'D': 'RIGHT',
+            };
+            if (key in dirMap) {
+                e.preventDefault();
+                makeMove(dirMap[key]);
+            }
+        });
+
+        // Mobile control buttons
+        document.querySelectorAll('[data-dir]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dir = btn.dataset.dir;
+                makeMove(dir);
+            });
+        });
+
+        // New Game button
+        document.getElementById('newGameBtn').addEventListener('click', newGame);
+
+        // ==================== INIT ====================
+        async function init() {
+            await newGame();
+            // Load leaderboard periodically
+            setInterval(loadLeaderboard, 5000);
+        }
+
+        init();
+    </script>
+</body>
+</html>
+    """
+    return HTMLResponse(content=html_content)
+
+# ==================== API ENDPOINTS ====================
+
+@app.post("/api/new_game")
+async def create_game():
+    """Create a new game session"""
+    game_id = f"game_{len(games) + 1}_{random.randint(1000, 9999)}"
+    games[game_id] = GameState()
+    return {"game_id": game_id}
+
+@app.get("/api/games")
+async def list_games():
+    """List all active game sessions"""
+    game_list = []
+    for game_id, game in games.items():
+        game_list.append({
+            "game_id": game_id,
+            "score": game.score,
+            "game_over": game.game_over,
+            "won": game.won,
+            "snake_length": len(game.snake)
+        })
+    return {"games": game_list, "count": len(game_list)}
+
+@app.get("/api/state/{game_id}")
+async def get_game_state(game_id: str):
+    """Get current game state"""
+    if game_id not in games:
+        raise HTTPException(status_code=404, detail="Game not found")
+    
+    game = games[game_id]
+    board = [[0 for _ in range(game.board_size)] for _ in range(game.board_size)]
+    
+    # Place snake
+    for i, (x, y) in enumerate(game.snake):
+        board[y][x] = 2 if i == 0 else 1  # 2 = head, 1 = body
+    
+    # Place food
+    if game.food:
+        board[game.food[1]][game.food[0]] = 3  # 3 = food
+    
+    return {
+        "board": board,
+        "snake": game.snake,
+        "food": game.food,
+        "score": game.score,
+        "game_over": game.game_over,
+        "won": game.won
+    }
+
+@app.post("/api/move")
+async def move_snake(move_req: MoveRequest):
+    """Change direction and move snake"""
+    if move_req.game_id not in games:
+        raise HTTPException(status_code=404, detail="Game not found")
+    
+    game = games[move_req.game_id]
+    game.change_direction(move_req.direction)
+    game.move()
+    
+    # If game over, save to leaderboard
+    if game.game_over or game.won:
+        leaderboard.append({
+            "score": game.score,
+            "date": str(__import__('datetime').datetime.now())
+        })
+        # Keep leaderboard manageable
+        if len(leaderboard) > 100:
+            leaderboard.sort(key=lambda x: x['score'], reverse=True)
+            leaderboard[:] = leaderboard[:50]
+    
+    board = [[0 for _ in range(game.board_size)] for _ in range(game.board_size)]
+    for i, (x, y) in enumerate(game.snake):
+        board[y][x] = 2 if i == 0 else 1
+    if game.food:
+        board[game.food[1]][game.food[0]] = 3
+    
+    return {
+        "board": board,
+        "snake": game.snake,
+        "food": game.food,
+        "score": game.score,
+        "game_over": game.game_over,
+        "won": game.won
+    }
+
+@app.post("/api/auto_move")
+async def auto_move(data: dict):
+    """Auto-move in current direction"""
+    game_id = data.get("game_id")
+    if game_id not in games:
+        raise HTTPException(status_code=404, detail="Game not found")
+    
+    game = games[game_id]
+    game.move()
+    
+    if game.game_over or game.won:
+        leaderboard.append({
+            "score": game.score,
+            "date": str(__import__('datetime').datetime.now())
+        })
+        if len(leaderboard) > 100:
+            leaderboard.sort(key=lambda x: x['score'], reverse=True)
+            leaderboard[:] = leaderboard[:50]
+    
+    board = [[0 for _ in range(game.board_size)] for _ in range(game.board_size)]
+    for i, (x, y) in enumerate(game.snake):
+        board[y][x] = 2 if i == 0 else 1
+    if game.food:
+        board[game.food[1]][game.food[0]] = 3
+    
+    return {
+        "board": board,
+        "snake": game.snake,
+        "food": game.food,
+        "score": game.score,
+        "game_over": game.game_over,
+        "won": game.won
+    }
+
+@app.get("/api/leaderboard")
+async def get_leaderboard():
+    """Get top scores"""
+    sorted_scores = sorted(leaderboard, key=lambda x: x['score'], reverse=True)
+    return {"scores": sorted_scores[:20]}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

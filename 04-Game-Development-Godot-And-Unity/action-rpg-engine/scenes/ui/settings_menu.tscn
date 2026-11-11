@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_menu.gd" id="1_settings_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_Header"]
+font_size = 14
+font_color = Color(0.85, 0.75, 0.9, 1)
+outline_size = 2
+outline_color = Color(0.08, 0.08, 0.1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_Item"]
+font_size = 8
+font_color = Color(0.7, 0.7, 0.75, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_Btn"]
+bg_color = Color(0.16, 0.15, 0.2, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.35, 0.45, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="SettingsMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 50
+script = ExtResource("1_settings_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.04, 0.07, 0.88)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+custom_minimum_size = Vector2(220, 140)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_Header")
+horizontal_alignment = 1
+
+[node name="VolumeRow" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/VolumeRow"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Master Vol"
+label_settings = SubResource("LabelSettings_Item")
+
+[node name="VolumeSlider" type="HSlider" parent="ColorRect/CenterContainer/VBoxContainer/VolumeRow"]
+custom_minimum_size = Vector2(130, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="FullscreenRow" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/FullscreenRow"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_Item")
+
+[node name="FullscreenCheck" type="CheckBox" parent="ColorRect/CenterContainer/VBoxContainer/FullscreenRow"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBox_Btn")
+text = "[ BACK ]"
