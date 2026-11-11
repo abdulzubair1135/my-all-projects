@@ -1,0 +1,9 @@
+$kind: http-request
+name: http://localhost:5000/api/dashboard
+description: ""
+url: http://localhost:5000/api/dashboard
+method: GET
+body:
+  type: json
+  content: ""
+order: 1783758003581

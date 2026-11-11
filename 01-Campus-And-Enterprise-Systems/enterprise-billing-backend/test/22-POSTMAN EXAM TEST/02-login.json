@@ -1,0 +1,31 @@
+{
+  "name": "02 - User Login Request",
+  "request": {
+    "method": "POST",
+    "header": [
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "body": {
+      "mode": "raw",
+      "raw": "{\n  \"email\": \"student@example.com\",\n  \"password\": \"Password123\"\n}"
+    },
+    "url": {
+      "raw": "http://localhost:5000/api/auth/login",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "auth", "login"]
+    }
+  },
+  "response": [
+    {
+      "name": "200 OK",
+      "status": "OK",
+      "code": 200,
+      "body": "{\n  \"success\": true,\n  \"message\": \"Login successful\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"user\": {\n      \"id\": 1,\n      \"name\": \"Student One\",\n      \"email\": \"student@example.com\",\n      \"role\": \"customer\"\n    }\n  }\n}"
+    }
+  ]
+}

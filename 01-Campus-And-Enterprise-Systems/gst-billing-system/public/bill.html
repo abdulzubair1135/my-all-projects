@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tax Invoice</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="height: auto; padding: 20px 0;">
+    <div class="invoice-box" id="invoiceContent">
+        <h2>TAX INVOICE</h2>
+        <hr>
+        <p><strong>Seller:</strong> <span id="sellerName"></span> (<span id="sellerState"></span>, <span id="sellerCountry"></span>)</p>
+        <p><strong>Customer Name:</strong> <span id="custName"></span></p>
+        <p><strong>Customer Location:</strong> <span id="custState"></span>, <span id="custCountry"></span></p>
+        
+        <table class="invoice-table">
+            <tr>
+                <th>Item Description</th>
+                <th>Price (₹)</th>
+            </tr>
+            <tr>
+                <td id="itemName"></td>
+                <td id="itemPrice"></td>
+            </tr>
+        </table>
+
+        <table class="invoice-table" style="margin-top: 15px;">
+            <tr>
+                <td><strong>GST Type</strong></td>
+                <td id="gstType"></td>
+            </tr>
+            <tr>
+                <td><strong>GST Percentage</strong></td>
+                <td id="gstPercentage"></td>
+            </tr>
+            <tr>
+                <td><strong>GST Amount</strong></td>
+                <td id="gstAmount"></td>
+            </tr>
+            <tr>
+                <td><strong>Final Payable Amount</strong></td>
+                <td><strong id="finalAmount" style="color: #28a745;"></strong></td>
+            </tr>
+        </table>
+        
+        <button style="margin-top: 20px;" onclick="window.location.href='/dashboard.html'">Back to Dashboard</button>
+        <button style="background-color: #28a745; margin-top: 10px;" onclick="window.print()">Print Invoice</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const billId = urlParams.get('id');
+
+        fetch(`/api/bill/${billId}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    const b = data.bill;
+                    document.getElementById('sellerName').innerText = b.seller_name;
+                    document.getElementById('sellerState').innerText = b.seller_state;
+                    document.getElementById('sellerCountry').innerText = b.seller_country;
+                    document.getElementById('custName').innerText = b.customer_name;
+                    document.getElementById('custState').innerText = b.customer_state;
+                    document.getElementById('custCountry').innerText = b.customer_country;
+                    document.getElementById('itemName').innerText = b.item_name;
+                    document.getElementById('itemPrice').innerText = `₹${b.price}`;
+                    document.getElementById('gstType').innerText = b.gst_type;
+                    document.getElementById('gstPercentage').innerText = `${b.gst_percentage}%`;
+                    document.getElementById('gstAmount').innerText = `₹${b.gst_amount}`;
+                    document.getElementById('finalAmount').innerText = `₹${b.final_amount}`;
+                } else {
+                    alert('Bill not found');
+                }
+            });
+    </script>
+</body>
+</html>

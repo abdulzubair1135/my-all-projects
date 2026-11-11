@@ -1,0 +1,27 @@
+{
+  "name": "complete-crud-project",
+  "version": "1.0.0",
+  "description": "Complete CRUD REST API Project using Node.js, Express, MySQL2, and express-validator for BCA Practical Exam",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "bca-exam",
+    "nodejs",
+    "express",
+    "mysql2",
+    "crud"
+  ],
+  "author": "BCA Student",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "mysql2": "^3.9.8"
+  }
+}

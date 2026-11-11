@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - GST Billing</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="card">
+        <h2>GST System Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" required value="rajesh@example.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" required value="password123">
+            </div>
+            <button type="submit">Login</button>
+            <p id="errorMsg" class="error"></p>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await res.json();
+            if (data.success) {
+                window.location.href = '/dashboard.html';
+            } else {
+                document.getElementById('errorMsg').innerText = data.message;
+            }
+        });
+    </script>
+</body>
+</html>

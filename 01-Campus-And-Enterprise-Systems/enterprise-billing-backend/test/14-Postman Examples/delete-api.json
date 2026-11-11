@@ -1,0 +1,5 @@
+{
+  "METHOD": "DELETE",
+
+  "URL": "http://localhost:5000/api/users/1"
+}

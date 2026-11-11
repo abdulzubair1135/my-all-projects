@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "uid": "COL12345",
+    "phone": "+919876543210",
+    "email": "test@example.com",
+    "name": "Test Student",
+    "password": "$2a$10$L5ywWuNRfht93mO9C8Y/keqMfUEOszeDIFaSctgyZ/0LHoAKKFgTK"
+  },
+  {
+    "id": 1762620175617,
+    "uid": "col231",
+    "phone": "123",
+    "email": "a1@gmail.com",
+    "name": "col231",
+    "password": "$2a$10$ppRqkqAK1bbzQ9uBnAOW1e5CRPJaRzBeqw5oJ7Lvl.1lBHhP1urUu"
+  },
+  {
+    "id": 1763473789773,
+    "uid": "col321",
+    "phone": "123456789",
+    "email": "qw@gmail.com",
+    "name": "col321",
+    "password": "$2a$12$i1xlLQOsfh8kLskGLfW/Wex2JSRzYSxlTPZ32V/rHmE9cxGHH2wsK",
+    "createdAt": "2025-11-18T13:49:49.773Z"
+  }
+]

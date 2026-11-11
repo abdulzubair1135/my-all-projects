@@ -1,0 +1,1 @@
+const n="/api".replace(/\/$/,""),o=`${n}/leads/public`;async function s(t){const e=await fetch(o,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(t)}),a=await e.json().catch(()=>null);if(!e.ok)throw new Error(a?.message||"We could not send your request. Please try again.");return a}export{s};

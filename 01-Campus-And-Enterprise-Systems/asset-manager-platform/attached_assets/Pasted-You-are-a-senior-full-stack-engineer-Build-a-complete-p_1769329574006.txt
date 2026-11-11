@@ -1,0 +1,329 @@
+You are a senior full-stack engineer. Build a complete production-ready fullstack web app named “College Face”.
+It must be a campus-focused social media platform inspired by Instagram, but UNIQUE for college community: Normal Posts + Notes + Anonymous Confessions.
+
+IMPORTANT RULE:
+- Keep the existing code style/pattern consistent.
+- Keep backend security approach the same (JWT auth, bcrypt, safe user serialization, env secrets).
+- Do minimal breaking changes. Everything must be stable and launch-ready.
+
+========================================
+1) APP IDENTITY (USP)
+========================================
+App name: College Face
+Purpose: A campus-only social media platform with 3 main content types:
+1) Normal Post: photo/text sharing
+2) Notes: upload study notes (PDF + Images)
+3) Confessions: anonymous posts (optional file)
+
+The vibe: Modern + Dark + Minimal + Clean "college community" UI.
+Not a generic Instagram clone — should feel like a campus product.
+
+========================================
+2) TECH STACK (MUST)
+========================================
+Backend:
+- Node.js + Express
+- JWT authentication
+- bcrypt password hashing
+- file uploads using multer
+- store uploads in /uploads folder
+- database using db.json (file-based storage)
+- .env for secrets
+
+Frontend:
+- Pure HTML + CSS + JS (no React)
+- Dark modern UI with glassmorphism and rounded cards
+- Works with Live Server or basic static hosting
+- API_BASE configurable (local = http://localhost:5000)
+
+========================================
+3) FOLDER STRUCTURE (MUST)
+========================================
+/backend
+  Server.js
+  db.json
+  uploads/
+  package.json
+  .env (NOT committed publicly)
+  
+/frontend
+  index.html
+  app.js
+  styles.css
+  admin.html (admin panel)
+  antiInspect.js (optional)
+
+========================================
+4) UI DESIGN REQUIREMENTS (UI MUST LOOK LIKE THIS)
+========================================
+Overall theme:
+- Dark background
+- Glass cards
+- Rounded corners
+- Smooth modern spacing
+- Minimal but premium look
+- Instagram-like feed cards but campus vibe
+
+Topbar (sticky):
+- Left: logo “College Face”
+- Center/Left: Search input (search students/posts/hashtags)
+- Right: userBadge (@username)
+- Right buttons:
+  - Login/Register (if logged out)
+  - Logout (if logged in)
+
+Layout grid:
+- Left sidebar (Campus Menu):
+  Buttons:
+   - Home
+   - General
+   - Notes
+   - Events
+   - Memes
+   - Confessions
+   - Trending
+  Clicking filter updates the feed.
+
+Center:
+- Stories strip (UI only)
+- Post Composer card
+- Feed Title + sort dropdown (Latest / Top Likes)
+- Feed container (posts list)
+- Footer
+
+Right sidebar:
+- Trending info + quick rules
+
+Auth modal:
+- Glass modal with close button
+- Split into two cards:
+  - Login form
+  - Register form
+
+Post card UI:
+- Avatar circle
+- Username/time
+- Type badge: Post / Notes / Confession
+- Category tag
+- Caption text
+- File preview:
+  - Image shown inline
+  - PDF shown as download card button
+- Actions:
+  - Like button ❤️
+  - Report button 🚩 (only for confession posts)
+  - Delete button 🗑 (only post owner)
+- Comments:
+  - show last 3 comments
+  - “View all comments” toggle if more than 3
+  - comment input + submit
+
+Profile UX:
+- Clicking username/avatar opens Profile Modal:
+  - user avatar + username
+  - shows latest 8 posts of that user
+
+Toast notifications:
+- Use custom toast UI instead of alert().
+
+========================================
+5) UX REQUIREMENTS (HOW IT SHOULD WORK)
+========================================
+On website load:
+- If token exists in localStorage -> auto login UI state
+- Load feed immediately
+
+Login/Register:
+- Modal opens on button click
+- Successful login/register:
+  - save token + user in localStorage
+  - close modal
+  - show logout button + userBadge
+  - show toast success
+
+Creating post:
+- Must require login
+- Select Post Type:
+  - Normal Post
+  - Notes
+  - Confession
+
+Notes type UX:
+- When type=Notes:
+  - show Notes Title + Subject inputs
+
+Confession type UX:
+- When type=Confession:
+  - auto-enable Anonymous and lock it
+
+Upload UX:
+- Single upload input supports both image/* and application/pdf
+- Preview optional (bonus)
+- Submit creates post, clears form, refresh feed
+
+Feed filtering:
+- Sidebar filter instantly filters cached feed
+- Search input filters posts by caption, username, category, subject, title
+- Sort dropdown:
+  - Latest: newest first
+  - Top: sort by likes count
+
+Trending filter:
+- Trending shows top 20 posts based on likes count
+
+Like:
+- Click like toggles like/unlike
+- Updates count immediately after refresh
+
+Comment:
+- Add comment requires login
+- Post comment refreshes feed
+
+Report:
+- Confession posts have “Report”
+- Clicking report asks reason prompt
+- Sends to backend /api/posts/:id/report
+
+Delete:
+- Only post owner can delete own post
+- Admin can delete any post via admin panel
+
+========================================
+6) CONTENT TYPES (MUST)
+========================================
+Post types:
+1) normal
+  fields: caption, file (optional), category
+  visible username
+
+2) notes
+  fields: title, subject, caption optional, file required (image/pdf)
+  visible username
+
+3) confession
+  fields: caption, file optional
+  ALWAYS anonymous:
+    show username = “Anonymous”
+    hide real user identity in frontend
+
+========================================
+7) BACKEND API (MUST)
+========================================
+Auth:
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/users/me  (protected)
+
+Posts:
+POST /api/posts (protected, multipart form-data, upload field name must be "file")
+GET  /api/posts
+POST /api/posts/:id/like (protected)
+POST /api/posts/:id/comment (protected)
+POST /api/posts/:id/report (protected)
+DELETE /api/posts/:id (protected, only owner)
+
+Admin:
+POST /api/admin/login (super password from env)
+GET  /api/admin/reports (admin only)
+DELETE /api/admin/posts/:id (admin only)
+
+========================================
+8) DATABASE DESIGN (db.json)
+========================================
+{
+  "users": [
+    {
+      "id": "string",
+      "username": "string",
+      "name": "string",
+      "password": "hashed",
+      "bio": "string",
+      "createdAt": "ISO"
+    }
+  ],
+  "posts": [
+    {
+      "id": "string",
+      "type": "normal|notes|confession",
+      "category": "general|notes|events|memes|confession",
+      "userId": "string",
+      "username": "string OR anonymous",
+      "name": "string OR Anonymous",
+      "isAnonymous": true/false,
+      "caption": "string",
+      "title": "string",
+      "subject": "string",
+      "fileUrl": "/uploads/...",
+      "fileType": "image/* OR application/pdf",
+      "likes": ["userId"],
+      "comments": [
+        { "id": "string", "userId": "string", "username": "string", "text": "string", "createdAt": "ISO" }
+      ],
+      "reports": [
+        { "id": "string", "userId": "string", "reason": "string", "createdAt": "ISO" }
+      ],
+      "createdAt": "ISO"
+    }
+  ]
+}
+
+========================================
+9) SECURITY REQUIREMENTS (MUST)
+========================================
+- Passwords must never be stored plain text (bcrypt)
+- JWT secret must be in .env
+- Never send password back to frontend (serializeUser)
+- Protected routes must require Bearer token
+- Only post owner can delete own post
+- Admin delete must be adminOnly middleware protected
+- Upload security:
+  - allow only images + pdf
+  - limit file size (25MB)
+  - store only file in /uploads
+- AntiInspect.js is OPTIONAL and should not break localhost debugging:
+  - allow devtools on localhost
+- CORS:
+  - allow CLIENT_URL and localhost ports
+  - optional ALLOW_ALL_ORIGINS for development
+
+========================================
+10) USER ONBOARDING / PERSON ADD FLOW
+========================================
+A person can join by:
+- Registering with username + password (+ optional name)
+- On success:
+  - user is stored in db.json
+  - token issued and returned
+  - user logged in automatically
+
+A person can interact by:
+- Browsing feed (public)
+- Login required for:
+  - posting
+  - liking
+  - commenting
+  - reporting
+
+========================================
+11) ADMIN PANEL (MUST)
+========================================
+Admin page: frontend/admin.html
+Admin Login:
+- uses SUPER_ADMIN_PASSWORD from .env
+- returns admin token
+
+Admin abilities:
+- view reported posts list
+- delete any reported post
+
+========================================
+12) FINAL RESULT REQUIREMENTS
+========================================
+- Must run on localhost today without bugs
+- Must be fullstack complete
+- Must be smooth and consistent UI
+- Must not break existing code pattern
+- Provide final working code: Server.js + index.html + styles.css + app.js + admin.html
+- Include short run instructions:
+  - cd backend && npm install && node Server.js
+  - open frontend with Live Server

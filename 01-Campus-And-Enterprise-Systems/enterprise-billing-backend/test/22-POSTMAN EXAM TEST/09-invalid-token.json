@@ -1,0 +1,27 @@
+{
+  "name": "09 - Protected Route (Invalid/Missing Token)",
+  "request": {
+    "method": "GET",
+    "header": [
+      {
+        "key": "Authorization",
+        "value": "Bearer invalid_or_expired_token"
+      }
+    ],
+    "url": {
+      "raw": "http://localhost:5000/api/users/profile",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "users", "profile"]
+    }
+  },
+  "response": [
+    {
+      "name": "401 Unauthorized",
+      "status": "Unauthorized",
+      "code": 401,
+      "body": "{\n  \"success\": false,\n  \"message\": \"Access denied. Invalid or expired token.\"\n}"
+    }
+  ]
+}

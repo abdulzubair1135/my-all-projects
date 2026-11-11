@@ -1,0 +1,31 @@
+{
+  "name": "06 - Update Product By ID",
+  "request": {
+    "method": "PUT",
+    "header": [
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "body": {
+      "mode": "raw",
+      "raw": "{\n  \"name\": \"Wireless Mouse v2\",\n  \"category\": \"Electronics\",\n  \"price\": 599.00,\n  \"stock\": 45\n}"
+    },
+    "url": {
+      "raw": "http://localhost:5000/api/products/1",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "products", "1"]
+    }
+  },
+  "response": [
+    {
+      "name": "200 OK",
+      "status": "OK",
+      "code": 200,
+      "body": "{\n  \"success\": true,\n  \"message\": \"Product updated successfully\"\n}"
+    }
+  ]
+}

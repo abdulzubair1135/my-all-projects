@@ -1,0 +1,27 @@
+{
+  "name": "08 - Access Protected Route (With Bearer Token)",
+  "request": {
+    "method": "GET",
+    "header": [
+      {
+        "key": "Authorization",
+        "value": "Bearer YOUR_JWT_TOKEN_HERE"
+      }
+    ],
+    "url": {
+      "raw": "http://localhost:5000/api/users/profile",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "users", "profile"]
+    }
+  },
+  "response": [
+    {
+      "name": "200 OK",
+      "status": "OK",
+      "code": 200,
+      "body": "{\n  \"success\": true,\n  \"message\": \"User profile retrieved\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Student One\",\n    \"email\": \"student@example.com\",\n    \"role\": \"customer\"\n  }\n}"
+    }
+  ]
+}

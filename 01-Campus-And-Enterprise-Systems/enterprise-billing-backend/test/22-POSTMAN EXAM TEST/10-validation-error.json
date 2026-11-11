@@ -1,0 +1,31 @@
+{
+  "name": "10 - Express Validator Error Response",
+  "request": {
+    "method": "POST",
+    "header": [
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "body": {
+      "mode": "raw",
+      "raw": "{\n  \"name\": \"\",\n  \"email\": \"invalid-email-format\",\n  \"password\": \"123\"\n}"
+    },
+    "url": {
+      "raw": "http://localhost:5000/api/auth/register",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "auth", "register"]
+    }
+  },
+  "response": [
+    {
+      "name": "400 Bad Request",
+      "status": "Bad Request",
+      "code": 400,
+      "body": "{\n  \"success\": false,\n  \"message\": \"Validation Error\",\n  \"errors\": [\n    {\n      \"type\": \"field\",\n      \"value\": \"\",\n      \"msg\": \"Name is required\",\n      \"path\": \"name\",\n      \"location\": \"body\"\n    },\n    {\n      \"type\": \"field\",\n      \"value\": \"invalid-email-format\",\n      \"msg\": \"Invalid email address\",\n      \"path\": \"email\",\n      \"location\": \"body\"\n    },\n    {\n      \"type\": \"field\",\n      \"value\": \"123\",\n      \"msg\": \"Password must be at least 6 characters long\",\n      \"path\": \"password\",\n      \"location\": \"body\"\n    }\n  ]\n}"
+    }
+  ]
+}

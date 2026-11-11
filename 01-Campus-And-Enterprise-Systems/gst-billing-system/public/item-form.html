@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item & Customer Form - GST Billing</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="height: auto; padding: 40px 0;">
+    <div class="card" style="max-width: 550px;">
+        <h2>Generate GST Bill</h2>
+        <form id="billForm">
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" id="customer_name" required placeholder="e.g. Abdul">
+            </div>
+            <div class="form-group">
+                <label>Customer State</label>
+                <input type="text" id="customer_state" required placeholder="e.g. Maharashtra">
+            </div>
+            <div class="form-group">
+                <label>Customer Country</label>
+                <input type="text" id="customer_country" required value="India">
+            </div>
+            <div class="form-group">
+                <label>Select Item</label>
+                <select id="item_id" required></select>
+            </div>
+            <button type="submit">Calculate & Generate Bill</button>
+        </form>
+        <button style="background-color: #6c757d; margin-top: 10px;" onclick="window.location.href='/dashboard.html'">Back to Dashboard</button>
+    </div>
+    <script>
+        // Load items from database
+        fetch('/api/items')
+            .then(res => res.json())
+            .then(items => {
+                const select = document.getElementById('item_id');
+                items.forEach(item => {
+                    const opt = document.createElement('option');
+                    opt.value = item.id;
+                    opt.textContent = `${item.item_name} - ₹${item.price}`;
+                    select.appendChild(opt);
+                });
+            });
+
+        document.getElementById('billForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const payload = {
+                customer_name: document.getElementById('customer_name').value,
+                customer_state: document.getElementById('customer_state').value,
+                customer_country: document.getElementById('customer_country').value,
+                item_id: document.getElementById('item_id').value
+            };
+
+            const res = await fetch('/api/generate-bill', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.success) {
+                window.location.href = `/bill.html?id=${data.billId}`;
+            } else {
+                alert(data.message);
+            }
+        });
+    </script>
+</body>
+</html>

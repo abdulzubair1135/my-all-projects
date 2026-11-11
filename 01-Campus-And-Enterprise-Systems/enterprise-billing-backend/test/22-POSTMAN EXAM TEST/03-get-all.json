@@ -1,0 +1,22 @@
+{
+  "name": "03 - Get All Records",
+  "request": {
+    "method": "GET",
+    "header": [],
+    "url": {
+      "raw": "http://localhost:5000/api/products",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "products"]
+    }
+  },
+  "response": [
+    {
+      "name": "200 OK",
+      "status": "OK",
+      "code": 200,
+      "body": "{\n  \"success\": true,\n  \"message\": \"Products fetched successfully\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Wireless Mouse\",\n      \"price\": \"499.00\",\n      \"stock\": 50\n    }\n  ]\n}"
+    }
+  ]
+}

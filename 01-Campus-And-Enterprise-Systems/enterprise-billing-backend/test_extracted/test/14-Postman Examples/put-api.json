@@ -1,0 +1,16 @@
+{
+  "METHOD": "PUT",
+
+  "URL": "http://localhost:5000/api/users/1",
+
+  "BODY": {
+
+    "name": "Updated Abdul",
+
+    "email": "abdul@gmail.com",
+
+    "phone": "8888888888"
+
+  }
+
+}

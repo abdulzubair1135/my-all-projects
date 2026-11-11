@@ -1,0 +1,77 @@
+==========================================
+NODE JS BACKEND MASTER LIBRARY
+==========================================
+
+Initialize Project
+
+npm init -y
+
+==========================================
+
+Install Packages
+
+npm install express
+
+npm install mysql2
+
+npm install dotenv
+
+npm install cors
+
+npm install helmet
+
+npm install bcrypt
+
+npm install jsonwebtoken
+
+npm install cookie-parser
+
+npm install express-validator
+
+npm install multer
+
+npm install morgan
+
+==========================================
+
+Development Package
+
+npm install --save-dev nodemon
+
+==========================================
+
+Run Server
+
+npm start
+
+==========================================
+
+Run Development Server
+
+npm run dev
+
+==========================================
+
+Check Installed Packages
+
+npm list
+
+==========================================
+
+Update Packages
+
+npm update
+
+==========================================
+
+Remove Package
+
+npm uninstall package-name
+
+==========================================
+
+Install Everything Again
+
+npm install
+
+==========================================

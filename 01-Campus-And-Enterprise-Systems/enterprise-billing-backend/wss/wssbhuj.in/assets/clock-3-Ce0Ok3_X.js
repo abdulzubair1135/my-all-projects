@@ -1,0 +1,1 @@
+import{c}from"./index-C0DCvL8g.js";const o=[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]],r=c("arrow-right",o);const t=[["path",{d:"m9 18 6-6-6-6",key:"mthhwq"}]],a=c("chevron-right",t);const e=[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"M12 6v6h4",key:"135r8i"}]],n=c("clock-3",e);export{r as A,a as C,n as a};

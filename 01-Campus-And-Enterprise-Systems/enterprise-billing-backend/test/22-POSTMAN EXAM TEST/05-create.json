@@ -1,0 +1,31 @@
+{
+  "name": "05 - Create New Product",
+  "request": {
+    "method": "POST",
+    "header": [
+      {
+        "key": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "body": {
+      "mode": "raw",
+      "raw": "{\n  \"name\": \"Gaming Headset\",\n  \"category\": \"Electronics\",\n  \"price\": 1999.00,\n  \"stock\": 15\n}"
+    },
+    "url": {
+      "raw": "http://localhost:5000/api/products",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "5000",
+      "path": ["api", "products"]
+    }
+  },
+  "response": [
+    {
+      "name": "201 Created",
+      "status": "Created",
+      "code": 201,
+      "body": "{\n  \"success\": true,\n  \"message\": \"Product created successfully\",\n  \"data\": {\n    \"id\": 4,\n    \"name\": \"Gaming Headset\",\n    \"category\": \"Electronics\",\n    \"price\": 1999.00,\n    \"stock\": 15\n  }\n}"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "METHOD": "POST",
+
+  "URL": "http://localhost:5000/api/login",
+
+  "BODY": {
+
+    "email": "admin@gmail.com",
+
+    "password": "123456"
+
+  }
+}

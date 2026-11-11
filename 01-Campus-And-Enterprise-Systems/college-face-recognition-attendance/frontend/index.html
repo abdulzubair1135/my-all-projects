@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Face - Campus Social Network</title>
+    <meta name="description" content="Your college's own social media platform">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="root">
+        <!-- Auth Screen -->
+        <div id="auth-screen" class="screen">
+            <div class="auth-container">
+                <div class="auth-decoration">
+                    <div class="decoration-circle c1"></div>
+                    <div class="decoration-circle c2"></div>
+                    <div class="decoration-circle c3"></div>
+                </div>
+                <div class="auth-box">
+                    <div class="auth-header">
+                        <div class="logo">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h1>College Face</h1>
+                        </div>
+                        <p>Connect with your campus community</p>
+                    </div>
+
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="register">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form active">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="login-uid" placeholder="College UID" required autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="login-password" placeholder="Password" required>
+                            <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                        </div>
+                        <button type="submit" class="auth-submit">
+                            <span>Login</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register-form" class="auth-form">
+                        <div class="input-group">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="reg-uid" placeholder="College UID (e.g. COL2025)" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="reg-name" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="reg-phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="reg-email" placeholder="College Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="reg-password" placeholder="Create Password" required>
+                            <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="reg-confirm" placeholder="Confirm Password" required>
+                            <span class="toggle-password"><i class="fas fa-eye-slash"></i></span>
+                        </div>
+                        <label class="terms-checkbox">
+                            <input type="checkbox" id="terms-check" required>
+                            <span>I agree to the <a href="#">Terms</a> & I'm 18+</span>
+                        </label>
+                        <button type="submit" class="auth-submit register">
+                            <span>Create Account</span>
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Secured with JWT • Made for Campus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Screen -->
+        <div id="main-screen" class="screen hidden">
+            <header class="app-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="icon-btn"><i class="(Core i3) fas fa-bars"></i></button>
+                    <h1 class="logo-text">College Face</h1>
+                </div>
+                <div class="header-center">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search posts, people...">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+                    <button class="icon-btn" id="notifications-btn"><i class="fas fa-bell"></i><span class="notification-badge">5</span></button>
+                    <div class="user-avatar" id="user-avatar">U</div>
+                </div>
+            </header>
+
+            <div class="app-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar" id="sidebar">
+                    <nav class="sidebar-nav">
+                        <a href="#" class="nav-link active" data-category="all">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                        <a href="#" class="nav-link" data-category="memes">
+                            <i class="fas fa-laugh"></i>
+                            <span>Memes</span>
+                        </a>
+                        <a href="#" class="nav-link" data-category="news">
+                            <i class="fas fa-newspaper"></i>
+                            <span>News</span>
+                        </a>
+                        <a href="#" class="nav-link" data-category="rumors">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>Rumors</span>
+                        </a>
+                        <a href="#" class="nav-link" data-category="study">
+                            <i class="fas fa-book"></i>
+                            <span>Study Material</span>
+                        </a>
+                    </nav>
+                    <div class="sidebar-bottom">
+                        <button id="logout-btn" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Feed -->
+                <main class="feed" id="feed">
+                    <div class="create-post-card">
+                        <div class="create-post-input">
+                            <div class="user-avatar small">U</div>
+                            <input type="text" id="quick-post-input" placeholder="What's on your mind?">
+                        </div>
+                        <div class="create-post-actions">
+                            <label class="action-icon">
+                                <i class="fas fa-image"></i>
+                                <input type="file" id="quick-image" accept="image/*" hidden>
+                            </label>
+                            <button class="post-btn">Post</button>
+                        </div>
+                    </div>
+                    <div id="posts-list"></div>
+                </main>
+
+                <!-- Right Panel -->
+                <aside class="right-panel">
+                    <div class="trending-section">
+                        <h3>Trending Now</h3>
+                        <div class="trend-item">#CanteenChaos</div>
+                        <div class="trend-item">#ExamMemes</div>
+                        <div class="trend-item">#PlacementSeason</div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- FAB -->
+            <button class="fab" id="fab">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>

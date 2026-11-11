@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - GST Billing</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="card" style="text-align: center;">
+        <h2 id="welcomeUser">Welcome User</h2>
+        <p>Manage and create dynamic GST compliant invoices seamlessly.</p>
+        <button onclick="window.location.href='/item-form.html'">Add Item / Generate Bill</button>
+        <button class="btn-danger" onclick="logout()">Logout</button>
+    </div>
+    <script>
+        fetch('/api/user-session')
+            .then(res => res.json())
+            .then(data => {
+                if (!data.loggedIn) {
+                    window.location.href = '/login.html';
+                } else {
+                    document.getElementById('welcomeUser').innerText = `Welcome, ${data.name} (${data.state})`;
+                }
+            });
+
+        function logout() {
+            window.location.href = '/api/logout';
+        }
+    </script>
+</body>
+</html>

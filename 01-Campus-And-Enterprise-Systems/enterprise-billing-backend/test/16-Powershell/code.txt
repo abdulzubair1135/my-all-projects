@@ -1,0 +1,19 @@
+﻿mkdir   → Folder banana
+
+ni      → File banana
+
+cd      → Folder change
+
+ls      → Files dekhna
+
+pwd     → Current path
+
+mv      → Rename/Move
+
+cp      → Copy
+
+rm      → Delete
+
+cat     → File dekhna
+
+cls     → Screen clear
