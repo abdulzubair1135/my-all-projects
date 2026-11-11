@@ -1,0 +1,57 @@
+{
+  "theme": "home_mummy",
+  "hook": "POV: Mummy Ka Flying Chappal Attack 🩴😂",
+  "title": "POV: Mummy Ka Flying Chappal 😂 #shorts #comedy #mummy #desi",
+  "description": "Aisi accuracy toh ISRO ke paas bhi nahi hai! #shorts #comedy #desi #pov #family",
+  "tags": ["shorts", "comedy", "mummy", "desi", "pov", "relatable"],
+  "scenes": [
+    {
+      "scene": 1,
+      "speaker": "boy",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे भाई भाई भाई! संडे की मस्त सुबह! आज दोपहर बारह बजे तक कोई मुझे नहीं उठा सकता!",
+      "dialogue": "Arre bhai bhai bhai! Sunday ki mast subah! Aaj dopahar 12 baje tak koi mujhe nahi utha sakta!",
+      "pose": "walk_in",
+      "emotion": "none",
+      "prop": "pillow",
+      "action": "walk_in",
+      "is_punchline": false
+    },
+    {
+      "scene": 2,
+      "speaker": "girl",
+      "shot_type": "girl_close",
+      "spoken_hindi": "अरे दस बज गए कुंभकर्ण! अभी तक बिस्तर में पड़ा है?! ये ले संडे का पहला तोहफा!",
+      "dialogue": "Arre 10 baj gaye Kumbhkaran! Abhi tak bistar mein pada hai?! Ye le Sunday ka pehla tohfa!",
+      "pose": "hands_on_hips",
+      "emotion": "angry",
+      "prop": "broom",
+      "action": "throw_chappal",
+      "is_punchline": false
+    },
+    {
+      "scene": 3,
+      "speaker": "boy",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे बाप रे बाप!! चप्पल सीधा माथे पे लगी भाई! इतनी खतरनाक एक्यूरेसी तो नासा के पास भी नहीं है यार!",
+      "dialogue": "Arre baap re baap!! Chappal seedha maathe pe lagi bhai! Itni khatarnaak accuracy toh NASA ke paas bhi nahi hai yaar!",
+      "pose": "dizzy_hit",
+      "emotion": "sweat",
+      "prop": "flying_chappal",
+      "action": "chappal_impact",
+      "is_punchline": false
+    },
+    {
+      "scene": 4,
+      "speaker": "girl",
+      "shot_type": "two_shot",
+      "spoken_hindi": "बहस मत कर! उठ और चुपचाप बाज़ार से धनिया लेकर आ, वरना दूसरी वाली भी तैयार है!",
+      "dialogue": "Bahas mat kar! Uth aur chupchaap bazaar se dhaniya lekar aa, varna doosri wali bhi taiyaar hai!",
+      "pose": "talk_gesture",
+      "emotion": "none",
+      "prop": "none",
+      "action": "none",
+      "is_punchline": true
+    }
+  ]
+}

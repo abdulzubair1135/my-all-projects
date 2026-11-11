@@ -1,0 +1,124 @@
+{
+  "title": "College Attendance: I Will Go Tomorrow",
+  "format": "2D stickman animation",
+  "characters": [
+    {
+      "name": "Sticky",
+      "description": "A stickman with a permanently optimistic alarm clock and zero attendance"
+    },
+    {
+      "name": "Doodle",
+      "description": "Sticky's friend, a stickman who actually attends class and suffers for it"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_number": 1,
+      "setting": "Sticky's bedroom. Alarm clock rings. Sticky is a horizontal stick figure under a blanket.",
+      "action": "Sticky slaps the alarm clock. It flies across the room. Doodle appears on phone screen.",
+      "dialogue": [
+        {
+          "speaker": "Doodle",
+          "line": "Bro, attendance portal says you are at 12 percent."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "That is not 0. That is basically a scholarship."
+        },
+        {
+          "speaker": "Doodle",
+          "line": "It is basically a warning letter with your name on it."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "Relax. I will go tomorrow."
+        }
+      ]
+    },
+    {
+      "scene_number": 2,
+      "setting": "College corridor. Doodle stands next to a notice board. Sticky appears as a thought bubble.",
+      "action": "Doodle points at a notice board. Sticky's thought bubble shows him sleeping with a textbook on his face.",
+      "dialogue": [
+        {
+          "speaker": "Doodle",
+          "line": "The professor asked where you were."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "What did you say?"
+        },
+        {
+          "speaker": "Doodle",
+          "line": "I said you were sick."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "Sick of what?"
+        },
+        {
+          "speaker": "Doodle",
+          "line": "Sick of waking up before noon."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "Accurate. But tomorrow I will be a new man."
+        }
+      ]
+    },
+    {
+      "scene_number": 3,
+      "setting": "Sticky's room at night. Backpack, books, and shoes are laid out neatly.",
+      "action": "Sticky proudly arranges his bag. Then a snack packet appears. Then a video game controller appears. Then a pillow appears.",
+      "dialogue": [
+        {
+          "speaker": "Sticky",
+          "line": "Bag packed. Shoes ready. Alarm set for 7 a.m."
+        },
+        {
+          "speaker": "Doodle",
+          "line": "Wow. You are actually doing it?"
+        },
+        {
+          "speaker": "Sticky",
+          "line": "I am preparing mentally."
+        },
+        {
+          "speaker": "Doodle",
+          "line": "You are eating chips in bed."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "Preparation takes many forms."
+        }
+      ]
+    },
+    {
+      "scene_number": 4,
+      "setting": "Next morning. Same bedroom. Alarm clock rings again.",
+      "action": "Sticky extends one stick arm, turns off the alarm, and pulls the blanket over his head. Doodle appears on phone screen, unimpressed.",
+      "dialogue": [
+        {
+          "speaker": "Doodle",
+          "line": "It is tomorrow."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "Exactly. And I will go tomorrow."
+        },
+        {
+          "speaker": "Doodle",
+          "line": "That is today."
+        },
+        {
+          "speaker": "Sticky",
+          "line": "Time is a social construct."
+        },
+        {
+          "speaker": "Doodle",
+          "line": "Attendance is not."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+[
+  {
+    "theme": "gym",
+    "hook": "POV: Gym Ka Pehla Din Aur Desi Trainer 🏋️‍♂️",
+    "title": "POV: Gym Ka Pehla Din 😂 #shorts #comedy #gym #relatable",
+    "description": "Pehle din hi 50 pushups mang liye! #shorts #comedy #pov #fitness",
+    "tags": ["shorts", "comedy", "gym", "pov", "fitness"],
+    "scenes": [
+      {
+        "scene": 1,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "भैया... ये ढाई किलो का डंबल भी एवरेस्ट जैसा भारी लग रहा है! आज के लिए बस इतना काफी है ना?",
+        "dialogue": "Bhaiya... ye 2.5 kg ka dumbbell bhi Everest jaisa bhari lag raha hai! Aaj ke liye bas itna kaafi hai na?",
+        "pose": "tremble_lift",
+        "emotion": "sweat",
+        "prop": "dumbbell",
+        "is_punchline": false
+      },
+      {
+        "scene": 2,
+        "speaker": "girl",
+        "shot_type": "girl_close",
+        "spoken_hindi": "अरे वॉर्म-अप तो खत्म होने दो छोटे! अभी 50 पुश-अप, 100 स्क्वैट्स और 20 मिनट ट्रेडमिल बाकी है!",
+        "dialogue": "Arre warm-up toh khatam hone do chhote! Abhi 50 push-ups, 100 squats aur 20 min treadmill baaki hai!",
+        "pose": "hands_on_hips",
+        "emotion": "none",
+        "prop": "shaker",
+        "is_punchline": false
+      },
+      {
+        "scene": 3,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "50 पुश-अप?! कल सुबह बेड से उठने के लिए मुझे क्रेन बुलानी पड़ेगी भाई!",
+        "dialogue": "50 push-ups?! Kal subah bed se uthne ke liye mujhe crane bulani padegi bhai!",
+        "pose": "shock",
+        "emotion": "sweat",
+        "prop": "none",
+        "is_punchline": false
+      },
+      {
+        "scene": 4,
+        "speaker": "girl",
+        "shot_type": "two_shot",
+        "spoken_hindi": "हंसो मत! और कल से डाइट में सिर्फ उबला हुआ चना और पानी... समोसा भूल जाओ!",
+        "dialogue": "Hanso mat! Aur kal se diet mein sirf ubla hua chana aur paani... samosa bhool jao!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "shaker",
+        "is_punchline": true
+      }
+    ]
+  },
+  {
+    "theme": "office",
+    "hook": "POV: Office Mein 5:59 PM Pe Manager Ka Call 🖥️",
+    "title": "POV: 5:59 PM Pe Boss Ka Call 😂 #shorts #comedy #corporate #office",
+    "description": "Corporate ka 2 minute matlab aadhi raat! #shorts #comedy #pov #corporate",
+    "tags": ["shorts", "comedy", "office", "pov", "corporate"],
+    "scenes": [
+      {
+        "scene": 1,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "यस! 5 बजके 59 मिनट! बैग पैक, लैपटॉप बंद... अब सीधा घर जाके मस्त नींद सोऊंगा!",
+        "dialogue": "Yes! 5:59 PM! Bag pack, laptop band... ab seedha ghar jaake mast neend soonga!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "laptop",
+        "is_punchline": false
+      },
+      {
+        "scene": 2,
+        "speaker": "girl",
+        "shot_type": "girl_close",
+        "spoken_hindi": "अरे राहुल, जा रहे हो क्या? बस दो मिनट का एक अर्जेंट क्लाइंट कॉल है... जल्दी जॉइन कर लो!",
+        "dialogue": "Arre Rahul, ja rahe ho kya? Bas 2 minute ka ek urgent client call hai... jaldi join kar lo!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "phone",
+        "is_punchline": false
+      },
+      {
+        "scene": 3,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "कॉर्पोरेट का 'दो मिनट' मतलब रात के 9 बजे तक मेरी आत्मा का रोना! मेरा फ्राइडे प्लान बर्बाद!",
+        "dialogue": "Corporate ka 2 minute matlab raat ke 9 baje tak meri aatma ka rona! Mera Friday plan barbaad!",
+        "pose": "shock",
+        "emotion": "sweat",
+        "prop": "none",
+        "is_punchline": false
+      },
+      {
+        "scene": 4,
+        "speaker": "girl",
+        "shot_type": "two_shot",
+        "spoken_hindi": "और हां राहुल, इस कॉल के बाद एक छोटी सी एक्सेल शीट भी अपडेट कर देना प्लीज!",
+        "dialogue": "Aur haan Rahul, is call ke baad ek chhoti si Excel sheet bhi update kar dena please!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "laptop",
+        "is_punchline": true
+      }
+    ]
+  },
+  {
+    "theme": "street_food",
+    "hook": "POV: 'Bhaiya Extra Teekhi Chutney Dena' 🌶️",
+    "title": "POV: Momos Ki Extra Teekhi Chutney 😂 #shorts #comedy #streetfood",
+    "description": "Hero banne gaya tha, dhuwan nikal gaya! #shorts #comedy #pov #momos",
+    "tags": ["shorts", "comedy", "streetfood", "pov", "momos"],
+    "scenes": [
+      {
+        "scene": 1,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "भैया, थोड़ा ढंग की तीखी चटनी डालो यार! आजकल के मोमोज़ में स्पाइस का मज़ा ही नहीं आता!",
+        "dialogue": "Bhaiya, thoda dhang ki teekhi chutney daalo yaar! Aajkal ke momos mein spice ka maza hi nahi aata!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "plate",
+        "is_punchline": false
+      },
+      {
+        "scene": 2,
+        "speaker": "girl",
+        "shot_type": "girl_close",
+        "spoken_hindi": "अरे मत लो भाई! पिछली बार इनके तीखे से तुम्हारे कान से धुआं और आंख से गंगा बह रही थी!",
+        "dialogue": "Arre mat lo bhai! Pichli baar inke teekhe se tumhare kaan se dhuan aur aankh se ganga beh rahi thi!",
+        "pose": "hands_on_hips",
+        "emotion": "none",
+        "prop": "none",
+        "is_punchline": false
+      },
+      {
+        "scene": 3,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "आग लग गई! पानी लाओ कोई! ये लाल चटनी नहीं, सीधा परमाणु बम घोल के दिया है इन्होंने!",
+        "dialogue": "Aag lag gayi! Paani lao koi! Ye laal chutney nahi, seedha parmanu bomb ghol ke diya hai inhone!",
+        "pose": "shock",
+        "emotion": "sweat",
+        "prop": "none",
+        "is_punchline": false
+      },
+      {
+        "scene": 4,
+        "speaker": "girl",
+        "shot_type": "two_shot",
+        "spoken_hindi": "बोला था ना? अब चुपचाप आइसक्रीम की दुकान की तरफ भागो, हीरो मत बनो!",
+        "dialogue": "Bola tha na? Ab chupchaap ice-cream ki dukaan ki taraf bhaago, hero mat bano!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "none",
+        "is_punchline": true
+      }
+    ]
+  },
+  {
+    "theme": "exam",
+    "hook": "POV: Raat Ke 3 Baje Exam Ki Taiyari 📚",
+    "title": "POV: Raat Ke 3 Baje Engineering Exam 😂 #shorts #comedy #students",
+    "description": "5 unit bachi hain aur 3 baj gaye! #shorts #comedy #pov #engineering",
+    "tags": ["shorts", "comedy", "students", "pov", "engineering"],
+    "scenes": [
+      {
+        "scene": 1,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "रात के 3 बज गए और 5 में से 5 यूनिट बची हैं! ये प्रोफेसर सवाल पूछेंगे या मेरी ज़िंदगी का बदला लेंगे?!",
+        "dialogue": "Raat ke 3 baj gaye aur 5 mein se 5 unit bachi hain! Ye professor sawaal sochenge ya meri zindagi ka badla lenge?!",
+        "pose": "shock",
+        "emotion": "sweat",
+        "prop": "book",
+        "is_punchline": false
+      },
+      {
+        "scene": 2,
+        "speaker": "girl",
+        "shot_type": "girl_close",
+        "spoken_hindi": "अरे तू टेंशन क्यों ले रहा है? बस पिछले साल के 3 सवाल रट ले, 33 नंबर तो आ ही जाएंगे!",
+        "dialogue": "Arre tu tension kyun le raha hai? Bas pichle saal ke 3 sawaal rat le, 33 number toh aa hi jayenge!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "phone",
+        "is_punchline": false
+      },
+      {
+        "scene": 3,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "भाई मैंने क्वेश्चन पेपर का पैटर्न देखा है... इस बार 33 भी सपने में आएंगे, सप्लीमेंट्री पक्की है!",
+        "dialogue": "Bhai maine question paper ka pattern dekha hai... is baar 33 bhi sapne mein aayenge, supplementary pakki hai!",
+        "pose": "facepalm",
+        "emotion": "sweat",
+        "prop": "none",
+        "is_punchline": false
+      },
+      {
+        "scene": 4,
+        "speaker": "girl",
+        "shot_type": "two_shot",
+        "spoken_hindi": "चल छोड़ फिर, सो जा! बैक आएगी तो साथ में समोसा पार्टी करेंगे हॉल के बाहर!",
+        "dialogue": "Chal chhod phir, so ja! Back aayegi toh saath mein samosa party karenge hall ke baahar!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "none",
+        "is_punchline": true
+      }
+    ]
+  },
+  {
+    "theme": "home_mummy",
+    "hook": "POV: Sunday Subah 7 Baje Mummy Ka Attack 🧹",
+    "title": "POV: Sunday Subah Mummy Ka Alarm 😂 #shorts #comedy #desi #mummy",
+    "description": "Har Sunday ghadi 3 ghante aage ho jaati hai! #shorts #comedy #pov #desiparents",
+    "tags": ["shorts", "comedy", "desi", "pov", "family"],
+    "scenes": [
+      {
+        "scene": 1,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "आहा... संडे की मस्तानी नींद! आज दोपहर 12 बजे से पहले कोई माई का लाल मुझे नहीं उठा सकता!",
+        "dialogue": "Aaha... Sunday ki mastaani neend! Aaj dopahar 12 baje se pehle koi maai ka laal mujhe nahi utha sakta!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "pillow",
+        "is_punchline": false
+      },
+      {
+        "scene": 2,
+        "speaker": "girl",
+        "shot_type": "girl_close",
+        "spoken_hindi": "अरे 10 बज गए कुंभकर्ण! पंखा बंद कर दिया है, उठ जा नहीं तो ये गीला पोछा मुंह पर पड़ेगा!",
+        "dialogue": "Arre 10 baj gaye Kumbhkaran! Pankha band kar diya hai, uth ja nahi toh ye geela pochha munh pe padega!",
+        "pose": "hands_on_hips",
+        "emotion": "none",
+        "prop": "broom",
+        "is_punchline": false
+      },
+      {
+        "scene": 3,
+        "speaker": "boy",
+        "shot_type": "boy_close",
+        "spoken_hindi": "मम्मी अभी सिर्फ 7 बजे हैं! हर संडे घड़ी को 3 घंटे आगे क्यों भगा देती हो आप?!",
+        "dialogue": "Mummy abhi sirf 7 baje hain! Har Sunday ghadi ko 3 ghante aage kyun bhaga deti ho aap?!",
+        "pose": "shock",
+        "emotion": "sweat",
+        "prop": "none",
+        "is_punchline": false
+      },
+      {
+        "scene": 4,
+        "speaker": "girl",
+        "shot_type": "two_shot",
+        "spoken_hindi": "बहस मत कर! उठ और धनिया लेकर आ बाज़ार से, वरना नाश्ता नहीं मिलेगा आज!",
+        "dialogue": "Bahas mat kar! Uth aur dhaniya lekar aa bazaar se, varna nashta nahi milega aaj!",
+        "pose": "talk_gesture",
+        "emotion": "none",
+        "prop": "broom",
+        "is_punchline": true
+      }
+    ]
+  }
+]

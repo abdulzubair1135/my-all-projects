@@ -1,0 +1,35 @@
+{
+"title": "Hume Sapne Kyu Aate Hain? 😴 Dimaag Ki Ajeeb Kahaniyan! #shorts #viral",
+"description": "Neend mein dimaag kya karta hai? Jaaniye sapno ka science—funny aur educational way mein! #science #facts #dreams #animation #hindi",
+"tags": ["shorts", "science", "facts", "dreams", "hindi comedy", "animation", "relatable", "brain"],
+"scenes": [
+{
+"scene": 1,
+"spoken_hindi": "रात को जब हम सोते हैं, तो दिमाग सोता नहीं—वो अपनी मूवी चलाता है! और हमें लगता है... ये सब सच है!",
+"dialogue": "Raat ko jab hum sote hain, toh dimaag sota nahi—woh apni movie chalata hai! Aur hamein lagta hai... ye sab sach hai!",
+"visual_prompt": "funny expressive stickman cartoon character with round white head and simple stick figure body sleeping in bed with a big dream bubble above showing tiny stickman riding a flying elephant, colorful bedroom environment, no text",
+"sfx": "whoosh"
+},
+{
+"scene": 2,
+"spoken_hindi": "असल में, नींद में दिमाग दिन भर की यादें छांटता है—कुछ फेंकता है, कुछ जोड़ता है... मतलब पूरा 'मसाला' तैयार करता है!",
+"dialogue": "Asal mein, neend mein dimaag din bhar ki yaadein chhaantta hai—kuch phenkta hai, kuch jodta hai... matlab poora 'masala' taiyaar karta hai!",
+"visual_prompt": "funny expressive stickman cartoon character with round white head and simple stick figure body standing at a mixing bowl, throwing memories into it like ingredients, colorful kitchen environment with floating photo frames and stars, no text",
+"sfx": "pop"
+},
+{
+"scene": 3,
+"spoken_hindi": "लेकिन फिर दिमाग वो कहानी बनाता है जिसका कोई सिर-पैर नहीं होता! स्कूल में पढ़ रहे हो... अचानक टीचर गाय बन जाती है?!",
+"dialogue": "Lekin phir dimaag woh kahani banata hai jiska koi sir-pair nahi hota! School mein padh rahe ho... achanak teacher gaay ban jaati hai?!",
+"visual_prompt": "funny expressive stickman cartoon character with round white head and simple stick figure body sitting at school desk looking shocked, teacher stickman with cow body and horns writing on board, colorful classroom environment, no text",
+"sfx": "vine_boom"
+},
+{
+"scene": 4,
+"spoken_hindi": "वैज्ञानिक कहते हैं—सपने दिमाग की 'ट्रेनिंग' है! जो तुमने नहीं किया, दिमाग उसे सपने में करके देखता है! तो अगली बार अजीब सपना आए? डरो मत—दिमाग बस 'एक्सपेरिमेंट' कर रहा है!",
+"dialogue": "Vaigyanik kehte hain—sapne dimaag ki 'training' hai! Jo tumne nahi kiya, dimaag use sapne mein karke dekhta hai! Toh agli baar ajeeb sapna aaye? Daro mat—dimaag bas 'experiment' kar raha hai!",
+"visual_prompt": "funny expressive stickman cartoon character with round white head and simple stick figure body wearing lab coat and goggles, holding clipboard, standing next to a giant brain with gears and lightbulbs, colorful science lab environment, no text",
+"sfx": "laugh"
+}
+]
+}

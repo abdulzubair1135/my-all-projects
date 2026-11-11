@@ -1,0 +1,3 @@
+@echo off
+echo Launching Chrome with Persistent Session for DeepSeek Automation...
+start chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\deepseek_chrome_profile" "https://chat.deepseek.com"

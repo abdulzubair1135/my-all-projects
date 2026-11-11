@@ -1,0 +1,56 @@
+{
+  "hook": "POV: Shopping Ke Baad Bill Dekh Liya 💀",
+  "title": "POV: Ladki Ke Sath Shopping Ka Bill 😂 #shorts #comedy #pov",
+  "description": "Shopping ke baad ka asali dard! Watch this hilarious POV doodle animation. #shorts #comedy #pov #doodle #relatable",
+  "tags": ["shorts", "comedy", "doodle", "pov", "animation", "shopping", "relatable"],
+  "scenes": [
+    {
+      "scene": 1,
+      "speaker": "boy",
+      "voice_mode": "shocked",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे... बस 2 लिपस्टिक और एक टी-शर्ट ली थी ना?! ये... ये 18 हज़ार का बिल कहाँ से आ गया भाई?!",
+      "dialogue": "Arre... bas 2 lipstick aur ek t-shirt li thi na?! Ye 18 hazaar ka bill kahan se aa gaya?!",
+      "pose": "shock",
+      "emotion": "sweat",
+      "prop": "bill",
+      "is_punchline": false
+    },
+    {
+      "scene": 2,
+      "speaker": "girl",
+      "voice_mode": "sassy",
+      "shot_type": "girl_close",
+      "spoken_hindi": "अरे बाबू, चिल्लाओ मत! वो सिर्फ 2 लिपस्टिक नहीं थी! एक स्किन सीरम था, कोरियन टोनर था, और टी-शर्ट तो लिमिटेड एडिशन थी, समझे?",
+      "dialogue": "Arre babu, chillao mat! Woh sirf 2 lipstick nahi thi! Ek serum tha, toner tha, aur t-shirt limited edition thi!",
+      "pose": "hands_on_hips",
+      "emotion": "none",
+      "prop": "serum",
+      "is_punchline": false
+    },
+    {
+      "scene": 3,
+      "speaker": "boy",
+      "voice_mode": "crying",
+      "shot_type": "boy_close",
+      "spoken_hindi": "लिमिटेड एडिशन कपड़ा?! अरे इसमें तो धागे भी आधे हैं यार! मेरा एक महीने का राशन का बजट उड़ गया!",
+      "dialogue": "Limited edition kapda?! Ismein toh dhaage bhi aadhe hain! Mera 1 mahine ka ration budget udd gaya!",
+      "pose": "facepalm",
+      "emotion": "sweat",
+      "prop": "none",
+      "is_punchline": false
+    },
+    {
+      "scene": 4,
+      "speaker": "girl",
+      "voice_mode": "playful",
+      "shot_type": "two_shot",
+      "spoken_hindi": "तो क्या हुआ? स्माइल करो ना यार! वैसे... बाहर वो क्यूट सा बैग भी देखा था मैंने, वो भी ले लें क्या?",
+      "dialogue": "Toh kya hua? Smile karo na yaar! Waise... bahar woh cute sa bag bhi dekha tha, woh bhi le lein?",
+      "pose": "talk_gesture",
+      "emotion": "none",
+      "prop": "bags",
+      "is_punchline": true
+    }
+  ]
+}

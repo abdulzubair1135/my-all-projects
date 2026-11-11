@@ -1,0 +1,58 @@
+{
+  "title": "College Attendance 12% 😂 #shorts #viral",
+  "hook": "POV: College Attendance 12% 💀",
+  "duo_type": "boy_and_boy2",
+  "theme": "bedroom_morning",
+  "description": "Jab college attendance 12% ho aur dost lecture jaane bole! 😂 #shorts #comedy #stickman #doodle",
+  "tags": ["shorts", "comedy", "funny", "relatable", "stickman", "doodle", "college"],
+  "scenes": [
+    {
+      "scene": 1,
+      "speaker": "boy",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे भाई सुबह के सात बजे अलार्म बजा है, पर रजाई मुझे छोड़ने को तैयार नहीं है!",
+      "dialogue": "Arre subah 7 baje alarm baja hai, par razai chhodne ko tayyar nahi hai!",
+      "pose": "talk_gesture",
+      "prop": "phone",
+      "action": "walk_in",
+      "emotion": "none",
+      "is_punchline": false
+    },
+    {
+      "scene": 2,
+      "speaker": "boy2",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे उठ जा भाई! कॉलेज पोर्टल चेक किया? तेरी अटेंडेंस सिर्फ 12 परसेंट रह गई है!",
+      "dialogue": "Arre uth ja bhai! Portal check kiya? Teri attendance sirf 12% reh gayi hai!",
+      "pose": "hands_on_hips",
+      "prop": "chai_cup",
+      "action": "none",
+      "emotion": "none",
+      "is_punchline": false
+    },
+    {
+      "scene": 3,
+      "speaker": "boy",
+      "shot_type": "boy_close",
+      "spoken_hindi": "12 परसेंट मतलब ज़ीरो तो नहीं है ना भाई! डीन सर भी तो कुछ उम्मीद रख के बैठे हैं!",
+      "dialogue": "12% zero toh nahi hai na! Dean sir bhi toh kuch umeed rakh ke baithe hain!",
+      "pose": "shock",
+      "prop": "pillow",
+      "action": "whistle_shock",
+      "emotion": "shock",
+      "is_punchline": false
+    },
+    {
+      "scene": 4,
+      "speaker": "boy2",
+      "shot_type": "two_shot",
+      "spoken_hindi": "उम्मीद नहीं भाई, तेरा नाम डी-बार लिस्ट में सबसे ऊपर सुनहरे अक्षरों में लिखा है!",
+      "dialogue": "Umeed nahi bhai, tera naam debar list mein sabse upar likha hai!",
+      "pose": "pleading",
+      "prop": "none",
+      "action": "none",
+      "emotion": "none",
+      "is_punchline": true
+    }
+  ]
+}

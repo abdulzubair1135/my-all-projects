@@ -1,0 +1,56 @@
+{
+  "title": "Ladkiyon Ki Shopping vs Ladko Ki Shopping 😂 Funny Argument! #shorts #viral",
+  "description": "Shopping ka battlefield! Ladkiyan vs Ladke—kaun jeeta? Watch this hilarious stickman banter! #comedy #relatable #animation #stickman #shorts #funny",
+  "tags": [
+    "shorts",
+    "comedy",
+    "funny",
+    "relatable",
+    "stickman",
+    "animation",
+    "shopping",
+    "argument"
+  ],
+  "scenes": [
+    {
+      "scene": 1,
+      "speaker": "boy",
+      "spoken_hindi": "अरे, तुम लड़कियां शॉपिंग में 5 घंटे कैसे लगा देती हो?! मैं तो 10 मिनट में निपटा देता हूं!",
+      "dialogue": "Arre, tum ladkiyan shopping mein 5 ghante kaise laga deti ho?! Main toh 10 minute mein nipata deta hoon!",
+      "visual_prompt": "boy stickman tapping watch impatiently, girl stickman holding many shopping bags with happy face, colorful mall background, no text",
+      "is_punchline": false
+    },
+    {
+      "scene": 2,
+      "speaker": "girl",
+      "spoken_hindi": "10 मिनट?! तुम तो वो भी नहीं देखते कि क्या खरीद रहे हो! बस 'यही ठीक है' बोल के निकल जाते हो!",
+      "dialogue": "10 minute?! Tum toh woh bhi nahi dekhte ki kya khareed rahe ho! Bas 'yahi theek hai' bol ke nikal jaate ho!",
+      "visual_prompt": "girl stickman with ponytail rolling eyes, holding up a shirt with disgust, boy stickman shrugging carelessly, no text",
+      "is_punchline": false
+    },
+    {
+      "scene": 3,
+      "speaker": "boy",
+      "spoken_hindi": "तो? शर्ट है, पहन लो, बस! तुम लोगों को तो हर दुकान में घुसना ज़रूरी है—चाहे कुछ खरीदना हो या नहीं!",
+      "dialogue": "Toh? Shirt hai, pehen lo, bas! Tum logon ko toh har dukaan mein ghusna zaroori hai—chahe kuch khareedna ho ya nahi!",
+      "visual_prompt": "boy stickman facepalming, girl stickman happily entering a shop with sparkles around, no text",
+      "is_punchline": false
+    },
+    {
+      "scene": 4,
+      "speaker": "girl",
+      "spoken_hindi": "और तुम लड़के? ऑनलाइन में 3 घंटे 'साइज़ चार्ट' देखते हो, फिर भी गलत साइज़ मंगा लेते हो!",
+      "dialogue": "Aur tum ladke? Online mein 3 ghante 'size chart' dekhte ho, phir bhi galat size manga lete ho!",
+      "visual_prompt": "girl stickman showing phone screen with size chart, boy stickman scratching head wearing too-tight t-shirt, no text",
+      "is_punchline": false
+    },
+    {
+      "scene": 5,
+      "speaker": "boy",
+      "spoken_hindi": "वो... वो अलग बात है! चलो, अब बता तो—तुम्हारी शॉपिंग कब खत्म होगी?!",
+      "dialogue": "Woh... woh alag baat hai! Chalo, ab bata toh—tumhari shopping kab khatam hogi?!",
+      "visual_prompt": "boy stickman nervously laughing, girl stickman holding 10 more bags with evil grin, no text",
+      "is_punchline": true
+    }
+  ]
+}

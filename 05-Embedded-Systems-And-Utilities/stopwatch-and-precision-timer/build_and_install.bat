@@ -1,0 +1,6 @@
+@echo off
+echo Building Android APK...
+call gradlew.bat assembleDebug
+echo Installing to connected phone...
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+pause

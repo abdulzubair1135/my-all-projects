@@ -1,0 +1,58 @@
+{
+  "theme": "home_mummy",
+  "hook": "POV: Dost Ka 'Bas 2 Minute Mein Aaya'",
+  "title": "POV: Dost Ka '2 Minute Mein Aaya' #shorts #comedy #relatable #dost",
+  "description": "Cooker ki seeti ne saara jhooth pakadwa diya! #shorts #comedy #pov #desi #friends",
+  "tags": ["shorts", "comedy", "dost", "friends", "pov", "relatable", "desi"],
+  "duo_type": "boy_and_boy2",
+  "scenes": [
+    {
+      "scene": 1,
+      "speaker": "boy",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे भाई भाई भाई! पूरे पैंतालीस मिनट से धूप में खड़ा हूँ यार! और ये बोल रहा है... 'बस दो मिनट में पहुँच रहा हूँ'!",
+      "dialogue": "Arre bhai bhai bhai! Poore 45 minute se dhoop mein khada hoon yaar! Aur ye bol raha hai... 'Bas 2 minute mein pahuch raha hoon'!",
+      "pose": "walk_in",
+      "emotion": "sweat",
+      "prop": "phone",
+      "action": "walk_in",
+      "is_punchline": false
+    },
+    {
+      "scene": 2,
+      "speaker": "boy2",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे सच में भाई! रेड लाइट पे फंसा हूँ यार, बस यू-टर्न ले रहा हूँ, तू दो घूंट पानी पी, बस आ गया!",
+      "dialogue": "Arre sach mein bhai! Red light pe phasa hoon yaar, bas U-turn le raha hoon, tu do ghoont paani pee, bas aa gaya!",
+      "pose": "hands_on_hips",
+      "emotion": "none",
+      "prop": "phone",
+      "action": "none",
+      "is_punchline": false
+    },
+    {
+      "scene": 3,
+      "speaker": "boy",
+      "shot_type": "boy_close",
+      "spoken_hindi": "अरे झूठ के सौदागर!! तेरे फोन के पीछे कुकर की सीटी बजी है! तू अभी तक रजाई में पड़ा है ना?!",
+      "dialogue": "Arre jhooth ke saudagar!! Tere phone ke peeche cooker ki seeti baji hai! Tu abhi tak razai mein pada hai na?!",
+      "pose": "shock",
+      "emotion": "sweat",
+      "prop": "phone",
+      "action": "whistle_shock",
+      "is_punchline": false
+    },
+    {
+      "scene": 4,
+      "speaker": "boy2",
+      "shot_type": "two_shot",
+      "spoken_hindi": "हाँ तो भाई! अब संडे को कौन टाइम पे आता है? तू चाय की दुकान पे बैठ, मैं नहाne ja raha hoon!",
+      "dialogue": "Haan toh bhai! Ab Sunday ko kaun time pe aata hai? Tu chai ki dukaan pe baith, main nahane ja raha hoon!",
+      "pose": "talk_gesture",
+      "emotion": "none",
+      "prop": "none",
+      "action": "none",
+      "is_punchline": true
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+ need answer only raw JSON object. Need create based on topic. Need ensure valid JSON no markdown. We can improve but comply exact structure? User gave template. Need output single valid raw JSON. Must start { end }. Need include hook etc. Need energetic English. Need maybe image_queries. Need scenes 4. Need ensure animation_action and stickman_pose appropriate for tickling not ear. Tags maybe include education stickman. Need only JSON. No extra. Need valid JSON with quotes. Let's craft.
+
+Need consider "Output ONLY a single valid raw JSON object. No intro, no markdown explanation before or after. Start immediately with { and end with }". So final only JSON.
+
+Need use exact structure fields. Can modify values. Need title as given. description given. tags maybe exact? Could include extra? Exact structure means fields; tags array can include given plus? Probably okay but safer use given tags? They gave tags without education stickman in template, but previous had extra. For exact structure maybe fields only. Use tags ["shorts","science","didyouknow","animation","curiosity"]. image_queries exact given? Use given. Scenes each with scene heading narration animation_action stickman_pose sfx. Need no extra fields. Ensure all strings valid, no newlines? JSON can have spaces. Need no trailing commas. Need no markdown.
+
+Need craft captivating script. Hook: "Did you know that your brain can predict your own touch so precisely that it cancels the tickle before it even reaches your conscious mind?" Good.
+
+Scene 1 heading THE TICKLE TEST narration energetic. animation_action self_tickle_attempt maybe. stickman_pose trying_to_tickle_self. sfx ["whoosh","pop"].
+Scene2 THE PREDICTIVE BRAIN narration cerebellum predicts. animation_action brain_predicting_touch. stickman_pose confused_scratching_head. sfx ["ding"].
+Scene3 CANCELING THE SIGNAL narration brain dampens sensation. animation_action signal_canceling_effect. stickman_pose brain_glowing. sfx ["record_scratch","gasp"].
+Scene4 THE SURPRISE FACTOR narration surprise only. animation_action thumbs_up_subscribe. stickman_pose celebration. sfx ["boom","laugh"].
+
+Need valid JSON. Use only double quotes. Ensure no em dash? Fine. Ampersand? fine. Avoid apostrophe? JSON allows. Need no unescaped newline inside strings? We can keep one line. Final.
+
+Need maybe include "😂" in title okay. JSON UTF-8 valid. Final only. 
+Wait need decide if use exactly tags as provided or include education/stickman? Template tags: ["shorts", "science", "didyouknow", "animation", "curiosity"] no stickman. Use exact. image_queries exact. Good.
+
+Need ensure "raw JSON object" means no code fences. Final only JSON. 
+Let's produce.  "hook": "Did you know that your brain can predict your own touch so precisely that it cancels the tickle before it even reaches your conscious mind?",
+  "title": "Why Can't You Tickle Yourself? 😂 Explained! #shorts #science",
+  "description": "Why your brain cancels tickling! #shorts #science #didyouknow #stickman",
+  "tags": ["shorts", "science", "didyouknow", "animation", "curiosity"],
+  "image_queries": ["cerebellum brain", "tickling reaction", "somatosensory cortex"],
+  "scenes": [
+    {
+      "scene": 1,
+      "heading": "THE TICKLE TEST",
+      "narration": "Try tickling your own ribs right now—nothing happens, right? But the second a friend pokes you, you explode into laughter!",
+      "animation_action": "self_tickle_attempt",
+      "stickman_pose": "trying_to_tickle_self",
+      "sfx": ["whoosh", "pop"]
+    },
+    {
+      "scene": 2,
+      "heading": "THE PREDICTIVE BRAIN",
+      "narration": "Deep inside your brain, the cerebellum predicts every move your body is about to make—before you even make it!",
+      "animation_action": "brain_predicting_touch",
+      "stickman_pose": "confused_scratching_head",
+      "sfx": ["ding"]
+    },
+    {
+      "scene": 3,
+      "heading": "CANCELING THE SIGNAL",
+      "narration": "Because your brain already knows the touch is coming, it dampens the sensation so you do not get overwhelmed by your own body!",
+      "animation_action": "signal_canceling_effect",
+      "stickman_pose": "brain_glowing",
+      "sfx": ["record_scratch", "gasp"]
+    },
+    {
+      "scene": 4,
+      "heading": "THE SURPRISE FACTOR",
+      "narration": "That is why you can only be tickled by surprise! Hit subscribe for more mind-blowing body secrets!",
+      "animation_action": "thumbs_up_subscribe",
+      "stickman_pose": "celebration",
+      "sfx": ["boom", "laugh"]
+    }
+  ]
+}FINISHEDFINISHED
