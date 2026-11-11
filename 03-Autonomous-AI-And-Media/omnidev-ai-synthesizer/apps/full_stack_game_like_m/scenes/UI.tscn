@@ -1,0 +1,167 @@
+[gd_scene load_steps=2 format=3 uid="uid://ui_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_ui"]
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "hunger_bar", "exp_bar", "level_label", "block_counter", "hotbar_container", "start_menu", "pause_menu")]
+script = ExtResource("1_ui")
+health_bar = NodePath("HUD/StatsContainer/HealthBar")
+hunger_bar = NodePath("HUD/StatsContainer/HungerBar")
+exp_bar = NodePath("HUD/StatsContainer/ExpBar")
+level_label = NodePath("HUD/StatsContainer/LevelLabel")
+block_counter = NodePath("HUD/StatsContainer/BlockCounter")
+hotbar_container = NodePath("HUD/HotbarContainer")
+start_menu = NodePath("StartMenu")
+pause_menu = NodePath("PauseMenu")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="ColorRect" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.75)
+
+[node name="StatsContainer" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = -20.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="LevelLabel" type="Label" parent="HUD/StatsContainer"]
+layout_mode = 2
+text = "Lv. 1"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/StatsContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="HungerBar" type="ProgressBar" parent="HUD/StatsContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="HUD/StatsContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+value = 0.0
+show_percentage = false
+
+[node name="BlockCounter" type="Label" parent="HUD/StatsContainer"]
+layout_mode = 2
+text = "Health: 20/20"
+
+[node name="HotbarContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -70.0
+offset_right = 250.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="StartMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+text = "VOXEL WORLD"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="PauseMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -70.0
+offset_right = 100.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"

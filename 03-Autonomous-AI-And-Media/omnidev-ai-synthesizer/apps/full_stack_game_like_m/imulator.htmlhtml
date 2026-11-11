@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>full stack game like minecraft - Godot 3D Simulator</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #020617;
+    color: #f8fafc;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+  #crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  #crosshair::before, #crosshair::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 4px #000;
+  }
+  #crosshair::before { top: 8px; left: 0; width: 18px; height: 2px; }
+  #crosshair::after { top: 0; left: 8px; width: 2px; height: 18px; }
+
+  .hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 30px;
+    z-index: 10;
+  }
+  .hud-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .badge {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #38bdf8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: #38bdf8;
+    font-family: 'Orbitron', monospace;
+    font-size: 13px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  }
+  .story-box {
+    max-width: 450px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    padding: 14px 18px;
+    backdrop-filter: blur(8px);
+  }
+  .story-title { font-size: 14px; font-weight: 700; color: #38bdf8; margin-bottom: 4px; font-family: 'Orbitron'; }
+  .story-text { font-size: 13px; color: #cbd5e1; line-height: 1.4; }
+
+  .hotbar {
+    align-self: center;
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 2px solid rgba(56, 189, 248, 0.4);
+    backdrop-filter: blur(8px);
+  }
+  .slot {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .slot.active {
+    border-color: #38bdf8;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #38bdf8;
+  }
+  .slot.grass { background: #22c55e; }
+  .slot.dirt { background: #78350f; }
+  .slot.stone { background: #64748b; }
+  .slot.wood { background: #d97706; }
+  .slot.brick { background: #ef4444; }
+
+  #blocker {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    text-align: center;
+    cursor: pointer;
+  }
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .play-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: #020617;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+    margin: 20px 0;
+  }
+  .instructions { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+  .key { background: #1e293b; color: #38bdf8; padding: 2px 8px; border-radius: 4px; border: 1px solid #334155; }
+</style>
+</head>
+<body>
+
+<div id="crosshair"></div>
+
+<div class="hud">
+  <div class="hud-top">
+    <div class="badge">GODOT 4 3D VOXEL ENGINE</div>
+    <div class="story-box">
+      <div class="story-title">QUEST & OBJECTIVE</div>
+      <div class="story-text">iseaki wolrd</div>
+    </div>
+  </div>
+
+  <div class="hotbar" id="hotbar">
+    <div class="slot grass active" data-id="1">1:GRASS</div>
+    <div class="slot dirt" data-id="2">2:DIRT</div>
+    <div class="slot stone" data-id="3">3:STONE</div>
+    <div class="slot wood" data-id="4">4:WOOD</div>
+    <div class="slot brick" data-id="5">5:BRICK</div>
+  </div>
+</div>
+
+<div id="blocker">
+  <h1>Full Stack Game Like Minecraft</h1>
+  <p style="color: #94a3b8; max-width: 500px; margin-bottom: 10px;">Godot 4 3D Open-World Sandbox. Generated with CharacterBody3D physics, procedural voxel chunks, and synthesized audio.</p>
+  <button class="play-btn">CLICK TO PLAY (LOCK MOUSE)</button>
+  <div class="instructions">
+    <span class="key">WASD</span> Walk &nbsp;|&nbsp;
+    <span class="key">SPACE</span> Jump &nbsp;|&nbsp;
+    <span class="key">F1</span> Toggle 1st/3rd Person &nbsp;|&nbsp;
+    <span class="key">LEFT CLICK</span> Break Block &nbsp;|&nbsp;
+    <span class="key">RIGHT CLICK</span> Place Block &nbsp;|&nbsp;
+    <span class="key">1-5</span> Select Block
+  </div>
+</div>
+
+<script>
+const Sound = (() => {
+  let ctx = null;
+  function getCtx() {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  return {
+    break() {
+      const c = getCtx();
+      const bSize = c.sampleRate * 0.15;
+      const buf = c.createBuffer(1, bSize, c.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bSize; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / bSize);
+      const src = c.createBufferSource();
+      src.buffer = buf;
+      const f = c.createBiquadFilter();
+      f.type = 'lowpass'; f.frequency.value = 350;
+      src.connect(f); f.connect(c.destination);
+      src.start();
+    },
+    place() {
+      const c = getCtx();
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(240, c.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, c.currentTime + 0.08);
+      g.gain.setValueAtTime(0.25, c.currentTime);
+      g.gain.linearRampToValueAtTime(0.01, c.currentTime + 0.08);
+      osc.connect(g); g.connect(c.destination);
+      osc.start(); osc.stop(c.currentTime + 0.08);
+    },
+    jump() {
+      const c = getCtx();
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(300, c.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(600, c.currentTime + 0.15);
+      g.gain.setValueAtTime(0.2, c.currentTime);
+      g.gain.linearRampToValueAtTime(0.01, c.currentTime + 0.15);
+      osc.connect(g); g.connect(c.destination);
+      osc.start(); osc.stop(c.currentTime + 0.15);
+    }
+  };
+})();
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x70b5f9);
+scene.fog = new THREE.Fog(0x70b5f9, 20, 65);
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+document.body.appendChild(renderer.domElement);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+scene.add(ambientLight);
+const sunLight = new THREE.DirectionalLight(0xfff8e7, 0.8);
+sunLight.position.set(30, 50, 20);
+sunLight.castShadow = true;
+scene.add(sunLight);
+
+const materials = {
+  1: new THREE.MeshLambertMaterial({ color: 0x22c55e }),
+  2: new THREE.MeshLambertMaterial({ color: 0x78350f }),
+  3: new THREE.MeshLambertMaterial({ color: 0x64748b }),
+  4: new THREE.MeshLambertMaterial({ color: 0xd97706 }),
+  5: new THREE.MeshLambertMaterial({ color: 0xef4444 })
+};
+
+const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+const blocks = new Map();
+
+function addBlock(x, y, z, typeId) {
+  const key = `${x},${y},${z}`;
+  if (blocks.has(key)) return;
+  const mesh = new THREE.Mesh(boxGeometry, materials[typeId] || materials[1]);
+  mesh.position.set(x + 0.5, y + 0.5, z + 0.5);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  mesh.userData = { x, y, z, typeId };
+  scene.add(mesh);
+  blocks.set(key, mesh);
+  
+  if (typeId === 1 && Math.random() < 0.35) {
+    const grassGeo = new THREE.BoxGeometry(0.15, 0.4, 0.15);
+    const grassMat = new THREE.MeshLambertMaterial({ color: 0x2e8b57 });
+    const grassMesh = new THREE.Mesh(grassGeo, grassMat);
+    grassMesh.position.set(x + 0.5, y + 0.7, z + 0.5);
+    grassMesh.castShadow = true;
+    scene.add(grassMesh);
+    const grassKey = `grass_${key}`;
+    blocks.set(grassKey, grassMesh);
+  }
+}
+
+function removeBlock(x, y, z) {
+  const key = `${x},${y},${z}`;
+  const mesh = blocks.get(key);
+  if (mesh) {
+    scene.remove(mesh);
+    blocks.delete(key);
+    const grassKey = `grass_${key}`;
+    const grassMesh = blocks.get(grassKey);
+    if (grassMesh) {
+      scene.remove(grassMesh);
+      blocks.delete(grassKey);
+    }
+    Sound.break();
+  }
+}
+
+const worldSize = 24;
+for (let x = -worldSize; x <= worldSize; x++) {
+  for (let z = -worldSize; z <= worldSize; z++) {
+    const height = Math.floor(Math.sin(x * 0.2) * Math.cos(z * 0.2) * 3 + 3);
+    for (let y = 0; y <= height; y++) {
+      let type = 3;
+      if (y === height) type = 1;
+      else if (y > height - 2) type = 2;
+      addBlock(x, y, z, type);
+    }
+  }
+}
+
+let activeBlockId = 1;
+let isThirdPerson = true;
+const player = {
+  pos: new THREE.Vector3(0, 10, 0),
+  vel: new THREE.Vector3(),
+  yaw: 0,
+  pitch: 0,
+  onGround: false,
+  speed: 9,
+  jumpVel: 11
+};
+
+const keys = {};
+window.addEventListener('keydown', e => {
+  keys[e.code] = true;
+  if (e.key >= '1' && e.key <= '5') {
+    activeBlockId = parseInt(e.key);
+    document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
+    document.querySelector(`.slot[data-id="${activeBlockId}"]`).classList.add('active');
+  }
+  if (e.key === 'F1') {
+    isThirdPerson = !isThirdPerson;
+    if (isThirdPerson) {
+      camera.position.set(0, 2, 6);
+      camera.lookAt(player.pos.x, player.pos.y + 2, player.pos.z);
+    } else {
+      camera.position.set(0, 2, 0);
+    }
+  }
+});
+window.addEventListener('keyup', e => keys[e.code] = false);
+
+const blocker = document.getElementById('blocker');
+let isLocked = false;
+blocker.addEventListener('click', () => {
+  document.body.requestPointerLock();
+});
+
+document.addEventListener('pointerlockchange', () => {
+  isLocked = document.pointerLockElement === document.body;
+  blocker.style.display = isLocked ? 'none' : 'flex';
+});
+
+document.addEventListener('mousemove', e => {
+  if (!isLocked) return;
+  player.yaw -= e.movementX * 0.0025;
+  player.pitch -= e.movementY * 0.0025;
+  player.pitch = Math.max(-Math.PI / 2.1, Math.min(Math.PI / 2.1, player.pitch));
+});
+
+const raycaster = new THREE.Raycaster();
+window.addEventListener('mousedown', e => {
+  if (!isLocked) return;
+  raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
+  const intersects = raycaster.intersectObjects(Array.from(blocks.values()));
+  
+  if (intersects.length > 0 && intersects[0].distance < 6) {
+    const hit = intersects[0];
+    const bData = hit.object.userData;
+    
+    if (e.button === 0) {
+      removeBlock(bData.x, bData.y, bData.z);
+    } else if (e.button === 2) {
+      const norm = hit.face.normal;
+      const nx = bData.x + Math.round(norm.x);
+      const ny = bData.y + Math.round(norm.y);
+      const nz = bData.z + Math.round(norm.z);
+      addBlock(nx, ny, nz, activeBlockId);
+      Sound.place();
+    }
+  }
+});
+window.addEventListener('contextmenu', e => e.preventDefault());
+
+let lastTime = performance.now();
+function animate() {
+  requestAnimationFrame(animate);
+  const now = performance.now();
+  const dt = Math.min((now - lastTime) / 1000, 0.1);
+  lastTime = now;
+
+  if (isLocked) {
+    const moveX = (keys['KeyD'] ? 1 : 0) - (keys['KeyA'] ? 1 : 0);
+    const moveZ = (keys['KeyS'] ? 1 : 0) - (keys['KeyW'] ? 1 : 0);
+    
+    const forward = new THREE.Vector3(-Math.sin(player.yaw), 0, -Math.cos(player.yaw));
+    const right = new THREE.Vector3(Math.cos(player.yaw), 0, -Math.sin(player.yaw));
+    
+    const moveDir = new THREE.Vector3();
+    moveDir.addScaledVector(right, moveX);
+    moveDir.addScaledVector(forward, -moveZ);
+    moveDir.normalize();
+
+    player.vel.x = moveDir.x * player.speed;
+    player.vel.z = moveDir.z * player.speed;
+    player.vel.y -= 26 * dt;
+    
+    if (keys['Space'] && player.onGround) {
+      player.vel.y = player.jumpVel;
+      player.onGround = false;
+      Sound.jump();
+    }
+
+    player.pos.x += player.vel.x * dt;
+    player.pos.z += player.vel.z * dt;
+    player.pos.y += player.vel.y * dt;
+
+    const blockUnderX = Math.floor(player.pos.x);
+    const blockUnderZ = Math.floor(player.pos.z);
+    let highestY = -10;
+
+    for (let y = 0; y < 20; y++) {
+      if (blocks.has(`${blockUnderX},${y},${blockUnderZ}`)) {
+        highestY = Math.max(highestY, y + 2.0);
+      }
+    }
+
+    if (player.pos.y <= highestY) {
+      player.pos.y = highestY;
+      player.vel.y = 0;
+      player.onGround = true;
+    } else {
+      player.onGround = false;
+    }
+  }
+
+  if (isThirdPerson) {
+    const offset = new THREE.Vector3(0, 2, 6);
+    const targetPos = player.pos.clone().add(offset);
+    camera.position.lerp(targetPos, 0.1);
+    camera.lookAt(player.pos.x, player.pos.y + 2, player.pos.z);
+  } else {
+    camera.position.copy(player.pos);
+    camera.position.y += 2;
+    camera.rotation.set(0, 0, 0);
+    camera.rotation.y = player.yaw;
+    camera.rotation.x = player.pitch;
+  }
+
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+animate();
+</script>
+</body>
+</html>

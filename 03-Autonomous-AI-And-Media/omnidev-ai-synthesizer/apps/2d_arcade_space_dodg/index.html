@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2D arcade Space Dodge game</title>
+<style>
+body { margin: 0; background: #0f172a; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; }
+canvas { background: #1e293b; border: 3px solid #38bdf8; border-radius: 8px; box-shadow: 0 0 20px rgba(56,189,248,0.4); }
+#ui { margin-top: 12px; font-size: 18px; }
+</style>
+</head>
+<body>
+<h1>🎮 2D arcade Space Dodge game</h1>
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+<div id="ui">Use Arrow Keys / WASD to Play | Score: <span id="score">0</span></div>
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+let x = 300, y = 200, score = 0;
+let keys = {};
+window.addEventListener('keydown', e => keys[e.key] = true);
+window.addEventListener('keyup', e => keys[e.key] = false);
+function loop() {
+  if (keys['ArrowLeft'] || keys['a']) x -= 4;
+  if (keys['ArrowRight'] || keys['d']) x += 4;
+  if (keys['ArrowUp'] || keys['w']) y -= 4;
+  if (keys['ArrowDown'] || keys['s']) y += 4;
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#38bdf8';
+  ctx.beginPath();
+  ctx.arc(x, y, 15, 0, Math.PI * 2);
+  ctx.fill();
+  score++;
+  document.getElementById('score').innerText = Math.floor(score / 10);
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

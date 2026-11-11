@@ -1,0 +1,3346 @@
+================================================================================
+OMNIDEV AI MASTER PROJECT BUNDLE: FULL_STACK_GAME_LIKE_M
+Root Directory: C:/Users/abdul/OneDrive/ドキュメント/ai/apps/full_stack_game_like_m
+Project Type: Godot 4.x Sovereign Engine
+================================================================================
+
+=== 1. COMPLETE PROJECT DIRECTORY & FILE TREE ===
+📁 full_stack_game_like_m/
+  ├── 📁 assets/
+  │   ├── 📁 audio/
+  │   │   ├── break.wav (7.8 KB)
+  │   │   ├── footstep.wav (3.5 KB)
+  │   │   ├── hit.wav (8.7 KB)
+  │   │   ├── jump.wav (6.5 KB)
+  │   │   ├── pickup.wav (9.5 KB)
+  │   │   └── place.wav (4.3 KB)
+  │   └── 📁 textures/
+  │       ├── dirt_block.svg (270 B)
+  │       ├── grass_block.svg (343 B)
+  │       └── stone_block.svg (288 B)
+  ├── 📁 scenes/
+  │   ├── Animal.tscn (501 B)
+  │   ├── Main.tscn (2.1 KB)
+  │   ├── Player.tscn (965 B)
+  │   └── UI.tscn (4.3 KB)
+  ├── 📁 scripts/
+  │   ├── Animal.gd (10.5 KB)
+  │   ├── Player.gd (22.5 KB)
+  │   ├── SoundManager.gd (3.4 KB)
+  │   ├── UI.gd (15.7 KB)
+  │   └── WorldGenerator.gd (23.5 KB)
+  ├── imulator.htmlhtml (14.3 KB)
+  ├── index.html (13.6 KB)
+  ├── main.py (39 B)
+  ├── project.godot (433 B)
+  └── run_godot.bat (1.3 KB)
+
+================================================================================
+
+=== 2. COMPREHENSIVE ASSET & RESOURCE CATALOG ===
+
+🎨 [TEXTURES & 2D SPRITES]:
+  • res://assets/textures/dirt_block.svg (SVG, 270 B) -> GDScript Load: load("res://assets/textures/dirt_block.svg")
+  • res://assets/textures/grass_block.svg (SVG, 343 B) -> GDScript Load: load("res://assets/textures/grass_block.svg")
+  • res://assets/textures/stone_block.svg (SVG, 288 B) -> GDScript Load: load("res://assets/textures/stone_block.svg")
+
+🔊 [AUDIO & SOUND EFFECTS]:
+  • res://assets/audio/break.wav (WAV, 7.8 KB) -> GDScript Load: preload("res://assets/audio/break.wav")
+  • res://assets/audio/footstep.wav (WAV, 3.5 KB) -> GDScript Load: preload("res://assets/audio/footstep.wav")
+  • res://assets/audio/hit.wav (WAV, 8.7 KB) -> GDScript Load: preload("res://assets/audio/hit.wav")
+  • res://assets/audio/jump.wav (WAV, 6.5 KB) -> GDScript Load: preload("res://assets/audio/jump.wav")
+  • res://assets/audio/pickup.wav (WAV, 9.5 KB) -> GDScript Load: preload("res://assets/audio/pickup.wav")
+  • res://assets/audio/place.wav (WAV, 4.3 KB) -> GDScript Load: preload("res://assets/audio/place.wav")
+
+🎬 [SCENE FILES (.tscn)]:
+  • res://scenes/Animal.tscn (501 B) -> GDScript Load: preload("res://scenes/Animal.tscn")
+  • res://scenes/Main.tscn (2.1 KB) -> GDScript Load: preload("res://scenes/Main.tscn")
+  • res://scenes/Player.tscn (965 B) -> GDScript Load: preload("res://scenes/Player.tscn")
+  • res://scenes/UI.tscn (4.3 KB) -> GDScript Load: preload("res://scenes/UI.tscn")
+
+================================================================================
+
+=== 3. GODOT SCENE NODE TREES & PATH MAPPINGS ===
+
+🎬 SCENE: res://scenes/Animal.tscn (Root: CollisionShape3D [CollisionShape3D])
+   Node Tree Hierarchy:
+	 • Animal [CharacterBody3D] [ROOT]
+	 • CollisionShape3D [CollisionShape3D] [ROOT]
+
+🎬 SCENE: res://scenes/Main.tscn (Root: Player [CharacterBody3D])
+   Node Tree Hierarchy:
+	 • Main [Node3D] [ROOT]
+	 • WorldEnvironment [WorldEnvironment] [ROOT]
+	 • WorldGenerator [Node3D] [ROOT]
+	 • Player [CharacterBody3D] [ROOT]
+	 • CollisionShape3D [CollisionShape3D] (parent: Player)
+	 • FirstPersonCamera [Camera3D] (parent: Player)
+	 • ThirdPersonCamera [Camera3D] (parent: Player)
+	 • CameraTarget [Node3D] (parent: Player)
+
+🎬 SCENE: res://scenes/Player.tscn (Root: CameraTarget [Node3D])
+   Node Tree Hierarchy:
+	 • Player [CharacterBody3D] [ROOT]
+	 • CollisionShape3D [CollisionShape3D] [ROOT]
+	 • FirstPersonCamera [Camera3D] [ROOT]
+	 • ThirdPersonCamera [Camera3D] [ROOT]
+	 • CameraTarget [Node3D] [ROOT]
+
+🎬 SCENE: res://scenes/UI.tscn (Root: PauseMenu [Panel])
+   Node Tree Hierarchy:
+	 • UI [CanvasLayer] [ROOT]
+	 • HUD [Control] [ROOT]
+	 • Crosshair [ColorRect] (parent: HUD)
+	 • StatsContainer [VBoxContainer] (parent: HUD)
+	 • LevelLabel [Label] (parent: HUD/StatsContainer)
+	 • HealthBar [ProgressBar] (parent: HUD/StatsContainer)
+	 • HungerBar [ProgressBar] (parent: HUD/StatsContainer)
+	 • ExpBar [ProgressBar] (parent: HUD/StatsContainer)
+	 • BlockCounter [Label] (parent: HUD/StatsContainer)
+	 • HotbarContainer [HBoxContainer] (parent: HUD)
+	 • StartMenu [Panel] [ROOT]
+	 • VBoxContainer [VBoxContainer] (parent: StartMenu)
+	 • Title [Label] (parent: StartMenu/VBoxContainer)
+	 • StartButton [Button] (parent: StartMenu/VBoxContainer)
+	 • QuitButton [Button] (parent: StartMenu/VBoxContainer)
+	 • PauseMenu [Panel] [ROOT]
+	 • VBoxContainer [VBoxContainer] (parent: PauseMenu)
+	 • Title [Label] (parent: PauseMenu/VBoxContainer)
+	 • ResumeButton [Button] (parent: PauseMenu/VBoxContainer)
+	 • MenuButton [Button] (parent: PauseMenu/VBoxContainer)
+	 • QuitButton [Button] (parent: PauseMenu/VBoxContainer)
+
+================================================================================
+
+=== 4. GODOT PROJECT CONFIGURATION (project.godot) ===
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.6")
+
+[autoload]
+
+SoundManager="*res://scripts/SoundManager.gd"
+
+================================================================================
+
+=== 5. COMPLETE SOURCE CODE REPOSITORY ===
+
+--- FILE: scripts/Animal.gd ---
+class_name Animal
+extends CharacterBody3D
+
+var _animal_type: String = "cow"
+
+# Animal types
+enum AnimalType {
+	COW,
+	SHEEP,
+	PIG
+}
+
+# AI States
+enum AIState {
+	WANDERING,
+	FLEEING,
+	DEAD,
+	IDLE
+}
+
+# Core properties
+@export var animal_type: int = AnimalType.COW
+@export var wander_speed: float = 1.2
+@export var flee_speed: float = 4.0
+@export var health: int = 4
+@export var max_health: int = 4
+@export var detection_range: float = 10.0
+@export var death_rotation_time: float = 0.6
+
+# Internal state
+var state: AIState = AIState.WANDERING
+var wander_target: Vector3
+var wander_timer: float = 0.0
+var wander_interval: float = 3.0
+var graze_timer: float = 0.0
+var is_grazing: bool = false
+var leg_phase: float = 0.0
+var death_timer: float = 0.0
+var is_dead: bool = false
+var original_position: Vector3
+var original_rotation: Vector3
+var hit_flash_timer: float = 0.0
+var is_flashing: bool = false
+var idle_timer: float = 0.0
+var is_idle: bool = false
+
+# Mesh components
+var torso_mesh: MeshInstance3D
+var head_mesh: MeshInstance3D
+var leg_fl: MeshInstance3D
+var leg_fr: MeshInstance3D
+var leg_bl: MeshInstance3D
+var leg_br: MeshInstance3D
+var ear_l: MeshInstance3D
+var ear_r: MeshInstance3D
+var horn_l: MeshInstance3D
+var horn_r: MeshInstance3D
+var tail_mesh: MeshInstance3D
+
+# Materials
+var body_material: StandardMaterial3D
+var original_color: Color
+var flash_material: StandardMaterial3D
+
+# References
+var player_ref: Node3D
+
+func _ready():
+	original_position = global_position
+	original_rotation = rotation
+	
+	if has_node("CollisionShape3D"):
+		var col = get_node("CollisionShape3D")
+		var shape = BoxShape3D.new()
+		shape.size = Vector3(1.4, 1.2, 1.8)
+		col.shape = shape
+	
+	build_procedural_model()
+	pick_new_wander_target()
+	
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player_ref = players[0]
+
+func build_procedural_model():
+	body_material = StandardMaterial3D.new()
+	body_material.albedo_color = get_animal_color()
+	body_material.roughness = 0.9
+	body_material.metallic = 0.0
+	original_color = body_material.albedo_color
+	
+	flash_material = StandardMaterial3D.new()
+	flash_material.albedo_color = Color(1.0, 0.2, 0.2)
+	flash_material.roughness = 0.5
+	
+	# Torso
+	torso_mesh = MeshInstance3D.new()
+	var torso_box = BoxMesh.new()
+	torso_box.size = Vector3(1.2, 0.8, 2.0)
+	torso_mesh.mesh = torso_box
+	torso_mesh.material_override = body_material
+	torso_mesh.position = Vector3(0, 0.6, 0)
+	add_child(torso_mesh)
+	
+	# Head
+	head_mesh = MeshInstance3D.new()
+	var head_box = BoxMesh.new()
+	head_box.size = Vector3(0.8, 0.6, 0.8)
+	head_mesh.mesh = head_box
+	head_mesh.material_override = body_material
+	head_mesh.position = Vector3(0, 0.9, 1.2)
+	add_child(head_mesh)
+	
+	# Legs
+	var leg_size = Vector3(0.2, 0.7, 0.2)
+	leg_fl = create_leg(Vector3(-0.5, 0.0, -0.8), leg_size)
+	leg_fr = create_leg(Vector3(0.5, 0.0, -0.8), leg_size)
+	leg_bl = create_leg(Vector3(-0.5, 0.0, 0.8), leg_size)
+	leg_br = create_leg(Vector3(0.5, 0.0, 0.8), leg_size)
+	
+	# Ears (sheep and cow)
+	if animal_type == AnimalType.SHEEP or animal_type == AnimalType.COW:
+		var ear_size = Vector3(0.15, 0.05, 0.2)
+		ear_l = create_ear(Vector3(-0.45, 0.95, 1.4), ear_size, true)
+		ear_r = create_ear(Vector3(0.45, 0.95, 1.4), ear_size, false)
+	
+	# Horns (cow only)
+	if animal_type == AnimalType.COW:
+		var horn_size = Vector3(0.08, 0.15, 0.08)
+		horn_l = create_horn(Vector3(-0.35, 1.05, 1.3), horn_size, true)
+		horn_r = create_horn(Vector3(0.35, 1.05, 1.3), horn_size, false)
+	
+	# Tail
+	tail_mesh = MeshInstance3D.new()
+	var tail_box = BoxMesh.new()
+	tail_box.size = Vector3(0.08, 0.08, 0.4)
+	tail_mesh.mesh = tail_box
+	tail_mesh.material_override = body_material
+	tail_mesh.position = Vector3(0, 0.6, -1.1)
+	add_child(tail_mesh)
+
+func create_leg(position: Vector3, size: Vector3) -> MeshInstance3D:
+	var leg = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = size
+	leg.mesh = box
+	leg.material_override = body_material
+	leg.position = position
+	add_child(leg)
+	return leg
+
+func create_ear(position: Vector3, size: Vector3, is_left: bool) -> MeshInstance3D:
+	var ear = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = size
+	ear.mesh = box
+	ear.material_override = body_material
+	ear.position = position
+	if is_left:
+		ear.rotation.z = 0.3
+	else:
+		ear.rotation.z = -0.3
+	add_child(ear)
+	return ear
+
+func create_horn(position: Vector3, size: Vector3, is_left: bool) -> MeshInstance3D:
+	var horn = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = size
+	horn.mesh = box
+	var mat = StandardMaterial3D.new()
+	mat.albedo_color = Color(0.7, 0.65, 0.6)
+	mat.roughness = 0.7
+	horn.material_override = mat
+	horn.position = position
+	if is_left:
+		horn.rotation.z = -0.3
+	else:
+		horn.rotation.z = 0.3
+	add_child(horn)
+	return horn
+
+func get_animal_color() -> Color:
+	match animal_type:
+		AnimalType.COW:
+			return Color(0.55, 0.3, 0.2)
+		AnimalType.SHEEP:
+			return Color(0.85, 0.82, 0.78)
+		AnimalType.PIG:
+			return Color(0.8, 0.55, 0.55)
+		_:
+			return Color(0.7, 0.7, 0.7)
+
+func _physics_process(delta: float):
+	if is_dead:
+		return
+	
+	if is_flashing:
+		hit_flash_timer -= delta
+		if hit_flash_timer <= 0.0:
+			set_body_color(original_color)
+			is_flashing = false
+	
+	match state:
+		AIState.WANDERING:
+			handle_wandering(delta)
+		AIState.FLEEING:
+			handle_fleeing(delta)
+		AIState.DEAD:
+			handle_death(delta)
+		AIState.IDLE:
+			handle_idle(delta)
+	
+	if velocity.length() > 0.1 and state != AIState.DEAD:
+		leg_phase += delta * velocity.length() * 2.5
+		animate_legs(leg_phase)
+	else:
+		animate_legs(0.0)
+
+func handle_wandering(delta: float):
+	if is_grazing:
+		graze_timer -= delta
+		if graze_timer <= 0.0:
+			is_grazing = false
+			pick_new_wander_target()
+		velocity = Vector3.ZERO
+		return
+	
+	if is_idle:
+		idle_timer -= delta
+		if idle_timer <= 0.0:
+			is_idle = false
+			pick_new_wander_target()
+		velocity = Vector3.ZERO
+		return
+	
+	var direction = (wander_target - global_position).normalized()
+	direction.y = 0.0
+	var distance = global_position.distance_to(wander_target)
+	
+	if distance < 0.8:
+		if randf() < 0.4:
+			is_idle = true
+			idle_timer = randf_range(0.5, 2.0)
+		else:
+			pick_new_wander_target()
+		return
+	
+	velocity = direction * wander_speed
+	move_and_slide()
+	
+	if velocity.length() > 0.1:
+		var target_rotation = atan2(direction.x, direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, delta * 4.0)
+	
+	wander_timer -= delta
+	if wander_timer <= 0.0 and not is_grazing and not is_idle:
+		if randf() < 0.35:
+			is_grazing = true
+			graze_timer = randf_range(1.5, 4.0)
+		else:
+			pick_new_wander_target()
+	
+	if player_ref:
+		var distance_to_player = global_position.distance_to(player_ref.global_position)
+		if distance_to_player < detection_range:
+			state = AIState.FLEEING
+
+func handle_fleeing(delta: float):
+	if not player_ref:
+		state = AIState.WANDERING
+		return
+	
+	var flee_direction = (global_position - player_ref.global_position).normalized()
+	flee_direction.y = 0.0
+	
+	if flee_direction.length() < 0.1:
+		flee_direction = Vector3(0, 0, 1)
+	
+	velocity = flee_direction * flee_speed
+	move_and_slide()
+	
+	if velocity.length() > 0.1:
+		var target_rotation = atan2(flee_direction.x, flee_direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, delta * 5.0)
+	
+	if player_ref:
+		var distance = global_position.distance_to(player_ref.global_position)
+		if distance > detection_range * 1.8:
+			state = AIState.WANDERING
+			pick_new_wander_target()
+
+func handle_idle(delta: float):
+	idle_timer -= delta
+	if idle_timer <= 0.0:
+		is_idle = false
+		pick_new_wander_target()
+
+func handle_death(delta: float):
+	death_timer += delta
+	var target_rotation_x = deg_to_rad(-90.0)
+	rotation.x = lerp_angle(rotation.x, target_rotation_x, delta * 3.0)
+	position.y = original_position.y - 0.3
+	
+	if death_timer > 1.5:
+		queue_free()
+
+func animate_legs(phase: float):
+	var leg_swing = sin(phase) * 0.3
+	
+	if leg_fl:
+		leg_fl.rotation.x = leg_swing
+	if leg_fr:
+		leg_fr.rotation.x = -leg_swing
+	if leg_bl:
+		leg_bl.rotation.x = -leg_swing
+	if leg_br:
+		leg_br.rotation.x = leg_swing
+
+func pick_new_wander_target():
+	var range_x = randf_range(-8.0, 8.0)
+	var range_z = randf_range(-8.0, 8.0)
+	wander_target = global_position + Vector3(range_x, 0, range_z)
+	wander_timer = randf_range(2.0, 6.0)
+	is_grazing = false
+	is_idle = false
+
+func set_body_color(color: Color):
+	body_material.albedo_color = color
+	if torso_mesh:
+		torso_mesh.material_override = body_material
+	if head_mesh:
+		head_mesh.material_override = body_material
+	if leg_fl:
+		leg_fl.material_override = body_material
+	if leg_fr:
+		leg_fr.material_override = body_material
+	if leg_bl:
+		leg_bl.material_override = body_material
+	if leg_br:
+		leg_br.material_override = body_material
+	if ear_l:
+		ear_l.material_override = body_material
+	if ear_r:
+		ear_r.material_override = body_material
+	if tail_mesh:
+		tail_mesh.material_override = body_material
+
+func take_damage(amount: int):
+	if is_dead:
+		return
+	
+	health -= amount
+	
+	is_flashing = true
+	hit_flash_timer = 0.15
+	set_body_color(Color(1.0, 0.2, 0.2))
+	
+	if has_node("/root/SoundManager"):
+		var sm = get_node("/root/SoundManager")
+		if sm.has_method("play_hit"):
+			sm.play_hit()
+	
+	if health <= 0:
+		die()
+	else:
+		state = AIState.FLEEING
+		if player_ref:
+			var flee_dir = (global_position - player_ref.global_position).normalized()
+			wander_target = global_position + flee_dir * 8.0
+
+func die():
+	is_dead = true
+	state = AIState.DEAD
+	death_timer = 0.0
+	velocity = Vector3.ZERO
+	
+	spawn_drop_item()
+	
+	if has_node("/root/SoundManager"):
+		var sm = get_node("/root/SoundManager")
+		if sm.has_method("play_break"):
+			sm.play_break()
+
+func spawn_drop_item():
+	var drop = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = Vector3(0.3, 0.3, 0.3)
+	drop.mesh = box
+	
+	var mat = StandardMaterial3D.new()
+	mat.roughness = 0.6
+	match animal_type:
+		AnimalType.COW:
+			mat.albedo_color = Color(0.5, 0.15, 0.1)
+		AnimalType.SHEEP:
+			mat.albedo_color = Color(0.9, 0.85, 0.8)
+		AnimalType.PIG:
+			mat.albedo_color = Color(0.85, 0.5, 0.5)
+	mat.albedo_color.a = 1.0
+	drop.material_override = mat
+	drop.position = global_position + Vector3(0, 0.5, 0)
+	get_parent().add_child(drop)
+
+func lerp_angle(from: float, to: float, weight: float) -> float:
+	var diff = to - from
+	while diff > PI:
+		diff -= TAU
+	while diff < -PI:
+		diff += TAU
+	return from + diff * weight
+
+
+
+--- FILE: scripts/SoundManager.gd ---
+extends Node
+
+var audio_player: AudioStreamPlayer
+signal play_sound(sound_name: String)
+
+func _ready():
+	audio_player = AudioStreamPlayer.new()
+	audio_player.name = "AudioPlayer"
+	audio_player.volume_db = -8.0
+	add_child(audio_player)
+
+func _create_wav_sample(sample_count: int, sample_rate: int, generator_func: Callable) -> AudioStreamWAV:
+	var wav = AudioStreamWAV.new()
+	wav.format = AudioStreamWAV.FORMAT_8_BITS
+	wav.mix_rate = sample_rate
+	wav.stereo = false
+	
+	var buffer = PackedByteArray()
+	buffer.resize(sample_count)
+	
+	for i in range(sample_count):
+		var t = float(i) / float(sample_rate)
+		var val = clampf(generator_func.call(i, t), -1.0, 1.0)
+		var byte_val = int(round((val + 1.0) * 127.5))
+		buffer[i] = clampi(byte_val, 0, 255)
+		
+	wav.data = buffer
+	return wav
+
+func _play_stream(stream: AudioStream):
+	if audio_player:
+		audio_player.stream = stream
+		audio_player.play()
+
+func play_jump():
+	var sample_rate = 22050
+	var total_samples = int(sample_rate * 0.12)
+	var stream = _create_wav_sample(total_samples, sample_rate, func(i: int, t: float) -> float:
+		var freq = lerpf(200.0, 500.0, float(i) / float(total_samples))
+		var envelope = exp(-t * 12.0)
+		var tone = sin(t * freq * TAU)
+		var noise = randf_range(-0.15, 0.15)
+		return (tone * 0.7 + noise * 0.3) * envelope * 0.6
+	)
+	_play_stream(stream)
+	emit_signal("play_sound", "jump")
+
+func play_break():
+	var sample_rate = 22050
+	var total_samples = int(sample_rate * 0.15)
+	var stream = _create_wav_sample(total_samples, sample_rate, func(i: int, t: float) -> float:
+		var envelope = exp(-t * 16.0)
+		var crackle = randf_range(-0.7, 0.7) if (i % 3 == 0) else 0.0
+		var sub_noise = randf_range(-0.2, 0.2)
+		return (crackle * 0.7 + sub_noise * 0.3) * envelope * 0.7
+	)
+	_play_stream(stream)
+	emit_signal("play_sound", "break")
+
+func play_place():
+	var sample_rate = 22050
+	var total_samples = int(sample_rate * 0.1)
+	var stream = _create_wav_sample(total_samples, sample_rate, func(_i: int, t: float) -> float:
+		var freq = lerpf(160.0, 70.0, t / 0.1)
+		var envelope = exp(-t * 22.0)
+		var thud = sin(t * freq * TAU)
+		var click = randf_range(-0.2, 0.2) * exp(-t * 40.0)
+		return (thud * 0.75 + click * 0.25) * envelope * 0.8
+	)
+	_play_stream(stream)
+	emit_signal("play_sound", "place")
+
+func play_footstep():
+	var sample_rate = 22050
+	var total_samples = int(sample_rate * 0.05)
+	var stream = _create_wav_sample(total_samples, sample_rate, func(_i: int, t: float) -> float:
+		var envelope = exp(-t * 30.0)
+		var tap = randf_range(-0.3, 0.3)
+		return tap * envelope * 0.4
+	)
+	_play_stream(stream)
+	emit_signal("play_sound", "footstep")
+
+func play_hit():
+	var sample_rate = 22050
+	var total_samples = int(sample_rate * 0.12)
+	var stream = _create_wav_sample(total_samples, sample_rate, func(_i: int, t: float) -> float:
+		var envelope = exp(-t * 18.0)
+		var impact = sin(t * 300.0 * TAU) * 0.5 + randf_range(-0.4, 0.4) * 0.5
+		return impact * envelope * 0.75
+	)
+	_play_stream(stream)
+	emit_signal("play_sound", "hit")
+
+func play_damage():
+	var sample_rate = 22050
+	var total_samples = int(sample_rate * 0.2)
+	var stream = _create_wav_sample(total_samples, sample_rate, func(_i: int, t: float) -> float:
+		var envelope = exp(-t * 10.0)
+		var grunt = sin(t * 120.0 * TAU) * 0.7 + randf_range(-0.25, 0.25) * 0.3
+		return grunt * envelope * 0.85
+	)
+	_play_stream(stream)
+	emit_signal("play_sound", "damage")
+
+
+--- FILE: scripts/Player.gd ---
+class_name Player
+extends CharacterBody3D
+
+# Camera system - 3 views: 0=First Person, 1=Third Person Back, 2=Third Person Front (selfie)
+@export var first_person_camera: Camera3D
+@export var third_person_camera: Camera3D
+@export var front_camera: Camera3D  # renamed from overhead_camera
+@export var camera_target: Node3D
+var camera_view: int = 0  # 0=first, 1=third back, 2=third front
+
+# Movement
+@export var walk_speed: float = 4.5
+@export var sprint_speed: float = 7.5
+@export var jump_velocity: float = 5.0
+@export var gravity: float = 16.0
+var crouch_height: float = 0.8
+var normal_height: float = 2.0  # Player is now 2 blocks tall
+var is_crouching: bool = false
+
+# Mouse look
+var mouse_sensitivity: float = 0.002
+var mouse_captured: bool = false
+
+# Stats
+var health: int = 20
+var max_health: int = 20
+var hunger: int = 20
+var max_hunger: int = 20
+var level: int = 1
+var xp: int = 0
+var xp_to_next_level: int = 100
+
+# Inventory & Block selection
+var inventory = []
+var hotbar_slots: int = 9
+var selected_slot: int = 0
+var inventory_open: bool = false
+var block_ray_distance: float = 6.0
+var build_mode: bool = true
+var current_block_type: int = 1
+var attack_timer: float = 0.0
+var attack_cooldown: float = 0.25
+var arm_pivot: Node3D = null
+var arm_mesh: MeshInstance3D = null
+var player_material: StandardMaterial3D
+
+# Character customization
+var character_name: String = "Explorer"
+var character_color: Color = Color(0.08, 0.08, 0.12)
+var character_skin_color: Color = Color(0.25, 0.2, 0.18)
+var character_eye_color: Color = Color(0.3, 0.6, 0.9)
+var character_hair_color: Color = Color(0.15, 0.1, 0.05)
+var character_outfit_color: Color = Color(0.15, 0.2, 0.3)
+var character_accessory: String = "none"  # "none", "hat", "glasses", "cape"
+var character_gender: String = "neutral"
+
+# Character mesh parts
+var body_mesh: MeshInstance3D
+var head_mesh: MeshInstance3D
+var eye_left_mesh: MeshInstance3D
+var eye_right_mesh: MeshInstance3D
+var hair_mesh: MeshInstance3D
+var outfit_mesh: MeshInstance3D
+var accessory_mesh: MeshInstance3D
+var hat_mesh: MeshInstance3D
+
+# Hunger timer
+var hunger_timer: float = 0.0
+var hunger_interval: float = 30.0
+
+# Third person smooth camera
+var camera_smooth_speed: float = 5.0
+var camera_target_position: Vector3
+var camera_target_rotation: Quaternion
+
+func _ready():
+	_ensure_input_map()
+	apply_player_theme()
+	build_character_model()
+
+	if !first_person_camera:
+		first_person_camera = get_node_or_null("FirstPersonCamera")
+	if !third_person_camera:
+		third_person_camera = get_node_or_null("ThirdPersonCamera")
+	if !front_camera:
+		# Try to use existing overhead camera if present, else create
+		var overhead = get_node_or_null("OverheadCamera")
+		if overhead:
+			front_camera = overhead
+			front_camera.name = "FrontCamera"
+		else:
+			front_camera = Camera3D.new()
+			front_camera.name = "FrontCamera"
+			front_camera.fov = 65.0
+			add_child(front_camera)
+	if !camera_target:
+		camera_target = get_node_or_null("CameraTarget")
+
+	if third_person_camera:
+		third_person_camera.current = false
+	if front_camera:
+		front_camera.current = false
+	if first_person_camera:
+		first_person_camera.current = true
+
+	setup_viewmodel_arm()
+
+	# Set collision shape to match 2-block height (total height = 2.0)
+	var col_shape = get_node_or_null("CollisionShape3D")
+	if col_shape:
+		var capsule = CapsuleShape3D.new()
+		capsule.radius = 0.5
+		capsule.height = 1.0  # total height = 1.0 + 2*0.5 = 2.0
+		col_shape.shape = capsule
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	mouse_captured = false
+
+	hotbar_slots = 9
+	inventory.clear()
+	for i in range(hotbar_slots):
+		inventory.append({"block": i + 1, "count": 64})
+
+	if has_node("/root/SoundManager"):
+		var sm = get_node("/root/SoundManager")
+		if sm.has_signal("play_sound"):
+			var cb = Callable(self, "_on_sound_played")
+			if !sm.is_connected("play_sound", cb):
+				sm.connect("play_sound", cb)
+
+	update_ui()
+
+func apply_player_theme():
+	player_material = StandardMaterial3D.new()
+	player_material.albedo_color = character_color
+	player_material.roughness = 0.9
+	player_material.metallic = 0.0
+
+func build_character_model():
+	# Create body (torso)
+	body_mesh = MeshInstance3D.new()
+	var body_box = BoxMesh.new()
+	body_box.size = Vector3(0.8, 0.9, 0.5)
+	body_mesh.mesh = body_box
+	var body_mat = StandardMaterial3D.new()
+	body_mat.albedo_color = character_outfit_color
+	body_mat.roughness = 0.8
+	body_mesh.material_override = body_mat
+	body_mesh.position = Vector3(0, 0.45, 0)
+	add_child(body_mesh)
+	
+	# Create head
+	head_mesh = MeshInstance3D.new()
+	var head_box = BoxMesh.new()
+	head_box.size = Vector3(0.5, 0.5, 0.5)
+	head_mesh.mesh = head_box
+	var head_mat = StandardMaterial3D.new()
+	head_mat.albedo_color = character_skin_color
+	head_mat.roughness = 0.7
+	head_mesh.material_override = head_mat
+	head_mesh.position = Vector3(0, 1.2, 0)
+	add_child(head_mesh)
+	
+	# Create eyes
+	var eye_mat = StandardMaterial3D.new()
+	eye_mat.albedo_color = Color(1, 1, 1)
+	eye_mat.roughness = 0.1
+	
+	eye_left_mesh = MeshInstance3D.new()
+	var eye_box = BoxMesh.new()
+	eye_box.size = Vector3(0.1, 0.08, 0.05)
+	eye_left_mesh.mesh = eye_box
+	eye_left_mesh.material_override = eye_mat
+	eye_left_mesh.position = Vector3(-0.15, 1.25, 0.27)
+	add_child(eye_left_mesh)
+	
+	eye_right_mesh = MeshInstance3D.new()
+	eye_right_mesh.mesh = eye_box
+	eye_right_mesh.material_override = eye_mat
+	eye_right_mesh.position = Vector3(0.15, 1.25, 0.27)
+	add_child(eye_right_mesh)
+	
+	# Eye pupils
+	var pupil_mat = StandardMaterial3D.new()
+	pupil_mat.albedo_color = character_eye_color
+	pupil_mat.roughness = 0.1
+	
+	var pupil_left = MeshInstance3D.new()
+	var pupil_box = BoxMesh.new()
+	pupil_box.size = Vector3(0.04, 0.04, 0.02)
+	pupil_left.mesh = pupil_box
+	pupil_left.material_override = pupil_mat
+	pupil_left.position = Vector3(-0.15, 1.25, 0.29)
+	add_child(pupil_left)
+	
+	var pupil_right = MeshInstance3D.new()
+	pupil_right.mesh = pupil_box
+	pupil_right.material_override = pupil_mat
+	pupil_right.position = Vector3(0.15, 1.25, 0.29)
+	add_child(pupil_right)
+	
+	# Create hair
+	hair_mesh = MeshInstance3D.new()
+	var hair_box = BoxMesh.new()
+	hair_box.size = Vector3(0.6, 0.15, 0.55)
+	hair_mesh.mesh = hair_box
+	var hair_mat = StandardMaterial3D.new()
+	hair_mat.albedo_color = character_hair_color
+	hair_mat.roughness = 0.9
+	hair_mesh.material_override = hair_mat
+	hair_mesh.position = Vector3(0, 1.4, 0)
+	add_child(hair_mesh)
+	
+	# Create hat accessory
+	hat_mesh = MeshInstance3D.new()
+	var hat_box = BoxMesh.new()
+	hat_box.size = Vector3(0.6, 0.15, 0.7)
+	hat_mesh.mesh = hat_box
+	var hat_mat = StandardMaterial3D.new()
+	hat_mat.albedo_color = Color(0.3, 0.2, 0.1)
+	hat_mat.roughness = 0.7
+	hat_mesh.material_override = hat_mat
+	hat_mesh.position = Vector3(0, 1.55, 0.05)
+	hat_mesh.visible = false
+	add_child(hat_mesh)
+
+func set_character_color(color_name: String):
+	match color_name:
+		"default":
+			character_color = Color(0.08, 0.08, 0.12)
+			character_skin_color = Color(0.25, 0.2, 0.18)
+			character_eye_color = Color(0.3, 0.6, 0.9)
+			character_hair_color = Color(0.15, 0.1, 0.05)
+			character_outfit_color = Color(0.15, 0.2, 0.3)
+		"light":
+			character_color = Color(0.6, 0.5, 0.4)
+			character_skin_color = Color(0.85, 0.75, 0.65)
+			character_eye_color = Color(0.2, 0.5, 0.8)
+			character_hair_color = Color(0.7, 0.6, 0.4)
+			character_outfit_color = Color(0.4, 0.5, 0.6)
+		"dark":
+			character_color = Color(0.02, 0.02, 0.04)
+			character_skin_color = Color(0.12, 0.1, 0.08)
+			character_eye_color = Color(0.6, 0.8, 1.0)
+			character_hair_color = Color(0.05, 0.03, 0.02)
+			character_outfit_color = Color(0.08, 0.1, 0.15)
+		"red":
+			character_color = Color(0.3, 0.05, 0.05)
+			character_skin_color = Color(0.3, 0.18, 0.15)
+			character_eye_color = Color(0.8, 0.2, 0.2)
+			character_hair_color = Color(0.4, 0.1, 0.05)
+			character_outfit_color = Color(0.5, 0.1, 0.1)
+		"blue":
+			character_color = Color(0.05, 0.05, 0.3)
+			character_skin_color = Color(0.22, 0.2, 0.25)
+			character_eye_color = Color(0.2, 0.4, 0.9)
+			character_hair_color = Color(0.1, 0.1, 0.3)
+			character_outfit_color = Color(0.1, 0.2, 0.5)
+		"green":
+			character_color = Color(0.05, 0.2, 0.05)
+			character_skin_color = Color(0.2, 0.25, 0.18)
+			character_eye_color = Color(0.3, 0.8, 0.3)
+			character_hair_color = Color(0.1, 0.2, 0.05)
+			character_outfit_color = Color(0.1, 0.4, 0.1)
+	rebuild_character_colors()
+
+func rebuild_character_colors():
+	if body_mesh and body_mesh.material_override:
+		body_mesh.material_override.albedo_color = character_outfit_color
+	if head_mesh and head_mesh.material_override:
+		head_mesh.material_override.albedo_color = character_skin_color
+	if hair_mesh and hair_mesh.material_override:
+		hair_mesh.material_override.albedo_color = character_hair_color
+	
+	# Update eye pupils
+	var pupils = get_children()
+	for child in pupils:
+		if child is MeshInstance3D and child.mesh is BoxMesh:
+			if child.position.x == -0.15 and child.position.z == 0.29:
+				child.material_override.albedo_color = character_eye_color
+			if child.position.x == 0.15 and child.position.z == 0.29:
+				child.material_override.albedo_color = character_eye_color
+	
+	# Update player material
+	if player_material:
+		player_material.albedo_color = character_color
+
+func set_accessory(accessory_type: String):
+	character_accessory = accessory_type
+	if hat_mesh:
+		hat_mesh.visible = (accessory_type == "hat")
+
+func is_menu_active() -> bool:
+	var ui = get_node_or_null("/root/Main/UI")
+	if !ui and has_node("/root/UI"):
+		ui = get_node("/root/UI")
+	if ui:
+		var start_menu = ui.get_node_or_null("StartMenu")
+		if start_menu and start_menu.visible:
+			return true
+		var pause_menu = ui.get_node_or_null("PauseMenu")
+		if pause_menu and pause_menu.visible:
+			return true
+		var quit_menu = ui.get_node_or_null("QuitMenu")
+		if quit_menu and quit_menu.visible:
+			return true
+	return false
+
+func _ensure_input_map():
+	var key_actions = {
+		"move_forward": KEY_W,
+		"move_back": KEY_S,
+		"move_left": KEY_A,
+		"move_right": KEY_D,
+		"jump": KEY_SPACE,
+		"sprint": KEY_SHIFT,
+		"crouch": KEY_CTRL,
+		"inventory": KEY_E,
+		"auto_build": KEY_B,
+		"plant_tree": KEY_T,
+		"slot_1": KEY_1,
+		"slot_2": KEY_2,
+		"slot_3": KEY_3,
+		"slot_4": KEY_4,
+		"slot_5": KEY_5,
+		"slot_6": KEY_6,
+		"slot_7": KEY_7,
+		"slot_8": KEY_8,
+		"slot_9": KEY_9,
+		"toggle_camera": KEY_F1,
+		"camera_view_1": KEY_F2,
+		"camera_view_2": KEY_F3,
+		"camera_view_3": KEY_F4
+	}
+	for act in key_actions:
+		if not InputMap.has_action(act):
+			InputMap.add_action(act)
+			var ev = InputEventKey.new()
+			ev.physical_keycode = key_actions[act]
+			InputMap.action_add_event(act, ev)
+
+	var mouse_actions = {
+		"break_block": MOUSE_BUTTON_LEFT,
+		"place_block": MOUSE_BUTTON_RIGHT
+	}
+	for m_act in mouse_actions:
+		if not InputMap.has_action(m_act):
+			InputMap.add_action(m_act)
+			var mev = InputEventMouseButton.new()
+			mev.button_index = mouse_actions[m_act]
+			InputMap.action_add_event(m_act, mev)
+
+func setup_viewmodel_arm():
+	if first_person_camera and !first_person_camera.has_node("ArmPivot"):
+		arm_pivot = Node3D.new()
+		arm_pivot.name = "ArmPivot"
+		arm_pivot.position = Vector3(0.35, -0.35, -0.55)
+		first_person_camera.add_child(arm_pivot)
+
+		arm_mesh = MeshInstance3D.new()
+		var box = BoxMesh.new()
+		box.size = Vector3(0.18, 0.45, 0.18)
+		arm_mesh.mesh = box
+		arm_mesh.position = Vector3(0, -0.1, 0)
+		arm_mesh.rotation_degrees = Vector3(-45, 20, 0)
+
+		var mat = StandardMaterial3D.new()
+		mat.albedo_color = character_skin_color
+		mat.roughness = 0.9
+		arm_mesh.material_override = mat
+		arm_pivot.add_child(arm_mesh)
+
+func play_swing_animation():
+	if arm_pivot and camera_view == 0:  # only in first person
+		var tween = create_tween()
+		tween.tween_property(arm_pivot, "rotation_degrees:x", -40.0, 0.08)
+		tween.tween_property(arm_pivot, "rotation_degrees:x", 0.0, 0.14)
+	else:
+		# In third person, we could animate the player arm if we had one, but we'll skip for now
+		pass
+
+func _physics_process(delta: float):
+	if is_menu_active():
+		velocity = Vector3.ZERO
+		return
+
+	handle_movement(delta)
+	handle_camera_toggle()
+	handle_crouch()
+	handle_inventory_toggle()
+	handle_special_shortcuts()
+	handle_block_actions(delta)
+	handle_slot_selection()
+	handle_hunger(delta)
+
+	if attack_timer > 0.0:
+		attack_timer -= delta
+
+	var wg = get_node_or_null("/root/Main/WorldGenerator")
+	if !wg and has_node("/root/WorldGenerator"):
+		wg = get_node("/root/WorldGenerator")
+	if wg:
+		wg.update_player_position(global_position)
+
+	# Update third person cameras smoothly
+	if camera_view == 1 and third_person_camera:
+		update_third_person_camera(delta, false)
+	elif camera_view == 2 and front_camera:
+		update_third_person_camera(delta, true)
+
+func update_third_person_camera(delta: float, is_front: bool):
+	var target = camera_target if camera_target else self
+	var offset = Vector3(0, 2.5, 4.0) if !is_front else Vector3(0, 2.5, -4.0)
+	# Use player's basis to orient offset relative to player
+	var player_basis = global_transform.basis
+	var desired_pos = global_position + player_basis * offset
+	var desired_look = target.global_position
+
+	var cam = front_camera if is_front else third_person_camera
+	if cam:
+		# Interpolate position
+		cam.global_position = cam.global_position.lerp(desired_pos, delta * camera_smooth_speed)
+		# Interpolate rotation to look at target
+		var current_rot = cam.global_transform.basis.get_rotation_quaternion()
+		# Use Basis.looking_at to get a quaternion looking at the target
+		var look_dir = (desired_look - cam.global_position).normalized()
+		var target_basis = Basis.looking_at(look_dir, Vector3.UP)
+		var target_rot = target_basis.get_rotation_quaternion()
+		var new_rot = current_rot.slerp(target_rot, delta * camera_smooth_speed)
+		cam.global_transform.basis = Basis(new_rot)
+
+func handle_movement(delta: float):
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var cam = get_active_camera()
+	var forward = -cam.global_transform.basis.z if cam else -transform.basis.z
+	var right = cam.global_transform.basis.x if cam else transform.basis.x
+
+	forward.y = 0.0
+	right.y = 0.0
+	forward = forward.normalized()
+	right = right.normalized()
+
+	var direction = (forward * -input_dir.y + right * input_dir.x).normalized()
+
+	var speed = walk_speed
+	if Input.is_action_pressed("sprint") and !is_crouching:
+		speed = sprint_speed
+
+	if is_crouching:
+		speed *= 0.5
+
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !is_crouching:
+		velocity.y = jump_velocity
+		if has_node("/root/SoundManager"):
+			var sm = get_node("/root/SoundManager")
+			if sm.has_method("play_jump"):
+				sm.play_jump()
+
+	if direction != Vector3.ZERO:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, speed * 0.15)
+		velocity.z = move_toward(velocity.z, 0.0, speed * 0.15)
+
+	move_and_slide()
+
+	if velocity.length() > 0.5 and is_on_floor():
+		if Engine.get_physics_frames() % 20 == 0:
+			if has_node("/root/SoundManager"):
+				var sm = get_node("/root/SoundManager")
+				if sm.has_method("play_footstep"):
+					sm.play_footstep()
+
+func get_active_camera() -> Camera3D:
+	if camera_view == 0:
+		return first_person_camera
+	elif camera_view == 1:
+		return third_person_camera
+	else:
+		return front_camera
+
+func handle_hunger(delta: float):
+	hunger_timer += delta
+	if hunger_timer >= hunger_interval:
+		hunger_timer = 0.0
+		hunger = max(0, hunger - 1)
+		if hunger <= 0:
+			take_damage(1)
+		update_ui()
+
+func handle_camera_toggle():
+	if Input.is_action_just_pressed("toggle_camera") or Input.is_key_pressed(KEY_F1):
+		cycle_camera()
+	
+	if Input.is_action_just_pressed("camera_view_1") or Input.is_key_pressed(KEY_F2):
+		set_camera_view(0)
+	if Input.is_action_just_pressed("camera_view_2") or Input.is_key_pressed(KEY_F3):
+		set_camera_view(1)
+	if Input.is_action_just_pressed("camera_view_3") or Input.is_key_pressed(KEY_F4):
+		set_camera_view(2)
+
+func cycle_camera():
+	camera_view = (camera_view + 1) % 3
+	set_camera_view(camera_view)
+
+func set_camera_view(view: int):
+	camera_view = view
+	
+	if first_person_camera:
+		first_person_camera.current = (view == 0)
+	if third_person_camera:
+		third_person_camera.current = (view == 1)
+	if front_camera:
+		front_camera.current = (view == 2)
+	
+	if arm_pivot:
+		arm_pivot.visible = (view == 0)
+	
+	update_ui_camera_label()
+
+func update_ui_camera_label():
+	var ui = get_node_or_null("/root/Main/UI")
+	if !ui and has_node("/root/UI"):
+		ui = get_node("/root/UI")
+	if ui and ui.has_method("set_camera_view_label"):
+		var view_names = ["First Person", "Third Person Back", "Third Person Front"]
+		ui.set_camera_view_label(view_names[camera_view])
+
+func toggle_camera():
+	cycle_camera()
+
+func handle_crouch():
+	if Input.is_action_just_pressed("crouch"):
+		is_crouching = !is_crouching
+		var target_scale = Vector3(1.0, crouch_height / normal_height, 1.0) if is_crouching else Vector3.ONE
+		var tween = create_tween()
+		tween.tween_property(self, "scale", target_scale, 0.2)
+
+func handle_inventory_toggle():
+	if Input.is_action_just_pressed("inventory") or Input.is_key_pressed(KEY_E):
+		inventory_open = !inventory_open
+		if inventory_open:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			mouse_captured = false
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			mouse_captured = true
+
+func handle_special_shortcuts():
+	var world_gen = get_node_or_null("/root/Main/WorldGenerator")
+	if !world_gen and has_node("/root/WorldGenerator"):
+		world_gen = get_node("/root/WorldGenerator")
+	if !world_gen:
+		return
+
+	if Input.is_action_just_pressed("auto_build") or Input.is_key_pressed(KEY_B):
+		world_gen.auto_build_shelter(global_position)
+		if has_node("/root/SoundManager"):
+			var sm = get_node("/root/SoundManager")
+			if sm.has_method("play_place"):
+				sm.play_place()
+
+	if Input.is_action_just_pressed("plant_tree") or Input.is_key_pressed(KEY_T):
+		var forward = -transform.basis.z * 3.0
+		var target_loc = (global_position + forward).floor()
+		world_gen.auto_build_tree(target_loc)
+		if has_node("/root/SoundManager"):
+			var sm = get_node("/root/SoundManager")
+			if sm.has_method("play_place"):
+				sm.play_place()
+
+func handle_block_actions(_delta: float):
+	if inventory_open or !mouse_captured:
+		return
+
+	var world_gen = get_node_or_null("/root/Main/WorldGenerator")
+	if !world_gen and has_node("/root/WorldGenerator"):
+		world_gen = get_node("/root/WorldGenerator")
+	if !world_gen:
+		return
+
+	var camera = get_active_camera()
+	if !camera:
+		return
+
+	var space_state = get_world_3d().direct_space_state
+	var ray_start = camera.global_position
+	var ray_end = ray_start + -camera.global_transform.basis.z * block_ray_distance
+	var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end)
+	query.exclude = [self]
+	query.collision_mask = 1
+
+	var result = space_state.intersect_ray(query)
+
+	if result:
+		var hit_pos = result.position
+		var hit_normal = result.normal
+		var target = result.collider
+
+		if Input.is_action_just_pressed("break_block") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			if attack_timer <= 0.0:
+				play_swing_animation()
+				if target and target.has_method("take_damage") and target != self:
+					target.take_damage(1)
+					attack_timer = attack_cooldown
+					gain_xp(5)
+					if has_node("/root/SoundManager"):
+						var sm = get_node("/root/SoundManager")
+						if sm.has_method("play_hit"):
+							sm.play_hit()
+				else:
+					var block_pos = (hit_pos - hit_normal * 0.1).floor()
+					if world_gen.get_block(block_pos) != 0:
+						world_gen.set_block(block_pos, 0)
+						attack_timer = 0.2
+						if has_node("/root/SoundManager"):
+							var sm = get_node("/root/SoundManager")
+							if sm.has_method("play_break"):
+								sm.play_break()
+
+		if Input.is_action_just_pressed("place_block") or Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+			if attack_timer <= 0.0:
+				play_swing_animation()
+				var hit_block = world_gen.get_block((hit_pos - hit_normal * 0.1).floor())
+
+				if hit_block == 8:
+					if has_node("/root/SoundManager"):
+						var sm = get_node("/root/SoundManager")
+						if sm.has_method("play_place"):
+							sm.play_place()
+					gain_xp(10)
+					return
+
+				var place_pos = (hit_pos + hit_normal * 0.1).floor()
+				var current_block = world_gen.get_block(place_pos)
+
+				if current_block == 0:
+					world_gen.set_block(place_pos, current_block_type)
+					attack_timer = 0.2
+					if has_node("/root/SoundManager"):
+						var sm = get_node("/root/SoundManager")
+						if sm.has_method("play_place"):
+							sm.play_place()
+
+func handle_slot_selection():
+	for i in range(9):
+		if Input.is_action_just_pressed("slot_" + str(i + 1)) or Input.is_key_pressed(KEY_1 + i):
+			selected_slot = i
+			if i < inventory.size():
+				current_block_type = inventory[i]["block"]
+			update_ui()
+
+func _input(event: InputEvent):
+	if is_menu_active():
+		return
+
+	if event is InputEventMouseMotion and mouse_captured:
+		var camera = get_active_camera()
+		if camera:
+			rotate_y(-event.relative.x * mouse_sensitivity)
+			camera.rotate_x(-event.relative.y * mouse_sensitivity)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89.0), deg_to_rad(89.0))
+
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		if mouse_captured:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			mouse_captured = false
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			mouse_captured = true
+
+func take_damage(amount: int):
+	health = max(0, health - amount)
+	if has_node("/root/SoundManager"):
+		var sm = get_node("/root/SoundManager")
+		if sm.has_method("play_damage"):
+			sm.play_damage()
+	update_ui()
+
+	if health <= 0:
+		die()
+
+func die():
+	health = max_health
+	hunger = int(max_hunger / 2.0)
+	global_position = Vector3(0, 30, 0)
+	update_ui()
+
+func gain_xp(amount: int):
+	xp += amount
+	while xp >= xp_to_next_level:
+		xp -= xp_to_next_level
+		level += 1
+		xp_to_next_level = int(xp_to_next_level * 1.5)
+	update_ui()
+
+func update_ui():
+	var ui = get_node_or_null("/root/Main/UI")
+	if !ui and has_node("/root/UI"):
+		ui = get_node("/root/UI")
+	if ui:
+		if ui.has_method("update_stats"):
+			ui.update_stats(health, max_health, hunger, max_hunger, level, xp, xp_to_next_level)
+		if ui.has_method("update_hotbar"):
+			ui.update_hotbar(inventory, selected_slot)
+		update_ui_camera_label()
+
+func _on_sound_played(_sound_name: String):
+	pass
+
+
+--- FILE: scripts/WorldGenerator.gd ---
+class_name WorldGenerator
+extends Node3D
+
+const CHUNK_SIZE = 16
+const WORLD_HEIGHT = 40
+const BLOCK_SIZE = 1.0
+
+# Block types with dark theme colors
+enum BlockType {
+	EMPTY = 0,
+	DIRT = 1,
+	GRASS = 2,
+	STONE = 3,
+	WOOD = 4,
+	LEAVES = 5,
+	PLANK = 6,
+	GLASS = 7,
+	CHEST = 8,
+	COBBLESTONE = 9,
+	SAND = 10,
+	WATER = 11,
+	SNOW = 12,
+	BRICK = 13
+}
+
+var noise = FastNoiseLite.new()
+var detail_noise = FastNoiseLite.new()
+var height_noise = FastNoiseLite.new()
+var chunk_data = {}
+var mesh_instances = {}
+var block_meshes = {}
+
+# Animal spawning
+var animal_scene: PackedScene
+var animals = []
+var max_animals: int = 80
+
+# Day / Night Cycle & Sun
+var sun_pivot: Node3D
+var sun_light: DirectionalLight3D
+var day_time: float = 0.25
+var day_speed: float = 0.006
+
+# Chunk terrain material with vertex color shading + texture atlas
+var terrain_material: ShaderMaterial
+var texture_atlas: Texture2D
+
+# Tree spawn tracking
+var tree_positions: Array = []
+
+# World seed
+var world_seed: int = 0
+
+# Texture atlas tile size and grid
+const ATLAS_TILE_SIZE = 16
+const ATLAS_GRID = 4  # 4x4 grid = 16 tiles
+var tile_rects = {}  # block_type -> Rect2
+
+func _ready():
+	world_seed = randi()
+	
+	# Primary terrain noise
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	noise.frequency = 0.012
+	noise.fractal_type = FastNoiseLite.FRACTAL_FBM
+	noise.fractal_octaves = 6
+	noise.fractal_lacunarity = 2.1
+	noise.fractal_gain = 0.52
+	noise.seed = world_seed
+
+	# Secondary noise for micro-variation
+	detail_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+	detail_noise.frequency = 0.035
+	detail_noise.seed = world_seed + 1000
+
+	# Height variation noise
+	height_noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	height_noise.frequency = 0.008
+	height_noise.seed = world_seed + 2000
+
+	# Create texture atlas and setup material
+	generate_texture_atlas()
+	setup_terrain_material()
+
+	setup_sun_and_environment()
+
+	animal_scene = load("res://scenes/Animal.tscn") if ResourceLoader.exists("res://scenes/Animal.tscn") else null
+
+	generate_initial_chunks(Vector3.ZERO)
+	spawn_initial_animals()
+
+func _process(delta: float):
+	update_day_night_cycle(delta)
+
+func setup_sun_and_environment():
+	sun_pivot = Node3D.new()
+	sun_pivot.name = "SunPivot"
+	add_child(sun_pivot)
+
+	sun_light = DirectionalLight3D.new()
+	sun_light.name = "SunLight"
+	sun_light.shadow_enabled = true
+	sun_light.shadow_bias = 0.1
+	sun_light.shadow_normal_bias = 0.05
+	sun_light.shadow_max_distance = 50.0
+	sun_light.light_energy = 0.7
+	sun_light.light_color = Color(1.0, 0.95, 0.85)
+	sun_pivot.add_child(sun_light)
+
+	# Sun visual
+	var sun_mesh_inst = MeshInstance3D.new()
+	var s_sphere = SphereMesh.new()
+	s_sphere.radius = 10.0
+	s_sphere.height = 20.0
+	sun_mesh_inst.mesh = s_sphere
+	var s_mat = StandardMaterial3D.new()
+	s_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	s_mat.albedo_color = Color(1.0, 0.9, 0.4)
+	sun_mesh_inst.material_override = s_mat
+	sun_mesh_inst.position = Vector3(0, 0, -220)
+	sun_pivot.add_child(sun_mesh_inst)
+
+	# Moon visual
+	var moon_mesh_inst = MeshInstance3D.new()
+	var m_sphere = SphereMesh.new()
+	m_sphere.radius = 8.0
+	m_sphere.height = 16.0
+	moon_mesh_inst.mesh = m_sphere
+	var m_mat = StandardMaterial3D.new()
+	m_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m_mat.albedo_color = Color(0.85, 0.85, 0.95)
+	moon_mesh_inst.material_override = m_mat
+	moon_mesh_inst.position = Vector3(0, 0, 220)
+	sun_pivot.add_child(moon_mesh_inst)
+
+func update_day_night_cycle(delta: float):
+	if !sun_pivot or !sun_light:
+		return
+	day_time += delta * day_speed
+	if day_time >= 1.0:
+		day_time = 0.0
+
+	var angle = day_time * TAU
+	sun_pivot.rotation.x = angle
+	sun_pivot.rotation.y = deg_to_rad(25.0)
+
+	var height = sin(angle)
+	if height > 0.15:
+		sun_light.light_energy = clamp(height * 0.85, 0.3, 0.85)
+		sun_light.light_color = Color(1.0, 0.95, 0.85)
+	elif height > -0.15:
+		sun_light.light_energy = 0.3
+		sun_light.light_color = Color(1.0, 0.6, 0.3)
+	else:
+		sun_light.light_energy = 0.06
+		sun_light.light_color = Color(0.3, 0.4, 0.7)
+
+func generate_texture_atlas():
+	# Create a 64x64 image with 4x4 tiles of 16x16 pixels
+	var img = Image.create(ATLAS_GRID * ATLAS_TILE_SIZE, ATLAS_GRID * ATLAS_TILE_SIZE, false, Image.FORMAT_RGBA8)
+	img.fill(Color(0,0,0,0))
+	
+	# Define tile colors and simple patterns
+	var tile_data = {
+		0: {"base": Color(0.4, 0.28, 0.15), "pattern": "checker"},  # DIRT
+		1: {"base": Color(0.18, 0.5, 0.12), "pattern": "grass"},     # GRASS
+		2: {"base": Color(0.42, 0.42, 0.45), "pattern": "stone"},    # STONE
+		3: {"base": Color(0.6, 0.5, 0.32), "pattern": "wood_top"},   # WOOD top
+		4: {"base": Color(0.32, 0.18, 0.08), "pattern": "wood_side"},# WOOD side
+		5: {"base": Color(0.08, 0.38, 0.08), "pattern": "leaves"},   # LEAVES
+		6: {"base": Color(0.65, 0.55, 0.35), "pattern": "plank"},    # PLANK
+		7: {"base": Color(0.65, 0.8, 0.9, 0.9), "pattern": "glass"}, # GLASS (slightly transparent)
+		8: {"base": Color(0.45, 0.28, 0.10), "pattern": "chest"},    # CHEST
+		9: {"base": Color(0.28, 0.28, 0.3), "pattern": "cobblestone"},# COBBLESTONE
+		10: {"base": Color(0.8, 0.75, 0.55), "pattern": "sand"},      # SAND
+		11: {"base": Color(0.18, 0.35, 0.65, 0.7), "pattern": "water"},# WATER
+		12: {"base": Color(0.92, 0.95, 0.98), "pattern": "snow"},     # SNOW
+		13: {"base": Color(0.5, 0.25, 0.15), "pattern": "brick"}      # BRICK
+	}
+	
+	# We'll assign block type to tile index: 0->DIRT, 1->GRASS, etc. But we need separate entries for wood top/side.
+	# We'll create a mapping from block_type and face normal to tile index.
+	# We'll use a dict: tile_rects[(block_type, normal)] = Rect2
+	# For simplicity, we'll map block_type to a tile index, but for wood we'll use two tiles.
+	# We'll store tile_index for each combination.
+	
+	var tile_index = 0
+	for block_type in range(1, 14):  # 1..13
+		var base_color = tile_data.get(block_type, {"base": Color(0.5,0.5,0.5)})["base"]
+		var pattern = tile_data.get(block_type, {"pattern": "none"})["pattern"]
+		# For wood, we need two tiles: top and side
+		if block_type == BlockType.WOOD:
+			# Wood top (tile_index)
+			draw_tile(img, tile_index, base_color, "wood_top")
+			tile_rects[(block_type, Vector3.UP)] = get_tile_rect(tile_index)
+			tile_rects[(block_type, Vector3.DOWN)] = get_tile_rect(tile_index)
+			tile_index += 1
+			# Wood side (tile_index)
+			draw_tile(img, tile_index, Color(0.32, 0.18, 0.08), "wood_side")
+			tile_rects[(block_type, Vector3.RIGHT)] = get_tile_rect(tile_index)
+			tile_rects[(block_type, Vector3.LEFT)] = get_tile_rect(tile_index)
+			tile_rects[(block_type, Vector3.FORWARD)] = get_tile_rect(tile_index)
+			tile_rects[(block_type, Vector3.BACK)] = get_tile_rect(tile_index)
+		else:
+			draw_tile(img, tile_index, base_color, pattern)
+			for norm in [Vector3.UP, Vector3.DOWN, Vector3.RIGHT, Vector3.LEFT, Vector3.FORWARD, Vector3.BACK]:
+				tile_rects[(block_type, norm)] = get_tile_rect(tile_index)
+			tile_index += 1
+	
+	# Create texture
+	texture_atlas = ImageTexture.create_from_image(img)
+	texture_atlas.mag_filter = Texture.MAG_FILTER_NEAREST
+	texture_atlas.min_filter = Texture.MIN_FILTER_NEAREST
+
+func draw_tile(image: Image, tile_index: int, base_color: Color, pattern: String):
+	var tile_x = (tile_index % ATLAS_GRID) * ATLAS_TILE_SIZE
+	var tile_y = (tile_index / ATLAS_GRID) * ATLAS_TILE_SIZE
+	for x in range(ATLAS_TILE_SIZE):
+		for y in range(ATLAS_TILE_SIZE):
+			var px = tile_x + x
+			var py = tile_y + y
+			var col = base_color
+			match pattern:
+				"checker":
+					if (x/4 + y/4) % 2 == 0:
+						col = base_color * 0.8
+				"grass":
+					if y > 10:
+						col = Color(0.3, 0.6, 0.15)
+					elif y > 8:
+						col = Color(0.2, 0.5, 0.1)
+					else:
+						col = Color(0.4, 0.28, 0.15)
+				"stone":
+					if (x % 4 == 0 or y % 4 == 0):
+						col = base_color * 0.7
+				"wood_top":
+					if (x % 3 == 0 or y % 3 == 0):
+						col = base_color * 0.7
+				"wood_side":
+					if y % 4 == 0:
+						col = base_color * 0.6
+				"leaves":
+					if (x + y) % 3 == 0:
+						col = Color(0.02, 0.25, 0.02)
+				"plank":
+					if (x % 4 == 0 or y % 4 == 0):
+						col = base_color * 0.7
+				"glass":
+					col.a = 0.6
+				"chest":
+					if (x > 4 and x < 12 and y > 4 and y < 8):
+						col = Color(0.6, 0.4, 0.15)
+				"cobblestone":
+					if (x % 3 == 0 and y % 3 == 0):
+						col = base_color * 0.6
+				"sand":
+					if (x % 5 == 0 or y % 5 == 0):
+						col = base_color * 0.8
+				"water":
+					col = Color(0.1, 0.3, 0.6, 0.5)
+				"snow":
+					if (x % 4 == 0 or y % 4 == 0):
+						col = Color(0.95, 0.97, 1.0)
+				"brick":
+					if (x % 8 < 2 or y % 8 < 2):
+						col = Color(0.35, 0.15, 0.08)
+				_:
+					pass
+			image.set_pixel(px, py, col)
+
+func get_tile_rect(index: int) -> Rect2:
+	var tx = (index % ATLAS_GRID) * ATLAS_TILE_SIZE
+	var ty = (index / ATLAS_GRID) * ATLAS_TILE_SIZE
+	var tex_size = ATLAS_GRID * ATLAS_TILE_SIZE
+	return Rect2(Vector2(tx, ty) / tex_size, Vector2(ATLAS_TILE_SIZE, ATLAS_TILE_SIZE) / tex_size)
+
+func setup_terrain_material():
+	var shader_code = """
+	shader_type spatial;
+	render_mode blend_mix, diffuse_lambert, specular_disabled;
+	uniform sampler2D texture_atlas : source_color;
+	void fragment() {
+		vec4 tex = texture(texture_atlas, UV);
+		vec4 col = tex * COLOR;
+		ALBEDO = col.rgb;
+		ALPHA = col.a;
+	}
+	"""
+	var shader = Shader.new()
+	shader.code = shader_code
+	terrain_material = ShaderMaterial.new()
+	terrain_material.shader = shader
+	terrain_material.set_shader_parameter("texture_atlas", texture_atlas)
+
+func generate_initial_chunks(player_pos: Vector3):
+	var chunk_x = int(floor(player_pos.x / CHUNK_SIZE))
+	var chunk_z = int(floor(player_pos.z / CHUNK_SIZE))
+
+	for x in range(-6, 7):
+		for z in range(-6, 7):
+			generate_chunk(chunk_x + x, chunk_z + z)
+
+func generate_chunk(cx: int, cz: int):
+	var key = str(cx) + "," + str(cz)
+	if chunk_data.has(key):
+		return
+
+	var blocks = {}
+
+	for x in range(CHUNK_SIZE):
+		for z in range(CHUNK_SIZE):
+			var world_x = cx * CHUNK_SIZE + x
+			var world_z = cz * CHUNK_SIZE + z
+
+			var height = get_terrain_height(world_x, world_z)
+
+			for y in range(WORLD_HEIGHT):
+				if y <= height:
+					var block_type = BlockType.DIRT
+					if y == 0:
+						block_type = BlockType.COBBLESTONE
+					elif y == height:
+						if height > 28:
+							block_type = BlockType.SNOW
+						elif height > 24:
+							block_type = BlockType.STONE
+						elif height > 16:
+							block_type = BlockType.GRASS
+						elif height > 10:
+							block_type = BlockType.GRASS
+						else:
+							block_type = BlockType.SAND
+					elif y >= height - 3:
+						block_type = BlockType.DIRT
+					else:
+						block_type = BlockType.STONE
+
+					var pos = Vector3(world_x, y, world_z)
+					blocks[pos] = block_type
+
+	generate_trees(cx, cz, blocks)
+
+	# Surface chests
+	if randf() < 0.05:
+		var cx_pos = cx * CHUNK_SIZE + randi_range(3, CHUNK_SIZE - 4)
+		var cz_pos = cz * CHUNK_SIZE + randi_range(3, CHUNK_SIZE - 4)
+		var cy_pos = get_terrain_height(cx_pos, cz_pos) + 1
+		if cy_pos > 3 and cy_pos < WORLD_HEIGHT - 2:
+			blocks[Vector3(cx_pos, cy_pos, cz_pos)] = BlockType.CHEST
+
+	chunk_data[key] = blocks
+	rebuild_chunk(key)
+
+func get_terrain_height(x: int, z: int) -> int:
+	var base_h = noise.get_noise_2d(x, z) * 12.0 + 15.0
+	var detail_h = detail_noise.get_noise_2d(x, z) * 3.5
+	var height_var = height_noise.get_noise_2d(x * 0.5, z * 0.5) * 2.0
+	var final_h = clamp(round(base_h + detail_h + height_var), 2.0, WORLD_HEIGHT - 10)
+	return int(final_h)
+
+func generate_trees(cx: int, cz: int, blocks: Dictionary):
+	var tree_count = randi_range(5, 12)
+	var placed = 0
+	var attempts = 0
+
+	while placed < tree_count and attempts < 250:
+		attempts += 1
+		var local_x = randi_range(2, CHUNK_SIZE - 3)
+		var local_z = randi_range(2, CHUNK_SIZE - 3)
+		var world_x = cx * CHUNK_SIZE + local_x
+		var world_z = cz * CHUNK_SIZE + local_z
+		var height = get_terrain_height(world_x, world_z)
+
+		var surface_block = blocks.get(Vector3(world_x, height, world_z), BlockType.EMPTY)
+		if (surface_block == BlockType.GRASS or surface_block == BlockType.DIRT) and height > 4 and height < WORLD_HEIGHT - 12:
+			var pos = Vector3(world_x, 0, world_z)
+			var too_close = false
+			for tree_pos in tree_positions:
+				if tree_pos.distance_to(pos) < 4.0:
+					too_close = true
+					break
+			if !too_close:
+				plant_tree_at(Vector3(world_x, height + 1, world_z), blocks)
+				tree_positions.append(pos)
+				placed += 1
+
+func plant_tree_at(base_pos: Vector3, blocks: Dictionary):
+	var bx = int(base_pos.x)
+	var by = int(base_pos.y)
+	var bz = int(base_pos.z)
+	
+	var tree_height = randi_range(5, 9)
+
+	# Trunk
+	for y in range(by, by + tree_height):
+		blocks[Vector3(bx, y, bz)] = BlockType.WOOD
+
+	# Leaves
+	var leaf_start = by + tree_height - 4
+	for dx in range(-3, 4):
+		for dz in range(-3, 4):
+			for dy in range(leaf_start, by + tree_height + 2):
+				var dist = abs(dx) + abs(dz)
+				var height_offset = dy - (by + tree_height)
+				
+				if dist == 0 and height_offset >= -1:
+					continue
+				if dist > 2 and height_offset > -2:
+					continue
+				if dist > 1 and height_offset > 0:
+					continue
+				if abs(dx) == 3 and abs(dz) == 3:
+					continue
+					
+				var pos = Vector3(bx + dx, dy, bz + dz)
+				if !blocks.has(pos):
+					blocks[pos] = BlockType.LEAVES
+
+func get_face_color(block_type: int, normal: Vector3) -> Color:
+	match block_type:
+		BlockType.GRASS:
+			if normal == Vector3.UP:
+				return Color(0.18, 0.5, 0.12)
+			elif normal == Vector3.DOWN:
+				return Color(0.4, 0.28, 0.15)
+			else:
+				return Color(0.32, 0.42, 0.16)
+		BlockType.DIRT:
+			return Color(0.4, 0.28, 0.15)
+		BlockType.STONE:
+			return Color(0.42, 0.42, 0.45)
+		BlockType.WOOD:
+			if normal == Vector3.UP or normal == Vector3.DOWN:
+				return Color(0.6, 0.5, 0.32)
+			else:
+				return Color(0.32, 0.18, 0.08)
+		BlockType.LEAVES:
+			return Color(0.08, 0.38, 0.08)
+		BlockType.PLANK:
+			return Color(0.65, 0.55, 0.35)
+		BlockType.GLASS:
+			return Color(0.65, 0.8, 0.9, 0.5)
+		BlockType.CHEST:
+			if normal == Vector3.UP or normal == Vector3.DOWN:
+				return Color(0.5, 0.32, 0.12)
+			else:
+				return Color(0.55, 0.38, 0.15)
+		BlockType.COBBLESTONE:
+			return Color(0.28, 0.28, 0.3)
+		BlockType.SAND:
+			return Color(0.8, 0.75, 0.55)
+		BlockType.SNOW:
+			return Color(0.92, 0.95, 0.98)
+		BlockType.BRICK:
+			return Color(0.5, 0.25, 0.15)
+		_:
+			return Color(0.7, 0.7, 0.7)
+
+func get_uv_for_face(block_type: int, normal: Vector3, vertex_index: int) -> Vector2:
+	# Returns UV coordinate for a given vertex of a face (0..3) corresponding to corners of tile rect.
+	var rect = tile_rects.get((block_type, normal))
+	if rect == null:
+		rect = Rect2(0,0,1,1)
+	# Map vertex index to corner: 0->(0,0), 1->(1,0), 2->(1,1), 3->(0,1)
+	var corners = [Vector2(0,0), Vector2(1,0), Vector2(1,1), Vector2(0,1)]
+	var corner = corners[vertex_index % 4]
+	return rect.position + corner * rect.size
+
+func build_mesh_from_blocks(blocks: Dictionary) -> ArrayMesh:
+	var vertices = []
+	var normals = []
+	var colors = []
+	var uvs = []
+	var indices = []
+
+	for pos in blocks:
+		var block_type = blocks[pos]
+		if block_type == BlockType.EMPTY:
+			continue
+
+		var faces = [
+			{"dir": Vector3.RIGHT, "normal": Vector3.RIGHT, "verts": get_face_vertices(pos, "right")},
+			{"dir": Vector3.LEFT, "normal": Vector3.LEFT, "verts": get_face_vertices(pos, "left")},
+			{"dir": Vector3.UP, "normal": Vector3.UP, "verts": get_face_vertices(pos, "up")},
+			{"dir": Vector3.DOWN, "normal": Vector3.DOWN, "verts": get_face_vertices(pos, "down")},
+			{"dir": Vector3.FORWARD, "normal": Vector3.FORWARD, "verts": get_face_vertices(pos, "forward")},
+			{"dir": Vector3.BACK, "normal": Vector3.BACK, "verts": get_face_vertices(pos, "back")}
+		]
+
+		for face in faces:
+			var neighbor_pos = pos + face.dir
+			var neighbor = blocks.get(neighbor_pos, BlockType.EMPTY)
+
+			if neighbor == BlockType.EMPTY or (neighbor == BlockType.GLASS and block_type != BlockType.GLASS):
+				var start_idx = vertices.size()
+				var face_verts = face.verts
+				var normal = face.normal
+				var base_col = get_face_color(block_type, normal)
+
+				var shade_factor = 1.0
+				if normal == Vector3.UP:
+					shade_factor = 1.08
+				elif normal == Vector3.DOWN:
+					shade_factor = 0.55
+				elif abs(normal.x) > 0.5:
+					shade_factor = 0.82
+				else:
+					shade_factor = 0.88
+
+				var face_col = Color(
+					clamp(shade_factor, 0.0, 1.0),
+					clamp(shade_factor, 0.0, 1.0),
+					clamp(shade_factor, 0.0, 1.0),
+					1.0
+				)
+
+				for v_idx in range(face_verts.size()):
+					var v = face_verts[v_idx]
+					vertices.append(Vector3(v.x, v.y, v.z))
+					normals.append(normal)
+					colors.append(face_col)
+					var uv = get_uv_for_face(block_type, normal, v_idx)
+					uvs.append(uv)
+
+				indices.append(start_idx)
+				indices.append(start_idx + 1)
+				indices.append(start_idx + 2)
+				indices.append(start_idx)
+				indices.append(start_idx + 2)
+				indices.append(start_idx + 3)
+
+	var array_mesh = ArrayMesh.new()
+	var arrays = []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = PackedVector3Array(vertices)
+	arrays[Mesh.ARRAY_NORMAL] = PackedVector3Array(normals)
+	arrays[Mesh.ARRAY_COLOR] = PackedColorArray(colors)
+	arrays[Mesh.ARRAY_TEX_UV] = PackedVector2Array(uvs)
+	arrays[Mesh.ARRAY_INDEX] = PackedInt32Array(indices)
+
+	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	return array_mesh
+
+func get_face_vertices(pos: Vector3, face: String) -> Array:
+	var x = pos.x
+	var y = pos.y
+	var z = pos.z
+
+	match face:
+		"right":
+			return [Vector3(x+1, y, z), Vector3(x+1, y+1, z), Vector3(x+1, y+1, z+1), Vector3(x+1, y, z+1)]
+		"left":
+			return [Vector3(x, y, z+1), Vector3(x, y+1, z+1), Vector3(x, y+1, z), Vector3(x, y, z)]
+		"up":
+			return [Vector3(x, y+1, z+1), Vector3(x+1, y+1, z+1), Vector3(x+1, y+1, z), Vector3(x, y+1, z)]
+		"down":
+			return [Vector3(x, y, z), Vector3(x+1, y, z), Vector3(x+1, y, z+1), Vector3(x, y, z+1)]
+		"forward":
+			return [Vector3(x, y, z+1), Vector3(x+1, y+1, z+1), Vector3(x+1, y+1, z), Vector3(x, y, z)]
+		"back":
+			return [Vector3(x+1, y, z), Vector3(x+1, y+1, z), Vector3(x, y+1, z), Vector3(x, y, z)]
+	return []
+
+func get_block(pos: Vector3) -> int:
+	var key = str(int(floor(pos.x / CHUNK_SIZE))) + "," + str(int(floor(pos.z / CHUNK_SIZE)))
+	if chunk_data.has(key):
+		var local_pos = Vector3(floor(pos.x), floor(pos.y), floor(pos.z))
+		return chunk_data[key].get(local_pos, BlockType.EMPTY)
+	return BlockType.EMPTY
+
+func set_block(pos: Vector3, block_type: int):
+	var key = str(int(floor(pos.x / CHUNK_SIZE))) + "," + str(int(floor(pos.z / CHUNK_SIZE)))
+	if chunk_data.has(key):
+		var local_pos = Vector3(floor(pos.x), floor(pos.y), floor(pos.z))
+		chunk_data[key][local_pos] = block_type
+		rebuild_chunk(key)
+
+func rebuild_chunk(chunk_key: String):
+	if mesh_instances.has(chunk_key):
+		mesh_instances[chunk_key].queue_free()
+		mesh_instances.erase(chunk_key)
+
+	var mesh = build_mesh_from_blocks(chunk_data[chunk_key])
+
+	var static_body = StaticBody3D.new()
+	static_body.name = "ChunkBody_" + chunk_key
+
+	var mesh_instance = MeshInstance3D.new()
+	mesh_instance.mesh = mesh
+	mesh_instance.material_override = terrain_material
+	static_body.add_child(mesh_instance)
+
+	var collision_shape = CollisionShape3D.new()
+	var shape = mesh.create_trimesh_shape()
+	if shape:
+		collision_shape.shape = shape
+		static_body.add_child(collision_shape)
+
+	add_child(static_body)
+	mesh_instances[chunk_key] = static_body
+
+func auto_build_shelter(center_pos: Vector3):
+	var bx = int(floor(center_pos.x))
+	var by = int(floor(center_pos.y))
+	var bz = int(floor(center_pos.z))
+
+	for x in range(bx - 4, bx + 5):
+		for z in range(bz - 4, bz + 5):
+			set_block(Vector3(x, by - 1, z), BlockType.COBBLESTONE)
+			set_block(Vector3(x, by + 4, z), BlockType.BRICK)
+
+			if x == bx - 4 or x == bx + 4 or z == bz - 4 or z == bz + 4:
+				for y in range(by, by + 4):
+					if x == bx and z == bz - 4 and (y == by or y == by + 1):
+						set_block(Vector3(x, y, z), BlockType.EMPTY)
+					elif (x == bx or z == bz) and y == by + 2:
+						set_block(Vector3(x, y, z), BlockType.GLASS)
+					else:
+						set_block(Vector3(x, y, z), BlockType.BRICK)
+
+	set_block(Vector3(bx + 3, by, bz + 3), BlockType.CHEST)
+	set_block(Vector3(bx - 3, by, bz - 3), BlockType.CHEST)
+
+func auto_build_tree(pos: Vector3):
+	var key = str(int(floor(pos.x / CHUNK_SIZE))) + "," + str(int(floor(pos.z / CHUNK_SIZE)))
+	if chunk_data.has(key):
+		plant_tree_at(pos, chunk_data[key])
+		rebuild_chunk(key)
+
+func spawn_initial_animals():
+	if animal_scene == null:
+		return
+
+	var spawn_count = randi_range(12, 25)
+	var attempts = 0
+
+	while animals.size() < spawn_count and attempts < 500:
+		attempts += 1
+		var x = randf_range(-150, 150)
+		var z = randf_range(-150, 150)
+		var height = get_terrain_height(int(x), int(z))
+		var y = float(height) + 1.0
+
+		if y > 3 and y < WORLD_HEIGHT - 3:
+			var animal = animal_scene.instantiate()
+			animal.position = Vector3(x, y, z)
+			var type_choice = randi() % 3
+			match type_choice:
+				0:
+					animal.animal_type = Animal.AnimalType.COW
+				1:
+					animal.animal_type = Animal.AnimalType.SHEEP
+				2:
+					animal.animal_type = Animal.AnimalType.PIG
+			add_child(animal)
+			animals.append(animal)
+
+func spawn_animals_in_chunk(cx: int, cz: int):
+	if animal_scene == null:
+		return
+
+	if animals.size() >= max_animals:
+		return
+
+	var spawn_count = randi_range(1, 4)
+	var attempts = 0
+
+	for i in range(spawn_count):
+		var local_x = randi_range(2, CHUNK_SIZE - 3)
+		var local_z = randi_range(2, CHUNK_SIZE - 3)
+		var world_x = cx * CHUNK_SIZE + local_x
+		var world_z = cz * CHUNK_SIZE + local_z
+		var height = get_terrain_height(world_x, world_z)
+		var y = float(height) + 1.0
+
+		if y > 3 and y < WORLD_HEIGHT - 3:
+			var animal = animal_scene.instantiate()
+			animal.position = Vector3(world_x, y, world_z)
+			var type_choice = randi() % 3
+			match type_choice:
+				0:
+					animal.animal_type = Animal.AnimalType.COW
+				1:
+					animal.animal_type = Animal.AnimalType.SHEEP
+				2:
+					animal.animal_type = Animal.AnimalType.PIG
+			add_child(animal)
+			animals.append(animal)
+			break
+		attempts += 1
+		if attempts > 20:
+			break
+
+func update_player_position(player_pos: Vector3):
+	var chunk_x = int(floor(player_pos.x / CHUNK_SIZE))
+	var chunk_z = int(floor(player_pos.z / CHUNK_SIZE))
+
+	for x in range(-6, 7):
+		for z in range(-6, 7):
+			var key = str(chunk_x + x) + "," + str(chunk_z + z)
+			if !chunk_data.has(key):
+				generate_chunk(chunk_x + x, chunk_z + z)
+				spawn_animals_in_chunk(chunk_x + x, chunk_z + z)
+
+	clear_distant_chunks(player_pos)
+
+func clear_distant_chunks(player_pos: Vector3):
+	var chunk_x = int(floor(player_pos.x / CHUNK_SIZE))
+	var chunk_z = int(floor(player_pos.z / CHUNK_SIZE))
+
+	var to_remove = []
+	for key in chunk_data:
+		var parts = key.split(",")
+		var cx = int(parts[0])
+		var cz = int(parts[1])
+
+		if abs(cx - chunk_x) > 8 or abs(cz - chunk_z) > 8:
+			to_remove.append(key)
+
+	for key in to_remove:
+		if mesh_instances.has(key):
+			mesh_instances[key].queue_free()
+			mesh_instances.erase(key)
+		chunk_data.erase(key)
+
+		var animals_to_remove = []
+		for animal in animals:
+			if is_instance_valid(animal):
+				var animal_chunk_x = int(floor(animal.position.x / CHUNK_SIZE))
+				var animal_chunk_z = int(floor(animal.position.z / CHUNK_SIZE))
+				if str(animal_chunk_x) + "," + str(animal_chunk_z) == key:
+					animal.queue_free()
+					animals_to_remove.append(animal)
+		for animal in animals_to_remove:
+			animals.erase(animal)
+
+func get_world_seed() -> int:
+	return world_seed
+
+
+--- FILE: scripts/UI.gd ---
+extends CanvasLayer
+
+# UI Elements
+@export var health_bar: ProgressBar
+@export var hunger_bar: ProgressBar
+@export var exp_bar: ProgressBar
+@export var level_label: Label
+@export var block_counter: Label
+@export var title_label: Label
+@export var version_label: Label
+@export var quit_timer_label: Label
+@export var camera_view_label: Label
+@export var character_preview: ColorRect
+@export var character_name_label: Label
+
+# Hotbar
+@export var hotbar_container: HBoxContainer
+var hotbar_slots = []
+
+# Menus
+@export var start_menu: Panel
+@export var pause_menu: Panel
+@export var quit_menu: Panel
+@export var character_menu: Panel
+
+# Dark theme colors
+const DARK_BG = Color(0.04, 0.04, 0.08, 0.96)
+const DARK_PANEL = Color(0.08, 0.08, 0.14, 0.98)
+const ACCENT_COLOR = Color(0.3, 0.6, 0.9)
+const TEXT_COLOR = Color(0.85, 0.85, 0.92)
+const DANGER_COLOR = Color(0.9, 0.2, 0.2)
+
+# Quit timer
+var quit_timer: float = 0.0
+var quit_confirm_delay: float = 2.0
+var quit_confirm_active: bool = false
+
+# Character selection
+var current_color_index: int = 0
+var color_options: Array = ["default", "light", "dark", "red", "blue", "green"]
+var color_display_names: Array = ["Default", "Light", "Dark", "Red", "Blue", "Green"]
+
+func _ready():
+	apply_dark_theme()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	setup_hotbar()
+	setup_character_menu()
+
+	if start_menu:
+		start_menu.visible = true
+		if title_label:
+			title_label.text = "🌑 VOXEL WORLD"
+		if version_label:
+			version_label.text = "v3.0.0"
+	if pause_menu:
+		pause_menu.visible = false
+	if quit_menu:
+		quit_menu.visible = false
+	if character_menu:
+		character_menu.visible = false
+
+	if camera_view_label:
+		camera_view_label.text = "F1: Cycle | F2: 1st | F3: 3rd Back | F4: 3rd Front"
+		camera_view_label.add_theme_color_override("font_color", Color(0.4, 0.4, 0.5))
+
+	connect_ui_signals()
+
+func set_camera_view_label(view_name: String):
+	if camera_view_label:
+		camera_view_label.text = "View: " + view_name
+
+func setup_character_menu():
+	if character_menu:
+		# Character color buttons
+		var color_btn = character_menu.get_node_or_null("VBoxContainer/ColorButton")
+		if color_btn and !color_btn.is_connected("pressed", Callable(self, "_on_cycle_color")):
+			color_btn.pressed.connect(_on_cycle_color)
+		
+		# Character name input
+		var name_input = character_menu.get_node_or_null("VBoxContainer/NameInput")
+		if name_input:
+			name_input.text_submitted.connect(_on_name_submitted)
+		
+		# Apply button
+		var apply_btn = character_menu.get_node_or_null("VBoxContainer/ApplyButton")
+		if apply_btn and !apply_btn.is_connected("pressed", Callable(self, "_on_apply_character")):
+			apply_btn.pressed.connect(_on_apply_character)
+		
+		# Close button
+		var close_btn = character_menu.get_node_or_null("VBoxContainer/CloseButton")
+		if close_btn and !close_btn.is_connected("pressed", Callable(self, "_on_close_character_menu")):
+			close_btn.pressed.connect(_on_close_character_menu)
+		
+		# Update character preview
+		update_character_preview()
+
+func update_character_preview():
+	if character_preview:
+		var current_player = get_tree().get_first_node_in_group("player")
+		if current_player and current_player.has_method("character_color"):
+			var color_map = {
+				"default": Color(0.08, 0.08, 0.12),
+				"light": Color(0.6, 0.5, 0.4),
+				"dark": Color(0.02, 0.02, 0.04),
+				"red": Color(0.3, 0.05, 0.05),
+				"blue": Color(0.05, 0.05, 0.3),
+				"green": Color(0.05, 0.2, 0.05)
+			}
+			var current_color = color_map.get(color_options[current_color_index], Color(0.08, 0.08, 0.12))
+			character_preview.color = current_color
+		
+		if character_name_label:
+			# Reuse the same current_player variable, do not redeclare
+			if current_player and current_player.has_method("character_name"):
+				character_name_label.text = "Name: " + current_player.character_name
+
+func _on_cycle_color():
+	current_color_index = (current_color_index + 1) % color_options.size()
+	if character_menu:
+		var color_btn = character_menu.get_node_or_null("VBoxContainer/ColorButton")
+		if color_btn:
+			color_btn.text = "Color: " + color_display_names[current_color_index]
+	update_character_preview()
+
+func _on_name_submitted(new_name: String):
+	var current_player = get_tree().get_first_node_in_group("player")
+	if current_player and current_player.has_method("character_name"):
+		current_player.character_name = new_name
+	if character_name_label:
+		character_name_label.text = "Name: " + new_name
+
+func _on_apply_character():
+	var current_player = get_tree().get_first_node_in_group("player")
+	if current_player and current_player.has_method("set_character_color"):
+		current_player.set_character_color(color_options[current_color_index])
+	if character_menu:
+		character_menu.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_close_character_menu():
+	if character_menu:
+		character_menu.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func apply_dark_theme():
+	var panels = [start_menu, pause_menu, quit_menu, character_menu]
+	for panel in panels:
+		if panel:
+			var style = StyleBoxFlat.new()
+			style.bg_color = DARK_BG
+			style.corner_radius_top_left = 16
+			style.corner_radius_top_right = 16
+			style.corner_radius_bottom_left = 16
+			style.corner_radius_bottom_right = 16
+			style.border_width_left = 1
+			style.border_width_right = 1
+			style.border_width_top = 1
+			style.border_width_bottom = 1
+			style.border_color = Color(0.12, 0.15, 0.25)
+			panel.add_theme_stylebox_override("panel", style)
+	
+	var buttons = get_tree().get_nodes_in_group("ui_button")
+	for btn in buttons:
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color(0.12, 0.16, 0.25)
+		style.corner_radius_top_left = 8
+		style.corner_radius_top_right = 8
+		style.corner_radius_bottom_left = 8
+		style.corner_radius_bottom_right = 8
+		style.border_width_left = 1
+		style.border_width_right = 1
+		style.border_width_top = 1
+		style.border_width_bottom = 1
+		style.border_color = Color(0.2, 0.25, 0.35)
+		btn.add_theme_stylebox_override("normal", style)
+		
+		var hover_style = StyleBoxFlat.new()
+		hover_style.bg_color = Color(0.2, 0.25, 0.38)
+		hover_style.corner_radius_top_left = 8
+		hover_style.corner_radius_top_right = 8
+		hover_style.corner_radius_bottom_left = 8
+		hover_style.corner_radius_bottom_right = 8
+		hover_style.border_color = ACCENT_COLOR
+		btn.add_theme_stylebox_override("hover", hover_style)
+
+func setup_hotbar():
+	if !hotbar_container:
+		hotbar_container = get_node_or_null("HUD/HotbarContainer")
+	if !hotbar_container:
+		return
+
+	hotbar_slots.clear()
+	for child in hotbar_container.get_children():
+		child.queue_free()
+
+	for i in range(9):
+		var slot = Panel.new()
+		slot.custom_minimum_size = Vector2(52, 52)
+		slot.size = Vector2(52, 52)
+		
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color(0.04, 0.04, 0.08, 0.85)
+		style.border_width_bottom = 2
+		style.border_color = Color(0.12, 0.12, 0.20)
+		style.corner_radius_top_left = 4
+		style.corner_radius_top_right = 4
+		style.corner_radius_bottom_left = 4
+		style.corner_radius_bottom_right = 4
+		slot.add_theme_stylebox_override("panel", style)
+
+		var label = Label.new()
+		label.text = str(i + 1)
+		label.position = Vector2(4, 2)
+		label.add_theme_color_override("font_color", Color(0.35, 0.35, 0.45))
+		slot.add_child(label)
+
+		var bg = ColorRect.new()
+		bg.color = Color(0.03, 0.03, 0.06, 0.9)
+		bg.size = Vector2(52, 52)
+		slot.add_child(bg)
+
+		var item_display = ColorRect.new()
+		item_display.size = Vector2(30, 30)
+		item_display.position = Vector2(11, 11)
+		item_display.color = get_block_color(i + 1)
+		slot.add_child(item_display)
+
+		var count_label = Label.new()
+		count_label.text = "64"
+		count_label.position = Vector2(26, 30)
+		count_label.add_theme_color_override("font_color", Color(0.65, 0.65, 0.75))
+		slot.add_child(count_label)
+
+		hotbar_container.add_child(slot)
+		hotbar_slots.append({
+			"slot": slot,
+			"bg": bg,
+			"item": item_display,
+			"count": count_label,
+			"style": style
+		})
+
+	update_hotbar([], 0)
+
+func get_block_color(block_type: int) -> Color:
+	match block_type:
+		1: return Color(0.32, 0.20, 0.10)
+		2: return Color(0.15, 0.38, 0.08)
+		3: return Color(0.32, 0.32, 0.35)
+		4: return Color(0.22, 0.12, 0.05)
+		5: return Color(0.05, 0.30, 0.05)
+		6: return Color(0.55, 0.45, 0.28)
+		7: return Color(0.55, 0.70, 0.80, 0.35)
+		8: return Color(0.45, 0.28, 0.10)
+		9: return Color(0.20, 0.20, 0.22)
+		10: return Color(0.70, 0.65, 0.48)
+		11: return Color(0.18, 0.35, 0.65, 0.45)
+		12: return Color(0.80, 0.82, 0.88)
+		13: return Color(0.40, 0.18, 0.10)
+		_: return Color(0.6, 0.6, 0.6)
+
+func update_stats(health: int, max_health: int, hunger: int, max_hunger: int, level: int, xp: int, xp_to_next: int):
+	if health_bar:
+		health_bar.value = (float(health) / float(max(1, max_health))) * 100.0
+		var health_color = Color(0.20, 0.60, 0.20) if health > max_health * 0.3 else DANGER_COLOR
+		health_bar.add_theme_color_override("fill", health_color)
+	if hunger_bar:
+		hunger_bar.value = (float(hunger) / float(max(1, max_hunger))) * 100.0
+		var hunger_color = Color(0.60, 0.45, 0.15) if hunger > max_hunger * 0.3 else DANGER_COLOR
+		hunger_bar.add_theme_color_override("fill", hunger_color)
+	if exp_bar:
+		exp_bar.value = (float(xp) / float(max(1, xp_to_next))) * 100.0
+		exp_bar.add_theme_color_override("fill", ACCENT_COLOR)
+	if level_label:
+		level_label.text = "⚔ Lv." + str(level)
+		level_label.add_theme_color_override("font_color", TEXT_COLOR)
+	if block_counter:
+		var health_icon = "❤" if health > max_health * 0.3 else "💀"
+		block_counter.text = health_icon + " " + str(health) + "/" + str(max_health) + "  |  [B] House  [T] Tree"
+
+func update_hotbar(inventory: Array, selected_slot: int):
+	for i in range(hotbar_slots.size()):
+		var slot_data = hotbar_slots[i]
+		var is_selected = (i == selected_slot)
+
+		if slot_data.style:
+			if is_selected:
+				slot_data.style.border_color = ACCENT_COLOR
+				slot_data.style.border_width_bottom = 3
+				slot_data.style.bg_color = Color(0.08, 0.08, 0.14, 0.9)
+			else:
+				slot_data.style.border_color = Color(0.12, 0.12, 0.20)
+				slot_data.style.border_width_bottom = 2
+				slot_data.style.bg_color = Color(0.04, 0.04, 0.08, 0.85)
+
+		if i < inventory.size():
+			var item = inventory[i]
+			if slot_data.item:
+				slot_data.item.color = get_block_color(item.get("block", i + 1))
+			if slot_data.count:
+				slot_data.count.text = str(item.get("count", 64))
+		else:
+			if slot_data.item:
+				slot_data.item.color = get_block_color(i + 1)
+			if slot_data.count:
+				slot_data.count.text = "64"
+
+func connect_ui_signals():
+	if start_menu:
+		var start_btn = start_menu.get_node_or_null("VBoxContainer/StartButton")
+		if !start_btn:
+			start_btn = start_menu.get_node_or_null("StartButton")
+		if start_btn and !start_btn.is_connected("pressed", Callable(self, "_on_start_game")):
+			start_btn.pressed.connect(_on_start_game)
+
+		var char_btn = start_menu.get_node_or_null("VBoxContainer/CharacterButton")
+		if !char_btn:
+			char_btn = start_menu.get_node_or_null("CharacterButton")
+		if char_btn and !char_btn.is_connected("pressed", Callable(self, "_on_open_character_menu")):
+			char_btn.pressed.connect(_on_open_character_menu)
+
+		var quit_btn = start_menu.get_node_or_null("VBoxContainer/QuitButton")
+		if !quit_btn:
+			quit_btn = start_menu.get_node_or_null("QuitButton")
+		if quit_btn and !quit_btn.is_connected("pressed", Callable(self, "_on_quit_pressed")):
+			quit_btn.pressed.connect(_on_quit_pressed)
+
+	if pause_menu:
+		var resume_btn = pause_menu.get_node_or_null("VBoxContainer/ResumeButton")
+		if !resume_btn:
+			resume_btn = pause_menu.get_node_or_null("ResumeButton")
+		if resume_btn and !resume_btn.is_connected("pressed", Callable(self, "_on_resume_game")):
+			resume_btn.pressed.connect(_on_resume_game)
+
+		var menu_btn = pause_menu.get_node_or_null("VBoxContainer/MenuButton")
+		if !menu_btn:
+			menu_btn = pause_menu.get_node_or_null("MenuButton")
+		if menu_btn and !menu_btn.is_connected("pressed", Callable(self, "_on_main_menu")):
+			menu_btn.pressed.connect(_on_main_menu)
+
+		var quit_btn = pause_menu.get_node_or_null("VBoxContainer/QuitButton")
+		if !quit_btn:
+			quit_btn = pause_menu.get_node_or_null("QuitButton")
+		if quit_btn and !quit_btn.is_connected("pressed", Callable(self, "_on_quit_pressed")):
+			quit_btn.pressed.connect(_on_quit_pressed)
+
+	if quit_menu:
+		var confirm_btn = quit_menu.get_node_or_null("VBoxContainer/ConfirmButton")
+		if !confirm_btn:
+			confirm_btn = quit_menu.get_node_or_null("ConfirmButton")
+		if confirm_btn and !confirm_btn.is_connected("pressed", Callable(self, "_on_quit_game")):
+			confirm_btn.pressed.connect(_on_quit_game)
+
+		var cancel_btn = quit_menu.get_node_or_null("VBoxContainer/CancelButton")
+		if !cancel_btn:
+			cancel_btn = quit_menu.get_node_or_null("CancelButton")
+		if cancel_btn and !cancel_btn.is_connected("pressed", Callable(self, "_on_cancel_quit")):
+			cancel_btn.pressed.connect(_on_cancel_quit)
+
+func _on_open_character_menu():
+	if start_menu:
+		start_menu.visible = false
+	if character_menu:
+		character_menu.visible = true
+		update_character_preview()
+
+func _on_start_game():
+	if start_menu:
+		start_menu.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var current_player = get_tree().get_first_node_in_group("player")
+	if current_player:
+		current_player.mouse_captured = true
+
+func _on_quit_pressed():
+	quit_confirm_active = true
+	quit_timer = 0.0
+	if start_menu:
+		start_menu.visible = false
+	if pause_menu:
+		pause_menu.visible = false
+	if quit_menu:
+		quit_menu.visible = true
+		if quit_timer_label:
+			quit_timer_label.text = "Quitting in " + str(quit_confirm_delay) + "s..."
+
+func _on_cancel_quit():
+	quit_confirm_active = false
+	quit_timer = 0.0
+	if quit_menu:
+		quit_menu.visible = false
+	if start_menu:
+		start_menu.visible = true
+
+func _on_quit_game():
+	get_tree().quit()
+
+func _on_resume_game():
+	if pause_menu:
+		pause_menu.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var current_player = get_tree().get_first_node_in_group("player")
+	if current_player:
+		current_player.mouse_captured = true
+	get_tree().paused = false
+
+func _on_main_menu():
+	if pause_menu:
+		pause_menu.visible = false
+	if start_menu:
+		start_menu.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	var current_player = get_tree().get_first_node_in_group("player")
+	if current_player:
+		current_player.mouse_captured = false
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+func _input(event: InputEvent):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		if quit_menu and quit_menu.visible:
+			_on_cancel_quit()
+		elif character_menu and character_menu.visible:
+			_on_close_character_menu()
+		else:
+			toggle_pause_menu()
+
+func _process(delta: float):
+	if quit_confirm_active and quit_menu and quit_menu.visible:
+		quit_timer += delta
+		if quit_timer_label:
+			var remaining = max(0, quit_confirm_delay - quit_timer)
+			quit_timer_label.text = "Quitting in " + str(int(remaining)) + "s..."
+		if quit_timer >= quit_confirm_delay:
+			_on_quit_game()
+
+func toggle_pause_menu():
+	if start_menu and start_menu.visible:
+		return
+	if character_menu and character_menu.visible:
+		return
+
+	if pause_menu:
+		var current_player = get_tree().get_first_node_in_group("player")
+		if pause_menu.visible:
+			pause_menu.visible = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if current_player:
+				current_player.mouse_captured = true
+			get_tree().paused = false
+		else:
+			pause_menu.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			if current_player:
+				current_player.mouse_captured = false
+			get_tree().paused = true
+
+
+--- FILE: scenes/Main.tscn ---
+[gd_scene load_steps=8 format=3 uid="uid://player_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/WorldGenerator.gd" id="2_world"]
+[ext_resource type="PackedScene" uid="uid://ui_scene_01" path="res://scenes/UI.tscn" id="3_ui"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
+sky_top_color = Color(0.38, 0.68, 0.98, 1)
+sky_horizon_color = Color(0.72, 0.85, 0.98, 1)
+ground_bottom_color = Color(0.22, 0.18, 0.14, 1)
+ground_horizon_color = Color(0.55, 0.7, 0.55, 1)
+
+[sub_resource type="Sky" id="Sky_world"]
+sky_material = SubResource("ProceduralSkyMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 2
+sky = SubResource("Sky_world")
+ambient_light_source = 3
+ambient_light_color = Color(0.75, 0.82, 0.95, 1)
+ambient_light_energy = 0.85
+tonemap_mode = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.5
+height = 1.8
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_main")
+
+[node name="WorldGenerator" type="Node3D" parent="."]
+script = ExtResource("2_world")
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="FirstPersonCamera" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+fov = 75.0
+
+[node name="ThirdPersonCamera" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.5, 3.5)
+current = false
+fov = 65.0
+
+[node name="CameraTarget" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="UI" parent="." instance=ExtResource("3_ui")]
+
+
+--- FILE: scenes/UI.tscn ---
+[gd_scene load_steps=2 format=3 uid="uid://ui_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_ui"]
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "hunger_bar", "exp_bar", "level_label", "block_counter", "hotbar_container", "start_menu", "pause_menu")]
+script = ExtResource("1_ui")
+health_bar = NodePath("HUD/StatsContainer/HealthBar")
+hunger_bar = NodePath("HUD/StatsContainer/HungerBar")
+exp_bar = NodePath("HUD/StatsContainer/ExpBar")
+level_label = NodePath("HUD/StatsContainer/LevelLabel")
+block_counter = NodePath("HUD/StatsContainer/BlockCounter")
+hotbar_container = NodePath("HUD/HotbarContainer")
+start_menu = NodePath("StartMenu")
+pause_menu = NodePath("PauseMenu")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="ColorRect" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.75)
+
+[node name="StatsContainer" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = -20.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="LevelLabel" type="Label" parent="HUD/StatsContainer"]
+layout_mode = 2
+text = "Lv. 1"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/StatsContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="HungerBar" type="ProgressBar" parent="HUD/StatsContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="HUD/StatsContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+value = 0.0
+show_percentage = false
+
+[node name="BlockCounter" type="Label" parent="HUD/StatsContainer"]
+layout_mode = 2
+text = "Health: 20/20"
+
+[node name="HotbarContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -70.0
+offset_right = 250.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="StartMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+text = "VOXEL WORLD"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="PauseMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -70.0
+offset_right = 100.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+
+--- FILE: scenes/Animal.tscn ---
+[gd_scene load_steps=3 format=3 uid="uid://animal_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/Animal.gd" id="1_animal"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_animal"]
+size = Vector3(1.4, 1.2, 1.8)
+
+[node name="Animal" type="CharacterBody3D" groups=["animals"]]
+script = ExtResource("1_animal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_animal")
+
+
+--- FILE: scenes/Player.tscn ---
+[gd_scene load_steps=3 format=3 uid="uid://player_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_player"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.5
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="FirstPersonCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+fov = 75.0
+
+[node name="ThirdPersonCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.5, 3.5)
+current = false
+fov = 65.0
+
+[node name="CameraTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+
+--- FILE: main.py ---
+FILE: scripts/WorldGenerator.gdgdscript
+
+
+--- FILE: index.html ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>full stack game like minecraft - Godot 3D Simulator</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #020617;
+    color: #f8fafc;
+	font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+  #crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  #crosshair::before, #crosshair::after {
+	content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 4px #000;
+  }
+  #crosshair::before { top: 8px; left: 0; width: 18px; height: 2px; }
+  #crosshair::after { top: 0; left: 8px; width: 2px; height: 18px; }
+
+  /* HUD */
+  .hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 30px;
+    z-index: 10;
+  }
+  .hud-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .badge {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #38bdf8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: #38bdf8;
+	font-family: 'Orbitron', monospace;
+    font-size: 13px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  }
+  .story-box {
+    max-width: 450px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    padding: 14px 18px;
+    backdrop-filter: blur(8px);
+  }
+  .story-title { font-size: 14px; font-weight: 700; color: #38bdf8; margin-bottom: 4px; font-family: 'Orbitron'; }
+  .story-text { font-size: 13px; color: #cbd5e1; line-height: 1.4; }
+
+  /* Hotbar */
+  .hotbar {
+    align-self: center;
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 2px solid rgba(56, 189, 248, 0.4);
+    backdrop-filter: blur(8px);
+  }
+  .slot {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .slot.active {
+    border-color: #38bdf8;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #38bdf8;
+  }
+  .slot.grass { background: #22c55e; }
+  .slot.dirt { background: #78350f; }
+  .slot.stone { background: #64748b; }
+  .slot.wood { background: #d97706; }
+  .slot.brick { background: #ef4444; }
+
+  /* Click To Play Screen */
+  #blocker {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    text-align: center;
+    cursor: pointer;
+  }
+  h1 {
+	font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .play-btn {
+	font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: #020617;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+    margin: 20px 0;
+  }
+  .instructions { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+  .key { background: #1e293b; color: #38bdf8; padding: 2px 8px; border-radius: 4px; border: 1px solid #334155; }
+</style>
+</head>
+<body>
+
+<div id="crosshair"></div>
+
+<div class="hud">
+  <div class="hud-top">
+    <div class="badge">GODOT 4 3D VOXEL ENGINE</div>
+    <div class="story-box">
+      <div class="story-title">QUEST & OBJECTIVE</div>
+      <div class="story-text">iseaki wolrd</div>
+    </div>
+  </div>
+
+  <div class="hotbar" id="hotbar">
+    <div class="slot grass active" data-id="1">1:GRASS</div>
+    <div class="slot dirt" data-id="2">2:DIRT</div>
+    <div class="slot stone" data-id="3">3:STONE</div>
+    <div class="slot wood" data-id="4">4:WOOD</div>
+    <div class="slot brick" data-id="5">5:BRICK</div>
+  </div>
+</div>
+
+<div id="blocker">
+  <h1>Full Stack Game Like Minecraft</h1>
+  <p style="color: #94a3b8; max-width: 500px; margin-bottom: 10px;">Godot 4 3D Open-World Sandbox. Generated with CharacterBody3D physics, procedural voxel chunks, and synthesized audio.</p>
+  <button class="play-btn">CLICK TO PLAY (LOCK MOUSE)</button>
+  <div class="instructions">
+    <span class="key">WASD</span> Walk &nbsp;|&nbsp;
+    <span class="key">SPACE</span> Jump &nbsp;|&nbsp;
+    <span class="key">LEFT CLICK</span> Break Block &nbsp;|&nbsp;
+    <span class="key">RIGHT CLICK</span> Place Block &nbsp;|&nbsp;
+    <span class="key">1-5</span> Select Block
+  </div>
+</div>
+
+<script>
+// Web Audio Synthesizer (Godot Sound Synthesis Emulation)
+const Sound = (() => {
+  let ctx = null;
+  function getCtx() {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+	if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  return {
+    break() {
+      const c = getCtx();
+      const bSize = c.sampleRate * 0.15;
+      const buf = c.createBuffer(1, bSize, c.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bSize; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / bSize);
+      const src = c.createBufferSource();
+      src.buffer = buf;
+      const f = c.createBiquadFilter();
+	  f.type = 'lowpass'; f.frequency.value = 350;
+      src.connect(f); f.connect(c.destination);
+      src.start();
+    },
+    place() {
+      const c = getCtx();
+      const osc = c.createOscillator();
+      const g = c.createGain();
+	  osc.type = 'sine';
+      osc.frequency.setValueAtTime(240, c.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, c.currentTime + 0.08);
+      g.gain.setValueAtTime(0.25, c.currentTime);
+      g.gain.linearRampToValueAtTime(0.01, c.currentTime + 0.08);
+      osc.connect(g); g.connect(c.destination);
+      osc.start(); osc.stop(c.currentTime + 0.08);
+    },
+    jump() {
+      const c = getCtx();
+      const osc = c.createOscillator();
+      const g = c.createGain();
+	  osc.type = 'triangle';
+      osc.frequency.setValueAtTime(300, c.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(600, c.currentTime + 0.15);
+      g.gain.setValueAtTime(0.2, c.currentTime);
+      g.gain.linearRampToValueAtTime(0.01, c.currentTime + 0.15);
+      osc.connect(g); g.connect(c.destination);
+      osc.start(); osc.stop(c.currentTime + 0.15);
+    }
+  };
+})();
+
+// Three.js 3D Voxel Engine
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x70b5f9);
+scene.fog = new THREE.Fog(0x70b5f9, 20, 65);
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+document.body.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+scene.add(ambientLight);
+const sunLight = new THREE.DirectionalLight(0xfff8e7, 0.8);
+sunLight.position.set(30, 50, 20);
+sunLight.castShadow = true;
+scene.add(sunLight);
+
+// Materials Palette
+const materials = {
+  1: new THREE.MeshLambertMaterial({ color: 0x22c55e }), // Grass
+  2: new THREE.MeshLambertMaterial({ color: 0x78350f }), // Dirt
+  3: new THREE.MeshLambertMaterial({ color: 0x64748b }), // Stone
+  4: new THREE.MeshLambertMaterial({ color: 0xd97706 }), // Wood
+  5: new THREE.MeshLambertMaterial({ color: 0xef4444 })  // Brick
+};
+
+const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+const blocks = new Map();
+
+function addBlock(x, y, z, typeId) {
+  const key = `${x},${y},${z}`;
+  if (blocks.has(key)) return;
+  const mesh = new THREE.Mesh(boxGeometry, materials[typeId] || materials[1]);
+  mesh.position.set(x + 0.5, y + 0.5, z + 0.5);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  mesh.userData = { x, y, z, typeId };
+  scene.add(mesh);
+  blocks.set(key, mesh);
+}
+
+function removeBlock(x, y, z) {
+  const key = `${x},${y},${z}`;
+  const mesh = blocks.get(key);
+  if (mesh) {
+    scene.remove(mesh);
+    blocks.delete(key);
+    Sound.break();
+  }
+}
+
+// Generate 3D Voxel World
+const worldSize = 24;
+for (let x = -worldSize; x <= worldSize; x++) {
+  for (let z = -worldSize; z <= worldSize; z++) {
+    const dist = Math.hypot(x, z);
+    const height = Math.floor(Math.sin(x * 0.2) * Math.cos(z * 0.2) * 3 + 3);
+    for (let y = 0; y <= height; y++) {
+      const type = (y === height) ? 1 : ((y > height - 2) ? 2 : 3);
+      addBlock(x, y, z, type);
+    }
+  }
+}
+
+// Player Physics & Controls
+let activeBlockId = 1;
+const player = {
+  pos: new THREE.Vector3(0, 10, 0),
+  vel: new THREE.Vector3(),
+  yaw: 0,
+  pitch: 0,
+  onGround: false,
+  speed: 9,
+  jumpVel: 11
+};
+
+const keys = {};
+window.addEventListener('keydown', e => {
+  keys[e.code] = true;
+  if (e.key >= '1' && e.key <= '5') {
+    activeBlockId = parseInt(e.key);
+	document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
+	document.querySelector(`.slot[data-id="${activeBlockId}"]`).classList.add('active');
+  }
+});
+window.addEventListener('keyup', e => keys[e.code] = false);
+
+// Pointer Lock Controls
+const blocker = document.getElementById('blocker');
+let isLocked = false;
+blocker.addEventListener('click', () => {
+  document.body.requestPointerLock();
+});
+
+document.addEventListener('pointerlockchange', () => {
+  isLocked = document.pointerLockElement === document.body;
+  blocker.style.display = isLocked ? 'none' : 'flex';
+});
+
+document.addEventListener('mousemove', e => {
+  if (!isLocked) return;
+  player.yaw -= e.movementX * 0.0025;
+  player.pitch -= e.movementY * 0.0025;
+  player.pitch = Math.max(-Math.PI / 2.1, Math.min(Math.PI / 2.1, player.pitch));
+});
+
+// Raycasting Block Interaction
+const raycaster = new THREE.Raycaster();
+window.addEventListener('mousedown', e => {
+  if (!isLocked) return;
+  raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
+  const intersects = raycaster.intersectObjects(Array.from(blocks.values()));
+  
+  if (intersects.length > 0 && intersects[0].distance < 6) {
+    const hit = intersects[0];
+    const bData = hit.object.userData;
+    
+    if (e.button === 0) {
+      // Break Block
+      removeBlock(bData.x, bData.y, bData.z);
+    } else if (e.button === 2) {
+      // Place Block
+      const norm = hit.face.normal;
+      const nx = bData.x + Math.round(norm.x);
+      const ny = bData.y + Math.round(norm.y);
+      const nz = bData.z + Math.round(norm.z);
+      addBlock(nx, ny, nz, activeBlockId);
+      Sound.place();
+    }
+  }
+});
+window.addEventListener('contextmenu', e => e.preventDefault());
+
+// Game Loop
+let lastTime = performance.now();
+function animate() {
+  requestAnimationFrame(animate);
+  const now = performance.now();
+  const dt = Math.min((now - lastTime) / 1000, 0.1);
+  lastTime = now;
+
+  if (isLocked) {
+    // Movement
+	const moveX = (keys['KeyD'] ? 1 : 0) - (keys['KeyA'] ? 1 : 0);
+	const moveZ = (keys['KeyS'] ? 1 : 0) - (keys['KeyW'] ? 1 : 0);
+    
+    const forward = new THREE.Vector3(-Math.sin(player.yaw), 0, -Math.cos(player.yaw));
+    const right = new THREE.Vector3(Math.cos(player.yaw), 0, -Math.sin(player.yaw));
+    
+    const moveDir = new THREE.Vector3();
+    moveDir.addScaledVector(right, moveX);
+    moveDir.addScaledVector(forward, -moveZ);
+    moveDir.normalize();
+
+    player.vel.x = moveDir.x * player.speed;
+    player.vel.z = moveDir.z * player.speed;
+
+    // Gravity
+    player.vel.y -= 26 * dt;
+	if (keys['Space'] && player.onGround) {
+      player.vel.y = player.jumpVel;
+      player.onGround = false;
+      Sound.jump();
+    }
+
+    // Voxel Terrain Collision (Simple Ground Detection)
+    player.pos.x += player.vel.x * dt;
+    player.pos.z += player.vel.z * dt;
+    player.pos.y += player.vel.y * dt;
+
+    const blockUnderX = Math.floor(player.pos.x);
+    const blockUnderZ = Math.floor(player.pos.z);
+    let highestY = -10;
+
+    for (let y = 0; y < 20; y++) {
+      if (blocks.has(`${blockUnderX},${y},${blockUnderZ}`)) {
+        highestY = Math.max(highestY, y + 1.8);
+      }
+    }
+
+    if (player.pos.y <= highestY) {
+      player.pos.y = highestY;
+      player.vel.y = 0;
+      player.onGround = true;
+    } else {
+      player.onGround = false;
+    }
+  }
+
+  // Update Camera
+  camera.position.copy(player.pos);
+  camera.rotation.set(0, 0, 0);
+  camera.rotation.y = player.yaw;
+  camera.rotation.x = player.pitch;
+
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+animate();
+</script>
+</body>
+</html>
+
+
+--- FILE: run_godot.bat ---
+@echo off
+title OmniDev Godot 4 Launcher - full_stack_game_like_m
+echo ========================================================
+echo   OmniDev Sovereign Godot 4 Engine Launcher
+echo   Project: full_stack_game_like_m
+echo ========================================================
+echo.
+
+set GODOT_EXE=
+where godot >nul 2>nul
+if %ERRORLEVEL% equ 0 set GODOT_EXE=godot
+where godot4 >nul 2>nul
+if %ERRORLEVEL% equ 0 set GODOT_EXE=godot4
+
+if "%GODOT_EXE%"=="" (
+    for /r "%USERPROFILE%\Downloads" %%f in (Godot_v4*.exe) do if exist "%%f" set "GODOT_EXE=%%f"
+)
+if "%GODOT_EXE%"=="" (
+    for /r "C:\Godot" %%f in (Godot*.exe) do if exist "%%f" set "GODOT_EXE=%%f"
+)
+
+if "%GODOT_EXE%"=="" (
+    echo [INFO] Godot 4 executable was not found in PATH or Downloads.
+    echo [INFO] Opening 3D First-Person Web Simulator in your browser...
+    start "" "%~dp0simulator.html"
+    echo.
+    echo To open in Godot Engine:
+    echo 1. Download Godot 4 from: https://godotengine.org/download
+	echo 2. Open Godot -> Click 'Import' -> Select project.godot in this directory:
+    echo    %~dp0
+    echo.
+    pause
+    exit /b 0
+)
+
+echo [LAUNCH] Found Godot at: %GODOT_EXE%
+echo [LAUNCH] Opening project in Godot 4 Editor...
+start "" "%GODOT_EXE%" --path "%~dp0" -e
+exit /b 0

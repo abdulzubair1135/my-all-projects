@@ -1,0 +1,45 @@
+{
+  "app_name": "StickForge AI",
+  "version": "1.0.0",
+  "theme": "dark",
+  "video": {
+    "default_resolution_w": 1080,
+    "default_resolution_h": 1920,
+    "default_fps": 30,
+    "preview_scale": 0.5,
+    "max_concurrent_renders": 1,
+    "crf": 22,
+    "preset": "medium"
+  },
+  "ai": {
+    "provider": "deepseek_browser",
+    "deepseek_api_base_url": "https://api.deepseek.com/v1",
+    "deepseek_api_key": "",
+    "request_timeout_seconds": 120,
+    "continue_max_retries": 10,
+    "continue_debounce_seconds": 2.5
+  },
+  "browser": {
+    "headless": false,
+    "slow_mo_ms": 50,
+    "user_data_dir": "C:\\Users\\abdul\\OneDrive\\\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\\stick man vid\\browser\\user_data",
+    "viewport_width": 1280,
+    "viewport_height": 800,
+    "deepseek_url": "https://chat.deepseek.com",
+    "navigation_timeout_ms": 45000
+  },
+  "tts": {
+    "default_provider": "edge_tts",
+    "default_voice_en": "en-US-ChristopherNeural",
+    "default_voice_hi": "hi-IN-MadhurNeural",
+    "default_voice_hinglish": "hi-IN-MadhurNeural",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "volume": "+0%"
+  },
+  "resource": {
+    "max_cache_mb": 2048,
+    "auto_cleanup_cache": true,
+    "keep_intermediate_scenes": true
+  }
+}

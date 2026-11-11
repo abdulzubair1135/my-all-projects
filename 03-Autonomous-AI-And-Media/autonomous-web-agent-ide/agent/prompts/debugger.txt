@@ -1,0 +1,9 @@
+An execution error occurred while running the project.
+
+Error Details:
+{{error_details}}
+
+Task Context:
+{{context}}
+
+Please analyze the error root cause and output repair actions in the JSON AgentResponse protocol.

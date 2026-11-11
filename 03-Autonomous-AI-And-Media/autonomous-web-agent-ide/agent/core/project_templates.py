@@ -1,0 +1,240 @@
+"""
+project_templates.py
+Production Project Template Registry for Autonomous Web-Agent IDE.
+
+Implements Section 65 of the Autonomous Web-Agent IDE Master Specification:
+  1. Build Full-Stack App
+  2. Build Android App
+  3. Fix Existing Project
+  4. Screenshot → UI
+  5. Create Game
+  6. Create API
+  7. Create Dashboard
+  8. Create Report
+  9. Create Presentation
+  10. Modernize Project
+  11. Security Audit
+  12. Performance Audit
+  13. Release Project
+"""
+
+from typing import Dict, Any, List, Optional
+
+
+TEMPLATES: List[Dict[str, Any]] = [
+    {
+        "id": "fullstack_app",
+        "title": "Build Full-Stack App",
+        "category": "Full-Stack",
+        "icon": "Layers",
+        "badge": "Popular",
+        "description": "Autonomous end-to-end full-stack web application with React/Vite frontend, Node/Express or FastAPI backend, and SQLite/PostgreSQL persistence.",
+        "tech_stack": ["React 18", "TailwindCSS", "Node.js", "Express", "SQLite", "Vitest"],
+        "prompt": "Build a production-grade full-stack web application with modern responsive React frontend, RESTful Express backend, SQLite database persistence, and automated smoke tests.",
+        "acceptance_criteria": [
+            "Frontend launches on dev server with responsive layout",
+            "Backend exposes REST API endpoints with validation",
+            "Database schema migrations and sample seed data",
+            "Automated test suite executes and passes"
+        ]
+    },
+    {
+        "id": "android_app",
+        "title": "Build Android App",
+        "category": "Mobile",
+        "icon": "Smartphone",
+        "badge": "Mobile",
+        "description": "Android application with Material 3, Gradle build system, ViewModel architecture, and ADB physical/emulator test validation.",
+        "tech_stack": ["Java / Kotlin", "Android SDK", "Material Design 3", "Gradle", "ADB"],
+        "prompt": "Create an Android application with Material 3 UI design, clean MVVM architecture, Gradle configuration, and automated build verification.",
+        "acceptance_criteria": [
+            "Android project structure with app/build.gradle and Manifest",
+            "Material 3 theme and responsive layouts",
+            "Gradle build succeeds producing debug APK",
+            "Ready for ADB device installation"
+        ]
+    },
+    {
+        "id": "fix_existing",
+        "title": "Fix Existing Project",
+        "category": "Debugging",
+        "icon": "Wrench",
+        "badge": "Self-Healing",
+        "description": "Deep inspection of an existing codebase, identifying syntax bugs, broken dependencies, compiler errors, and applying self-healing patches.",
+        "tech_stack": ["Project Inspector", "Error Memory", "LSP Analysis", "Auto-Patching"],
+        "prompt": "Inspect this project thoroughly, execute the test and build suite, identify all runtime and compilation errors, diagnose root causes, and apply atomic patches until all tests pass.",
+        "acceptance_criteria": [
+            "Project topology and dependencies inspected",
+            "Failing tests or compilation errors identified",
+            "Root causes diagnosed with self-healing patches applied",
+            "Zero remaining build or test failures"
+        ]
+    },
+    {
+        "id": "screenshot_to_ui",
+        "title": "Screenshot → UI",
+        "category": "Vision & UI",
+        "icon": "Camera",
+        "badge": "Vision AI",
+        "description": "Upload a screenshot, UI mockup, or design asset to autonomously extract layout components, color tokens, and generate responsive React code.",
+        "tech_stack": ["Vision Model", "React", "TailwindCSS", "Lucide Icons", "Playwright"],
+        "prompt": "Analyze the attached screenshot, extract design tokens, colors, typography, and component hierarchy, and build an exact pixel-accurate responsive React + Tailwind component.",
+        "acceptance_criteria": [
+            "Design tokens and palette extracted accurately",
+            "Modular React components matching visual layout",
+            "Responsive across desktop and mobile viewports",
+            "Visual QA screenshot comparison verified"
+        ]
+    },
+    {
+        "id": "create_game",
+        "title": "Create 2D Game",
+        "category": "Gaming",
+        "icon": "Gamepad2",
+        "badge": "Interactive",
+        "description": "Autonomous 2D interactive arcade game using HTML5 Canvas or WebGL with game loop, physics engine, collision detection, and score tracking.",
+        "tech_stack": ["HTML5 Canvas", "JavaScript / TypeScript", "Audio Synthesizer", "Game Loop"],
+        "prompt": "Build a complete, polished 2D interactive game with HTML5 Canvas, high-performance 60FPS physics loop, particle effects, sound effects, score tracking, and game-over states.",
+        "acceptance_criteria": [
+            "60 FPS smooth canvas render loop",
+            "Keyboard and touch/mobile control support",
+            "Collision detection and score system",
+            "Audio/sound effect integration"
+        ]
+    },
+    {
+        "id": "create_api",
+        "title": "Create High-Performance API",
+        "category": "Backend",
+        "icon": "Server",
+        "badge": "Backend",
+        "description": "Production REST/GraphQL API using FastAPI or Express with OpenAPI specs, JWT authentication, rate limiting, and SQLite persistence.",
+        "tech_stack": ["FastAPI", "Python", "Pydantic", "SQLite", "OpenAPI", "Pytest"],
+        "prompt": "Create a high-performance FastAPI backend with SQLite persistence, Pydantic request/response schemas, JWT authentication, rate limiting, and 100% pytest coverage.",
+        "acceptance_criteria": [
+            "FastAPI app with CRUD endpoints",
+            "OpenAPI /docs Swagger documentation",
+            "Pydantic input validation and error handlers",
+            "Pytest test suite passing with 0 errors"
+        ]
+    },
+    {
+        "id": "create_dashboard",
+        "title": "Create Analytical Dashboard",
+        "category": "Analytics",
+        "icon": "BarChart3",
+        "badge": "Data",
+        "description": "Executive metrics and analytics dashboard featuring interactive charts, KPI metric cards, data filters, and export capabilities.",
+        "tech_stack": ["React", "Chart.js / Recharts", "TailwindCSS", "Data Grid"],
+        "prompt": "Build an interactive analytics and metrics dashboard with KPI summaries, real-time charts, date-range filters, and CSV/PDF export features.",
+        "acceptance_criteria": [
+            "KPI metric counters with positive/negative trend badges",
+            "Interactive charts (time-series line, category bar, distribution pie)",
+            "Filterable data table with search and pagination",
+            "Dark mode developer aesthetics"
+        ]
+    },
+    {
+        "id": "create_report",
+        "title": "Create Executive Report",
+        "category": "Documents",
+        "icon": "FileText",
+        "badge": "Reports",
+        "description": "Automated technical or business report generation producing publication-ready Markdown, HTML, and PDF artifacts with structured analysis.",
+        "tech_stack": ["Markdown", "HTML/CSS Print", "Data Visualization", "PDF Exporter"],
+        "prompt": "Generate a comprehensive executive technical assessment report including executive summary, architecture diagrams, benchmark analysis, and actionable recommendations.",
+        "acceptance_criteria": [
+            "Structured document with table of contents and executive summary",
+            "Technical metrics and benchmark tables",
+            "Print-ready CSS styling and downloadable artifact"
+        ]
+    },
+    {
+        "id": "create_presentation",
+        "title": "Create Slide Presentation",
+        "category": "Documents",
+        "icon": "Presentation",
+        "badge": "Slides",
+        "description": "Interactive web-based slide deck presentation with keyboard navigation, animated transitions, presenter notes, and visual diagrams.",
+        "tech_stack": ["React", "HTML5 Deck", "CSS Animations", "Lucide Icons"],
+        "prompt": "Create an interactive 5-slide technical pitch presentation with smooth keyboard navigation (arrow keys), visual diagrams, highlight points, and dark mode styling.",
+        "acceptance_criteria": [
+            "5 interactive slides with forward/back keyboard navigation",
+            "Slide progress indicator and speaker note toggle",
+            "Clean visual hierarchy with icons and callout cards"
+        ]
+    },
+    {
+        "id": "modernize_project",
+        "title": "Modernize Legacy Project",
+        "category": "Refactoring",
+        "icon": "Sparkles",
+        "badge": "Evolution",
+        "description": "Upgrade legacy codebases: migrate CommonJS to ESM, convert JavaScript to TypeScript, update outdated dependencies, and add test suites.",
+        "tech_stack": ["TypeScript", "ESM", "Dependency Intelligence", "Vitest / Jest"],
+        "prompt": "Modernize this legacy project: upgrade to ES Modules, introduce strict TypeScript typing, audit outdated packages, and add a comprehensive smoke test suite.",
+        "acceptance_criteria": [
+            "Upgraded syntax and package configurations",
+            "TypeScript type definitions without 'any' leakage",
+            "Passing automated test suite"
+        ]
+    },
+    {
+        "id": "security_audit",
+        "title": "Security & Vulnerability Audit",
+        "category": "Security",
+        "icon": "ShieldAlert",
+        "badge": "Audit",
+        "description": "Autonomous security review scanning for hardcoded secrets, injection vectors, unauthenticated endpoints, and dependency vulnerabilities.",
+        "tech_stack": ["Secret Scanner", "Path Guard", "Dependency Vulnerability Engine", "OWASP Top 10"],
+        "prompt": "Perform a complete security audit across this workspace: scan for hardcoded secrets/API keys, detect path traversal or command injection risks, and generate an SBOM and security report.",
+        "acceptance_criteria": [
+            "Zero unredacted secrets in source files",
+            "Sanitized input paths and API parameter guards",
+            "Security audit markdown report generated in .delivery/"
+        ]
+    },
+    {
+        "id": "performance_audit",
+        "title": "Performance Profiling & Optimization",
+        "category": "Performance",
+        "icon": "Cpu",
+        "badge": "Speed",
+        "description": "Analyze frontend bundle sizes, memory leaks, slow database queries, and redundant network requests, applying optimizations based on evidence.",
+        "tech_stack": ["Bundle Analyzer", "Memory Profiler", "Async Optimization", "Vite Optimizer"],
+        "prompt": "Audit the performance of this application: inspect build bundle chunking, optimize image/component lazy loading, and resolve render bottlenecks.",
+        "acceptance_criteria": [
+            "Chunk splitting and lazy imports configured",
+            "Optimized static asset delivery",
+            "Performance audit summary report generated"
+        ]
+    },
+    {
+        "id": "release_project",
+        "title": "Release & Delivery Pipeline",
+        "category": "DevOps",
+        "icon": "Rocket",
+        "badge": "Release",
+        "description": "Finalize release: run pre-release validation suite, generate Delivery Evidence Report, create Git release tag, and package production artifacts.",
+        "tech_stack": ["Git Tagging", "Delivery Report", "ZIP Archiving", "Canary Validation"],
+        "prompt": "Prepare a full production release: verify all automated tests pass, generate the official Delivery Evidence Report in .delivery/, create a Git tag, and build the release ZIP archive.",
+        "acceptance_criteria": [
+            "Full validation pipeline passing (tests, build, security)",
+            "Official DELIVERY_REPORT.md created with evidence hashes",
+            "Production release ZIP package created"
+        ]
+    }
+]
+
+
+def get_all_templates() -> List[Dict[str, Any]]:
+    """Returns the complete list of templates."""
+    return TEMPLATES
+
+
+def get_template_by_id(template_id: str) -> Optional[Dict[str, Any]]:
+    """Retrieves a specific template by its unique ID."""
+    for t in TEMPLATES:
+        if t["id"] == template_id:
+            return t
+    return None

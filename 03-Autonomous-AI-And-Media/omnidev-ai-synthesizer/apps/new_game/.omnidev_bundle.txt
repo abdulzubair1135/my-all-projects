@@ -1,0 +1,1690 @@
+================================================================================
+OMNIDEV AI MASTER PROJECT BUNDLE: NEW_GAME
+Root Directory: C:/Users/abdul/OneDrive/ドキュメント/ai/apps/new_game
+Project Type: Godot 4.x Sovereign Engine
+================================================================================
+
+=== 1. COMPLETE PROJECT DIRECTORY & FILE TREE ===
+📁 new_game/
+  ├── 📁 assets/
+  │   ├── 📁 audio/
+  │   │   ├── break.wav (7.8 KB)
+  │   │   ├── footstep.wav (3.5 KB)
+  │   │   ├── hit.wav (8.7 KB)
+  │   │   ├── jump.wav (6.5 KB)
+  │   │   ├── pickup.wav (9.5 KB)
+  │   │   └── place.wav (4.3 KB)
+  │   └── 📁 textures/
+  │       ├── dirt_block.svg (270 B)
+  │       ├── grass_block.svg (343 B)
+  │       └── stone_block.svg (288 B)
+  ├── 📁 scenes/
+  │   ├── Animal.tscn (490 B)
+  │   ├── Main.tscn (509 B)
+  │   └── Player.tscn (678 B)
+  ├── 📁 scripts/
+  │   ├── Animal.gd (6.0 KB)
+  │   ├── Player.gd (9.5 KB)
+  │   ├── SoundManager.gd (3.4 KB)
+  │   ├── UI.gd (27.6 KB)
+  │   └── WorldGenerator.gd (5.9 KB)
+  ├── project.godot (2.7 KB)
+  └── run_godot.bat (1.2 KB)
+
+================================================================================
+
+=== 2. COMPREHENSIVE ASSET & RESOURCE CATALOG ===
+
+🎨 [TEXTURES & 2D SPRITES]:
+  • res://assets/textures/dirt_block.svg (SVG, 270 B) -> GDScript Load: load("res://assets/textures/dirt_block.svg")
+  • res://assets/textures/grass_block.svg (SVG, 343 B) -> GDScript Load: load("res://assets/textures/grass_block.svg")
+  • res://assets/textures/stone_block.svg (SVG, 288 B) -> GDScript Load: load("res://assets/textures/stone_block.svg")
+
+🔊 [AUDIO & SOUND EFFECTS]:
+  • res://assets/audio/break.wav (WAV, 7.8 KB) -> GDScript Load: preload("res://assets/audio/break.wav")
+  • res://assets/audio/footstep.wav (WAV, 3.5 KB) -> GDScript Load: preload("res://assets/audio/footstep.wav")
+  • res://assets/audio/hit.wav (WAV, 8.7 KB) -> GDScript Load: preload("res://assets/audio/hit.wav")
+  • res://assets/audio/jump.wav (WAV, 6.5 KB) -> GDScript Load: preload("res://assets/audio/jump.wav")
+  • res://assets/audio/pickup.wav (WAV, 9.5 KB) -> GDScript Load: preload("res://assets/audio/pickup.wav")
+  • res://assets/audio/place.wav (WAV, 4.3 KB) -> GDScript Load: preload("res://assets/audio/place.wav")
+
+🎬 [SCENE FILES (.tscn)]:
+  • res://scenes/Animal.tscn (490 B) -> GDScript Load: preload("res://scenes/Animal.tscn")
+  • res://scenes/Main.tscn (509 B) -> GDScript Load: preload("res://scenes/Main.tscn")
+  • res://scenes/Player.tscn (678 B) -> GDScript Load: preload("res://scenes/Player.tscn")
+
+================================================================================
+
+=== 3. GODOT SCENE NODE TREES & PATH MAPPINGS ===
+
+🎬 SCENE: res://scenes/Animal.tscn (Root: CollisionShape3D [CollisionShape3D])
+   Node Tree Hierarchy:
+     • Animal [CharacterBody3D] [ROOT]
+     • CollisionShape3D [CollisionShape3D] [ROOT]
+
+🎬 SCENE: res://scenes/Main.tscn (Root: PPT [Control])
+   Node Tree Hierarchy:
+     • PPT [Control] [ROOT]
+
+🎬 SCENE: res://scenes/Player.tscn (Root: Camera3D [Camera3D])
+   Node Tree Hierarchy:
+     • Player [CharacterBody3D] [ROOT]
+     • CollisionShape3D [CollisionShape3D] [ROOT]
+     • Camera3D [Camera3D] [ROOT]
+     • RayCast3D [RayCast3D] (parent: Camera3D)
+
+================================================================================
+
+=== 4. GODOT PROJECT CONFIGURATION (project.godot) ===
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="new_game"
+config/description="make a game like mine craft water sand ground and tree a characer its height of 2 block add animal pig cow grass rabbit villagers etc .. home page ! exit page with woriking utton destroy add block animatio   etc add make it dark world make it add ur creativity too ! add 1 2 3 person too etc"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+SoundManager="*res://scripts/SoundManager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[input]
+
+move_forward={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+move_backward={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+jump={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+
+================================================================================
+
+=== 5. COMPLETE SOURCE CODE REPOSITORY ===
+
+--- FILE: scripts/Animal.gd ---
+class_name Animal
+class_name Villager
+extends CharacterBody3D
+
+var _animal_type: String = "cow"
+
+enum AIState { WANDERING, FLEEING, DEAD, IDLE }
+
+@export var wander_speed: float = 1.0
+@export var flee_speed: float = 3.5
+@export var health: int = 6
+@export var max_health: int = 6
+@export var detection_range: float = 8.0
+
+var state: AIState = AIState.WANDERING
+var wander_target: Vector3
+var wander_timer: float = 0.0
+var leg_phase: float = 0.0
+var death_timer: float = 0.0
+var is_dead: bool = false
+var original_position: Vector3
+var hit_flash_timer: float = 0.0
+var is_flashing: bool = false
+
+var body_material: StandardMaterial3D
+var original_color: Color
+
+var torso: MeshInstance3D
+var head: MeshInstance3D
+var left_arm: MeshInstance3D
+var right_arm: MeshInstance3D
+var left_leg: MeshInstance3D
+var right_leg: MeshInstance3D
+
+var player_ref: Node3D
+
+func _ready():
+	original_position = global_position
+	build_procedural_model()
+	pick_new_wander_target()
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player_ref = players[0]
+
+func build_procedural_model():
+	body_material = StandardMaterial3D.new()
+	body_material.albedo_color = Color(0.8, 0.7, 0.6)
+	body_material.roughness = 0.9
+	original_color = body_material.albedo_color
+	
+	# Torso
+	torso = MeshInstance3D.new()
+	var t_box = BoxMesh.new()
+	t_box.size = Vector3(0.8, 0.9, 0.5)
+	torso.mesh = t_box
+	torso.material_override = body_material
+	torso.position = Vector3(0, 0.9, 0)
+	add_child(torso)
+	
+	# Head
+	head = MeshInstance3D.new()
+	var h_box = BoxMesh.new()
+	h_box.size = Vector3(0.5, 0.5, 0.5)
+	head.mesh = h_box
+	head.material_override = body_material
+	head.position = Vector3(0, 1.5, 0)
+	add_child(head)
+	
+	# Arms
+	var arm_size = Vector3(0.15, 0.6, 0.15)
+	left_arm = create_limb(Vector3(-0.55, 0.8, 0), arm_size)
+	right_arm = create_limb(Vector3(0.55, 0.8, 0), arm_size)
+	
+	# Legs
+	var leg_size = Vector3(0.2, 0.6, 0.2)
+	left_leg = create_limb(Vector3(-0.25, 0.3, 0), leg_size)
+	right_leg = create_limb(Vector3(0.25, 0.3, 0), leg_size)
+
+func create_limb(pos: Vector3, size: Vector3) -> MeshInstance3D:
+	var limb = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = size
+	limb.mesh = box
+	limb.material_override = body_material
+	limb.position = pos
+	add_child(limb)
+	return limb
+
+func _physics_process(delta: float):
+	if is_dead:
+		return
+	if is_flashing:
+		hit_flash_timer -= delta
+		if hit_flash_timer <= 0:
+			set_body_color(original_color)
+			is_flashing = false
+	
+	match state:
+		AIState.WANDERING:
+			handle_wandering(delta)
+		AIState.FLEEING:
+			handle_fleeing(delta)
+		AIState.DEAD:
+			handle_death(delta)
+	
+	if velocity.length() > 0.1 and state != AIState.DEAD:
+		leg_phase += delta * velocity.length() * 2.5
+		animate_limbs(leg_phase)
+	else:
+		animate_limbs(0.0)
+
+func handle_wandering(delta: float):
+	var direction = (wander_target - global_position).normalized()
+	direction.y = 0
+	var distance = global_position.distance_to(wander_target)
+	if distance < 0.8:
+		pick_new_wander_target()
+		return
+	velocity = direction * wander_speed
+	move_and_slide()
+	if velocity.length() > 0.1:
+		var target_rot = atan2(direction.x, direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rot, delta * 4.0)
+	wander_timer -= delta
+	if wander_timer <= 0:
+		pick_new_wander_target()
+	if player_ref:
+		var dist = global_position.distance_to(player_ref.global_position)
+		if dist < detection_range:
+			state = AIState.FLEEING
+
+func handle_fleeing(delta: float):
+	if not player_ref:
+		state = AIState.WANDERING
+		return
+	var flee_dir = (global_position - player_ref.global_position).normalized()
+	flee_dir.y = 0
+	if flee_dir.length() < 0.1:
+		flee_dir = Vector3(0,0,1)
+	velocity = flee_dir * flee_speed
+	move_and_slide()
+	if velocity.length() > 0.1:
+		var target_rot = atan2(flee_dir.x, flee_dir.z)
+		rotation.y = lerp_angle(rotation.y, target_rot, delta * 5.0)
+	if player_ref:
+		var dist = global_position.distance_to(player_ref.global_position)
+		if dist > detection_range * 1.8:
+			state = AIState.WANDERING
+			pick_new_wander_target()
+
+func handle_death(delta: float):
+	death_timer += delta
+	rotation.x = lerp_angle(rotation.x, deg_to_rad(-90.0), delta * 3.0)
+	position.y = original_position.y - 0.3
+	if death_timer > 2.0:
+		queue_free()
+
+func animate_limbs(phase: float):
+	var swing = sin(phase) * 0.3
+	if left_leg: left_leg.rotation.x = swing
+	if right_leg: right_leg.rotation.x = -swing
+	if left_arm: left_arm.rotation.x = -swing * 0.5
+	if right_arm: right_arm.rotation.x = swing * 0.5
+
+func pick_new_wander_target():
+	var range_ = 6.0
+	wander_target = global_position + Vector3(randf_range(-range_, range_), 0, randf_range(-range_, range_))
+	wander_timer = randf_range(3.0, 8.0)
+
+func set_body_color(color: Color):
+	body_material.albedo_color = color
+	for node in [torso, head, left_arm, right_arm, left_leg, right_leg]:
+		if node:
+			node.material_override = body_material
+
+func take_damage(amount: int):
+	if is_dead:
+		return
+	health -= amount
+	is_flashing = true
+	hit_flash_timer = 0.15
+	set_body_color(Color(1,0.2,0.2))
+	SoundManager.play_hit()
+	if health <= 0:
+		die()
+	else:
+		state = AIState.FLEEING
+		if player_ref:
+			var flee_dir = (global_position - player_ref.global_position).normalized()
+			wander_target = global_position + flee_dir * 8.0
+
+func die():
+	is_dead = true
+	state = AIState.DEAD
+	death_timer = 0.0
+	velocity = Vector3.ZERO
+	spawn_drop_item()
+	SoundManager.play_block_break()
+
+func spawn_drop_item():
+	var drop = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = Vector3(0.3, 0.3, 0.3)
+	drop.mesh = box
+	var mat = StandardMaterial3D.new()
+	mat.albedo_color = Color(0.9, 0.8, 0.5)
+	mat.roughness = 0.6
+	drop.material_override = mat
+	drop.position = global_position + Vector3(0, 0.5, 0)
+	get_parent().add_child(drop)
+
+func lerp_angle(from: float, to: float, weight: float) -> float:
+	var diff = to - from
+	while diff > PI: diff -= TAU
+	while diff < -PI: diff += TAU
+	return from + diff * weight
+
+
+
+--- FILE: scripts/UI.gd ---
+extends Control
+# ============================================================
+# NEXUS PITCH DECK — Godot 4 Presentation Engine
+# Palette: Black / Silver / White / Green
+# Author: Shaikh Abdul Zubair Abdul Kabir
+# ============================================================
+
+var slides: Array = []
+var current_index: int = 0
+var slide_root: Control
+var bg_layer: ColorRect
+var accent_glow: ColorRect
+var header_bar: ColorRect
+var footer_bar: ColorRect
+var progress_fill: ColorRect
+var progress_track: ColorRect
+var slide_num_label: Label
+var deck_label: Label
+var nav_hint: Label
+var _animating: bool = false
+var _pulse_t: float = 0.0
+var _bg_particles: Array = []
+
+const THEME = preload("res://scripts/PPT_Theme.gd")
+
+func _ready() -> void:
+	set_anchors_preset(Control.PRESET_FULL_RECT)
+	_build_slides()
+	_build_chrome()
+	show_slide(0, false)
+
+func _build_slides() -> void:
+	# 14-slide NEXUS pitch deck (mirrors executive JSON outline)
+	slides = [
+		{
+			"kind": "title",
+			"category": "EXECUTIVE BRIEFING",
+			"title": "NEXUS",
+			"subtitle": "MeshLink Offline Tactical Mesh",
+			"meta": "Autonomous Zero-Cloud Mesh Grid",
+			"presenter": "Shaikh Abdul Zubair Abdul Kabir",
+			"institution": "SRK Institute of Management and Computer Application",
+			"bullets": []
+		},
+		{
+			"kind": "content",
+			"category": "STRATEGIC OVERVIEW",
+			"title": "The Critical Problem",
+			"subtitle": "Telecom Collapse Is a Life-Safety Failure",
+			"bullets": [
+				"Cell towers, 4G/5G backhaul, and cloud OTP fail under power loss, fiber cuts, or congestion.",
+				"Kumbh Mela, stadiums, and evacuation zones overload capacity even when infrastructure stands.",
+				"Victims cannot call, message, or authenticate; rescue loses situational awareness.",
+				"Existing apps assume cloud identity, SIM, OTP, and internet — none survive the first 72 hours.",
+				"Impact metric: over 70% of disaster comms failures trace to backhaul, power, or cloud dependency.",
+				"Presenter Talking Point: NEXUS removes every single point of failure."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 1 — LIVE TODAY",
+			"title": "Phase 1 Accomplishments",
+			"subtitle": "Zero-login, zero-cloud, zero-OTP mesh foundation — running on device",
+			"bullets": [
+				"Zero-Login Cryptographic DID Identity: mesh@DID via hardware Ed25519 / X25519.",
+				"BLE 5.0 Gossip Relay Discovery: peer-to-peer multi-hop text with no internet.",
+				"Offline Browser Auto-Discovery: phone opens local laptop supernode at http://<host>:8888.",
+				"Instant APK Sharing: peer-to-peer transfer straight from Android Settings.",
+				"2.8 kHz Acoustic Rescue Siren: high-penetration audible beacon for rubble response.",
+				"Optical Morse Distress Strobe: silent, RF-denied visual SOS.",
+				"Presenter Talking Point: Phase 1 is installed, tested, demonstrable on hardware today."
+			]
+		},
+		{
+			"kind": "table",
+			"category": "TECHNICAL ARCHITECTURE",
+			"title": "Tri-Transport Architecture",
+			"subtitle": "BLE + Wi-Fi Direct + Edge Supernode, coordinated by payload profile",
+			"headers": ["Layer", "Transport", "Payload", "Metric"],
+			"rows": [
+				["L1", "BLE 5.0 Mesh", "Text / SOS / receipts", "<512 B · multi-hop"],
+				["L2", "Wi-Fi Direct P2P", "Voice / video / photos", "150 Mbps direct"],
+				["L3", "Edge Laptop Supernode", "Local web / maps / docs", "mDNS :8888"]
+			],
+			"bullets": [
+				"Failover: BLE is always-on control plane; Wi-Fi Direct forms high-bandwidth islands; Supernode anchors local intranet.",
+				"Presenter Talking Point: one radio is fragile; three coordinated transports create an adaptive mesh."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 2 — DEEP DIVE",
+			"title": "Signal-Grade Cryptography",
+			"subtitle": "Double Ratchet, Perfect Forward Secrecy, relay blindness",
+			"bullets": [
+				"Double Ratchet Algorithm: X3DH key agreement plus symmetric KDF chain per message.",
+				"Perfect Forward Secrecy: current key compromise never decrypts past sessions.",
+				"Break-in Recovery: post-compromise security via ongoing DH ratchet.",
+				"Multi-hop relay blindness: intermediaries route ciphertext only.",
+				"Duress PIN: alternate credential opens decoy vault or wipes sensitive state.",
+				"Android FLAG_SECURE: blocks screenshots, recents, and screen recording.",
+				"Presenter Talking Point: NEXUS is engineered to Signal-grade standards."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 2 — DEEP DIVE",
+			"title": "Hardware-Accelerated P2P Media",
+			"subtitle": "Low-latency Opus voice and 720p H.264 video over direct UDP",
+			"bullets": [
+				"Voice: Opus codec over direct UDP sockets, push-to-talk and full duplex.",
+				"Video: 720p at 30 FPS via Android MediaCodec hardware H.264 encode/decode.",
+				"Picture-in-Picture: multitask during maps, triage, or chat.",
+				"Dynamic bitrate fallback: RSSI and packet-loss telemetry adapt resolution and rate.",
+				"Metrics target: <150 ms mouth-to-ear voice; 200 kbps to 2 Mbps video envelope.",
+				"Presenter Talking Point: nearby phones become a field radio and video link."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 2 — DEEP DIVE",
+			"title": "Delay-Tolerant Networking",
+			"subtitle": "Store-and-forward mules, deduplication, bounded TTL",
+			"bullets": [
+				"Digital Mules: volunteers physically carry encrypted bundles between disconnected sectors.",
+				"Store-and-forward: messages persist in local vault until relay or destination appears.",
+				"SHA-256 deduplication cache prevents broadcast packet storms.",
+				"Dynamic 7-hop TTL: preserves reach across campus, village, or stadium.",
+				"Bundle custody: optional delivery receipts and expiry for storage and battery discipline.",
+				"Presenter Talking Point: DTN makes the network tolerant to delay, disruption, and human mobility."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "UI / UX PHILOSOPHY",
+			"title": "Familiar, Fast, Field-Ready",
+			"subtitle": "WhatsApp and Signal minimalism for sunlight and one-hand use",
+			"bullets": [
+				"Delivery states mirror WhatsApp: single tick sent, double gray tick delivered, double green tick read.",
+				"High-sunlight legibility: white base, slate gray structure, emerald accents, large touch targets.",
+				"One-handed thumb reach: bottom-anchored navigation and primary actions.",
+				"2-second hold-to-activate SOS prevents accidental distress broadcasts.",
+				"Minimal cognitive load: no cloud account screens, no OTP, no onboarding friction.",
+				"Presenter Talking Point: in panic, users do not learn new UX."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 3 — DEEP DIVE",
+			"title": "Laptop Edge Supernodes",
+			"subtitle": "A pocket internet for offline survivors and responders",
+			"bullets": [
+				"Auto-connecting mobile offline browser: detects supernode, opens local portal silently.",
+				"Local Kiwix offline Wikipedia: full knowledge corpus at survivor fingertips.",
+				"Emergency medical first-aid encyclopedia: triage, bleeding, fractures, burns, hypothermia.",
+				"Offline OpenStreetMap vector tile server: roads, landmarks, shelters — no internet.",
+				"Central incident dispatch map: live pins for SOS, hazards, shelters, requests.",
+				"Presenter Talking Point: the supernode converts a laptop into a community knowledge server."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 3 — DEEP DIVE",
+			"title": "Autonomous Disaster Grid",
+			"subtitle": "Geo-drops, micro-triage, localized hazard intelligence",
+			"bullets": [
+				"Dead-Man's Digital Geo-Drop: encrypted coordinates unlock only upon physical arrival.",
+				"64-byte START triage micro-packets: color, vitals, location, needs — ultra-compact.",
+				"Offline localized hazard mapping: downed powerlines, flood zones, blocked roads.",
+				"Peer-validated reports: time-decay and confidence scoring reduce rumor propagation.",
+				"Grid autonomy: nodes keep routing, mapping, and triaging even when isolated.",
+				"Presenter Talking Point: NEXUS becomes an autonomous disaster grid, not just a chat app."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "PHASE 3 — DEEP DIVE",
+			"title": "Asymmetric Satellite Uplink",
+			"subtitle": "One gateway bridges thousands of offline survivors to cloud HQ",
+			"bullets": [
+				"Asymmetric uplink: one vehicle with Starlink or 5G relays up to 10,000 offline SOS alerts.",
+				"Store-and-forward aggregation: mesh bundles compressed, deduplicated, encrypted metadata.",
+				"Battery-adaptive scanning: 15% duty cycle below 20% battery; aggressive sleep otherwise.",
+				"Gateway election: strongest link, power, and location wins — no permanent bottleneck.",
+				"HQ interoperability: cloud dashboard receives structured SOS, triage, map, hazard feeds.",
+				"Presenter Talking Point: we do not need 10,000 satellite phones — just one smart gateway."
+			]
+		},
+		{
+			"kind": "table",
+			"category": "ROADMAP",
+			"title": "Roadmap and Milestones",
+			"subtitle": "Staged delivery: live demo to autonomous grid",
+			"headers": ["Milestone", "Scope", "Status"],
+			"rows": [
+				["M1 — Phase 1", "DID identity, BLE relay, browser discovery, APK share, siren", "Completed · Live"],
+				["M2 — Phase 2", "Double Ratchet, PFS, duress PIN, Opus, H.264, DTN", "In Progress"],
+				["M3 — Phase 3", "Supernodes, Kiwix, OSM, geo-drop, START triage, gateway", "On Horizon"]
+			],
+			"bullets": [
+				"Validation: lab throughput, multi-hop range, battery profiling, cryptographic review, field simulation.",
+				"Presenter Talking Point: the roadmap delivers a demonstrable survival grid, not theory."
+			]
+		},
+		{
+			"kind": "content",
+			"category": "IMPACT",
+			"title": "Impact and Differentiation",
+			"subtitle": "Why NEXUS outperforms cloud-first and single-radio alternatives",
+			"bullets": [
+				"Zero cloud dependency: no servers, OTP, SIM, or account required for core comms.",
+				"Tri-radio resilience: BLE, Wi-Fi Direct, and Supernode uplink cover text, media, and local web.",
+				"Security posture: Ed25519 / X25519, Double Ratchet, PFS, relay blindness, FLAG_SECURE, duress PIN.",
+				"Deployment speed: APK share from Settings enables viral field installation without app stores.",
+				"Scalability path: one satellite or 5G gateway aggregates up to 10,000 offline SOS alerts.",
+				"Presenter Talking Point: NEXUS is not a feature — it is a missing layer of national resilience."
+			]
+		},
+		{
+			"kind": "closing",
+			"category": "LIVE DEMONSTRATION",
+			"title": "Live Demonstration",
+			"subtitle": "Handover to physical device walkthrough",
+			"presenter": "Shaikh Abdul Zubair Abdul Kabir",
+			"bullets": [
+				"Demo 1 — Zero-login DID identity and mesh@DID handshake.",
+				"Demo 2 — BLE 5.0 multi-hop text and SOS relay between devices.",
+				"Demo 3 — Offline browser auto-discovery to laptop supernode port 8888.",
+				"Demo 4 — Acoustic 2.8 kHz siren and optical Morse distress strobe.",
+				"Demo 5 — APK sharing directly from Android Settings.",
+				"Closing — Phase 1 live; Phase 2 cryptography and media in progress; Phase 3 autonomous grid."
+			]
+		}
+	]
+
+# ============================================================
+# CHROME — persistent header, footer, progress, particles
+# ============================================================
+func _build_chrome() -> void:
+	# Background
+	bg_layer = ColorRect.new()
+	bg_layer.color = THEME.BG_DEEP
+	bg_layer.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(bg_layer)
+
+	# Ambient green glow (top-right)
+	accent_glow = ColorRect.new()
+	accent_glow.color = Color(THEME.GREEN.r, THEME.GREEN.g, THEME.GREEN.b, 0.06)
+	accent_glow.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	accent_glow.anchor_left = 0.72
+	accent_glow.anchor_top = -0.05
+	accent_glow.anchor_right = 1.15
+	accent_glow.anchor_bottom = 0.55
+	accent_glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(accent_glow)
+
+	# Slide content root
+	slide_root = Control.new()
+	slide_root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	slide_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(slide_root)
+
+	# Header bar
+	header_bar = ColorRect.new()
+	header_bar.color = Color(THEME.SILVER.r, THEME.SILVER.g, THEME.SILVER.b, 0.06)
+	header_bar.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	header_bar.custom_minimum_size = Vector2(0, 48)
+	header_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(header_bar)
+
+	deck_label = THEME.make_label("NEXUS  ·  MeshLink Offline Tactical Mesh", THEME.FONT_SMALL, THEME.GREEN)
+	deck_label.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	deck_label.position = Vector2(THEME.MARGIN_X, 14)
+	add_child(deck_label)
+
+	slide_num_label = THEME.make_label("", THEME.FONT_SMALL, THEME.SILVER_DIM)
+	slide_num_label.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	slide_num_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	slide_num_label.anchor_left = 0.75
+	slide_num_label.anchor_right = 1.0
+	slide_num_label.position = Vector2(0, 14)
+	add_child(slide_num_label)
+
+	# Footer bar
+	footer_bar = ColorRect.new()
+	footer_bar.color = Color(THEME.SILVER.r, THEME.SILVER.g, THEME.SILVER.b, 0.05)
+	footer_bar.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	footer_bar.custom_minimum_size = Vector2(0, 40)
+	footer_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(footer_bar)
+
+	# Progress track + fill
+	progress_track = ColorRect.new()
+	progress_track.color = Color(THEME.SILVER.r, THEME.SILVER.g, THEME.SILVER.b, 0.15)
+	progress_track.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	progress_track.anchor_top = 1.0
+	progress_track.anchor_bottom = 1.0
+	progress_track.offset_top = -4
+	progress_track.offset_bottom = 0
+	progress_track.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(progress_track)
+
+	progress_fill = ColorRect.new()
+	progress_fill.color = THEME.GREEN
+	progress_fill.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	progress_fill.anchor_top = 1.0
+	progress_fill.anchor_bottom = 1.0
+	progress_fill.offset_top = -4
+	progress_fill.offset_bottom = 0
+	progress_fill.custom_minimum_size = Vector2(0, 4)
+	progress_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(progress_fill)
+
+	nav_hint = THEME.make_label("←  →  Navigate    ·    SPACE  Advance    ·    F  Fullscreen    ·    ESC  Restart", THEME.FONT_NUM, THEME.SILVER_DIM)
+	nav_hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	nav_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	nav_hint.offset_top = -34
+	add_child(nav_hint)
+
+	# Input
+	set_process_input(true)
+	set_process(true)
+
+# ============================================================
+# INPUT
+# ============================================================
+func _input(event: InputEvent) -> void:
+	if _animating:
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_RIGHT, KEY_DOWN, KEY_SPACE, KEY_ENTER, KEY_PAGEDOWN:
+				if current_index < slides.size() - 1:
+					show_slide(current_index + 1, true)
+				else:
+					show_slide(0, true)
+			KEY_LEFT, KEY_UP, KEY_PAGEUP, KEY_BACKSPACE:
+				if current_index > 0:
+					show_slide(current_index - 1, true)
+				else:
+					show_slide(slides.size() - 1, true)
+			KEY_HOME:
+				show_slide(0, true)
+			KEY_END:
+				show_slide(slides.size() - 1, true)
+			KEY_F:
+				var w := get_window()
+				if w:
+					w.mode = Window.MODE_FULLSCREEN if w.mode != Window.MODE_FULLSCREEN else Window.MODE_WINDOWED
+			KEY_ESCAPE:
+				show_slide(0, true)
+
+func _process(delta: float) -> void:
+	# Ambient pulse on green glow
+	_pulse_t += delta
+	if accent_glow:
+		var a : float = 0.05 + 0.035 * (0.5 + 0.5 * sin(_pulse_t * 1.6))
+		accent_glow.color = Color(THEME.GREEN.r, THEME.GREEN.g, THEME.GREEN.b, a)
+
+# ============================================================
+# SLIDE RENDERING
+# ============================================================
+func show_slide(index: int, animate: bool) -> void:
+	if index < 0 or index >= slides.size():
+		return
+	current_index = index
+	_animating = true
+	_sync_chrome()
+
+	# Fade out old content
+	if slide_root.get_child_count() > 0:
+		var t_out := create_tween()
+		for ch in slide_root.get_children():
+			if ch is CanvasItem:
+				t_out.parallel().tween_property(ch, "modulate:a", 0.0, THEME.ANIM_SLIDE_FADE * 0.6)
+		await t_out.finished
+
+	# Clear old
+	for ch in slide_root.get_children():
+		ch.queue_free()
+	await get_tree().process_frame
+
+	# Build new slide
+	var data: Dictionary = slides[index]
+	_build_slide_content(data)
+
+	# Entrance fade
+	var t_in := create_tween()
+	for ch in slide_root.get_children():
+		if ch is CanvasItem:
+			ch.modulate.a = 0.0
+			t_in.parallel().tween_property(ch, "modulate:a", 1.0, THEME.ANIM_SLIDE_FADE)
+	await t_in.finished
+
+	# Staggered bullets + animation hooks
+	_animate_entrance(data)
+	await get_tree().create_timer(0.4).timeout
+	_animating = false
+
+func _sync_chrome() -> void:
+	if slide_num_label:
+		slide_num_label.text = "%02d / %02d" % [current_index + 1, slides.size()]
+	if progress_fill:
+		var ratio : float = float(current_index + 1) / float(slides.size())
+		var vw : float = size.x
+		if vw <= 0:
+			vw = 1280.0
+		progress_fill.custom_minimum_size = Vector2(vw * ratio, 4)
+		progress_fill.size = Vector2(vw * ratio, 4)
+
+func _build_slide_content(data: Dictionary) -> void:
+	var kind : String = data.get("kind", "content")
+	match kind:
+		"title":
+			_build_title_slide(data)
+		"table":
+			_build_table_slide(data)
+		"closing":
+			_build_closing_slide(data)
+		_:
+			_build_content_slide(data)
+
+func _add_common_heading(data: Dictionary, y_start: float) -> float:
+	# Category (green chip)
+	var cat : String = data.get("category", "")
+	if cat != "":
+		var cat_lbl := THEME.make_label(cat, THEME.FONT_SMALL, THEME.GREEN)
+		cat_lbl.position = Vector2(THEME.MARGIN_X, y_start)
+		slide_root.add_child(cat_lbl)
+		# Underline accent
+		var line := ColorRect.new()
+		line.color = THEME.GREEN
+		line.position = Vector2(THEME.MARGIN_X, y_start + 26)
+		line.size = Vector2(0, 2)
+		line.custom_minimum_size = Vector2(0, 2)
+		slide_root.add_child(line)
+		var t := create_tween()
+		t.tween_property(line, "size:x", 60.0, THEME.ANIM_LINE_GROW)
+		y_start += 42
+
+	# Title
+	var title_lbl := THEME.make_label(data.get("title", ""), THEME.FONT_H1, THEME.WHITE_SOFT)
+	title_lbl.position = Vector2(THEME.MARGIN_X, y_start)
+	slide_root.add_child(title_lbl)
+	y_start += 56
+
+	# Subtitle
+	var sub : String = data.get("subtitle", "")
+	if sub != "":
+		var sub_lbl := THEME.make_label(sub, THEME.FONT_BODY, THEME.SILVER)
+		sub_lbl.position = Vector2(THEME.MARGIN_X, y_start)
+		slide_root.add_child(sub_lbl)
+		y_start += 46
+
+	# Divider
+	var divider := ColorRect.new()
+	divider.color = Color(THEME.SILVER.r, THEME.SILVER.g, THEME.SILVER.b, 0.18)
+	divider.position = Vector2(THEME.MARGIN_X, y_start)
+	divider.custom_minimum_size = Vector2(0, 1)
+	divider.size = Vector2(size.x - THEME.MARGIN_X * 2, 1)
+	slide_root.add_child(divider)
+	y_start += 24
+
+	return y_start
+
+# ---------- TITLE SLIDE ----------
+func _build_title_slide(data: Dictionary) -> void:
+	var center := Control.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	slide_root.add_child(center)
+
+	# Big NEXUS title
+	var title := THEME.make_label(data.get("title", "NEXUS"), THEME.FONT_TITLE + 40, THEME.WHITE)
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	title.offset_top = 190
+	title.position.x = 0
+	center.add_child(title)
+
+	# Accent underline
+	var ul := ColorRect.new()
+	ul.color = THEME.GREEN
+	ul.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	ul.anchor_left = 0.35
+	ul.anchor_right = 0.65
+	ul.offset_top = 300
+	ul.custom_minimum_size = Vector2(0, 3)
+	ul.size = Vector2(size.x * 0.3, 3)
+	center.add_child(ul)
+
+	# Subtitle
+	var sub := THEME.make_label(data.get("subtitle", ""), THEME.FONT_H2, THEME.SILVER_BRIGHT)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	sub.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	sub.offset_top = 320
+	center.add_child(sub)
+
+	# Meta line
+	var meta := THEME.make_label(data.get("meta", ""), THEME.FONT_BODY, THEME.GREEN)
+	meta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	meta.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	meta.offset_top = 368
+	center.add_child(meta)
+
+	# Presenter card
+	var card := THEME.make_panel(THEME.BG_PANEL, THEME.BORDER_GREEN, 12)
+	card.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	card.anchor_left = 0.25
+	card.anchor_right = 0.75
+	card.offset_top = 450
+	card.custom_minimum_size = Vector2(0, 130)
+	center.add_child(card)
+	var v := VBoxContainer.new()
+	v.add_theme_constant_override("separation", 6)
+	card.add_child(v)
+	var pres := THEME.make_label("PRESENTER", THEME.FONT_NUM, THEME.GREEN)
+	pres.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(pres)
+	var pname := THEME.make_label(data.get("presenter", ""), THEME.FONT_H2, THEME.WHITE)
+	pname.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(pname)
+	var inst := THEME.make_label(data.get("institution", ""), THEME.FONT_SMALL, THEME.SILVER)
+	inst.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(inst)
+
+# ---------- CONTENT SLIDE ----------
+func _build_content_slide(data: Dictionary) -> void:
+	var y := float(THEME.MARGIN_TOP + 48)
+	y = _add_common_heading(data, y)
+
+	var bullets : Array = data.get("bullets", [])
+	var row_h : float = 44.0
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	vbox.position = Vector2(THEME.MARGIN_X, y)
+	vbox.custom_minimum_size = Vector2(size.x - THEME.MARGIN_X * 2, 0)
+	vbox.size = Vector2(size.x - THEME.MARGIN_X * 2, 0)
+	slide_root.add_child(vbox)
+
+	for i in range(bullets.size()):
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 14)
+		row.modulate.a = 0.0
+		row.name = "bullet_%d" % i
+
+		# Green bullet dot
+		var dot := ColorRect.new()
+		dot.color = THEME.GREEN
+		dot.custom_minimum_size = Vector2(8, 8)
+		dot.size = Vector2(8, 8)
+		var dot_wrap := CenterContainer.new()
+		dot_wrap.custom_minimum_size = Vector2(16, 26)
+		dot_wrap.add_child(dot)
+		row.add_child(dot_wrap)
+
+		var txt : String = String(bullets[i])
+		var is_tp : bool = txt.begins_with("Presenter Talking Point")
+		var body := THEME.make_label(txt, THEME.FONT_BODY, THEME.WHITE_SOFT if is_tp else THEME.SILVER_BRIGHT)
+		body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(body)
+
+		vbox.add_child(row)
+
+# ---------- TABLE SLIDE ----------
+func _build_table_slide(data: Dictionary) -> void:
+	var y := float(THEME.MARGIN_TOP + 48)
+	y = _add_common_heading(data, y)
+
+	var headers : Array = data.get("headers", [])
+	var rows : Array = data.get("rows", [])
+
+	var grid := GridContainer.new()
+	grid.columns = headers.size()
+	grid.add_theme_constant_override("h_separation", 18)
+	grid.add_theme_constant_override("v_separation", 12)
+	grid.position = Vector2(THEME.MARGIN_X, y)
+	grid.custom_minimum_size = Vector2(size.x - THEME.MARGIN_X * 2, 0)
+	slide_root.add_child(grid)
+
+	# Header row
+	for h in headers:
+		var hl := THEME.make_label(String(h), THEME.FONT_SMALL, THEME.GREEN)
+		hl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		grid.add_child(hl)
+
+	# Body rows
+	for r_i in range(rows.size()):
+		var row : Array = rows[r_i]
+		for c in row:
+			var cell := THEME.make_label(String(c), THEME.FONT_BODY, THEME.SILVER_BRIGHT)
+			cell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			cell.modulate.a = 0.0
+			cell.name = "cell_%d_%d" % [r_i, grid.get_child_count()]
+			grid.add_child(cell)
+
+	# Extra bullets below table
+	var bullets : Array = data.get("bullets", [])
+	if bullets.size() > 0:
+		var y2 : float = y + 90.0 + rows.size() * 40.0
+		var vbox := VBoxContainer.new()
+		vbox.add_theme_constant_override("separation", 10)
+		vbox.position = Vector2(THEME.MARGIN_X, y2)
+		vbox.custom_minimum_size = Vector2(size.x - THEME.MARGIN_X * 2, 0)
+		slide_root.add_child(vbox)
+		for i in range(bullets.size()):
+			var row := HBoxContainer.new()
+			row.add_theme_constant_override("separation", 14)
+			row.modulate.a = 0.0
+			row.name = "bullet_%d" % i
+			var dot := ColorRect.new()
+			dot.color = THEME.GREEN
+			dot.custom_minimum_size = Vector2(8, 8)
+			var wrap := CenterContainer.new()
+			wrap.custom_minimum_size = Vector2(16, 26)
+			wrap.add_child(dot)
+			row.add_child(wrap)
+			var body := THEME.make_label(String(bullets[i]), THEME.FONT_BODY, THEME.SILVER_BRIGHT)
+			body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			row.add_child(body)
+			vbox.add_child(row)
+
+# ---------- CLOSING SLIDE ----------
+func _build_closing_slide(data: Dictionary) -> void:
+	var y := float(THEME.MARGIN_TOP + 48)
+	y = _add_common_heading(data, y)
+
+	# Bullets
+	var bullets : Array = data.get("bullets", [])
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 12)
+	vbox.position = Vector2(THEME.MARGIN_X, y)
+	vbox.custom_minimum_size = Vector2(size.x - THEME.MARGIN_X * 2, 0)
+	slide_root.add_child(vbox)
+	for i in range(bullets.size()):
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 14)
+		row.modulate.a = 0.0
+		row.name = "bullet_%d" % i
+		var dot := ColorRect.new()
+		dot.color = THEME.GREEN
+		dot.custom_minimum_size = Vector2(8, 8)
+		var wrap := CenterContainer.new()
+		wrap.custom_minimum_size = Vector2(16, 26)
+		wrap.add_child(dot)
+		row.add_child(wrap)
+		var body := THEME.make_label(String(bullets[i]), THEME.FONT_BODY, THEME.SILVER_BRIGHT)
+		body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(body)
+		vbox.add_child(row)
+
+	# Presenter chip
+	if data.has("presenter"):
+		var chip := THEME.make_panel(THEME.BG_PANEL, THEME.BORDER_GREEN, 10)
+		chip.position = Vector2(THEME.MARGIN_X, size.y - 180)
+		chip.custom_minimum_size = Vector2(520, 70)
+		chip.size = Vector2(520, 70)
+		slide_root.add_child(chip)
+		var v := VBoxContainer.new()
+		v.add_theme_constant_override("separation", 2)
+		chip.add_child(v)
+		var cap := THEME.make_label("PRESENTER", THEME.FONT_NUM, THEME.GREEN)
+		v.add_child(cap)
+		var nm := THEME.make_label(data.get("presenter", ""), THEME.FONT_BODY, THEME.WHITE)
+		v.add_child(nm)
+
+# ============================================================
+# ANIMATION LAYER — staggered bullets, table cells, pulse
+# ============================================================
+func _animate_entrance(data: Dictionary) -> void:
+	var delay : float = 0.0
+	# Fade in all bullet rows with stagger
+	for ch in slide_root.get_children():
+		if ch is VBoxContainer:
+			for row in ch.get_children():
+				if row.name.begins_with("bullet_"):
+					var t := create_tween()
+					t.tween_interval(delay)
+					t.tween_property(row, "modulate:a", 1.0, THEME.ANIM_BULLET_FADE)
+					# Slight slide up
+					var start_x : float = row.position.x
+					row.position.x = start_x - 18
+					t.parallel().tween_property(row, "position:x", start_x, THEME.ANIM_BULLET_FADE)\
+						.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+					delay += THEME.ANIM_BULLET_DELAY
+
+	# Fade in table cells with stagger
+	var stagger : float = 0.0
+	for ch in slide_root.get_children():
+		if ch is GridContainer:
+			for cell in ch.get_children():
+				if cell.name.begins_with("cell_") or (cell is Label):
+					var t := create_tween()
+					t.tween_interval(stagger)
+					t.tween_property(cell, "modulate:a", 1.0, THEME.ANIM_BULLET_FADE)
+					stagger += 0.05
+
+	# Title drop-in animation
+	for ch in slide_root.get_children():
+		if ch is Label and ch.text == data.get("title", ""):
+			var start_y : float = ch.position.y
+			ch.position.y = start_y - 24
+			var t := create_tween()
+			t.tween_property(ch, "position:y", start_y, THEME.ANIM_TITLE_DROP)\
+				.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+
+--- FILE: scripts/SoundManager.gd ---
+extends Node
+
+var sample_hz: float = 22050.0
+
+func play_jump():
+    play_tone(450.0, 750.0, 0.12)
+
+func play_block_break():
+    play_noise(0.15, 200.0)
+
+func play_block_place():
+    play_tone(220.0, 160.0, 0.08)
+
+func play_footstep():
+    play_noise(0.04, 100.0)
+
+func play_hit():
+    play_noise(0.1, 150.0)
+
+func play_pickup():
+    play_tone(600.0, 900.0, 0.06)
+
+func play_tone(start_freq: float, end_freq: float, duration: float):
+    var player = AudioStreamPlayer.new()
+    add_child(player)
+    var stream = AudioStreamGenerator.new()
+    stream.mix_rate = sample_hz
+    stream.buffer_length = duration
+    player.stream = stream
+    player.play()
+    var playback = player.get_stream_playback()
+    var total_frames = int(sample_hz * duration)
+    for i in range(total_frames):
+        var t = float(i) / sample_hz
+        var freq = lerp(start_freq, end_freq, float(i) / total_frames)
+        var phase = fmod(t * freq, 1.0)
+        var sample = sin(phase * TAU) * (1.0 - float(i) / total_frames) * 0.4
+        playback.push_frame(Vector2(sample, sample))
+    await get_tree().create_timer(duration + 0.1).timeout
+    player.queue_free()
+
+func play_noise(duration: float, filter_cutoff: float):
+    var player = AudioStreamPlayer.new()
+    add_child(player)
+    var stream = AudioStreamGenerator.new()
+    stream.mix_rate = sample_hz
+    stream.buffer_length = duration
+    player.stream = stream
+    player.play()
+    var playback = player.get_stream_playback()
+    var total_frames = int(sample_hz * duration)
+    for i in range(total_frames):
+        var sample = (randf() * 2.0 - 1.0) * (1.0 - float(i) / total_frames) * 0.3
+        playback.push_frame(Vector2(sample, sample))
+    await get_tree().create_timer(duration + 0.1).timeout
+    player.queue_free()
+
+[gd_scene load_steps=6 format=3 uid="uid://mainscene01"]
+
+[ext_resource type="Script" path="res://scripts/WorldGenerator.gd" id="1_world"]
+[ext_resource type="Script" path="res://scripts/SoundManager.gd" id="2_sound"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/UI.tscn" id="4_ui"]
+
+[sub_resource type="Environment" id="Env_1"]
+background_mode = 2
+sky = SubResource("ProceduralSkyMaterial_sky")
+ambient_light_source = 2
+ambient_light_color = Color(0.05, 0.05, 0.1, 1)
+ambient_light_energy = 0.4
+tonemap_mode = 2
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
+sky_top_color = Color(0.02, 0.02, 0.08, 1)
+sky_horizon_color = Color(0.08, 0.08, 0.15, 1)
+ground_bottom_color = Color(0.01, 0.01, 0.03, 1)
+ground_horizon_color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env_1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.353, 0.353, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 20, 0)
+shadow_enabled = true
+light_energy = 0.5
+light_color = Color(0.4, 0.5, 0.7, 1)
+
+[node name="WorldGenerator" type="Node3D" parent="."]
+script = ExtResource("1_world")
+
+[node name="SoundManager" type="Node" parent="."]
+script = ExtResource("2_sound")
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="UI" parent="." instance=ExtResource("4_ui")]
+
+
+
+--- FILE: scripts/WorldGenerator.gd ---
+class_name WorldGenerator
+extends Node3D
+
+@export var world_size: int = 32
+@export var chunk_height: int = 16
+var noise = FastNoiseLite.new()
+var tree_noise = FastNoiseLite.new()
+var block_meshes: Dictionary = {}
+
+func _ready():
+    noise.seed = randi()
+    noise.frequency = 0.04
+    tree_noise.seed = randi()
+    tree_noise.frequency = 0.02
+    generate_terrain()
+
+func generate_terrain():
+    for x in range(-world_size / 2, world_size / 2):
+        for z in range(-world_size / 2, world_size / 2):
+            var h = int(abs(noise.get_noise_2d(x, z)) * 12) + 2
+            for y in range(h):
+                var block_type = "grass" if y == h-1 else "dirt"
+                if y == 0:
+                    block_type = "stone"
+                elif y == h-1 and h < 4:
+                    block_type = "sand"
+                create_voxel(Vector3(x, y, z), block_type)
+            # Place trees
+            if h > 4 and tree_noise.get_noise_2d(x, z) > 0.5:
+                place_tree(Vector3(x, h, z))
+
+func create_voxel(pos: Vector3, block_type: String):
+    var mesh_instance = MeshInstance3D.new()
+    var box = BoxMesh.new()
+    box.size = Vector3(1, 1, 1)
+    mesh_instance.mesh = box
+    mesh_instance.position = pos
+    
+    var col_body = StaticBody3D.new()
+    var col_shape = CollisionShape3D.new()
+    var shape = BoxShape3D.new()
+    shape.size = Vector3(1, 1, 1)
+    col_shape.shape = shape
+    col_body.add_child(col_shape)
+    mesh_instance.add_child(col_body)
+    
+    var mat = StandardMaterial3D.new()
+    mat.roughness = 0.9
+    mat.metallic = 0.0
+    match block_type:
+        "grass":
+            mat.albedo_color = Color(0.12, 0.35, 0.08)
+        "dirt":
+            mat.albedo_color = Color(0.25, 0.15, 0.08)
+        "stone":
+            mat.albedo_color = Color(0.35, 0.35, 0.40)
+        "sand":
+            mat.albedo_color = Color(0.70, 0.65, 0.50)
+        "water":
+            mat.albedo_color = Color(0.05, 0.15, 0.40, 0.6)
+            mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+        "wood":
+            mat.albedo_color = Color(0.25, 0.12, 0.04)
+        "leaves":
+            mat.albedo_color = Color(0.02, 0.20, 0.02, 0.8)
+            mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+        _:
+            mat.albedo_color = Color(0.5, 0.5, 0.5)
+    mesh_instance.material_override = mat
+    add_child(mesh_instance)
+    block_meshes[pos] = mesh_instance
+
+func place_tree(base_pos: Vector3):
+    var trunk_height = randi_range(4, 6)
+    for y in range(trunk_height):
+        create_voxel(Vector3(base_pos.x, base_pos.y + y, base_pos.z), "wood")
+    var leaf_start = base_pos.y + trunk_height - 2
+    for dx in range(-2, 3):
+        for dz in range(-2, 3):
+            for dy in range(leaf_start, base_pos.y + trunk_height + 1):
+                if abs(dx) == 2 and abs(dz) == 2 and dy == leaf_start + 1:
+                    continue
+                if abs(dx) + abs(dz) > 3:
+                    continue
+                var pos = Vector3(base_pos.x + dx, dy, base_pos.z + dz)
+                if not block_meshes.has(pos):
+                    create_voxel(pos, "leaves")
+
+func break_voxel(hit_pos: Vector3):
+    var grid_pos = (hit_pos + Vector3(0.5, 0.5, 0.5)).floor()
+    var key = grid_pos
+    if block_meshes.has(key):
+        block_meshes[key].queue_free()
+        block_meshes.erase(key)
+
+func place_voxel(hit_pos: Vector3, block_id: int):
+    var grid_pos = (hit_pos + Vector3(0.5, 0.5, 0.5)).floor()
+    var type_map = {
+        1: "grass",
+        2: "dirt",
+        3: "stone",
+        4: "wood",
+        5: "leaves",
+        6: "sand",
+        7: "water"
+    }
+    var block_type = type_map.get(block_id, "grass")
+    if not block_meshes.has(grid_pos):
+        create_voxel(grid_pos, block_type)
+
+func get_block_type(pos: Vector3) -> String:
+    var key = pos.floor()
+    if block_meshes.has(key):
+        var mesh = block_meshes[key]
+        if mesh and mesh.material_override:
+            var col = mesh.material_override.albedo_color
+            if col == Color(0.12, 0.35, 0.08): return "grass"
+            if col == Color(0.25, 0.15, 0.08): return "dirt"
+            if col == Color(0.35, 0.35, 0.40): return "stone"
+            if col == Color(0.70, 0.65, 0.50): return "sand"
+            if col == Color(0.05, 0.15, 0.40, 0.6): return "water"
+            if col == Color(0.25, 0.12, 0.04): return "wood"
+            if col == Color(0.02, 0.20, 0.02, 0.8): return "leaves"
+    return ""
+
+# Auto-build shelter (B key)
+func auto_build_shelter(center: Vector3):
+    var bx = center.x
+    var by = center.y
+    var bz = center.z
+    for x in range(bx - 3, bx + 4):
+        for z in range(bz - 3, bz + 4):
+            var floor_pos = Vector3(x, by - 1, z)
+            if not block_meshes.has(floor_pos):
+                create_voxel(floor_pos, "stone")
+            if x == bx - 3 or x == bx + 3 or z == bz - 3 or z == bz + 3:
+                for y in range(by, by + 3):
+                    var wall_pos = Vector3(x, y, z)
+                    if not block_meshes.has(wall_pos):
+                        create_voxel(wall_pos, "stone")
+            # Roof
+            var roof_pos = Vector3(x, by + 3, z)
+            if not block_meshes.has(roof_pos):
+                create_voxel(roof_pos, "stone")
+    # Door
+    var door_pos = Vector3(bx, by, bz - 3)
+    if block_meshes.has(door_pos):
+        block_meshes[door_pos].queue_free()
+        block_meshes.erase(door_pos)
+    var door_pos2 = Vector3(bx, by + 1, bz - 3)
+    if block_meshes.has(door_pos2):
+        block_meshes[door_pos2].queue_free()
+        block_meshes.erase(door_pos2)
+
+# Plant tree (T key)
+func plant_tree(pos: Vector3):
+    var floor_pos = pos.floor()
+    var h = 1
+    while block_meshes.has(Vector3(floor_pos.x, floor_pos.y + h, floor_pos.z)):
+        h += 1
+    place_tree(Vector3(floor_pos.x, floor_pos.y + h, floor_pos.z))
+
+
+--- FILE: scripts/Player.gd ---
+class_name PlayerController
+extends CharacterBody3D
+
+# Camera modes
+enum CameraMode { FIRST_PERSON, THIRD_PERSON_BACK, THIRD_PERSON_FRONT }
+var current_camera_mode: CameraMode = CameraMode.FIRST_PERSON
+
+@export var speed: float = 8.0
+@export var sprint_speed: float = 13.0
+@export var jump_velocity: float = 6.5
+@export var mouse_sensitivity: float = 0.003
+@export var health: int = 100
+@export var max_health: int = 100
+@export var hunger: int = 100
+@export var max_hunger: int = 100
+@export var xp: int = 0
+@export var level: int = 1
+
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity", 14.0)
+var current_selected_block: int = 1
+var is_locked: bool = true
+var is_crouching: bool = false
+var is_sprinting: bool = false
+var attack_timer: float = 0.0
+var attack_cooldown: float = 0.3
+
+@onready var camera_first = $FirstPersonCamera
+@onready var camera_third_back = $ThirdPersonBack
+@onready var camera_third_front = $ThirdPersonFront
+@onready var raycast = $FirstPersonCamera/RayCast3D
+@onready var arm_pivot = $FirstPersonCamera/ArmPivot
+@onready var arm_mesh = $FirstPersonCamera/ArmPivot/ArmMesh
+
+signal health_changed(new_health)
+signal hunger_changed(new_hunger)
+signal xp_changed(new_xp)
+signal block_selected(block_id)
+
+func _ready():
+	_ensure_input_map()
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+    set_camera_mode(CameraMode.FIRST_PERSON)
+    emit_signal("health_changed", health)
+    emit_signal("hunger_changed", hunger)
+    emit_signal("xp_changed", xp)
+    # Set collision height to 2 blocks
+    var col = $CollisionShape3D
+    if col and col.shape is CapsuleShape3D:
+        col.shape.height = 2.0
+
+func _unhandled_input(event):
+    if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+        rotate_y(-event.relative.x * mouse_sensitivity)
+        # Only rotate active camera (first person) for pitch
+        if current_camera_mode == CameraMode.FIRST_PERSON:
+            camera_first.rotate_x(-event.relative.y * mouse_sensitivity)
+            camera_first.rotation.x = clamp(camera_first.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+        # For third person, we rotate the player's head? Actually we keep camera fixed behind.
+
+    if event.is_action_pressed("ui_cancel"):
+        if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+            Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+        else:
+            Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+    # Hotbar number keys
+    for i in range(1, 10):
+        if event is InputEventKey and event.pressed and event.keycode == (KEY_0 + i):
+            current_selected_block = i
+            emit_signal("block_selected", current_selected_block)
+
+    # Camera switch: F1 -> cycle, F2 -> first, F3 -> third back, F4 -> third front
+    if event is InputEventKey:
+        if event.pressed:
+            match event.keycode:
+                KEY_F1:
+                    var next = (current_camera_mode + 1) % 3
+                    set_camera_mode(next)
+                KEY_F2:
+                    set_camera_mode(CameraMode.FIRST_PERSON)
+                KEY_F3:
+                    set_camera_mode(CameraMode.THIRD_PERSON_BACK)
+                KEY_F4:
+                    set_camera_mode(CameraMode.THIRD_PERSON_FRONT)
+
+func set_camera_mode(mode: CameraMode):
+    current_camera_mode = mode
+    camera_first.current = (mode == CameraMode.FIRST_PERSON)
+    camera_third_back.current = (mode == CameraMode.THIRD_PERSON_BACK)
+    camera_third_front.current = (mode == CameraMode.THIRD_PERSON_FRONT)
+    # Show arm only in first person
+    if arm_pivot:
+        arm_pivot.visible = (mode == CameraMode.FIRST_PERSON)
+
+func _physics_process(delta):
+    if not is_on_floor():
+        velocity.y -= gravity * delta
+
+    # Jump
+    if Input.is_action_just_pressed("jump") and is_on_floor():
+        velocity.y = jump_velocity
+        if has_node("/root/SoundManager"): get_node("/root/SoundManager").play_jump()
+
+    # Sprint & Crouch
+    is_sprinting = Input.is_key_pressed(KEY_SHIFT) and not is_crouching
+    if Input.is_key_pressed(KEY_CTRL):
+        is_crouching = true
+    else:
+        is_crouching = false
+
+    var move_speed = speed
+    if is_sprinting:
+        move_speed = sprint_speed
+    if is_crouching:
+        move_speed *= 0.5
+
+    var input_dir = Vector2.ZERO
+    if Input.is_action_pressed("move_forward") or Input.is_key_pressed(KEY_W): input_dir.y -= 1
+    if Input.is_action_pressed("move_backward") or Input.is_key_pressed(KEY_S): input_dir.y += 1
+    if Input.is_action_pressed("move_left") or Input.is_key_pressed(KEY_A): input_dir.x -= 1
+    if Input.is_action_pressed("move_right") or Input.is_key_pressed(KEY_D): input_dir.x += 1
+    input_dir = input_dir.normalized()
+
+    var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+    if direction:
+        velocity.x = direction.x * move_speed
+        velocity.z = direction.z * move_speed
+    else:
+        velocity.x = move_toward(velocity.x, 0, move_speed)
+        velocity.z = move_toward(velocity.z, 0, move_speed)
+
+    move_and_slide()
+
+    # Block interaction (Left Click: Break, Right Click: Place)
+    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and raycast and raycast.is_colliding():
+        if attack_timer <= 0:
+            var target = raycast.get_collider()
+            if target and target.has_method("break_voxel"):
+                target.break_voxel(raycast.get_collision_point() - raycast.get_collision_normal() * 0.4)
+                if has_node("/root/SoundManager"): get_node("/root/SoundManager").play_block_break()
+                play_swing_animation()
+                attack_timer = attack_cooldown
+
+    if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and raycast and raycast.is_colliding():
+        if attack_timer <= 0:
+            var target = raycast.get_collider()
+            if target and target.has_method("place_voxel"):
+                target.place_voxel(raycast.get_collision_point() + raycast.get_collision_normal() * 0.4, current_selected_block)
+                if has_node("/root/SoundManager"): get_node("/root/SoundManager").play_block_place()
+                play_swing_animation()
+                attack_timer = attack_cooldown
+
+    if attack_timer > 0:
+        attack_timer -= delta
+
+    # Hunger drain (every 10 seconds)
+    if Engine.get_process_frames() % 600 == 0:
+        hunger = max(0, hunger - 1)
+        if hunger <= 0:
+            health = max(0, health - 1)
+        emit_signal("hunger_changed", hunger)
+        emit_signal("health_changed", health)
+
+func play_swing_animation():
+    if arm_pivot:
+        var tween = create_tween()
+        tween.tween_property(arm_pivot, "rotation_degrees:x", -40.0, 0.08)
+        tween.tween_property(arm_pivot, "rotation_degrees:x", 0.0, 0.14)
+
+func take_damage(amount: int):
+    health = max(0, health - amount)
+    emit_signal("health_changed", health)
+    if health <= 0:
+        die()
+
+func die():
+    health = max_health
+    hunger = max_hunger
+    global_position = Vector3(0, 20, 0)
+    emit_signal("health_changed", health)
+    emit_signal("hunger_changed", hunger)
+
+func gain_xp(amount: int):
+    xp += amount
+    if xp >= 100:
+        level += 1
+        xp -= 100
+    emit_signal("xp_changed", xp)
+
+func _ensure_input_map():
+	var actions = {
+		"move_forward": KEY_W, "move_back": KEY_S, "move_left": KEY_A, "move_right": KEY_D,
+		"jump": KEY_SPACE, "sprint": KEY_SHIFT, "crouch": KEY_CTRL,
+		"slot_1": KEY_1, "slot_2": KEY_2, "slot_3": KEY_3, "slot_4": KEY_4,
+		"slot_5": KEY_5, "slot_6": KEY_6, "slot_7": KEY_7, "slot_8": KEY_8, "slot_9": KEY_9,
+		"toggle_camera": KEY_F1
+	}
+	for act in actions:
+		if not InputMap.has_action(act):
+			InputMap.add_action(act)
+			var ev = InputEventKey.new()
+			ev.physical_keycode = actions[act]
+			InputMap.action_add_event(act, ev)
+
+[gd_scene load_steps=5 format=3 uid="uid://playerscene01"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_play"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_1"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_arm"]
+size = Vector3(0.15, 0.4, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arm"]
+albedo_color = Color(0.85, 0.75, 0.65, 1)
+roughness = 0.9
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_play")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_1")
+
+[node name="FirstPersonCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="FirstPersonCamera"]
+target_position = Vector3(0, 0, -5)
+
+[node name="ArmPivot" type="Node3D" parent="FirstPersonCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.35, -0.55)
+
+[node name="ArmMesh" type="MeshInstance3D" parent="FirstPersonCamera/ArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_arm")
+material_override = SubResource("StandardMaterial3D_arm")
+
+[node name="ThirdPersonBack" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 2.5, 3.5)
+current = false
+
+[node name="ThirdPersonFront" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 2.5, -3.5)
+current = false
+
+
+
+--- FILE: scenes/Main.tscn ---
+[gd_scene load_steps=3 format=3 uid="uid://pptnexus01"]
+
+[ext_resource type="Script" path="res://scripts/PPT.gd" id="1_ppt"]
+
+[sub_resource type="Environment" id="Env_ppt"]
+background_mode = 3
+background_color = Color(0.035, 0.038, 0.045, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.06, 0.07, 0.08, 1)
+
+[node name="PPT" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppt")
+
+
+--- FILE: scenes/Player.tscn ---
+[gd_scene load_steps=3 format=3 uid="uid://playerscene01"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_play"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_1"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_play")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -5)
+
+
+
+--- FILE: scenes/Animal.tscn ---
+[gd_scene load_steps=3 format=3 uid="uid://animal01"]
+
+[ext_resource type="Script" path="res://scripts/Animal.gd" id="1_animal"]
+
+[sub_resource type="BoxShape3D" id="BoxShape_animal"]
+size = Vector3(1.4, 1.2, 1.8)
+
+[node name="Animal" type="CharacterBody3D" groups=["animals"]]
+script = ExtResource("1_animal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape_animal")
+
+
+--- FILE: run_godot.bat ---
+@echo off
+title OmniDev Godot 4 Launcher - new_game
+echo ========================================================
+echo   OmniDev Sovereign Godot 4 Engine Launcher
+echo   Project: new_game
+echo ========================================================
+echo.
+
+set GODOT_EXE=
+where godot >nul 2>nul
+if %ERRORLEVEL% equ 0 set GODOT_EXE=godot
+where godot4 >nul 2>nul
+if %ERRORLEVEL% equ 0 set GODOT_EXE=godot4
+
+if "%GODOT_EXE%"=="" (
+    for /r "%USERPROFILE%\Downloads" %%f in (Godot_v4*.exe) do if exist "%%f" set "GODOT_EXE=%%f"
+)
+if "%GODOT_EXE%"=="" (
+    for /r "C:\Godot" %%f in (Godot*.exe) do if exist "%%f" set "GODOT_EXE=%%f"
+)
+
+if "%GODOT_EXE%"=="" (
+    echo [INFO] Godot 4 executable was not found in PATH or Downloads.
+    echo [INFO] Opening 3D First-Person Web Simulator in your browser...
+    start "" "%~dp0simulator.html"
+    echo.
+    echo To open in Godot Engine:
+    echo 1. Download Godot 4 from: https://godotengine.org/download
+    echo 2. Open Godot -> Click 'Import' -> Select project.godot in this directory:
+    echo    %~dp0
+    echo.
+    pause
+    exit /b 0
+)
+
+echo [LAUNCH] Found Godot at: %GODOT_EXE%
+echo [LAUNCH] Opening project in Godot 4 Editor...
+start "" "%GODOT_EXE%" --path "%~dp0" -e
+exit /b 0
+

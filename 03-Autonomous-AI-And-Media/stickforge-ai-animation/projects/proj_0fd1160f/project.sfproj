@@ -1,0 +1,53 @@
+{
+  "id": "proj_0fd1160f",
+  "name": "Rahul ki Why We Get Dream Story",
+  "topic": "why we get dream",
+  "genre": "comedy",
+  "language": "hinglish",
+  "duration_target": 30.0,
+  "aspect_ratio": "9:16",
+  "characters": [
+    {
+      "id": "char_1",
+      "name": "Rahul",
+      "style": "classic_stickman",
+      "color": "#FFFFFF",
+      "line_thickness": 4,
+      "voice_id": "en-US-ChristopherNeural",
+      "proportions": {
+        "head_radius": 24.0,
+        "torso_length": 65.0,
+        "upper_arm_length": 35.0,
+        "lower_arm_length": 32.0,
+        "upper_leg_length": 42.0,
+        "lower_leg_length": 40.0
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_001",
+      "sequence_order": 1,
+      "duration": 5.0,
+      "background": "classroom",
+      "narration": "Rahul ke paas paise nahi the, lekin uske sapne bahut bade the.",
+      "dialogue": "",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "speed": 1.0
+      },
+      "actions": [
+        {
+          "character_id": "char_1",
+          "action": "sit",
+          "parameters": {}
+        }
+      ],
+      "sound_effects": [],
+      "transition": "none"
+    }
+  ],
+  "script_text": "Rahul ke paas sirf ek purana cycle tha, lekin uske irade pahad jaise the. Raste mein aayi achanak ek tez baarish, aur road bilkul phisalna shuru ho gaya. Rahul ne speed badha di aur aakhri jump laga diya poore zor se! Usne line cross kar li! Uske doston ne taaliyan bajayi aur shabaashi di.",
+  "version": 1
+}

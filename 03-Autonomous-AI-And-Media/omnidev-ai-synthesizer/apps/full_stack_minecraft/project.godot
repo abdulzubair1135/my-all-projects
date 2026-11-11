@@ -1,0 +1,5 @@
+; Engine configuration file for full_stack_minecraft
+[application]
+config/name="full stack minecraft game in godot"
+config/features=PackedStringArray("4.2")
+run/main_scene="res://Main.tscn"

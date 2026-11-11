@@ -1,0 +1,5 @@
+All planned tasks are complete.
+Perform final project verification:
+1. Run all test suites.
+2. Run build verification.
+3. Emit a finish action with verification_passed=true if everything succeeds, or repair actions if issues remain.

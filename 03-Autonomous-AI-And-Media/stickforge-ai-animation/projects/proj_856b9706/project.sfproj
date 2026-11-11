@@ -1,0 +1,119 @@
+{
+  "id": "proj_856b9706",
+  "name": "Rahul ki When I Sleep Then What Happen Story",
+  "topic": "Friendship and Determination",
+  "genre": "comedy",
+  "language": "hinglish",
+  "duration_target": 30.0,
+  "aspect_ratio": "9:16",
+  "characters": [
+    {
+      "id": "char_1",
+      "name": "Rahul",
+      "style": "classic_stickman",
+      "color": "#FFFFFF",
+      "line_thickness": 4,
+      "voice_id": "en-US-ChristopherNeural",
+      "proportions": {
+        "head_radius": 24.0,
+        "torso_length": 65.0,
+        "upper_arm_length": 35.0,
+        "lower_arm_length": 32.0,
+        "upper_leg_length": 42.0,
+        "lower_leg_length": 40.0
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_001",
+      "sequence_order": 1,
+      "duration": 7.5,
+      "background": "classroom",
+      "narration": "Rahul ke paas sirf ek purana cycle tha, lekin uske irade pahad jaise the.",
+      "dialogue": "",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "speed": 1.0
+      },
+      "actions": [
+        {
+          "character_id": "char_1",
+          "action": "walk",
+          "parameters": {}
+        }
+      ],
+      "sound_effects": [],
+      "transition": "none"
+    },
+    {
+      "id": "scene_002",
+      "sequence_order": 2,
+      "duration": 7.5,
+      "background": "street",
+      "narration": "Raste mein aayi achanak ek tez baarish, aur road bilkul phisalna shuru ho gaya.",
+      "dialogue": "",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "speed": 1.0
+      },
+      "actions": [
+        {
+          "character_id": "char_1",
+          "action": "run",
+          "parameters": {}
+        }
+      ],
+      "sound_effects": [],
+      "transition": "none"
+    },
+    {
+      "id": "scene_003",
+      "sequence_order": 3,
+      "duration": 7.5,
+      "background": "forest",
+      "narration": "Rahul ne speed badha di aur aakhri jump laga diya poore zor se!",
+      "dialogue": "",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "speed": 1.0
+      },
+      "actions": [
+        {
+          "character_id": "char_1",
+          "action": "jump",
+          "parameters": {}
+        }
+      ],
+      "sound_effects": [],
+      "transition": "none"
+    },
+    {
+      "id": "scene_004",
+      "sequence_order": 4,
+      "duration": 7.5,
+      "background": "plain_white",
+      "narration": "Usne line cross kar li! Uske doston ne taaliyan bajayi aur shabaashi di.",
+      "dialogue": "",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "speed": 1.0
+      },
+      "actions": [
+        {
+          "character_id": "char_1",
+          "action": "happy",
+          "parameters": {}
+        }
+      ],
+      "sound_effects": [],
+      "transition": "none"
+    }
+  ],
+  "script_text": "Rahul ke paas sirf ek purana cycle tha, lekin uske irade pahad jaise the. Raste mein aayi achanak ek tez baarish, aur road bilkul phisalna shuru ho gaya. Rahul ne speed badha di aur aakhri jump laga diya poore zor se! Usne line cross kar li! Uske doston ne taaliyan bajayi aur shabaashi di.",
+  "version": 1
+}

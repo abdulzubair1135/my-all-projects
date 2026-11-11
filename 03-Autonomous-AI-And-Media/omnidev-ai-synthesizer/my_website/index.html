@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniSchool · Full Stack Academy</title>
+  <!-- Tailwind + Inter/Outfit -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { font-family: 'Inter', 'Outfit', sans-serif; scroll-behavior: smooth; }
+    body { background: #f8fafc; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 12px 32px -8px rgba(0, 20, 30, 0.08);
+      transition: all 0.25s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 24px 48px -12px rgba(79, 70, 229, 0.2);
+    }
+    .hero-gradient {
+      background: radial-gradient(ellipse at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse at 90% 80%, rgba(236, 72, 153, 0.06) 0%, transparent 60%);
+    }
+    .nav-blur {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s;
+      opacity: 0;
+      padding: 0 1.25rem;
+    }
+    .faq-answer.open {
+      max-height: 240px;
+      opacity: 1;
+      padding: 0.75rem 1.25rem 1.25rem 1.25rem;
+    }
+    .faq-item svg { transition: transform 0.3s ease; }
+    .faq-item.active svg { transform: rotate(180deg); }
+    .counter-number {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+    }
+    .mockup-illustration svg {
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.03));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 nav-blur transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <i class="fas fa-graduation-cap text-indigo-600 text-2xl"></i>
+        <span class="font-outfit font-extrabold text-xl tracking-tight text-slate-800">Omni<span class="text-indigo-600">School</span></span>
+      </div>
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#features" class="hover:text-indigo-600 transition">Features</a>
+        <a href="#testimonials" class="hover:text-indigo-600 transition">Testimonials</a>
+        <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
+        <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+      </div>
+      <!-- CTA + mobile toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden md:inline-block bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md shadow-indigo-200 hover:bg-indigo-700 transition">Enroll now</a>
+        <button id="menuBtn" class="md:hidden text-slate-700 text-xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden bg-white/90 backdrop-blur-md border-t border-slate-200/60 hidden flex-col items-start gap-3 px-6 py-5 text-sm font-medium text-slate-700">
+      <a href="#features" class="hover:text-indigo-600">Features</a>
+      <a href="#testimonials" class="hover:text-indigo-600">Testimonials</a>
+      <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
+      <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      <a href="#contact" class="mt-2 bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow">Enroll now</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="pt-28 md:pt-36 pb-16 md:pb-24 px-5 hero-gradient relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-4 py-1.5 rounded-full tracking-wide">🚀 Next‑gen learning</span>
+        <h1 class="font-outfit font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight text-slate-800">
+          Build your <span class="text-indigo-600">future</span> with Full‑Stack School
+        </h1>
+        <p class="text-lg text-slate-600 max-w-lg leading-relaxed">
+          Master modern web development, AI, and cloud — with real projects, mentors, and a community that cares.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#contact" class="bg-indigo-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition flex items-center gap-2"><i class="fas fa-rocket"></i> Start free trial</a>
+          <a href="#features" class="bg-white/70 backdrop-blur-sm border border-slate-200 text-slate-700 px-8 py-3.5 rounded-full text-sm font-medium hover:bg-white transition flex items-center gap-2"><i class="fas fa-play-circle text-indigo-500"></i> See how it works</a>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-slate-500 pt-2">
+          <span><i class="fas fa-check-circle text-indigo-500 mr-1"></i> 4.9/5 rating</span>
+          <span><i class="fas fa-users text-indigo-500 mr-1"></i> 12k+ students</span>
+        </div>
+      </div>
+      <!-- Illustration / mockup -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md">
+          <div class="glass-card rounded-3xl p-5 shadow-2xl">
+            <div class="bg-indigo-50/70 rounded-2xl p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center"><i class="fas fa-code text-indigo-600 text-sm"></i></div><span class="font-medium">Full‑stack path</span></div>
+              <div class="grid grid-cols-3 gap-2 text-xs"><div class="bg-white/60 p-2 rounded-xl text-center">React</div><div class="bg-white/60 p-2 rounded-xl text-center">Node</div><div class="bg-white/60 p-2 rounded-xl text-center">Python</div></div>
+              <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-3/4 h-2 bg-indigo-500 rounded-full"></div></div>
+              <div class="flex justify-between text-xs text-slate-500"><span>Progress 74%</span><span><i class="fas fa-users text-indigo-400"></i> 28 active</span></div>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-pink-200/40 rounded-full blur-2xl -z-10"></div>
+          <div class="absolute -top-6 -right-6 w-32 h-32 bg-indigo-200/30 rounded-full blur-3xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES / SERVICES (glassmorphism) ========== -->
+  <section id="features" class="py-16 md:py-24 px-5 bg-white/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-indigo-600 font-semibold text-sm tracking-widest">✦ FEATURES</span>
+        <h2 class="font-outfit font-bold text-3xl md:text-4xl text-slate-800 mt-2">Built for modern education</h2>
+        <p class="text-slate-500 mt-3">Everything you need to launch your dev career, all in one place.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="glass-card rounded-3xl p-7 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl"><i class="fas fa-laptop-code"></i></div>
+          <h3 class="font-outfit font-semibold text-xl">Live projects</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Build real‑world apps with guidance from industry mentors.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-7 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-500 text-xl"><i class="fas fa-brain"></i></div>
+          <h3 class="font-outfit font-semibold text-xl">AI‑powered path</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Personalized curriculum adapts to your pace and goals.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-7 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl"><i class="fas fa-users-gear"></i></div>
+          <h3 class="font-outfit font-semibold text-xl">Community first</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Join study groups, hackathons, and 1:1 coaching sessions.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-7 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-600 text-xl"><i class="fas fa-cloud"></i></div>
+          <h3 class="font-outfit font-semibold text-xl">Cloud sandbox</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Deploy and test your code instantly in a secure environment.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-7 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600 text-xl"><i class="fas fa-medal"></i></div>
+          <h3 class="font-outfit font-semibold text-xl">Certification</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Earn verified credentials that employers recognize.</p>
+        </div>
+        <div class="glass-card rounded-3xl p-7 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center text-sky-600 text-xl"><i class="fas fa-calendar-check"></i></div>
+          <h3 class="font-outfit font-semibold text-xl">Flexible schedule</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Learn at your own pace with on‑demand content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATISTICS COUNTER ========== -->
+  <section id="testimonials" class="py-16 md:py-20 px-5 bg-slate-50/80">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="glass-card rounded-2xl p-6"><div class="counter-number text-4xl md:text-5xl text-indigo-600" data-count="12456">0</div><div class="text-slate-500 text-sm mt-1">Students enrolled</div></div>
+        <div class="glass-card rounded-2xl p-6"><div class="counter-number text-4xl md:text-5xl text-indigo-600" data-count="340">0</div><div class="text-slate-500 text-sm mt-1">Mentors</div></div>
+        <div class="glass-card rounded-2xl p-6"><div class="counter-number text-4xl md:text-5xl text-indigo-600" data-count="98">0</div><div class="text-slate-500 text-sm mt-1">Countries</div></div>
+        <div class="glass-card rounded-2xl p-6"><div class="counter-number text-4xl md:text-5xl text-indigo-600" data-count="2847">0</div><div class="text-slate-500 text-sm mt-1">Projects shipped</div></div>
+      </div>
+      <!-- small testimonial quote -->
+      <div class="mt-12 text-center max-w-2xl mx-auto">
+        <i class="fas fa-quote-left text-3xl text-indigo-200"></i>
+        <p class="text-slate-600 italic text-lg mt-2">“OmniSchool gave me the confidence to switch careers. The community is unmatched.”</p>
+        <span class="text-sm font-medium text-slate-700 block mt-2">— Elena R. · Full‑stack dev at <span class="text-indigo-500">Stripe</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING + FAQ (accordion) ========== -->
+  <section id="pricing" class="py-16 md:py-24 px-5 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Pricing card -->
+      <div>
+        <span class="text-indigo-600 font-semibold text-sm tracking-widest">✦ PRICING</span>
+        <h2 class="font-outfit font-bold text-3xl md:text-4xl text-slate-800 mt-2">Simple, transparent</h2>
+        <div class="mt-6 glass-card rounded-3xl p-8 max-w-sm">
+          <div class="text-sm text-slate-500">Full‑stack bootcamp</div>
+          <div class="text-4xl font-bold text-slate-800 mt-1">$59 <span class="text-base font-normal text-slate-400">/month</span></div>
+          <ul class="mt-6 space-y-3 text-sm text-slate-600">
+            <li><i class="fas fa-check text-indigo-500 w-5"></i> All core modules</li>
+            <li><i class="fas fa-check text-indigo-500 w-5"></i> 2 live mentor sessions / week</li>
+            <li><i class="fas fa-check text-indigo-500 w-5"></i> Cloud workspace + AI assistant</li>
+            <li><i class="fas fa-check text-indigo-500 w-5"></i> Career portfolio builder</li>
+          </ul>
+          <a href="#contact" class="mt-8 block text-center bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold shadow hover:bg-indigo-700 transition">Start 7‑day free trial</a>
+        </div>
+      </div>
+      <!-- FAQ accordion -->
+      <div>
+        <span class="text-indigo-600 font-semibold text-sm tracking-widest">❓ FAQ</span>
+        <h2 class="font-outfit font-bold text-3xl md:text-4xl text-slate-800 mt-2">Questions? We’ve got you.</h2>
+        <div class="mt-6 space-y-3">
+          <div class="faq-item glass-card rounded-2xl p-4 cursor-pointer">
+            <div class="flex justify-between items-center"><span class="font-medium text-slate-700">What is the course duration?</span><i class="fas fa-chevron-down text-indigo-400 text-sm"></i></div>
+            <div class="faq-answer text-sm text-slate-500">The full‑stack program is 6 months, but you can go at your own pace. Most finish in 4–8 months.</div>
+          </div>
+          <div class="faq-item glass-card rounded-2xl p-4 cursor-pointer">
+            <div class="flex justify-between items-center"><span class="font-medium text-slate-700">Do I need prior coding experience?</span><i class="fas fa-chevron-down text-indigo-400 text-sm"></i></div>
+            <div class="faq-answer text-sm text-slate-500">No! We start from fundamentals and have a prep track for absolute beginners.</div>
+          </div>
+          <div class="faq-item glass-card rounded-2xl p-4 cursor-pointer">
+            <div class="flex justify-between items-center"><span class="font-medium text-slate-700">Is there a community or support?</span><i class="fas fa-chevron-down text-indigo-400 text-sm"></i></div>
+            <div class="faq-answer text-sm text-slate-500">Yes, you get access to Slack, weekly office hours, and pair‑programming sessions.</div>
+          </div>
+          <div class="faq-item glass-card rounded-2xl p-4 cursor-pointer">
+            <div class="flex justify-between items-center"><span class="font-medium text-slate-700">Can I cancel anytime?</span><i class="fas fa-chevron-down text-indigo-400 text-sm"></i></div>
+            <div class="faq-answer text-sm text-slate-500">Absolutely. No lock‑in. Cancel with one click from your dashboard.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT + FOOTER ========== -->
+  <section id="contact" class="py-16 md:py-20 px-5 bg-slate-50/70">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12"><span class="text-indigo-600 font-semibold text-sm tracking-widest">✉ CONTACT</span><h2 class="font-outfit font-bold text-3xl md:text-4xl text-slate-800 mt-2">Let’s talk</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <form class="space-y-4">
+          <input type="text" placeholder="Full name" class="w-full px-5 py-3.5 rounded-2xl border border-slate-200/80 bg-white/70 backdrop-blur-sm focus:ring-2 focus:ring-indigo-300 outline-none text-sm" />
+          <input type="email" placeholder="Email address" class="w-full px-5 py-3.5 rounded-2xl border border-slate-200/80 bg-white/70 backdrop-blur-sm focus:ring-2 focus:ring-indigo-300 outline-none text-sm" />
+          <textarea rows="3" placeholder="Tell us about your goals..." class="w-full px-5 py-3.5 rounded-2xl border border-slate-200/80 bg-white/70 backdrop-blur-sm focus:ring-2 focus:ring-indigo-300 outline-none text-sm"></textarea>
+          <button class="bg-indigo-600 text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow hover:bg-indigo-700 transition w-full md:w-auto">Send message <i class="fas fa-arrow-right ml-1"></i></button>
+        </form>
+        <div class="space-y-4 text-slate-600">
+          <div class="flex items-center gap-3"><i class="fas fa-envelope text-indigo-500 w-6"></i> hello@omnischool.dev</div>
+          <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-indigo-500 w-6"></i> +1 (800) 123‑4567</div>
+          <div class="flex items-center gap-3"><i class="fas fa-map-pin text-indigo-500 w-6"></i> 221B Dev Lane, SF, CA</div>
+          <div class="flex gap-4 text-xl text-indigo-400 pt-2"><i class="fab fa-twitter hover:text-indigo-600 transition"></i><i class="fab fa-github hover:text-indigo-600 transition"></i><i class="fab fa-linkedin hover:text-indigo-600 transition"></i><i class="fab fa-youtube hover:text-indigo-600 transition"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 py-10 px-5 text-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2"><i class="fas fa-graduation-cap text-indigo-400 text-xl"></i><span class="font-outfit font-bold text-white">OmniSchool</span></div>
+      <div class="flex flex-wrap justify-center gap-6"><a href="#" class="hover:text-white">About</a><a href="#" class="hover:text-white">Blog</a><a href="#" class="hover:text-white">Careers</a><a href="#" class="hover:text-white">Privacy</a></div>
+      <div>© 2026 · Built with ❤️</div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    (function(){
+      // mobile menu toggle
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if(menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('hidden');
+          const icon = menuBtn.querySelector('i');
+          if(icon) icon.classList.toggle('fa-bars');
+          if(icon) icon.classList.toggle('fa-xmark');
+        });
+        document.addEventListener('click', function(e) {
+          if(!mobileMenu.classList.contains('hidden') && !menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+            const icon = menuBtn.querySelector('i');
+            if(icon) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+          }
+        });
+      }
+
+      // FAQ accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const header = item.querySelector('.flex');
+        const answer = item.querySelector('.faq-answer');
+        const chevron = item.querySelector('i.fa-chevron-down');
+        if(header && answer) {
+          header.addEventListener('click', function(e) {
+            const isActive = item.classList.contains('active');
+            // close others
+            faqItems.forEach(other => {
+              if(other !== item && other.classList.contains('active')) {
+                other.classList.remove('active');
+                const otherAns = other.querySelector('.faq-answer');
+                const otherChev = other.querySelector('i.fa-chevron-down');
+                if(otherAns) otherAns.classList.remove('open');
+                if(otherChev) otherChev.style.transform = 'rotate(0deg)';
+              }
+            });
+            item.classList.toggle('active');
+            answer.classList.toggle('open');
+            if(chevron) chevron.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+          });
+        }
+      });
+
+      // counter animation (simple)
+      const counters = document.querySelectorAll('.counter-number');
+      const speed = 70;
+      const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-count'));
+        let current = 0;
+        const increment = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          current += increment;
+          if(current >= target) { el.textContent = target.toLocaleString(); clearInterval(timer); }
+          else el.textContent = current.toLocaleString();
+        }, speed);
+      };
+      // Intersection Observer for counters
+      if('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting) {
+              const el = entry.target;
+              if(!el.dataset.animated) {
+                el.dataset.animated = 'true';
+                animateCounter(el);
+              }
+            }
+          });
+        }, { threshold: 0.4 });
+        counters.forEach(c => obs.observe(c));
+      } else {
+        counters.forEach(c => animateCounter(c));
+      }
+
+      // smooth scroll for nav links (already scroll-behavior: smooth)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          const targetEl = document.querySelector(targetId);
+          if(targetEl) {
+            e.preventDefault();
+            const navHeight = document.getElementById('navbar')?.offsetHeight || 70;
+            const y = targetEl.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

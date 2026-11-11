@@ -1,0 +1,48 @@
+# ============================================================
+# AUTO YT GENERATOR — Requirements
+# ============================================================
+
+# --- Core ---
+python-dotenv>=1.0.0          # .env file loading
+pydantic>=2.5.0               # Data validation + models
+pydantic-settings>=2.1.0      # Settings from env
+click>=8.1.7                  # CLI framework
+rich>=13.7.0                  # Beautiful terminal output
+
+# --- Database ---
+# SQLite is bundled with Python — no extra package needed
+# aiosqlite for async support if needed later
+
+# --- Image / Graphics ---
+Pillow>=10.2.0                # Image processing for sprites/backgrounds
+numpy>=1.26.0                 # Array operations for animation math
+
+# --- Audio ---
+soundfile>=0.12.1             # WAV read/write
+librosa>=0.10.1               # Audio analysis (lip sync timing)
+pydub>=0.25.1                 # Audio manipulation + mixing
+# Note: pydub requires ffmpeg on PATH
+
+# --- Video ---
+# moviepy>=1.0.3              # Video compositing (optional, uses ffmpeg)
+# FFmpeg must be installed separately and available on PATH
+
+# --- AI Providers (optional — configure in config.json) ---
+google-generativeai>=0.5.0    # Gemini AI provider
+openai>=1.12.0                # OpenAI provider (optional)
+httpx>=0.27.0                 # HTTP client for API calls
+tenacity>=8.2.3               # Retry logic for API calls
+
+# --- GUI (Phase 12) ---
+# PySide6>=6.6.0              # Desktop GUI — install separately when needed
+
+# --- Hashing / Caching ---
+xxhash>=3.4.1                 # Fast hashing for cache keys
+
+# --- Testing ---
+pytest>=8.0.0
+pytest-cov>=4.1.0
+
+# --- Development ---
+black>=24.1.0                 # Code formatting
+mypy>=1.8.0                   # Type checking

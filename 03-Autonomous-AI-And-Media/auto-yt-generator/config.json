@@ -1,0 +1,73 @@
+{
+    "_comment": "AUTO YT GENERATOR — Main Configuration. Override any value here.",
+
+    "app": {
+        "name": "AUTO YT GENERATOR",
+        "version": "0.1.0",
+        "env": "development"
+    },
+
+    "providers": {
+        "ai_provider": "gemini",
+        "tts_provider": "gtts",
+        "image_provider": "procedural",
+        "music_provider": "procedural",
+        "sfx_provider": "procedural"
+    },
+
+    "video": {
+        "default_resolution": "1920x1080",
+        "default_fps": 30,
+        "default_duration": 300,
+        "supported_resolutions": ["1920x1080", "1280x720", "1080x1920"]
+    },
+
+    "audio": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "voice_volume": 1.0,
+        "music_volume": 0.35,
+        "sfx_volume": 0.6,
+        "ducking_ratio": 0.25
+    },
+
+    "styles": {
+        "available": [
+            "dark_cartoon",
+            "dark_science",
+            "weird_science",
+            "horror_science",
+            "funny_science",
+            "documentary",
+            "educational",
+            "mystery",
+            "custom"
+        ],
+        "default": "dark_cartoon"
+    },
+
+    "languages": {
+        "available": ["en", "hi", "ur"],
+        "default": "en"
+    },
+
+    "cache": {
+        "enabled": true,
+        "ttl_seconds": 86400,
+        "max_size_mb": 1024
+    },
+
+    "pipeline": {
+        "max_retries": 3,
+        "retry_delay_seconds": 5,
+        "preview_resolution": "640x360"
+    },
+
+    "paths": {
+        "projects_dir": "projects",
+        "assets_dir": "assets",
+        "output_dir": "output",
+        "logs_dir": "logs",
+        "cache_dir": ".cache"
+    }
+}

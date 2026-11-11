@@ -1,0 +1,33 @@
+# Environment and API keys (CRITICAL - DO NOT COMMIT)
+.env
+*.env.local
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Databases
+*.db
+*.sqlite3
+
+# Project generated renders and temporary assets
+projects/
+output/
+logs/
+.cache/
+temp/
+
+# Large media files generated during local testing
+*.mp4
+*.wav
+*.avi
+*.mov
+
+# IDE and OS files
+.vscode/
+.idea/
+Thumbs.db
+[Dd]esktop.ini

@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.pytest_cache/
+
+# Chrome persistent profiles & Browser sessions
+chrome_profile/
+*/chrome_profile/
+*.session
+
+# Godot Engine internal caches & imports
+.godot/
+*/.godot/
+*.import
+*.uid
+
+# OmniDev internal backups & logs
+.omnidev_backups/
+.omnidev_logs/
+.omnidev_packages/
+.omnidev_memory.db
+.omnidev_history.json
+*.tmp
+*.log
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# IDE / Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db

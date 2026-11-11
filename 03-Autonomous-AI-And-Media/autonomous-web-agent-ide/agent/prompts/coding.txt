@@ -1,0 +1,10 @@
+Task to implement:
+{{task_title}}
+
+Description:
+{{task_description}}
+
+Context and Workspace State:
+{{context}}
+
+Please output the structured JSON action response to implement this task.

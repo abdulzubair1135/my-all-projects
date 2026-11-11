@@ -1,0 +1,5 @@
+; Engine configuration file for its_not_a_3d_game_it
+[application]
+config/name="its not a 3d game its a 2d game make it 3d use new new file make this in godot"
+config/features=PackedStringArray("4.2")
+run/main_scene="res://Main.tscn"

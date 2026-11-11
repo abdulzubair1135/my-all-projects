@@ -1,0 +1,28 @@
+# Python cache and byte-code
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment and IDE
+.env
+.venv
+venv/
+ENV/
+.vscode/
+.idea/
+
+# AURA Local Data, Logs, Databases, and Backups
+database/*.db
+database/*.db-journal
+database/*.db-wal
+database/*.db-shm
+logs/
+workspace/
+backups/
+screenshots/
+experiments_data/
+projects/
+sources/

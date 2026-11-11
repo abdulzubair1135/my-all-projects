@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(cpp_space_game)
+find_package(raylib REQUIRED)
+add_executable(cpp_space_game main.cpp)
+target_link_libraries(cpp_space_game raylib)

@@ -1,0 +1,1 @@
+FILE: scripts/WorldGenerator.gdgdscript

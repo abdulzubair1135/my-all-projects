@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://animal_scene_01"]
+
+[ext_resource type="Script" path="res://scripts/Animal.gd" id="1_animal"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_animal"]
+size = Vector3(1.4, 1.2, 1.8)
+
+[node name="Animal" type="CharacterBody3D" groups=["animals"]]
+script = ExtResource("1_animal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_animal")
