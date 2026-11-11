@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#0D1117"
+        android:pathData="M0,0h108v108h-108z"/>
+    <!-- Outer Hex Mesh Orbit -->
+    <path
+        android:strokeColor="#1F6FEB"
+        android:strokeWidth="2.5"
+        android:pathData="M54,18 L84,35 L84,73 L54,90 L24,73 L24,35 Z"/>
+    <!-- Central Node -->
+    <path
+        android:fillColor="#58A6FF"
+        android:pathData="M54,46a8,8 0 1,0 0.001,0z"/>
+    <!-- Connection Link Rays -->
+    <path
+        android:strokeColor="#238636"
+        android:strokeWidth="2"
+        android:pathData="M54,46 L54,20 M54,62 L54,88 M46,50 L26,37 M62,58 L82,71 M46,58 L26,71 M62,50 L82,37"/>
+    <!-- Satellite Nodes -->
+    <path
+        android:fillColor="#2EA043"
+        android:pathData="M54,16a5,5 0 1,0 0.001,0z M84,33a5,5 0 1,0 0.001,0z M84,73a5,5 0 1,0 0.001,0z M54,90a5,5 0 1,0 0.001,0z M24,73a5,5 0 1,0 0.001,0z M24,33a5,5 0 1,0 0.001,0z"/>
+</vector>

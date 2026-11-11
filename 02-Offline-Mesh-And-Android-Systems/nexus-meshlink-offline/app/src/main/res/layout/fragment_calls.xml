@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_secondary"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/llCallsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recent P2P Calls"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encrypted voice &amp; video over Wi-Fi Direct"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- Quick Voice Call Pill -->
+        <TextView
+            android:id="@+id/btnQuickVoiceCall"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Voice Call"
+            android:textColor="@color/green_text"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:background="@drawable/bg_call_pill"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground" />
+
+        <!-- Quick Video Call Pill -->
+        <TextView
+            android:id="@+id/btnQuickVideoCall"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Video Call"
+            android:textColor="@color/green_text"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:background="@drawable/bg_call_pill"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground" />
+    </LinearLayout>
+
+    <!-- Real RecyclerView for Calls -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCallsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llCallsHeader"
+        android:layout_marginTop="14dp" />
+
+    <!-- Empty State for Calls -->
+    <LinearLayout
+        android:id="@+id/llCallsEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/circle_avatar"
+            android:backgroundTint="@color/green_subtle">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nav_calls"
+                app:tint="@color/primary" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Call History Yet"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap Voice or Video above, or open any peer chat to place an encrypted offline P2P call."
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Couple Canvas</string>
+    <string name="app_tagline">Two people. One canvas. Draw together.</string>
+    
+    <!-- Navigation & Common -->
+    <string name="home">Home</string>
+    <string name="gallery">Gallery</string>
+    <string name="challenge">Challenges</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="report_block">Report &amp; Block</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="save">Save</string>
+    <string name="export">Export</string>
+    
+    <!-- Canvas Tools -->
+    <string name="pencil">Pencil</string>
+    <string name="brush">Brush</string>
+    <string name="marker">Marker</string>
+    <string name="highlighter">Highlighter</string>
+    <string name="eraser">Eraser</string>
+    <string name="line">Line</string>
+    <string name="rectangle">Rectangle</string>
+    <string name="circle">Circle</string>
+    <string name="arrow">Arrow</string>
+    <string name="text">Text</string>
+    <string name="stickers">Stickers</string>
+    <string name="clear_canvas">Clear Canvas</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+    
+    <!-- Connection status -->
+    <string name="status_connecting">Connecting to partner…</string>
+    <string name="status_connected">Connected ❤️</string>
+    <string name="status_partner_disconnected">Partner disconnected</string>
+    <string name="status_reconnecting">Reconnecting…</string>
+    <string name="status_offline">You are offline. Drawings are saved locally.</string>
+
+    <!-- AdMob Test Unit ID (Banner) -->
+    <string name="admob_banner_test_id">ca-app-pub-3940256099942544/6300978111</string>
+</resources>

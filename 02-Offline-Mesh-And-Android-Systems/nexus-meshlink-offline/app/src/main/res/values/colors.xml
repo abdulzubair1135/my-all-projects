@@ -1,0 +1,55 @@
+<resources>
+    <!-- Professional White, Gray, and Light Green Palette -->
+    <color name="primary">#16A34A</color>
+    <color name="primary_dark">#15803D</color>
+    <color name="primary_light">#86EFAC</color>
+    <color name="accent">#22C55E</color>
+    
+    <!-- Light Green Variants -->
+    <color name="green_light">#22C55E</color>
+    <color name="green_subtle">#DCFCE7</color>
+    <color name="green_surface">#F0FDF4</color>
+    <color name="green_border">#BBF7D0</color>
+    <color name="green_text">#15803D</color>
+
+    <!-- Chat bubble colors (Clean WhatsApp Style) -->
+    <color name="bubble_sent">#DCFCE7</color>
+    <color name="bubble_received">#F3F4F6</color>
+    <color name="bubble_sent_text">#111827</color>
+    <color name="bubble_received_text">#111827</color>
+
+    <!-- Transport indicator colors -->
+    <color name="ble_color">#F59E0B</color>
+    <color name="wifi_direct_color">#16A34A</color>
+    <color name="hotspot_color">#0284C7</color>
+
+    <!-- Status colors -->
+    <color name="online_green">#16A34A</color>
+    <color name="offline_gray">#9CA3AF</color>
+    <color name="warning_orange">#F59E0B</color>
+    <color name="danger_red">#EF4444</color>
+
+    <!-- Backgrounds (White & Gray) -->
+    <color name="bg_primary">#FFFFFF</color>
+    <color name="bg_secondary">#F8F9FA</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="bg_card_highlight">#F3F4F6</color>
+    <color name="bg_chat">#F9FAFB</color>
+    <color name="bg_dark">#111827</color>
+    <color name="divider">#E5E7EB</color>
+    <color name="border_subtle">#E5E7EB</color>
+
+    <!-- Text -->
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- SOS -->
+    <color name="sos_red">#EF4444</color>
+    <color name="sos_red_bg">#FEF2F2</color>
+
+    <!-- Nav bar -->
+    <color name="nav_active">#16A34A</color>
+    <color name="nav_inactive">#6B7280</color>
+</resources>

@@ -1,0 +1,28 @@
+{
+  "name": "couple-canvas-signaling",
+  "version": "1.0.0",
+  "description": "Lightweight WebRTC WebSocket signaling server for Couple Canvas Android App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "webrtc",
+    "signaling",
+    "p2p",
+    "couple-canvas",
+    "websocket"
+  ],
+  "author": "Couple Canvas Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "mongodb": "^7.6.0",
+    "mongoose": "^9.10.1",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0"
+  }
+}

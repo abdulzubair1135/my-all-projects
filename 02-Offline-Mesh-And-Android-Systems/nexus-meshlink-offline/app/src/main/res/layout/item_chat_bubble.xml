@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="4dp"
+    android:paddingHorizontal="12dp">
+
+    <!-- Sender Label (for group/broadcast) -->
+    <TextView
+        android:id="@+id/tvBubbleSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
+        android:visibility="gone" />
+
+    <!-- Message Bubble Container -->
+    <LinearLayout
+        android:id="@+id/llBubbleContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="280dp"
+        android:background="@drawable/bg_card_rounded"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:orientation="vertical">
+
+        <!-- Image Message Preview (if any) -->
+        <ImageView
+            android:id="@+id/ivBubbleImage"
+            android:layout_width="220dp"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Video Message Preview (if any) -->
+        <FrameLayout
+            android:id="@+id/flVideoContainer"
+            android:layout_width="220dp"
+            android:layout_height="160dp"
+            android:visibility="gone"
+            android:layout_marginBottom="6dp">
+
+            <ImageView
+                android:id="@+id/ivBubbleVideoThumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#1E293B" />
+
+            <ImageView
+                android:id="@+id/btnPlayVideo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_media_play"
+                android:background="@drawable/circle_avatar"
+                android:backgroundTint="#80000000"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/tvVideoBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_badge_blue"
+                android:text="VIDEO"
+                android:textColor="@color/primary"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp" />
+        </FrameLayout>
+
+        <!-- Voice Note Row (if any) -->
+        <LinearLayout
+            android:id="@+id/llVoiceNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="4dp">
+
+            <ImageView
+                android:id="@+id/btnPlayVoice"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_media_play"
+                android:background="@drawable/circle_avatar"
+                android:backgroundTint="@color/primary"
+                android:padding="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ▂▃▅▆▇▆▅▃▂ "
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/tvVoiceDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:15"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Message Text -->
+        <TextView
+            android:id="@+id/tvBubbleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message content goes here"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+        <!-- Metadata row: Transport badge + Time + Checkmarks -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <!-- Transport routing badge (BLE / WiFi Direct) -->
+            <TextView
+                android:id="@+id/tvBubbleRouting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_blue"
+                android:text="BLE"
+                android:textColor="@color/primary"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="1dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/tvBubbleTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:41 AM"
+                android:textColor="@color/text_secondary"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvBubbleTicks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ✓✓"
+                android:textColor="@color/primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginStart="3dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

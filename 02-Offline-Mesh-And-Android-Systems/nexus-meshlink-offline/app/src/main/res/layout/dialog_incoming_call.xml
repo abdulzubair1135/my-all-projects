@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_dark"
+    android:padding="26dp"
+    android:gravity="center_horizontal">
+
+    <!-- Avatar Circle -->
+    <TextView
+        android:id="@+id/tvIncomingCallAvatar"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:text="👤"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:background="@drawable/bg_pill_soft"
+        android:backgroundTint="#1F2937"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Title / Call Type Badge -->
+    <TextView
+        android:id="@+id/tvIncomingCallTypeBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📞 INCOMING VOICE CALL"
+        android:textColor="#34D399"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_pill_soft"
+        android:backgroundTint="#064E3B"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp" />
+
+    <!-- Caller Name -->
+    <TextView
+        android:id="@+id/tvIncomingCallerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nexus Peer"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direct P2P Mesh Call • Zero Internet / Data"
+        android:textColor="#9CA3AF"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp" />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="26dp">
+
+        <!-- Decline Button -->
+        <LinearLayout
+            android:id="@+id/btnDeclineCall"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bg_pill_soft"
+            android:backgroundTint="#EF4444"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✕ Decline"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Accept Button -->
+        <LinearLayout
+            android:id="@+id/btnAcceptCall"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bg_pill_soft"
+            android:backgroundTint="#10B981"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓ Accept"
+                android:textColor="#022C22"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+﻿# ===== Android / Gradle =====
+*.iml
+.gradle
+.gradle/
+**/.gradle/
+local.properties
+.idea/
+**/.idea/
+.DS_Store
+build/
+**/build/
+captures/
+**/captures/
+.externalNativeBuild
+.cxx
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Android keystore
+*.jks
+*.keystore
+
+# ===== Node.js =====
+node_modules/
+**/node_modules/
+.env
+.env.*
+*.log
+
+# ===== General =====
+*.tmp
+Thumbs.db

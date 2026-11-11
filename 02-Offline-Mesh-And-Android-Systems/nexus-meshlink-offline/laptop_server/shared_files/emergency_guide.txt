@@ -1,0 +1,5 @@
+=== MESHLINK OFFLINE SURVIVAL GUIDE ===
+
+1. If cellular network is down, MeshLink relays messages over BLE mesh.
+2. High quality voice/video calls use direct WiFi P2P.
+3. Laptop server acts as a local emergency library.

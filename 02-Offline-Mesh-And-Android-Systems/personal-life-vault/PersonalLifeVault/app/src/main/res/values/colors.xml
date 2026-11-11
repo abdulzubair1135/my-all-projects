@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Classic Silver & Cream Palette -->
+    <color name="vault_cream_bg">#F7F6F2</color>
+    <color name="vault_cream_surface">#FFFFFF</color>
+    <color name="vault_cream_card">#EFECE6</color>
+    
+    <color name="vault_silver">#BCC1C8</color>
+    <color name="vault_silver_light">#E5E7EB</color>
+    <color name="vault_silver_dark">#78808A</color>
+    
+    <color name="vault_gray_charcoal">#20242A</color>
+    <color name="vault_gray_slate">#4A515B</color>
+    <color name="vault_gray_muted">#68707C</color>
+    <color name="vault_border">#D6D9DE</color>
+    
+    <color name="vault_status_online">#4A5A4E</color>
+    <color name="vault_status_offline">#8A5454</color>
+</resources>

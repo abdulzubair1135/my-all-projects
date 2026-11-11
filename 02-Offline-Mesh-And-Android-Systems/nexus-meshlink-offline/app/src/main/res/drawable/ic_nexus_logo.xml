@@ -1,0 +1,53 @@
+﻿<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Clean minimal green circular badge -->
+    <path
+        android:fillColor="#16A34A"
+        android:pathData="M 48,8 A 40,40 0 1 1 47.99,8 Z" />
+
+    <!-- Minimalist mesh connection nodes in clean crisp white -->
+    <!-- Connective lines -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M 32,58 L 48,30 L 64,58 L 32,58 Z" />
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M 48,30 L 48,58" />
+
+    <!-- Center node -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 48,25 A 6,6 0 1 1 47.99,25 Z" />
+
+    <!-- Left node -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 32,58 A 6,6 0 1 1 31.99,58 Z" />
+
+    <!-- Right node -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 64,58 A 6,6 0 1 1 63.99,58 Z" />
+
+    <!-- Subtle inner node core -->
+    <path
+        android:fillColor="#16A34A"
+        android:pathData="M 48,28 A 3,3 0 1 1 47.99,28 Z" />
+    <path
+        android:fillColor="#16A34A"
+        android:pathData="M 32,58 A 3,3 0 1 1 31.99,58 Z" />
+    <path
+        android:fillColor="#16A34A"
+        android:pathData="M 64,58 A 3,3 0 1 1 63.99,58 Z" />
+
+</vector>

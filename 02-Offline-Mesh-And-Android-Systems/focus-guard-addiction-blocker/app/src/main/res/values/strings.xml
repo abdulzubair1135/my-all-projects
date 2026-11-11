@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">P.RN Controller</string>
+    <string name="brand_subtitle">made by projectX²</string>
+    <string name="accessibility_service_desc">Inspects user-configured trigger keywords and repetitive search patterns in browsers and social apps strictly offline to prevent compulsive digital consumption. Never inspects passwords or personal messages.</string>
+    <string name="vpn_channel_name">Protection Service</string>
+    <string name="vpn_channel_desc">Shows ongoing offline domain protection status.</string>
+    <string name="focus_channel_name">Focus Mode</string>
+    <string name="focus_channel_desc">Active focus timer notification.</string>
+    <string name="task_channel_name">Task Timer</string>
+    <string name="task_channel_desc">Active replacement activity timer.</string>
+</resources>

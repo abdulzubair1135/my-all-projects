@@ -1,0 +1,56 @@
+================================================================================
+ POCKETAI BRIDGE - OFFLINE AI INFERENCE REPORT
+ Model: Qwen3 1.7B Q4_K_M (Running 100% Offline on Phone)
+ Date:  2026-10-31 12:14:07
+================================================================================
+
+QUESTION 1:
+Explain DBMS.
+--------------------------------------------------------------------------------
+A Data Management System (DBMS) is a software tool designed to manage and control access to a database. It provides a user-friendly interface for users to input and retrieve data, and it ensures data integrity and security. DBMSs can be designed to manage a single database or a collection of databases. They play a crucial role in organizations by efficiently storing, organizing, and retrieving large amounts of data. Examples of common DBMSs include MySQL, Microsoft SQL Server, and Oracle Database. DBMSs are essential for modern business operations as they enable efficient data management and analysis.
+
+[Time: 22.7s]
+================================================================================
+
+QUESTION 2:
+What is Primary Key?
+--------------------------------------------------------------------------------
+A primary key is crucial for maintaining data integrity in a database. It helps in enforcing referential integrity by ensuring that each record has a unique identifier. This is particularly useful in a many-to-many relationship where one table may have many records that can be linked to another table through the primary key.
+
+In SQL, the most common syntax for defining a primary key is:
+```sql
+ALTER TABLE table_name
+ADD PRIMARY KEY (column1, column2, ...);
+```
+Here, `table_name` is the name of the table, and `column1, column2, ...` are the names of the columns in the primary key.
+
+Primary keys are often implemented using auto-incrementing integers or UUIDs to ensure uniqueness and improve performance. They are also used in database queries to filter and group data based on a specific record's identity.
+
+[Time: 23s]
+================================================================================
+
+QUESTION 3:
+Explain Foreign Key with an example.
+--------------------------------------------------------------------------------
+In this example, the Foreign Key is the authorID field in the Books table, which references the authorID field in the Authors table. The primary key of the Authors table is used to ensure that the relationship is valid and that no data is lost when deleting an author.
+
+[Time: 38.8s]
+================================================================================
+
+QUESTION 4:
+What is Normalization?
+--------------------------------------------------------------------------------
+Normalization is a database design technique used to minimize inconsistencies and data redundancy in a relational database. The goal of normalization is to organize data in tables in a way that satisfies the first three normal forms (1NF, 2NF, 3NF). Normalization helps to improve the efficiency of database operations and ensures data integrity by eliminating inconsistencies and redundant data.
+
+Normalization can be broken down into three main levels:
+
+1. First Normal Form (1NF): This is the simplest form where each table contains atomic (i.e., indivisible) data. Atomic data should not be broken down further. For example, a table for customer orders should not have columns for order ID, order date, and order amount; instead, it should have a single column for the order ID.
+
+2. Second Normal Form (2NF): This level requires that all non-key columns in a table are dependent on the entire key. In other words, each column should be directly related to the primary key. This helps in reducing data redundancy and improving data integrity.
+
+3. Third Normal Form (3NF): This level requires that no data is stored in a table that is not dependent on the primary key. It further eliminates transitive dependencies and ensures that the data is normalized beyond the first two normal forms.
+
+By applying normalization techniques, databases can be structured in a way that minimizes redundancy, ensures data consistency, and improves performance. This is crucial for large-scale databases as it helps in managing large volumes of data efficiently.
+
+[Time: 34.1s]
+================================================================================

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_rounded"
+    android:padding="22dp"
+    android:gravity="center_horizontal">
+
+    <!-- Flashing Emergency Banner Header -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[SOS]"
+            android:textColor="@color/danger_red"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CRITICAL SOS ALERT"
+            android:textColor="@color/danger_red"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:letterSpacing="0.04"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Incoming distress signal received via Offline Mesh"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <!-- Peer & Details Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_rounded"
+        android:backgroundTint="#15EF4444"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <!-- Victim / Caller Name -->
+        <TextView
+            android:id="@+id/tvIncomingSosSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peer: Unknown"
+            android:textColor="@color/danger_red"
+            android:textSize="17sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold" />
+
+        <!-- Hop distance -->
+        <TextView
+            android:id="@+id/tvIncomingSosHops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Distance: 1 Hop (Direct BLE Range)"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Emergency Details -->
+        <TextView
+            android:id="@+id/tvIncomingSosDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Immediate emergency assistance required!"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp" />
+
+        <!-- GPS Coordinates -->
+        <TextView
+            android:id="@+id/tvIncomingSosCoords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="GPS: Lat 23.0225, Lng 72.5714"
+            android:textColor="@color/primary_dark"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSosViewRadar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="18dp"
+        android:text="VIEW ON RADAR / MAP"
+        android:textColor="@color/text_white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:backgroundTint="@color/primary"
+        app:elevation="3dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSosCallPeer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:text="CALL PEER VIA P2P MESH"
+        android:textColor="@color/text_white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:backgroundTint="@color/accent"
+        app:elevation="2dp" />
+
+    <TextView
+        android:id="@+id/btnSosDismiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Mute Alarm &amp; Dismiss"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="6dp" />
+
+</LinearLayout>

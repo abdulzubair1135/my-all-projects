@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 3D Offset Shadow Extrusion under the Shield -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M57,20 L89,32 C89,68 57,94 57,94 C57,94 25,68 25,32 Z" />
+
+    <!-- Pure White Shield Base with Solid Black Border -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#000000"
+        android:strokeWidth="3.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M54,16 L86,28 C86,64 54,90 54,90 C54,90 22,64 22,28 Z" />
+
+    <!-- Inner Bold Crimson Red Shield Core -->
+    <path
+        android:fillColor="#DC2626"
+        android:strokeColor="#000000"
+        android:strokeWidth="1.8"
+        android:pathData="M54,23 L79,33 C79,60 54,82 54,82 C54,82 29,60 29,33 Z" />
+
+    <!-- Central Crisp White Security Lock & Cross -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#000000"
+        android:strokeWidth="1.2"
+        android:pathData="M51,36 h6 v13 h13 v6 h-13 v13 h-6 v-13 h-13 v-6 h13 z" />
+
+    <!-- Pure Black Center Focal Dot -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M51.5,46.5 h5 v5 h-5 z" />
+</vector>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Emergency Recorder</string>
+    <string name="accessibility_service_label">Emergency Recorder Hardware Trigger</string>
+    <string name="accessibility_service_description">Enables the emergency shortcut by detecting double-press of the physical Volume Down button to start and stop recordings even when the app is closed. This service only monitors the Volume Down key and does NOT read screen content, keystrokes, or personal data.</string>
+
+    <string name="notification_channel_name">Emergency Recording Service</string>
+    <string name="notification_channel_description">Displays persistent notification while an emergency audio recording is active.</string>
+    <string name="notification_title">Emergency Recorder</string>
+    <string name="notification_recording_text">Emergency audio recording in progress…</string>
+    <string name="notification_action_stop">Stop Recording</string>
+
+    <string name="tile_label">Emergency Rec</string>
+
+    <!-- UI Strings -->
+    <string name="status_ready">Ready</string>
+    <string name="status_permission_required">Permission Required</string>
+    <string name="status_enabled">Enabled</string>
+    <string name="status_disabled">Disabled</string>
+    <string name="status_recording">RECORDING</string>
+    <string name="status_not_recording">Not Recording</string>
+
+    <string name="btn_enable_shortcut">Enable Emergency Shortcut</string>
+    <string name="btn_test_shortcut">Test Emergency Button</string>
+    <string name="btn_history">Recording History</string>
+    <string name="btn_settings">Settings</string>
+</resources>

@@ -1,0 +1,12 @@
+{
+  "server_url": "http://192.168.43.1:8800",
+  "auth_token": "",
+  "timeout_seconds": 300,
+  "max_retries": 3,
+  "retry_delay_seconds": 2,
+  "temperature": 0.6,
+  "max_tokens": 2048,
+  "output_file": "answer.txt",
+  "copy_to_clipboard": true,
+  "include_thought_in_answer": false
+}

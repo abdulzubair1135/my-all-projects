@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:fitsSystemWindows="true">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:elevation="3dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btnMapBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="#1E293B"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disaster &amp; Safety Map"
+                android:textColor="#0F172A"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMapSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Real-time GPS • In-App Navigation"
+                android:textColor="#64748B"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvGpsLivePill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="● LIVE GPS"
+            android:textColor="#16A34A"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:background="#DCFCE7"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp" />
+    </LinearLayout>
+
+    <!-- Filter Buttons Bar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:scrollbars="none"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFilterAll"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="All Active"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#E53935"
+                app:cornerRadius="17dp"
+                android:layout_marginEnd="6dp" />
+
+            <Button
+                android:id="@+id/btnFilterShelters"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="🏕️ Safe Shelters"
+                android:textSize="11sp"
+                android:textColor="#0F172A"
+                android:backgroundTint="#F1F5F9"
+                app:cornerRadius="17dp"
+                android:layout_marginEnd="6dp" />
+
+            <Button
+                android:id="@+id/btnFilterHospitals"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="🏥 Hospitals"
+                android:textSize="11sp"
+                android:textColor="#0F172A"
+                android:backgroundTint="#F1F5F9"
+                app:cornerRadius="17dp"
+                android:layout_marginEnd="6dp" />
+
+            <Button
+                android:id="@+id/btnFilterHazards"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="⚠️ Hazards"
+                android:textSize="11sp"
+                android:textColor="#0F172A"
+                android:backgroundTint="#F1F5F9"
+                app:cornerRadius="17dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Map Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <WebView
+            android:id="@+id/wvDisasterMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Floating GPS Center Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabRecenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:src="@android:drawable/ic_menu_mylocation"
+            app:tint="#FFFFFF"
+            app:backgroundTint="#E53935"
+            app:fabSize="normal"
+            android:contentDescription="Re-center" />
+    </FrameLayout>
+</LinearLayout>

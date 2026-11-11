@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus MeshLink — Official 3D Presentation Deck (No Logo)</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-dark: #0b0f19;
+    --glass-bg: rgba(23, 32, 51, 0.94);
+    --glass-border: rgba(226, 232, 240, 0.45);
+    --silver-light: #f8fafc;
+    --silver-mid: #e2e8f0;
+    --silver-dark: #a0aec0;
+    --emerald: #22c55e;
+    --emerald-glow: rgba(34, 197, 94, 0.5);
+    --shadow-3d: 14px 14px 40px rgba(0, 0, 0, 0.8), -6px -6px 20px rgba(255, 255, 255, 0.05), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-weight: 800 !important; }
+  body, html {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--bg-dark);
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff;
+  }
+
+  #bgCanvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .presentation-container {
+    position: relative;
+    width: 100%; height: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide {
+    position: absolute;
+    width: 94vw;
+    max-width: 1380px;
+    height: 88vh;
+    max-height: 780px;
+    background: var(--glass-bg);
+    border: 2.5px solid var(--glass-border);
+    backdrop-filter: blur(30px);
+    border-radius: 28px;
+    padding: 35px 45px;
+    box-shadow: var(--shadow-3d);
+    opacity: 0;
+    transform: scale(0.92) translateY(40px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Header Bar */
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.5px solid rgba(226, 232, 240, 0.25);
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+  }
+
+  .slide-title {
+    font-size: 30px;
+    font-weight: 900 !important;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  }
+
+  .badge-3d {
+    background: linear-gradient(135deg, var(--emerald), #16a34a);
+    color: #0b0f19;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 900 !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 18px var(--emerald-glow), inset 0 1px 1px #ffffff;
+  }
+
+  /* Content Layouts */
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 22px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .card-3d {
+    background: rgba(11, 15, 25, 0.92);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: var(--shadow-3d);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .card-3d:hover {
+    border-color: var(--emerald);
+    transform: translateY(-4px);
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: 900 !important;
+    color: var(--emerald);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-list {
+    list-style: none;
+  }
+  .card-list li {
+    font-size: 20px;
+    color: var(--silver-light);
+    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 24px;
+    font-weight: 800 !important;
+  }
+  .card-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    color: var(--emerald);
+    font-size: 18px;
+    font-weight: 900 !important;
+  }
+
+  /* Flowchart Container */
+  .flow-panel-3d {
+    background: rgba(11, 15, 25, 0.95);
+    border: 2.5px solid var(--emerald);
+    border-radius: 20px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-3d), inset 0 0 30px rgba(34, 197, 94, 0.2);
+  }
+
+  .flow-node-3d {
+    background: var(--glass-bg);
+    border: 2.5px solid var(--emerald);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 180px;
+    box-shadow: var(--shadow-3d);
+    position: relative;
+    z-index: 2;
+  }
+  .flow-node-3d .node-title {
+    font-size: 20px;
+    font-weight: 900 !important;
+    color: var(--emerald);
+  }
+  .flow-node-3d .node-sub {
+    font-size: 14px;
+    color: var(--silver-mid);
+    margin-top: 6px;
+    font-weight: 800 !important;
+  }
+
+  .flow-line-3d {
+    height: 4px;
+    flex: 1;
+    background: linear-gradient(90deg, var(--emerald), var(--silver-light));
+    position: relative;
+    margin: 0 14px;
+    border-radius: 3px;
+  }
+  .flow-line-3d::after {
+    content: "";
+    position: absolute;
+    top: -5px; left: 0;
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 18px #ffffff;
+    animation: flowPulse3d 2s infinite linear;
+  }
+  @keyframes flowPulse3d {
+    0% { left: 0%; opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  /* Stat Counter Box */
+  .stat-card-3d {
+    background: rgba(11, 15, 25, 0.95);
+    border: 2.5px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: var(--shadow-3d);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .stat-num-3d {
+    font-size: 56px;
+    font-weight: 900 !important;
+    color: var(--emerald);
+    text-shadow: 0 0 25px var(--emerald-glow);
+  }
+  .stat-lbl-3d {
+    font-size: 16px;
+    font-weight: 800 !important;
+    color: #ffffff;
+    margin-top: 8px;
+  }
+
+  /* Navigation Footer */
+  .controls-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: rgba(11, 15, 25, 0.95);
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 2.5px solid var(--glass-border);
+    box-shadow: var(--shadow-3d);
+  }
+  .btn-nav {
+    background: var(--glass-bg);
+    border: 2px solid var(--emerald);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 900 !important;
+    font-size: 15px;
+    transition: all 0.2s ease;
+  }
+  .btn-nav:hover {
+    background: var(--emerald);
+    color: #0b0f19;
+    box-shadow: 0 0 25px var(--emerald-glow);
+  }
+
+  .slide-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: var(--emerald);
+    font-weight: 900 !important;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<div class="presentation-container">
+
+  <!-- SLIDE 1: COVER (NO LOGO AT ALL) -->
+  <div class="slide active" id="slide-1">
+    <div style="text-align:center; margin: auto;">
+      <div class="badge-3d" style="display:inline-block; margin-bottom: 20px;">TECHNICAL PRESENTATION</div>
+      <h1 style="font-size: 60px; font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; color: #ffffff; text-shadow: 0 4px 25px rgba(0,0,0,0.7);">NEXUS MESHLINK</h1>
+      <p style="font-size: 26px; font-weight: 800; color: var(--emerald); margin-bottom: 35px; text-shadow: 0 0 20px var(--emerald-glow);">Off-Grid P2P Mesh Communication Suite — Phase 2 & Phase 3</p>
+      
+      <div style="background: rgba(11, 15, 25, 0.95); border: 2.5px solid var(--glass-border); padding: 25px 55px; border-radius: 24px; display: inline-block; box-shadow: var(--shadow-3d);">
+        <p style="font-size: 15px; color: var(--silver-dark); font-weight: 900; letter-spacing: 2px; margin-bottom: 8px;">PROJECT PRESENTER</p>
+        <p style="font-size: 30px; font-weight: 900; color: #ffffff;">Shaikh Abdul Zubair Abdul Kabir</p>
+        <p style="font-size: 17px; color: var(--silver-mid); margin-top: 6px; font-weight: 800;">SRK Institute of Management and Computer Application</p>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 20px; margin-top: 35px;">
+        <div class="badge-3d" style="background: rgba(34, 197, 94, 0.25); border: 2px solid var(--emerald); color: #fff;">Off-Grid Mesh</div>
+        <div class="badge-3d" style="background: rgba(255, 255, 255, 0.15); border: 2px solid var(--silver-light); color: #fff;">720p UDP Streaming</div>
+        <div class="badge-3d" style="background: rgba(34, 197, 94, 0.25); border: 2px solid var(--emerald); color: #fff;">RuVNet 3D Radar</div>
+        <div class="badge-3d" style="background: rgba(255, 255, 255, 0.15); border: 2px solid var(--silver-light); color: #fff;">RSA + AES Security</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: PROBLEM STATEMENT -->
+  <div class="slide" id="slide-2">
+    <div class="slide-header">
+      <div class="slide-title">02. Executive Problem Statement & Mesh Vision</div>
+      <div class="badge-3d">EXECUTIVE SUMMARY</div>
+    </div>
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #ffffff;">The Off-Grid Crisis</div>
+        <ul class="card-list">
+          <li><strong>Cellular Grid Collapse:</strong> Disasters & power blackouts destroy phone towers completely.</li>
+          <li><strong>Cloud App Shutdown:</strong> WhatsApp & Telegram freeze without active cloud servers.</li>
+          <li><strong>Proximity Isolation:</strong> Mobile phones 10m apart cannot talk without cell towers.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald);">
+        <div class="card-title">The Nexus Solution</div>
+        <ul class="card-list">
+          <li><strong>100% Serverless & Zero SIM:</strong> Pure P2P radio communication (Wi-Fi Direct & BLE 5.0).</li>
+          <li><strong>Dynamic Multi-Hop Relay:</strong> Mobile phones automatically relay encrypted packets.</li>
+          <li><strong>Full Off-Grid Suite:</strong> Text Chat, Voice, 720p Video Calls & RuVNet 3D Radar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: PHASE 2 FLOWCHART -->
+  <div class="slide" id="slide-3">
+    <div class="slide-header">
+      <div class="slide-title">03. Phase 2: Multi-Hop Gossip Routing Flowchart</div>
+      <div class="badge-3d">PHASE 2 CORE</div>
+    </div>
+    
+    <div class="flow-panel-3d">
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Device A</div>
+        <div class="node-sub">Gen Packet ID<br>Set TTL = 5</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">Relay Node B</div>
+        <div class="node-sub">De-duplicate Check<br>Forward Packet</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">Relay Node C</div>
+        <div class="node-sub">Decrement TTL<br>Broadcast Mesh</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Target Device D</div>
+        <div class="node-sub">Match Target MAC<br>Decrypt Payload</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title">Dynamic Peer Discovery</div>
+        <ul class="card-list">
+          <li>Hybrid Wi-Fi Direct P2P scan & Bluetooth LE 5.0 beaconing.</li>
+          <li>NSD (mDNS) auto-resolves local mesh IP endpoints.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">Store-and-Forward Engine</div>
+        <ul class="card-list">
+          <li>Unique Packet Hash ID prevents infinite network loops.</li>
+          <li>Store-and-Forward Queue buffers packets until peer is in range.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: PHASE 3 VOICE/VIDEO -->
+  <div class="slide" id="slide-4">
+    <div class="slide-header">
+      <div class="slide-title">04. Phase 3: P2P Voice & 720p Video UDP Engine</div>
+      <div class="badge-3d">PHASE 3 CORE</div>
+    </div>
+
+    <div class="flow-panel-3d">
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Camera / Mic</div>
+        <div class="node-sub">720p @ 30FPS<br>16kHz PCM Audio</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: var(--silver-light);">
+        <div class="node-title" style="color: var(--silver-light);">MediaCodec</div>
+        <div class="node-sub">H.264 Video Encode<br>Opus Compression</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">UDP Socket</div>
+        <div class="node-sub">Voice Port: 50005<br>Video Port: 50006</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">SurfaceView</div>
+        <div class="node-sub">Sub-100ms Render<br>Zero Lag Buffer</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="stat-card-3d" style="grid-column: span 4;">
+        <div class="stat-num-3d">&lt; 50 ms</div>
+        <div class="stat-lbl-3d">Voice Socket Latency</div>
+      </div>
+      <div class="stat-card-3d" style="grid-column: span 4; border-color: var(--emerald);">
+        <div class="stat-num-3d">720p</div>
+        <div class="stat-lbl-3d">H.264 Hardware Stream</div>
+      </div>
+      <div class="stat-card-3d" style="grid-column: span 4;">
+        <div class="stat-num-3d" style="color: #fff;">Port 50005/6</div>
+        <div class="stat-lbl-3d">Dedicated UDP Sockets</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: RUVNET RADAR -->
+  <div class="slide" id="slide-5">
+    <div class="slide-header">
+      <div class="slide-title">05. RuVNet Wi-Fi Wave Sensing 3D Radar</div>
+      <div class="badge-3d">AI SENSING</div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald);">
+        <div class="card-title">Wave Sensing Technology</div>
+        <ul class="card-list">
+          <li><strong>Camera-Free Detection:</strong> Detects human presence through walls & darkness without cameras.</li>
+          <li><strong>Signal Disturbance Analysis:</strong> Measures multipath Wi-Fi signal reflections caused by body movement.</li>
+          <li><strong>Disaster Search & Rescue:</strong> Locates trapped victims in rubble while preserving 100% privacy.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">3D Radar Pipeline</div>
+        <ul class="card-list">
+          <li><strong>1. Emission:</strong> 2.4GHz / 5GHz Wi-Fi radio wave propagation.</li>
+          <li><strong>2. Perturbation:</strong> Motion induces phase shifts & wave reflections.</li>
+          <li><strong>3. Extraction:</strong> Algorithmic extraction of Doppler variance.</li>
+          <li><strong>4. Render:</strong> X, Y, Z coordinates plotted on tactical radar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: UI RATIONALE -->
+  <div class="slide" id="slide-6">
+    <div class="slide-header">
+      <div class="slide-title">06. UI Design & Emerald Green (#16A34A) Rationale</div>
+      <div class="badge-3d">UI SYSTEM</div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald);">
+        <div class="card-title">Emerald Green Rationale</div>
+        <ul class="card-list">
+          <li><strong>High Sunlight Contrast:</strong> Emerald green wavelengths offer optimal outdoor daylight legibility.</li>
+          <li><strong>Night Rescue Visibility:</strong> Low eye strain during night rescue operations vs harsh white light.</li>
+          <li><strong>OLED Power Efficiency:</strong> Deep slate (#0F172A) backdrop saves up to 35% AMOLED battery.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">App UI Architecture</div>
+        <ul class="card-list">
+          <li><strong>Mesh Navigation Bar:</strong> Quick toggles between Mesh Chat, Calls, RuVNet Radar & SOS Suite.</li>
+          <li><strong>Status Header:</strong> Real-time peer counter & Wi-Fi Direct state.</li>
+          <li><strong>Call Control Overlay:</strong> Floating video feed preview with live latency readout.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: TECH STACK -->
+  <div class="slide" id="slide-7">
+    <div class="slide-header">
+      <div class="slide-title">07. Technical Stack & API Breakdown</div>
+      <div class="badge-3d">TECH STACK</div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 3;">
+        <div class="card-title">Android P2P</div>
+        <ul class="card-list">
+          <li>Android SDK 34</li>
+          <li>Kotlin Coroutines</li>
+          <li>WifiP2pManager</li>
+          <li>NSD (mDNS)</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 3;">
+        <div class="card-title" style="color: #fff;">Media Stream</div>
+        <ul class="card-list">
+          <li>Camera2 API</li>
+          <li>MediaCodec H.264</li>
+          <li>AudioRecord PCM</li>
+          <li>AudioTrack Render</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 3;">
+        <div class="card-title">Networking</div>
+        <ul class="card-list">
+          <li>DatagramSocket UDP</li>
+          <li>ServerSocket TCP</li>
+          <li>NanoHTTPD Server</li>
+          <li>NIO ByteBuffers</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 3;">
+        <div class="card-title" style="color: #fff;">Security</div>
+        <ul class="card-list">
+          <li>RSA-2048 KeyPair</li>
+          <li>Cipher AES-256</li>
+          <li>SHA-256 Digest</li>
+          <li>Base64 Armor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: CRYPTOGRAPHY -->
+  <div class="slide" id="slide-8">
+    <div class="slide-header">
+      <div class="slide-title">08. Zero-Trust Cryptography & End-to-End Security</div>
+      <div class="badge-3d">SECURITY</div>
+    </div>
+
+    <div class="flow-panel-3d">
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Plaintext Data</div>
+        <div class="node-sub">Outgoing Message</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">AES-256 GCM</div>
+        <div class="node-sub">Symmetric Encrypt<br>Auth Tag Gen</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">RSA-2048</div>
+        <div class="node-sub">Encrypt Session Key<br>with Recipient Public Key</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">Decryption</div>
+        <div class="node-sub">Recipient Private Key<br>Unwraps Payload</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald);">
+        <div class="card-title">Key Exchange</div>
+        <ul class="card-list">
+          <li>Zero Central Server: Keys exchanged peer-to-peer during node discovery.</li>
+          <li>Ephemeral Session Keys: AES keys refresh every session for privacy.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">Packet Protection</div>
+        <ul class="card-list">
+          <li>GCM Auth Tag detects packet modifications in transit.</li>
+          <li>SHA-256 signatures reject fake packet injections.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: SOS BROADCAST -->
+  <div class="slide" id="slide-9">
+    <div class="slide-header">
+      <div class="slide-title">09. Emergency SOS Broadcast & Survival Suite</div>
+      <div class="badge-3d">SURVIVAL</div>
+    </div>
+
+    <div class="flow-panel-3d">
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">1-Tap SOS</div>
+        <div class="node-sub">Victim Phone Trigger</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">Mesh Broadcast</div>
+        <div class="node-sub">Omnidirectional Relay<br>Bypasses Hop Limits</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Nearby Nodes</div>
+        <div class="node-sub">Displays Alert Popup<br>On Every Phone</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">Rescue Beacon</div>
+        <div class="node-sub">Acoustic Audio Siren<br>Morse Camera Strobe</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">Acoustic Audio Siren</div>
+        <ul class="card-list">
+          <li>Generates 2.5kHz - 4kHz acoustic tone for rescue pinpointing.</li>
+          <li>Overrides silent mode via STREAM_ALARM audio channel.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald);">
+        <div class="card-title">Optical Morse Code Strobe</div>
+        <ul class="card-list">
+          <li>Pulses hardware camera LED flash in SOS pattern (... --- ...).</li>
+          <li>Attaches last known GPS location to outgoing SOS mesh packet.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: AIR-GAPPED WEB SERVER -->
+  <div class="slide" id="slide-10">
+    <div class="slide-header">
+      <div class="slide-title">10. Air-Gapped Local Web Server & APK Sharing</div>
+      <div class="badge-3d">DISTRIBUTION</div>
+    </div>
+
+    <div class="flow-panel-3d">
+      <div class="flow-node-3d">
+        <div class="node-title">Host Device</div>
+        <div class="node-sub">NanoHTTPD Server<br>Port 8080 Active</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Wi-Fi Hotspot</div>
+        <div class="node-sub">Zero Internet<br>IP: 192.168.49.1</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d" style="border-color: #fff;">
+        <div class="node-title" style="color: #fff;">Peer Browser</div>
+        <div class="node-sub">Opens 192.168.49.1:8080</div>
+      </div>
+      <div class="flow-line-3d"></div>
+      <div class="flow-node-3d">
+        <div class="node-title">1-Click Install</div>
+        <div class="node-sub">Direct APK Download</div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald);">
+        <div class="card-title">Off-Grid Distribution</div>
+        <ul class="card-list">
+          <li>Distributes app package in disaster zones without Google Play Store.</li>
+          <li>NanoHTTPD server footprint under 100KB embedded inside APK.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">QR Code Hotspot Join</div>
+        <ul class="card-list">
+          <li>Host screen displays QR code for instant zero-password Wi-Fi connection.</li>
+          <li>Equips surrounding crowd with app in under 60 seconds.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: BENCHMARKS -->
+  <div class="slide" id="slide-11">
+    <div class="slide-header">
+      <div class="slide-title">11. Real-World Field Performance Benchmarks</div>
+      <div class="badge-3d">BENCHMARKS</div>
+    </div>
+
+    <div class="content-grid">
+      <div class="stat-card-3d" style="grid-column: span 3; border-color: var(--emerald);">
+        <div class="stat-num-3d">99.4%</div>
+        <div class="stat-lbl-3d">Delivery Success Rate</div>
+      </div>
+      <div class="stat-card-3d" style="grid-column: span 3;">
+        <div class="stat-num-3d" style="color: #fff;">&lt; 50 ms</div>
+        <div class="stat-lbl-3d">Direct Voice UDP Latency</div>
+      </div>
+      <div class="stat-card-3d" style="grid-column: span 3; border-color: var(--emerald);">
+        <div class="stat-num-3d">150 m</div>
+        <div class="stat-lbl-3d">Max Direct Hop Range</div>
+      </div>
+      <div class="stat-card-3d" style="grid-column: span 3;">
+        <div class="stat-num-3d" style="color: #fff;">0.0 KB</div>
+        <div class="stat-lbl-3d">External Cloud Data</div>
+      </div>
+
+      <div class="card-3d" style="grid-column: span 6; margin-top: 10px;">
+        <div class="card-title">Field Test Environments</div>
+        <ul class="card-list">
+          <li><strong>Underground Basement Test:</strong> Verified voice & text relay through concrete slabs without cell signal.</li>
+          <li><strong>Urban Obstacle Test:</strong> Tested 3-hop relay across masonry walls.</li>
+        </ul>
+      </div>
+      <div class="card-3d" style="grid-column: span 6; margin-top: 10px; border-color: var(--emerald);">
+        <div class="card-title">Battery & Memory Efficiency</div>
+        <ul class="card-list">
+          <li><strong>OLED Dark Slate UI:</strong> Saves up to 35% battery during continuous use.</li>
+          <li><strong>Low RAM Footprint:</strong> Runs smoothly on budget Android phones with 2GB RAM.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 12: ROADMAP & CONCLUSION -->
+  <div class="slide" id="slide-12">
+    <div class="slide-header">
+      <div class="slide-title">12. Phase 4 Roadmap & Project Conclusion</div>
+      <div class="badge-3d">CONCLUSION</div>
+    </div>
+
+    <div class="content-grid">
+      <div class="card-3d" style="grid-column: span 6;">
+        <div class="card-title" style="color: #fff;">Phase 4 Roadmap</div>
+        <ul class="card-list">
+          <li><strong>AI Smart Mesh Routing:</strong> Predictive link quality estimation via ML.</li>
+          <li><strong>LoRa Hardware Bridge:</strong> 868/915MHz LoRa integration for 10km+ hops.</li>
+          <li><strong>3D Point-Cloud Visualizer:</strong> Upgrading wave sensing to full spatial 3D render.</li>
+        </ul>
+      </div>
+
+      <div class="card-3d" style="grid-column: span 6; border-color: var(--emerald); display: flex; flex-direction: column; justify-content: center; text-align: center;">
+        <h3 style="font-size: 28px; font-weight: 900; color: var(--emerald); margin-bottom: 16px;">PROJECT CONCLUSION</h3>
+        <p style="font-size: 19px; color: #ffffff; line-height: 1.6; margin-bottom: 22px; font-weight: 800;">
+          Nexus MeshLink proves that high-performance, decentralized, and serverless communication is fully achievable using existing consumer mobile hardware during critical off-grid emergencies.
+        </p>
+        <p style="font-size: 22px; font-weight: 900; color: var(--emerald);">Thank You! Questions & Discussion</p>
+        <p style="font-size: 15px; color: var(--silver-dark); margin-top: 8px; font-weight: 800;">Presenter: Shaikh Abdul Zubair Abdul Kabir | SRK Institute</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="controls-footer">
+  <button class="btn-nav" onclick="prevSlide()">◀ PREV</button>
+  <span class="slide-counter"><span id="currSlide">1</span> / <span id="totalSlides">12</span></span>
+  <button class="btn-nav" onclick="nextSlide()">NEXT ▶</button>
+</div>
+
+<script>
+  let currentSlide = 1;
+  const totalSlides = 12;
+
+  function showSlide(index) {
+    document.querySelectorAll('.slide').forEach((s, idx) => {
+      s.classList.remove('active');
+      if (idx === index - 1) {
+        s.classList.add('active');
+      }
+    });
+    document.getElementById('currSlide').innerText = index;
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides) {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 1) {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let width, height, particles = [];
+
+  function initCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    particles = [];
+    for(let i=0; i<70; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.7,
+        vy: (Math.random() - 0.5) * 0.7,
+        r: Math.random() * 2.8 + 1.5
+      });
+    }
+  }
+
+  function drawCanvas() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = 'rgba(34, 197, 94, 0.55)';
+    ctx.strokeStyle = 'rgba(226, 232, 240, 0.14)';
+
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        let p2 = particles[j];
+        let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+        if (dist < 140) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+    });
+    requestAnimationFrame(drawCanvas);
+  }
+
+  window.addEventListener('resize', initCanvas);
+  initCanvas();
+  drawCanvas();
+</script>
+</body>
+</html>

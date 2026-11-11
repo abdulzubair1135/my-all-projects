@@ -1,0 +1,13 @@
+<resources>
+    <style name="Theme.PornController" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/charcoal_bg</item>
+        <item name="android:navigationBarColor">@color/charcoal_bg</item>
+        <item name="android:windowBackground">@color/charcoal_bg</item>
+    </style>
+
+    <style name="Theme.PornController.Intervention" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/charcoal_bg</item>
+        <item name="android:statusBarColor">@color/charcoal_bg</item>
+        <item name="android:navigationBarColor">@color/charcoal_bg</item>
+    </style>
+</resources>

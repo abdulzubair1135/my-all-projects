@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_modern"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:elevation="12dp">
+
+    <TextView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:text="⚠️"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:background="@drawable/bg_avatar_circle"
+        android:backgroundTint="#FEF2F2" />
+
+    <TextView
+        android:id="@+id/tvDangerDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wipe All MeshLink Data?"
+        android:textColor="@color/danger_red"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_marginTop="14dp" />
+
+    <TextView
+        android:id="@+id/tvDangerDialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This will delete all offline messages, cryptographic identity keys, and contact list. This action cannot be undone."
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:layout_marginTop="8dp" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="22dp">
+
+        <Button
+            android:id="@+id/btnDangerCancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/text_secondary"
+            android:background="@drawable/bg_pill_soft"
+            android:backgroundTint="#F3F4F6"
+            android:layout_marginEnd="8dp"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <Button
+            android:id="@+id/btnDangerConfirm"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Wipe Data"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/bg_pill_soft"
+            android:backgroundTint="@color/danger_red"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+</LinearLayout>

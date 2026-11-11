@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Life Vault</string>
+    <string name="dashboard_title">PERSONAL LIFE VAULT</string>
+    <string name="server_title">SERVER</string>
+    <string name="connected">CONNECTED</string>
+    <string name="disconnected">OFFLINE</string>
+    <string name="last_sync">LAST SYNC</string>
+    <string name="pending_records">PENDING QUEUE</string>
+    <string name="sync_now">SYNCHRONIZE NOW</string>
+    <string name="auto_sync">AUTOMATIC SYNC</string>
+    <string name="wifi_only">WI-FI ONLY</string>
+    <string name="charging_only">CHARGING ONLY</string>
+    <string name="settings">SETTINGS</string>
+    <string name="vault">VAULT</string>
+    <string name="history">HISTORY</string>
+</resources>

@@ -1,0 +1,7 @@
+Explain DBMS.
+
+What is Primary Key?
+
+Explain Foreign Key with an example.
+
+What is Normalization?

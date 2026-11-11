@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#F8FAFC"
+    android:padding="18dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_badge_orange">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="📷"
+                android:textSize="20sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Report Disaster Incident"
+                android:textColor="#0F172A"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Field Intelligence &amp; Verified Crowdsource Grid"
+                android:textColor="#EA580C"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnReportClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="✕"
+            android:textColor="#64748B"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 5-Step Field Reporting Indicator (Section 11) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF7ED"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="7dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01 TYPE  ➔  02 PHOTO  ➔  03 GPS  ➔  04 DETAILS  ➔  05 TRANSMIT"
+            android:textColor="#EA580C"
+            android:textSize="9.5sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Step 1: Incident Type -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEP 1: SELECT HAZARD CLASSIFICATION"
+                android:textColor="#64748B"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spReportType"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_card_rounded"
+                android:paddingHorizontal="12dp" />
+
+            <!-- Step 2: Photo Attachment -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEP 2: FIELD PHOTO EVIDENCE (OPTIONAL)"
+                android:textColor="#64748B"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btnAttachReportPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="📷 CAPTURE / PICK PHOTO"
+                    android:textColor="#EA580C"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#FFF7ED" />
+
+                <ImageView
+                    android:id="@+id/ivReportPhotoPreview"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/bg_card_rounded"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvReportPhotoStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="No photo attached"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Step 3: Location Details -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEP 3: LOCATION PINNING"
+                android:textColor="#64748B"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/tvReportGpsLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EFF6FF"
+                android:padding="8dp"
+                android:layout_marginTop="4dp"
+                android:text="📍 GPS: Auto-detecting current high-accuracy coordinates..."
+                android:textColor="#1E40AF"
+                android:textSize="11sp" />
+
+            <!-- Step 4: Details & Severity -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEP 4: OBSERVATION DETAILS"
+                android:textColor="#64748B"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp" />
+
+            <EditText
+                android:id="@+id/etReportDescription"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="@drawable/bg_card_rounded"
+                android:gravity="top|start"
+                android:padding="10dp"
+                android:hint="Describe the incident (e.g., water level, blocked roads, trapped people)..."
+                android:textColor="#0F172A"
+                android:textColorHint="#94A3B8"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <!-- Offline Reassurance Notice -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🛡️ When the network fails, your report is securely persisted in local SQLite and relayed over BLE mesh until it reaches a connected gateway."
+                android:textColor="#64748B"
+                android:textSize="10sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Step 5: Submit -->
+            <Button
+                android:id="@+id/btnSubmitReport"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:text="🚨 TRANSMIT REPORT TO COMMAND CENTER"
+                android:textColor="#FFFFFF"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                android:backgroundTint="#EA580C" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
