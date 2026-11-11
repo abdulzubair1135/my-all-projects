@@ -1,0 +1,32 @@
+# Build & Dependency Artifacts
+node_modules/
+.next/
+.dart_tool/
+build/
+.gradle/
+bin/
+obj/
+*.dill
+*.apk
+*.zip
+*.tar.gz
+
+# IDE & OS Files
+.idea/
+.vscode/
+*.suo
+*.user
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs & Caches
+*.log
+__pycache__/
+*.pyc
+.cache/
+chrome_profile/
+deepseek_profile/
+browser_data/
+storage/downloads/
+pipeline_output/

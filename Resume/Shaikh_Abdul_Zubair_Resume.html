@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Shaikh Abdul Zubair Abdul Kabir (Complete Master Portfolio)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2b5c;
+      --primary-light: #1d4ed8;
+      --accent: #0284c7;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --border-color: #cbd5e1;
+      --bg-card: #f8fafc;
+      --tag-bg: #eff6ff;
+      --tag-text: #1e40af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      background-color: #f1f5f9;
+      line-height: 1.45;
+      font-size: 13px;
+      padding: 24px;
+    }
+
+    .resume-container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px 48px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .resume-container {
+        box-shadow: none;
+        padding: 16px 20px;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .project-card, .compact-card, .intern-box, .edu-item {
+        break-inside: avoid;
+      }
+    }
+
+    /* Action bar */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .print-btn {
+      background: var(--primary-light);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(29, 78, 216, 0.3);
+      transition: background 0.2s;
+    }
+    .print-btn:hover {
+      background: var(--primary);
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    h1.name {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+    .title-sub {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-top: 3px;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    .contact-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 18px;
+    }
+    h2.section-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3.cat-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1e40af;
+      background: #eff6ff;
+      padding: 5px 10px;
+      border-left: 3.5px solid #1e40af;
+      margin-top: 14px;
+      margin-bottom: 10px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      row-gap: 5px;
+      column-gap: 12px;
+      font-size: 12.5px;
+    }
+    .skill-cat {
+      font-weight: 700;
+      color: #334155;
+    }
+    .skill-list {
+      color: var(--text-main);
+    }
+
+    /* Internship Box */
+    .intern-box {
+      background: var(--bg-card);
+      border: 1px solid #e2e8f0;
+      border-left: 3.5px solid #059669;
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .intern-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 13px;
+      color: #0f172a;
+    }
+
+    /* Projects */
+    .project-card {
+      margin-bottom: 12px;
+      background: #ffffff;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+    .project-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .project-tech {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--primary-light);
+      font-style: italic;
+    }
+    ul.project-bullets {
+      padding-left: 18px;
+      margin-top: 3px;
+    }
+    ul.project-bullets li {
+      margin-bottom: 2.5px;
+      color: #374151;
+      font-size: 12.5px;
+    }
+    ul.project-bullets li strong {
+      color: #111827;
+    }
+
+    /* Compact project list for smaller utilities */
+    .compact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .compact-card {
+      background: var(--bg-card);
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+    .compact-card strong {
+      color: #0f172a;
+      display: block;
+      font-size: 12.5px;
+      margin-bottom: 2px;
+    }
+    .compact-card span.tech {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 11px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: var(--bg-card);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border-left: 3.5px solid var(--primary-light);
+    }
+    .edu-degree {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 13.5px;
+    }
+    .edu-college {
+      color: var(--text-muted);
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+    .edu-year {
+      font-weight: 700;
+      color: var(--primary-light);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar no-print">
+    <div style="font-weight: 600; color: #475569;">
+      📄 Complete Master Portfolio Resume (55+ Projects) — <strong>Shaikh Abdul Zubair</strong>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      🖨️ Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <!-- Header -->
+    <header>
+      <h1 class="name">Shaikh Abdul Zubair Abdul Kabir</h1>
+      <div class="title-sub">Full-Stack & Mobile Developer | Edge AI & Offline Mesh Systems Specialist</div>
+      <div class="contact-bar">
+        <span>📍 India</span>
+        <span>📧 <a href="mailto:abdulzubair221@gmail.com">abdulzubair221@gmail.com</a></span>
+        <span>🌐 <a href="https://github.com/abdulzubair1135" target="_blank">github.com/abdulzubair1135</a></span>
+        <span>🎓 BCA Final Year — SRK Institute (2026/2027)</span>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p style="color: #374151;">
+        High-velocity and versatile <strong>Software Developer & BCA Final Year Student</strong> at <strong>SRK Institute of Business Administration and Computer Education</strong>. Creator and architect of <strong>55+ end-to-end applications</strong> spanning Native Android, multi-app Flutter ecosystems, Full-Stack web platforms, Local Edge AI, and Game Engines (Unity 3D / Godot 4). Completed a dedicated <strong>Software Engineering Internship (50-day development track with 83.7%+ productive rating)</strong>. Proven track record in offline-first architectures, peer-to-peer mesh communications (BLE/Wi-Fi Direct), cryptographic verification (Ed25519), and browser automation agents.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <h2 class="section-title">Core Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-list">Java, Kotlin, Dart, Python, TypeScript, JavaScript, SQL, C#, C++, GDScript, C, HTML5/CSS3</div>
+
+        <div class="skill-cat">Mobile Development</div>
+        <div class="skill-list">Android Native (Java/Kotlin, Jetpack Compose, Coroutines, AccessibilityService, NanoHTTPD), Flutter (Multi-App Suites, SQLite, Dio), React Native</div>
+
+        <div class="skill-cat">Web & Backend</div>
+        <div class="skill-list">Node.js, Express.js, React 18, Vite, Tailwind CSS, REST APIs, WebSockets, Socket.IO, Leaflet.js, Monaco Editor, xterm.js</div>
+
+        <div class="skill-cat">AI & Edge Computing</div>
+        <div class="skill-list">Local LLMs (Llama, Ollama), Android On-Device Inference, PyTorch Custom Neural Networks, Agentic Loops (RAG, Autonomous Planners), Playwright Automation</div>
+
+        <div class="skill-cat">Databases & Cloud</div>
+        <div class="skill-list">Supabase (PostgreSQL), MongoDB, SQLite, Firebase (Firestore, Cloud Messaging FCM, Auth), Render Cloud</div>
+
+        <div class="skill-cat">Networking & Security</div>
+        <div class="skill-list">BLE (Bluetooth Low Energy), Wi-Fi Direct, P2P Mesh Routing, Ed25519 Cryptographic Signatures, Dynamic Nonce QR, PathGuard Sandbox</div>
+
+        <div class="skill-cat">Tools & Game Engines</div>
+        <div class="skill-list">Android Studio, VS Code, Visual Studio, Git/GitHub, Postman, Unity 3D (NavMesh, URP), Godot Engine 4, Arduino IDE, FFmpeg</div>
+      </div>
+    </section>
+
+    <!-- Experience / Internship -->
+    <section>
+      <h2 class="section-title">Work Experience & Internship</h2>
+      <div class="intern-box">
+        <div class="intern-header">
+          <span>Software Developer Intern — Full-Stack & Engineering</span>
+          <span style="color: #059669;">50 Calendar Days (83.72% Productive Efficiency Rate)</span>
+        </div>
+        <ul class="project-bullets" style="margin-top: 6px;">
+          <li>Contributed to end-to-end software module development, API integration, and architectural debugging across distributed codebases.</li>
+          <li>Engineered offline caching, database schema improvements, and frontend performance optimizations.</li>
+          <li>Collaborated across agile remote sprints with structured daily tracking, issue resolution, and system reporting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Complete Project Catalog -->
+    <section>
+      <h2 class="section-title">Complete Project Portfolio (All 55+ Projects)</h2>
+
+      <!-- CATEGORY 1 -->
+      <h3 class="cat-title">1. Campus, Enterprise & Full-Stack Systems</h3>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">SRK Campus Connect — Campus Presence & Faculty Coordination System</div>
+          <div class="project-tech">Flutter, Node.js, TypeScript, Express, MongoDB, Socket.IO, Ed25519</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Architected an <strong>offline-first campus ecosystem</strong> unifying 3 Flutter client applications (Student App, Faculty Dashboard, Admin Console) and a unified Node.js/TypeScript backend for SRK Institute.</li>
+          <li>Engineered <strong>dynamic 15-second rolling QR codes</strong> with rotating nonces and Ed25519 cryptographic signatures to eliminate proxy attendance and replay attacks.</li>
+          <li>Implemented an autonomous <strong>P2P peer-forwarding gateway election</strong> protocol allowing offline students to securely relay attendance packets through connected peers.</li>
+          <li>Built a multi-factor <strong>Presence Confidence Engine</strong> calculating weighted evidence scores (0–100%) using BLE proximity and cryptographic timestamps.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">ProjectFlow Intelligence — Enterprise Operations Platform</div>
+          <div class="project-tech">Node.js, Express, React 18, Tailwind CSS, Supabase PostgreSQL, Firebase FCM, Android</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Enterprise task intelligence platform deployed live on Render Cloud with Supabase PostgreSQL cloud persistence.</li>
+          <li>Integrated <strong>Firebase Cloud Messaging (FCM)</strong> for instantaneous push notification routing across web management consoles and native Android devices.</li>
+          <li>Engineered an offline-first synchronization engine ensuring zero data loss during unstable field network conditions.</li>
+        </ul>
+      </div>
+
+      <div class="compact-grid">
+        <div class="compact-card">
+          <strong>MasiPay (MasiCanteen)</strong>
+          <span class="tech">TypeScript, React Native (Android), Node.js, React Web</span>
+          College canteen digital ordering and live token lifecycle management platform for campus crowds.
+        </div>
+        <div class="compact-card">
+          <strong>Smart Expenses Tracker (divya)</strong>
+          <span class="tech">Android (Java/Kotlin), React.js Admin, Node.js, SQLite</span>
+          Offline-first personal finance tracker with expense categorization, monthly threshold alerts, and cloud sync.
+        </div>
+        <div class="compact-card">
+          <strong>Follow Or Not (follow or not app)</strong>
+          <span class="tech">React 18, Vite, TypeScript, Tailwind CSS</span>
+          Social audience analytics application tracking follower mutuals, unfollowers, and relationship metrics.
+        </div>
+        <div class="compact-card">
+          <strong>Full-Stack Social Network (js\socialmedia)</strong>
+          <span class="tech">React.js, Node.js, Express, MongoDB, WebSockets</span>
+          Complete social network platform with user profiles, photo feeds, live post interactions, and real-time chat.
+        </div>
+        <div class="compact-card">
+          <strong>Modular MVC Backend (js\backend)</strong>
+          <span class="tech">Node.js, Express, MongoDB, JWT Middleware</span>
+          Enterprise REST API architecture featuring modular controllers, authentication middleware, and validated schemas.
+        </div>
+        <div class="compact-card">
+          <strong>College Hub Portal (collage-hub)</strong>
+          <span class="tech">React.js, Node.js, WebSockets</span>
+          Campus collaboration hub for notes sharing, exam schedules, and inter-departmental notices.
+        </div>
+      </div>
+
+      <!-- CATEGORY 2 -->
+      <h3 class="cat-title">2. Offline-First, P2P Mesh & Native Android Systems</h3>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">AapdaSetu / NearMeshChat — Disaster Response & Offline Mesh Network</div>
+          <div class="project-tech">Android Native (Java), BLE Radar, Local Llama Edge AI, React.js, Express, Leaflet</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Engineered an emergency disaster communication network operating completely independent of active cellular towers or internet access.</li>
+          <li>Built an <strong>Android client featuring a real-time BLE Radar scanner</strong>, peer distance estimation, and mesh packet store-and-forward routing.</li>
+          <li>Integrated <strong>on-device local LLM edge inference (Llama)</strong> directly on Android to provide medical triage, survival guidance, and emergency response instructions without network connectivity.</li>
+          <li>Created a centralized <strong>Emergency Operations Command Web Dashboard</strong> with real-time incident mapping using Leaflet and bidirectional Socket.IO dispatch.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Nexus (MeshLinkOffline & PocketAI Server) — Edge AI HTTP Engine</div>
+          <div class="project-tech">Android Native (Kotlin/Java, 61 source files), Local AI Engine, NanoHTTPD</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Mobile edge-computing system hosting a local on-device HTTP microserver (<code>PocketAiHttpServer</code>) and an embedded AI inference engine.</li>
+          <li>Allows nearby devices on the local Wi-Fi/Hotspot network to query AI knowledge bases and retrieve computed answers without active internet connectivity.</li>
+        </ul>
+      </div>
+
+      <div class="compact-grid">
+        <div class="compact-card">
+          <strong>RecoverX (recover_apk)</strong>
+          <span class="tech">Native Android (Kotlin), Low-Level Storage APIs</span>
+          Deep storage explorer for forensics-informed file carving, deleted media recovery, and disk block inspection.
+        </div>
+        <div class="compact-card">
+          <strong>Couple Canvas (couple draw)</strong>
+          <span class="tech">Android Native (Kotlin), Node.js WebSockets</span>
+          Real-time dual-user collaborative drawing app with sub-50ms synchronized touch sketching and stroke vectorization.
+        </div>
+        <div class="compact-card">
+          <strong>Emergency Recorder (Fast Rec)</strong>
+          <span class="tech">Kotlin, Jetpack Compose, AudioRecord API</span>
+          Covert emergency audio recording utility with instant panic triggers, background operation, and encrypted storage.
+        </div>
+        <div class="compact-card">
+          <strong>Personal Life Vault (sthelp)</strong>
+          <span class="tech">Android Native, AES-256 Encryption, Node.js Daemon</span>
+          Hardware-backed encrypted vault for sensitive documents with stealth launch triggers and local PC synchronization.
+        </div>
+        <div class="compact-card">
+          <strong>P.RN Controller / Focus Guard</strong>
+          <span class="tech">Android Native, AccessibilityService, DevicePolicyManager</span>
+          Completely offline digital addiction blocker enforcing self-control policies with zero internet telemetry.
+        </div>
+        <div class="compact-card">
+          <strong>Z-Music Player</strong>
+          <span class="tech">Android Native (Kotlin), ExoPlayer, MediaSession</span>
+          High-fidelity music streaming and offline audio player with foreground background service and lock-screen controls.
+        </div>
+        <div class="compact-card">
+          <strong>myhelper & NearDrop Utilities</strong>
+          <span class="tech">Android Native, Wi-Fi Direct, mDNS</span>
+          Device cleanup analyzer identifying redundant cache files, and local zero-configuration wireless file drop utility.
+        </div>
+        <div class="compact-card">
+          <strong>Android Prototypes (MyApplication 1–4)</strong>
+          <span class="tech">Java / Kotlin, Android SDK, CameraX, Sensors</span>
+          Prototypes testing custom CameraX capture pipelines, sensor data fusion (gyroscope/accelerometer), and Room DB migrations.
+        </div>
+      </div>
+
+      <!-- CATEGORY 3 -->
+      <h3 class="cat-title">3. Autonomous AI Agents & Generative Media Studios</h3>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">Autonomous Web-Agent IDE — Local Natural-Language Software Generator</div>
+          <div class="project-tech">Python, React 18, TypeScript, Tailwind CSS, Monaco Editor, Playwright, xterm.js</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Built a local desktop IDE that transforms natural-language project requirements into full-stack, tested, and running code using web-based LLMs.</li>
+          <li>Created headless browser orchestration with <strong>Playwright to drive web LLMs</strong> without requiring commercial paid API keys.</li>
+          <li>Implemented <strong>PathGuard security sandbox</strong> preventing directory traversal and symlink attacks with strict SAFE/CAUTION/BLOCKED command policies.</li>
+          <li>Integrated multi-tab <strong>Monaco Editor</strong>, live terminal streaming via <strong>xterm.js</strong>, task graph DAG, and automated Git checkpointing with loop-breaking error recovery.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">AURA — Autonomous Local AI Research & Learning System</div>
+          <div class="project-tech">Python, Local LLMs, Vector Memory DB, Playwright, DuckDuckGo API</div>
+        </div>
+        <ul class="project-bullets">
+          <li>Designed a self-directed cognitive engine implementing a continuous <strong>Think → Plan → Execute → Verify → Reflect → Store</strong> loop.</li>
+          <li>Optimized for local consumer hardware (NVIDIA RTX 2050 4GB VRAM) for autonomous knowledge gap discovery using an internal "Curiosity Engine".</li>
+          <li>Built a multi-tier memory hierarchy (Semantic, Episodic, Procedural, and Skill Memory) with automated experimentation in sandboxed sub-processes.</li>
+        </ul>
+      </div>
+
+      <div class="compact-grid">
+        <div class="compact-card">
+          <strong>My Custom AI (my_ai)</strong>
+          <span class="tech">Python, PyTorch, Custom Tokenizer, NumPy</span>
+          Built and trained a custom neural language model from scratch (<code>train.py</code>, <code>chat.py</code>, custom tokenizer, embedding & attention layers).
+        </div>
+        <div class="compact-card">
+          <strong>AI Zubair LLM Research & Audit Suite</strong>
+          <span class="tech">Python, Google Colab, Jupyter Notebook, PyTorch</span>
+          Comprehensive LLM phase-1 training audits, hyperparameter benchmarks, and automated dataset inventory validation scripts.
+        </div>
+        <div class="compact-card">
+          <strong>My Helper Autonomous Agent</strong>
+          <span class="tech">Python, RAG Pipeline, Browser Automation</span>
+          Modular cognitive assistant with dedicated modules for brain routing, vector memory, RAG, and headless web research tools.
+        </div>
+        <div class="compact-card">
+          <strong>OmniDev AI System (ai)</strong>
+          <span class="tech">Python, SQLite Vector DB, Godot Engine CLI</span>
+          Autonomous software engineering agent with long-term memory capable of autonomously creating, testing, and debugging Godot games.
+        </div>
+        <div class="compact-card">
+          <strong>StickForge AI (stick man vid)</strong>
+          <span class="tech">Python, Generative AI, PIL, OpenCV, FFmpeg</span>
+          Automated animation pipeline converting scripts into stickman animations, synthesized speech, and video rendering.
+        </div>
+        <div class="compact-card">
+          <strong>AI Content Repurposing Studio</strong>
+          <span class="tech">Python, React 18, TypeScript, Whisper AI, FFmpeg</span>
+          Desktop studio converting long-form videos into high-retention 9:16 vertical shorts with automated caption timing and highlight detection.
+        </div>
+        <div class="compact-card" style="grid-column: span 2;">
+          <strong>Auto YT Generator (yt video maker)</strong>
+          <span class="tech">Python, Automated Asset Pipeline, FFmpeg</span>
+          Automated 2D production engine generating full 1080p animated YouTube videos from raw topic inputs with automated scene transitions.
+        </div>
+      </div>
+
+      <!-- CATEGORY 4 -->
+      <h3 class="cat-title">4. Game Development & Interactive Graphics (Godot & Unity Engines)</h3>
+
+      <div class="compact-grid">
+        <div class="compact-card">
+          <strong>Draw Your Army: WarForge (game 11)</strong>
+          <span class="tech">Godot Engine 4.6.2, GDScript</span>
+          Tactical RTS game combining freehand soldier sketching mechanics with real-time battlefield pathfinding and combat AI.
+        </div>
+        <div class="compact-card">
+          <strong>Minecraft 3D Block & Voxel Engine</strong>
+          <span class="tech">Godot Engine, GDScript, 3D Shaders</span>
+          3D voxel sandbox featuring procedural block placement, terrain generation, destruction physics, and player collision.
+        </div>
+        <div class="compact-card">
+          <strong>Full-Stack RPG Game Suite (game rpg)</strong>
+          <span class="tech">Godot Engine, GDScript</span>
+          Complete action RPG featuring character stats, combat state machines, enemy AI, inventory slots, and dungeon transitions.
+        </div>
+        <div class="compact-card">
+          <strong>Isekai World Adventure (iseaki_world)</strong>
+          <span class="tech">Godot Engine, GDScript</span>
+          Story-driven fantasy adventure game with interactive NPC dialog trees, quest progression, and world exploration.
+        </div>
+        <div class="compact-card">
+          <strong>Shadow Kingdom (shadow-kingdom)</strong>
+          <span class="tech">Godot Engine, GDScript, Pixel Art</span>
+          2D pixel-art dungeon adventure game featuring finite-state machines, custom tilemap collision physics, and enemy wave spawners.
+        </div>
+        <div class="compact-card">
+          <strong>Unity 3D FPS Game (My project / 1)</strong>
+          <span class="tech">Unity 3D, C#, NavMesh AI, URP</span>
+          First Person Shooter with NavMesh AI pathfinding, raycast shooting mechanics, particle impacts, and HUD overlay.
+        </div>
+        <div class="compact-card">
+          <strong>Slikj Water Physics Simulation</strong>
+          <span class="tech">Unity 3D, C#, WaterSystem Shaders</span>
+          Interactive 3D water physics simulation with realistic wave displacement, buoyancy calculations, and reflection shaders.
+        </div>
+        <div class="compact-card">
+          <strong>Yorus 3D Interactive World</strong>
+          <span class="tech">Unity 3D Engine, C#</span>
+          3D environment exploration featuring atmospheric lighting, custom collision detection, and third-person camera controls.
+        </div>
+        <div class="compact-card">
+          <strong>Arcade Games Suite (Space Dodger, Flappy Bird, Snake)</strong>
+          <span class="tech">Godot Engine, GDScript</span>
+          Complete suite of retro games: 2D Arcade Space Dodger, Flappy Bird clone with custom physics, and classic grid-based Snake engine.
+        </div>
+        <div class="compact-card">
+          <strong>360 Journey (Interactive Panorama Viewer)</strong>
+          <span class="tech">JavaScript (ES6+), HTML5 Canvas, CSS3</span>
+          Lightweight 360-degree panoramic viewer with smooth touch-drag physics without external heavyweight frameworks.
+        </div>
+      </div>
+
+      <!-- CATEGORY 5 -->
+      <h3 class="cat-title">5. Embedded Systems, Web Portals & Utilities</h3>
+
+      <div class="compact-grid">
+        <div class="compact-card">
+          <strong>Arduino IoT Wire Communication System</strong>
+          <span class="tech">Arduino C/C++, I2C / Two-Wire Interface</span>
+          Embedded microcontroller programming utilizing the Wire library for I2C master-slave communication and sensor data acquisition.
+        </div>
+        <div class="compact-card">
+          <strong>College & School Web Portals</strong>
+          <span class="tech">HTML5, CSS3, JavaScript</span>
+          Institutional portals for courses, departments, faculty profiles, student enrollments, fee status, and attendance rosters.
+        </div>
+        <div class="compact-card">
+          <strong>Stopwatch & Calculator Suite</strong>
+          <span class="tech">JavaScript, HTML5, CSS3</span>
+          Millisecond-precision timer with lap splitting and full arithmetic calculation engine with keyboard event listeners.
+        </div>
+        <div class="compact-card">
+          <strong>Systems & Algorithms Repositories (repos)</strong>
+          <span class="tech">C, C++, Node.js</span>
+          Low-level algorithmic implementations: memory allocation, linked lists, sorting benchmarks, and console utilities in C and C++.
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">Bachelor of Computer Applications (BCA) — Final Year</div>
+          <div class="edu-college">SRK Institute of Business Administration and Computer Education</div>
+          <div style="font-size: 11.5px; color: #64748b; margin-top: 4px;">
+            Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming (Java/C++), Database Management Systems (RDBMS & NoSQL), Mobile Application Development, Web Technologies, Software Engineering, Computer Networks, Operating Systems, Operational Research.
+          </div>
+        </div>
+        <div class="edu-year">Graduating 2026 / 2027</div>
+      </div>
+    </section>
+
+    <!-- Strengths -->
+    <section>
+      <h2 class="section-title">Key Engineering Strengths</h2>
+      <ul class="project-bullets" style="padding-left: 18px;">
+        <li><strong>Prolific Builder (55+ Projects):</strong> Exceptional throughput across native Android, full-stack, local AI, and game engines.</li>
+        <li><strong>Zero-Trust Offline-First Architectures:</strong> Specialized in zero-connectivity communications using BLE, Wi-Fi Direct, and cryptographic verification (Ed25519).</li>
+        <li><strong>Edge AI Engineering:</strong> Hands-on experience quantizing, hosting, and fine-tuning local LLMs directly on consumer laptops and Android smartphones.</li>
+      </ul>
+    </section>
+  </div>
+
+</body>
+</html>
