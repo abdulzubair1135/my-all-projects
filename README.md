@@ -1,102 +1,118 @@
 # Master Engineering Portfolio & Multi-Domain Systems (67 Production Projects)
 ### Author: Shaikh Abdul Zubair Abdul Kabir
 **BCA Final Year | SRK Institute of Business Administration and Computer Education**  
-*Location: India | Email: abdulzubair221@gmail.com | GitHub: [abdulzubair1135](https://github.com/abdulzubair1135)*
+*Email: abdulzubair221@gmail.com | GitHub: [abdulzubair1135](https://github.com/abdulzubair1135)*
 
 ---
 
-## 🌟 Overview
-This master repository archives the complete codebase, system architectures, offline communication engines, autonomous agents, and game simulations developed across **67 production projects** by **Shaikh Abdul Zubair Abdul Kabir**.
-
-All source code, configuration files, algorithms, graphics assets, and career documentation are categorized into five core engineering domains.
+## 🌟 Kidhar Hain Saare Projects? (How to Navigate)
+> **Tip:** Saare 67 projects domain-wise niche diye gaye 5 folders ke andar organized hain. Kisi bhi project ke naam par **click karke** aap direct us project ke folder aur source code me jaa sakte hain!
 
 ---
 
-## 📑 Portfolio Documentation & Resumes
-Located in [`Resume/`](./Resume):
-- **[2-Page ATS Standard Resume (PDF)](./Resume/Shaikh_Abdul_Zubair_Resume.pdf)**: Optimized for corporate recruiting, ATS parsing, and software engineering roles.
-- **[6-Page Master Portfolio Catalog (PDF)](./Resume/Shaikh_Abdul_Zubair_Master_Portfolio_Resume.pdf)**: Comprehensive architectural breakdown of all projects with complete technology stacks, system diagrams, and metrics.
-- **[Markdown Resume](./Resume/Shaikh_Abdul_Zubair_Resume.md)** & **[HTML Print Templates](./Resume/Shaikh_Abdul_Zubair_Resume.html)**.
+## 📑 Master Resumes (PDF & Markdown)
+Available directly in [Resume/](./Resume):
+- 📄 [**Shaikh_Abdul_Zubair_Resume.pdf (2-Page ATS Standard)**](./Resume/Shaikh_Abdul_Zubair_Resume.pdf)
+- 📚 [**Shaikh_Abdul_Zubair_Master_Portfolio_Resume.pdf (6-Page Complete Portfolio)**](./Resume/Shaikh_Abdul_Zubair_Master_Portfolio_Resume.pdf)
+- 📝 [**Shaikh_Abdul_Zubair_Resume.md (Markdown)**](./Resume/Shaikh_Abdul_Zubair_Resume.md)
 
 ---
 
-## 🏗️ Domain Architecture & Project Catalog
+## 📂 Complete Project Inventory (Click to Open Any Project Code)
+### 📁 [01-Campus-And-Enterprise-Systems/](./01-Campus-And-Enterprise-Systems) — Campus & Enterprise Systems (16 Projects)
+*Enterprise ERPs, billing portals, database architectures, and web services*
 
-### 1. `01-Campus-And-Enterprise-Systems/` (16 Projects)
-Production-grade enterprise web portals, microservices, database schemas, and educational platforms:
-- **SRK Campus Connect / Campus Presence**: Comprehensive multi-role enterprise ERP system for college administration, faculty tracking, student records, and automated attendance with role-based JWT auth.
-- **GST Billing & Invoicing Enterprise System**: Enterprise GST calculation, multi-slab tax management, invoicing, and inventory system powered by Node.js, Express, and SQL database schemas.
-- **Full-Stack Asset Manager Platform**: Modern IT and organizational asset management dashboard built with React, TypeScript, Tailwind CSS, and Drizzle ORM.
-- **College Face Recognition Automated Attendance**: Complete biometric facial recognition system integrating deep computer vision with frontend management portal and backend verification API.
-- **Enterprise Billing & Submission Microservice Backend**: High-reliability Node.js/Express backend service managing billing pipelines, database migrations, and multipart upload endpoints.
-- **WSS Bhuj Institutional Web Portal**: Institutional web platform with responsive styling, public portal pages, and localized asset structures.
-- **AapdaSetu (Disaster Response Platform)**: Disaster management coordination platform connecting citizens, emergency responders, relief supply trackers, and automated SOS broadcasts.
-- **MasiPay (Campus Digital Canteen)**: Fast-token cashless transaction system for campus cafeterias, featuring balance tracking, QR scanning, and daily settlement ledgers.
-- **ProjectFlow Intelligence**: Agile workflow management application with task automation, Kanban tracking, and team productivity analytics.
-- **Smart Expenses Tracker**: Multi-currency personal finance tracker with automated categorization, recurring expense reminders, and SVG spend graphs.
-- **Follow-Or-Not App**: Social media relationship analytics tool tracking mutual follows, unfollows, and audience trends via automated API parsing.
-- **Interact App, College-Hub, School Portal, AbdulServer, MONGO dB, and Test Microservice**.
+- 🚀 [**Abdul Server**](./01-Campus-And-Enterprise-Systems/abdul-server) (01-Campus-And-Enterprise-Systems/abdul-server)
+- 🚀 [**Asset Manager Platform**](./01-Campus-And-Enterprise-Systems/asset-manager-platform) (01-Campus-And-Enterprise-Systems/asset-manager-platform)
+- 🚀 [**College Face Recognition Attendance**](./01-Campus-And-Enterprise-Systems/college-face-recognition-attendance) (01-Campus-And-Enterprise-Systems/college-face-recognition-attendance)
+- 🚀 [**College Hub**](./01-Campus-And-Enterprise-Systems/college-hub) (01-Campus-And-Enterprise-Systems/college-hub)
+- 🚀 [**Enterprise Billing Backend**](./01-Campus-And-Enterprise-Systems/enterprise-billing-backend) (01-Campus-And-Enterprise-Systems/enterprise-billing-backend)
+- 🚀 [**Follow Or Not App**](./01-Campus-And-Enterprise-Systems/follow-or-not-app) (01-Campus-And-Enterprise-Systems/follow-or-not-app)
+- 🚀 [**Gst Billing System**](./01-Campus-And-Enterprise-Systems/gst-billing-system) (01-Campus-And-Enterprise-Systems/gst-billing-system)
+- 🚀 [**Interact App**](./01-Campus-And-Enterprise-Systems/interact-app) (01-Campus-And-Enterprise-Systems/interact-app)
+- 🚀 [**Masipay Canteen**](./01-Campus-And-Enterprise-Systems/masipay-canteen) (01-Campus-And-Enterprise-Systems/masipay-canteen)
+- 🚀 [**Mvc Backend Architecture**](./01-Campus-And-Enterprise-Systems/mvc-backend-architecture) (01-Campus-And-Enterprise-Systems/mvc-backend-architecture)
+- 🚀 [**Projectflow Intelligence**](./01-Campus-And-Enterprise-Systems/projectflow-intelligence) (01-Campus-And-Enterprise-Systems/projectflow-intelligence)
+- 🚀 [**Smart Expenses Tracker**](./01-Campus-And-Enterprise-Systems/smart-expenses-tracker) (01-Campus-And-Enterprise-Systems/smart-expenses-tracker)
+- 🚀 [**Social Media Platform**](./01-Campus-And-Enterprise-Systems/social-media-platform) (01-Campus-And-Enterprise-Systems/social-media-platform)
+- 🚀 [**Srk Campus Connect**](./01-Campus-And-Enterprise-Systems/srk-campus-connect) (01-Campus-And-Enterprise-Systems/srk-campus-connect)
+- 🚀 [**Test Microservice**](./01-Campus-And-Enterprise-Systems/test-microservice) (01-Campus-And-Enterprise-Systems/test-microservice)
+- 🚀 [**Wss Bhuj Institutional Portal**](./01-Campus-And-Enterprise-Systems/wss-bhuj-institutional-portal) (01-Campus-And-Enterprise-Systems/wss-bhuj-institutional-portal)
 
-### 2. `02-Offline-Mesh-And-Android-Systems/` (14 Projects)
-Zero-infrastructure offline peer-to-peer communication, Android low-level systems, and security tools:
-- **RentANY Multi-Platform Rental System**: Full-Stack Android Rental Marketplace built with Kotlin, Android Jetpack, and a Node.js backend. Features product rental listings, transaction tracking, and real-time order states.
-- **Nexus MeshLink Offline**: Zero-internet offline mesh network combining Bluetooth Low Energy (BLE), Wi-Fi Direct, and an on-device local quantized LLM (llama.cpp) for disaster and campus communications.
-- **NearMeshChat Sahay**: Hybrid peer-to-peer emergency messaging network utilizing Android Nearby Connections API and multi-hop routing without mobile data or cellular towers.
-- **NearDrop Android**: High-speed local Wi-Fi file-sharing utility enabling zero-loss wireless file transfers between mobile devices and workstations.
-- **Couple Canvas**: Real-time collaborative canvas app with WebRTC low-latency synchronization and interactive drawing gestures.
-- **RecoverX**: Android deep filesystem scanner and partition recovery utility for indexing and retrieving deleted media and files.
-- **Emergency Recorder Fast Rec**: Background stealth audio/video recorder designed for instant personal security and emergency evidence gathering.
-- **Personal Life Vault & Focus Guard**: Encrypted on-device vault with biometric authentication and app-usage restriction controllers.
-- **Z-Music Player, MyHelper Storage Analyzer, Android Native Prototypes, and PocketAI Server**.
+### 📁 [02-Offline-Mesh-And-Android-Systems/](./02-Offline-Mesh-And-Android-Systems) — Offline Mesh & Android Systems (14 Projects)
+*Zero-internet P2P communication, Bluetooth mesh, low-level Android utilities*
 
-### 3. `03-Autonomous-AI-And-Media/` (11 Projects)
-Autonomous agents, deep learning pipelines, and generative media synthesis engines:
-- **AI Hardware Assistant with Arduino IoT**: Autonomous voice and reasoning assistant interfacing with local memory caches and Arduino microcontrollers for physical world automation.
-- **AI Content & Video Creation Automation Pipeline**: Automated media synthesizer generating viral video content using clever script prompts, audio synthesis, and headless ffmpeg assembly.
-- **Autonomous Web-Agent IDE**: Self-directed AI coding and web interaction workspace using Playwright automation, multi-agent task planning, and continuous execution.
-- **AURA (Multimodal AI Assistant)**: Omnichannel voice, vision, and text agent supporting tool calling, screen reasoning, and real-time audio dialogues.
-- **OmniDev AI Synthesizer**: Code generation and refactoring orchestrator converting technical specs directly into production project scaffolds.
-- **StickForge AI**: Automated 2D stickman animation engine with scriptwriting, vector bone generation, TTS synchronization, and video compilation.
-- **AI Video Repurposing Studio**: Video processing engine that extracts viral segments, generates synchronized dynamic captions, and formats widescreen video to 9:16 vertical shorts.
-- **Auto YT Generator**: End-to-end automated YouTube Shorts pipeline including topic research, prompt engineering, audio mixing, and automated publishing.
-- **Custom AI PyTorch Model**: Deep neural network trained from scratch for custom classification and predictive analytics.
-- **AI Zubair LLM Research & My Helper Agent**.
+- 🚀 [**Aapdasetu Disaster Response**](./02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response) (02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response)
+- 🚀 [**Android Native Prototypes**](./02-Offline-Mesh-And-Android-Systems/android-native-prototypes) (02-Offline-Mesh-And-Android-Systems/android-native-prototypes)
+- 🚀 [**Couple Canvas**](./02-Offline-Mesh-And-Android-Systems/couple-canvas) (02-Offline-Mesh-And-Android-Systems/couple-canvas)
+- 🚀 [**Emergency Recorder Fast Rec**](./02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec) (02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec)
+- 🚀 [**Focus Guard Addiction Blocker**](./02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker) (02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker)
+- 🚀 [**Myhelper Storage Analyzer**](./02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer) (02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer)
+- 🚀 [**Neardrop Wireless Drop**](./02-Offline-Mesh-And-Android-Systems/neardrop-wireless-drop) (02-Offline-Mesh-And-Android-Systems/neardrop-wireless-drop)
+- 🚀 [**Nearmeshchat Sahay Android**](./02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android) (02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android)
+- 🚀 [**Nexus Meshlink Offline**](./02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline) (02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline)
+- 🚀 [**Personal Life Vault**](./02-Offline-Mesh-And-Android-Systems/personal-life-vault) (02-Offline-Mesh-And-Android-Systems/personal-life-vault)
+- 🚀 [**Pocketai Server**](./02-Offline-Mesh-And-Android-Systems/pocketai-server) (02-Offline-Mesh-And-Android-Systems/pocketai-server)
+- 🚀 [**Recoverx Data Recovery**](./02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery) (02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery)
+- 🚀 [**Rentany Rental Platform**](./02-Offline-Mesh-And-Android-Systems/rentany-rental-platform) (02-Offline-Mesh-And-Android-Systems/rentany-rental-platform)
+- 🚀 [**Z Music Player**](./02-Offline-Mesh-And-Android-Systems/z-music-player) (02-Offline-Mesh-And-Android-Systems/z-music-player)
 
-### 4. `04-Game-Development-Godot-And-Unity/` (14 Projects)
-Custom physics engines, procedural worlds, and 2D/3D video games built with Godot 4 and Unity:
-- **Draw Your Army: WarForge (Godot 4)**: Real-time tactical strategy game where player unit formations and spawn paths are dynamically drawn on screen using vector math and navmeshes.
-- **Shadow Kingdom: Metroidvania (Godot 4)**: 2D side-scrolling action platformer featuring custom state machines, hitboxes, melee combos, wall-jumping, and boss AI.
-- **Action RPG Engine (Godot 4)**: Modular top-down action RPG framework with inventory management, equipment stats, dialogue trees, and tilemap collision.
-- **Slikj Water Physics (Unity 3D)**: Realistic hydrodynamics simulation featuring custom water shaders, buoyance calculations, and wave interaction.
-- **Unity FPS Microgame (Unity 3D)**: First-person shooter featuring weapon handling, enemy pathfinding, raycast hit detection, and particle FX.
-- **Yorus 3D World (Unity 3D)**: Third-person exploration world with dynamic day-night cycles, procedural grass shaders, and custom character controller physics.
-- **Minecraft 3D Voxel Engine, 2D Space Dodger, Flappy Bird, Retro Snake, and Isekai World Adventure**.
+### 📁 [03-Autonomous-AI-And-Media/](./03-Autonomous-AI-And-Media) — Autonomous AI & Media Synthesis (11 Projects)
+*AI agents, computer vision, video repurposing, TTS and automated media generators*
 
-### 5. `05-Embedded-Systems-And-Utilities/` (12 Projects)
-Low-level hardware interfaces, C/C++ data structures, and automation scripting:
-- **Java Core OOP, Abstraction & Custom Exception Suite**: Academic Java engineering suite covering abstract classes, inner member hierarchies, multi-level try-catch, and custom exception handling paradigms.
-- **Turbo C++ Academic Algorithms & Systems**: Classic C/C++ implementations of foundational data structures, memory pointer manipulations, and low-level console algorithms.
-- **Visual Studio C++ Low-Level Systems Core**: Native Visual Studio C++ memory management and low-level algorithms.
-- **Visual Studio Node.js CLI & Console Service**: Visual Studio solution integrating Node.js CLI tooling for process automation.
-- **C/C++ High-Performance Systems & Algorithms**: Advanced graph algorithms, memory allocators, dynamic programming implementations, and mathematical optimizations.
-- **Stickman Automation Pipeline**: Automated script generator and ffmpeg composition pipeline for procedural narrative videos.
-- **Arduino Serial & Wire Communication**: Microcontroller firmware for sensor reading, I2C/SPI bus integration, and serial communication protocols.
-- **AutoHotkey Automation Suite**: Desktop productivity macros, window management automation, and keyboard hook shortcuts.
-- **College Portal Website, School Management Portal, Stopwatch Timer, and Calculator Utility**.
+- 🚀 [**Ai Creator Video Automation**](./03-Autonomous-AI-And-Media/ai-creator-video-automation) (03-Autonomous-AI-And-Media/ai-creator-video-automation)
+- 🚀 [**Ai Hardware Assistant Arduino**](./03-Autonomous-AI-And-Media/ai-hardware-assistant-arduino) (03-Autonomous-AI-And-Media/ai-hardware-assistant-arduino)
+- 🚀 [**Ai Video Repurposing Studio**](./03-Autonomous-AI-And-Media/ai-video-repurposing-studio) (03-Autonomous-AI-And-Media/ai-video-repurposing-studio)
+- 🚀 [**Ai Zubair Llm Research**](./03-Autonomous-AI-And-Media/ai-zubair-llm-research) (03-Autonomous-AI-And-Media/ai-zubair-llm-research)
+- 🚀 [**Aura Autonomous Ai System**](./03-Autonomous-AI-And-Media/aura-autonomous-ai-system) (03-Autonomous-AI-And-Media/aura-autonomous-ai-system)
+- 🚀 [**Auto Yt Generator**](./03-Autonomous-AI-And-Media/auto-yt-generator) (03-Autonomous-AI-And-Media/auto-yt-generator)
+- 🚀 [**Autonomous Web Agent Ide**](./03-Autonomous-AI-And-Media/autonomous-web-agent-ide) (03-Autonomous-AI-And-Media/autonomous-web-agent-ide)
+- 🚀 [**My Custom Ai Pytorch**](./03-Autonomous-AI-And-Media/my-custom-ai-pytorch) (03-Autonomous-AI-And-Media/my-custom-ai-pytorch)
+- 🚀 [**My Helper Agent**](./03-Autonomous-AI-And-Media/my-helper-agent) (03-Autonomous-AI-And-Media/my-helper-agent)
+- 🚀 [**Omnidev Ai Synthesizer**](./03-Autonomous-AI-And-Media/omnidev-ai-synthesizer) (03-Autonomous-AI-And-Media/omnidev-ai-synthesizer)
+- 🚀 [**Stickforge Ai Animation**](./03-Autonomous-AI-And-Media/stickforge-ai-animation) (03-Autonomous-AI-And-Media/stickforge-ai-animation)
+
+### 📁 [04-Game-Development-Godot-And-Unity/](./04-Game-Development-Godot-And-Unity) — Game Development (Godot 4 & Unity 3D) (14 Projects)
+*2D/3D game engines, procedural generation, custom shaders, and physics simulations*
+
+- 🚀 [**360 Journey Panorama**](./04-Game-Development-Godot-And-Unity/360-journey-panorama) (04-Game-Development-Godot-And-Unity/360-journey-panorama)
+- 🚀 [**Action Rpg Engine**](./04-Game-Development-Godot-And-Unity/action-rpg-engine) (04-Game-Development-Godot-And-Unity/action-rpg-engine)
+- 🚀 [**Arcade Space Dodger**](./04-Game-Development-Godot-And-Unity/arcade-space-dodger) (04-Game-Development-Godot-And-Unity/arcade-space-dodger)
+- 🚀 [**Draw Your Army Warforge**](./04-Game-Development-Godot-And-Unity/draw-your-army-warforge) (04-Game-Development-Godot-And-Unity/draw-your-army-warforge)
+- 🚀 [**Flappy Bird Mechanics**](./04-Game-Development-Godot-And-Unity/flappy-bird-mechanics) (04-Game-Development-Godot-And-Unity/flappy-bird-mechanics)
+- 🚀 [**Full Stack Rpg Game**](./04-Game-Development-Godot-And-Unity/full-stack-rpg-game) (04-Game-Development-Godot-And-Unity/full-stack-rpg-game)
+- 🚀 [**Isekai World Adventure**](./04-Game-Development-Godot-And-Unity/isekai-world-adventure) (04-Game-Development-Godot-And-Unity/isekai-world-adventure)
+- 🚀 [**Minecraft 3D Voxel Engine**](./04-Game-Development-Godot-And-Unity/minecraft-3d-voxel-engine) (04-Game-Development-Godot-And-Unity/minecraft-3d-voxel-engine)
+- 🚀 [**Pixel Art Assets**](./04-Game-Development-Godot-And-Unity/pixel-art-assets) (04-Game-Development-Godot-And-Unity/pixel-art-assets)
+- 🚀 [**Retro Snake Engine**](./04-Game-Development-Godot-And-Unity/retro-snake-engine) (04-Game-Development-Godot-And-Unity/retro-snake-engine)
+- 🚀 [**Shadow Kingdom 2D Rpg**](./04-Game-Development-Godot-And-Unity/shadow-kingdom-2d-rpg) (04-Game-Development-Godot-And-Unity/shadow-kingdom-2d-rpg)
+- 🚀 [**Slikj Water Physics**](./04-Game-Development-Godot-And-Unity/slikj-water-physics) (04-Game-Development-Godot-And-Unity/slikj-water-physics)
+- 🚀 [**Unity Fps Microgame**](./04-Game-Development-Godot-And-Unity/unity-fps-microgame) (04-Game-Development-Godot-And-Unity/unity-fps-microgame)
+- 🚀 [**Yorus 3D World**](./04-Game-Development-Godot-And-Unity/yorus-3d-world) (04-Game-Development-Godot-And-Unity/yorus-3d-world)
+
+### 📁 [05-Embedded-Systems-And-Utilities/](./05-Embedded-Systems-And-Utilities) — Embedded Systems & Software Engineering Core (12 Projects)
+*C/C++ algorithms, Java OOP suites, Arduino IoT, and automation scripts*
+
+- 🚀 [**Arduino Iot Wire**](./05-Embedded-Systems-And-Utilities/arduino-iot-wire) (05-Embedded-Systems-And-Utilities/arduino-iot-wire)
+- 🚀 [**Autohotkey Automation**](./05-Embedded-Systems-And-Utilities/autohotkey-automation) (05-Embedded-Systems-And-Utilities/autohotkey-automation)
+- 🚀 [**Calculator Utility**](./05-Embedded-Systems-And-Utilities/calculator-utility) (05-Embedded-Systems-And-Utilities/calculator-utility)
+- 🚀 [**College Portal Website**](./05-Embedded-Systems-And-Utilities/college-portal-website) (05-Embedded-Systems-And-Utilities/college-portal-website)
+- 🚀 [**Java Core Oop Assignments**](./05-Embedded-Systems-And-Utilities/java-core-oop-assignments) (05-Embedded-Systems-And-Utilities/java-core-oop-assignments)
+- 🚀 [**Mongodb Advanced Queries**](./05-Embedded-Systems-And-Utilities/mongodb-advanced-queries) (05-Embedded-Systems-And-Utilities/mongodb-advanced-queries)
+- 🚀 [**School Management Portal**](./05-Embedded-Systems-And-Utilities/school-management-portal) (05-Embedded-Systems-And-Utilities/school-management-portal)
+- 🚀 [**Stopwatch And Precision Timer**](./05-Embedded-Systems-And-Utilities/stopwatch-and-precision-timer) (05-Embedded-Systems-And-Utilities/stopwatch-and-precision-timer)
+- 🚀 [**Systems And Algorithms Cpp**](./05-Embedded-Systems-And-Utilities/systems-and-algorithms-cpp) (05-Embedded-Systems-And-Utilities/systems-and-algorithms-cpp)
+- 🚀 [**Turboc Cpp Academic Projects**](./05-Embedded-Systems-And-Utilities/turboc-cpp-academic-projects) (05-Embedded-Systems-And-Utilities/turboc-cpp-academic-projects)
+- 🚀 [**Visual Studio Cpp Core**](./05-Embedded-Systems-And-Utilities/visual-studio-cpp-core) (05-Embedded-Systems-And-Utilities/visual-studio-cpp-core)
+- 🚀 [**Visual Studio Node Console**](./05-Embedded-Systems-And-Utilities/visual-studio-node-console) (05-Embedded-Systems-And-Utilities/visual-studio-node-console)
 
 ---
 
 ## 🛠️ Technology Stack Summary
-- **Languages:** Dart / Flutter, Kotlin, Java, Python, TypeScript, JavaScript, C++, C, C#, GDScript, SQL.
+- **Languages:** Kotlin, Dart / Flutter, Java, Python, TypeScript, JavaScript, C++, C, C#, GDScript, SQL.
 - **Frameworks & Engines:** React, Next.js, Node.js, Express, Godot 4, Unity 3D, PyTorch, Tailwind CSS, Playwright, Drizzle ORM.
-- **Platforms & Protocols:** Android SDK, BLE (Bluetooth Low Energy), Wi-Fi Direct, WebSockets, WebRTC, Arduino I2C/Serial, REST, Git.
+- **Platforms & Hardware:** Android SDK, BLE (Bluetooth Low Energy), Wi-Fi Direct, WebSockets, WebRTC, Arduino I2C/Serial, Linux, Windows.
 - **Databases:** MongoDB, PostgreSQL, SQLite, Room DB, Firebase Firestore.
 
 ---
-
-## 👤 Contact & Verification
-- **Author:** Shaikh Abdul Zubair Abdul Kabir
-- **Degree:** BCA (Final Year) - Class of 2026/2027
-- **Institution:** SRK Institute of Business Administration and Computer Education
-- **Email:** `abdulzubair221@gmail.com`
-- **GitHub:** [https://github.com/abdulzubair1135](https://github.com/abdulzubair1135)
+**Total Projects Cataloged & Active:** 67 Projects
